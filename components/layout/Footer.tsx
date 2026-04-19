@@ -1,8 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -15,8 +17,8 @@ const fadeUp = {
 
 export function Footer() {
   const t = useTranslations('Footer');
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+  const footerRef = useRef<HTMLElement>(null);
+  const isInView = useInView(footerRef, { once: true, amount: 0.1 });
 
   const columns = [
     {
@@ -39,144 +41,119 @@ export function Footer() {
 
   return (
     <footer
-      id="contact"
-      ref={sectionRef}
-      className="py-24 md:py-32 overflow-hidden"
+      ref={footerRef}
+      className="relative overflow-hidden py-20 md:py-32"
       style={{ backgroundColor: 'var(--color-navy)', color: 'white' }}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
+      {/* 装饰性背景 */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.2)_100%)] pointer-events-none" />
 
-        {/* Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-          {/* Contact */}
-          <motion.div
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+        
+        {/* 顶部: Logo & Newsletter */}
+        <div className="flex flex-col md:flex-row items-start justify-between gap-16 mb-20 md:mb-28">
+          
+          <motion.div 
+            custom={0} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
+            className="flex flex-col max-w-sm"
           >
-            <span className="font-sans text-[0.6875rem] font-light uppercase tracking-[0.25em] text-white/40 block mb-6">
-              {t('contactTitle')}
+            <h2 className="font-serif text-3xl md:text-5xl tracking-wide text-white leading-tight mb-2">
+              Semporna
+            </h2>
+            <span className="font-sans text-xs uppercase tracking-[0.4em] text-white/50 mb-8 block">
+              Meili Resort
             </span>
-            <div className="space-y-3">
-              <a
-                href="mailto:reservations@sempornameili.com"
-                className="block font-sans text-sm font-light text-white/70 hover:text-white transition-colors duration-500"
-              >
-                {t('col3.link1')}
-              </a>
-              <p className="font-sans text-sm font-light text-white/70">{t('col3.link2')}</p>
-            </div>
-          </motion.div>
-
-          {/* Location */}
-          <motion.div
-            custom={0.1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-          >
-            <span className="font-sans text-[0.6875rem] font-light uppercase tracking-[0.25em] text-white/40 block mb-6">
-              {columns[0].heading}
-            </span>
-            <p className="font-sans text-sm font-light text-white/70 leading-relaxed">
+            <p className="font-sans text-sm font-light leading-relaxed text-white/70">
               {t('address')}
             </p>
           </motion.div>
 
-          {/* Social */}
-          <motion.div
-            custom={0.2}
-            variants={fadeUp}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
+          <motion.div 
+            custom={0.1} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
+            className="w-full md:w-auto relative"
           >
-            <span className="font-sans text-[0.6875rem] font-light uppercase tracking-[0.25em] text-white/40 block mb-6">
-              {t('followUs')}
-            </span>
-            <div className="space-y-3">
-              {columns[3].links.map((platform) => (
-                <button
-                  key={platform}
-                  className="block font-sans text-sm font-light text-white/70 hover:text-white transition-colors duration-500"
-                >
-                  {platform}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Newsletter */}
-        <motion.div
-          custom={0.3}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="mt-16 md:mt-20 border-t pt-12"
-          style={{ borderColor: 'rgba(255,255,255,0.1)' }}
-        >
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div>
-              <span className="font-sans text-[0.6875rem] font-light uppercase tracking-[0.25em] text-white/40 block mb-2">
-                {t('newsletter')}
-              </span>
-              <p className="font-sans text-sm font-light text-white/50">{t('newsletterDesc')}</p>
-            </div>
-            <div className="flex gap-3 w-full md:w-auto">
-              <input
-                type="email"
+            <h3 className="font-sans text-xs font-semibold tracking-[0.25em] uppercase text-white mb-6">
+              {t('newsletter')}
+            </h3>
+            <p className="font-sans text-sm font-light text-white/60 mb-6 max-w-sm">
+              {t('newsletterDesc')}
+            </p>
+            <div className="flex border-b border-white/20 pb-2 transition-colors focus-within:border-white/60 group">
+              <input 
+                type="email" 
                 placeholder={t('emailPlaceholder')}
-                className="flex-1 md:w-64 bg-transparent border-b pb-2 text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors"
-                style={{ borderColor: 'rgba(255,255,255,0.2)' }}
-                onFocus={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(255,255,255,0.5)'; }}
-                onBlur={(e) => { (e.target as HTMLInputElement).style.borderColor = 'rgba(255,255,255,0.2)'; }}
+                className="bg-transparent flex-1 text-sm font-light text-white placeholder:text-white/30 focus:outline-none"
               />
-              <button
-                className="font-sans text-[0.6875rem] font-light uppercase tracking-[0.2em] text-white border px-5 py-2 transition-all duration-500 hover:bg-white hover:text-[--color-navy]"
-                style={{ borderColor: 'rgba(255,255,255,0.3)' }}
+              <button 
+                type="button" 
+                className="text-white/60 hover:text-white transition-colors px-2"
+                aria-label={t('subscribe')}
               >
-                {t('subscribe')}
+                <ArrowRight size={16} strokeWidth={1.5} />
               </button>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Bottom bar */}
-        <motion.div
-          custom={0.4}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="mt-20 md:mt-28 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+        </div>
+
+        {/* 中部: 4列导航 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+          {columns.map((col, idx) => (
+            <motion.div 
+              key={col.heading}
+              custom={0.2 + idx * 0.1} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
+            >
+              <h3 className="mb-6 font-sans text-[10px] font-semibold tracking-[0.2em] text-white/50 uppercase">
+                {col.heading}
+              </h3>
+              <ul className="space-y-4">
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <Link
+                      href="#"
+                      className="group inline-flex items-center font-sans text-sm font-light text-white/80 transition-colors duration-300 hover:text-white"
+                    >
+                      <span className="relative overflow-hidden">
+                        {link}
+                        <span className="absolute bottom-0 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* 底部: 版权与法律信息 */}
+        <motion.div 
+          custom={0.6} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
+          className="mt-20 md:mt-32 pt-8 border-t border-white/10 flex flex-col items-center gap-6 sm:flex-row sm:justify-between"
         >
-          <div className="flex flex-col">
-            <span className="font-serif text-lg tracking-[0.05em] text-white leading-none">
-              Semporna
-            </span>
-            <span className="font-sans text-[0.55rem] uppercase tracking-[0.3em] mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              Meili Resort
-            </span>
-          </div>
+          <p className="font-sans text-[10px] sm:text-xs font-light uppercase tracking-widest text-white/40">
+            &copy; {new Date().getFullYear()} {t('copyright')}
+          </p>
 
-          {/* Legal links */}
-          <nav className="flex flex-wrap gap-x-5 gap-y-2">
-            {[t('legal.privacy'), t('legal.cookie'), t('legal.terms'), t('legal.accessibility')].map((item) => (
-              <a
+          <nav aria-label={t('legalNav')} className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {(
+              [
+                t('legal.privacy'),
+                t('legal.cookie'),
+                t('legal.terms'),
+                t('legal.accessibility'),
+              ] as string[]
+            ).map((item) => (
+              <Link
                 key={item}
                 href="#"
-                className="font-sans text-[0.625rem] font-light uppercase tracking-[0.15em] transition-colors duration-500 hover:text-white"
-                style={{ color: 'rgba(255,255,255,0.3)' }}
+                className="font-sans text-[10px] sm:text-xs font-light uppercase tracking-widest text-white/40 transition-colors duration-300 hover:text-white"
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </nav>
-
-          <span className="font-sans text-[0.625rem] font-light uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            &copy; {t('copyright')}
-          </span>
         </motion.div>
+
       </div>
     </footer>
   );
