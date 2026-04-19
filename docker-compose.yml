@@ -1,0 +1,20 @@
+version: "3"
+services:
+  hcsw-salary:
+    container_name: hcsw-salary
+    image: dch.hcsw.work:5000/hcsw-salary/app:latest
+    volumes:
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro
+      - /docker-data/node/hcsw-salary:/app/logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "128m"
+    networks:
+      - hcsw
+    privileged: true
+    restart: always
+
+networks:
+  hcsw:
+    external: true

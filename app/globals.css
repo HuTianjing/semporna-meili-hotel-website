@@ -1,0 +1,199 @@
+/* ==================
+   字体资源加载
+   - 英文字体: fontsource npm 本地托管，无需访问 Google
+   - 中文字体: 霞鹜文楷 SC 通过 layout.tsx <link> 标签加载，避免 PostCSS @import 顺序限制
+   ================== */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/playfair-display';
+@import '@fontsource/cormorant-garamond/300.css';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
+
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@theme {
+  /* ==========================================
+     视觉与主题规范 (Design Tokens) - Semantic HSL Colors
+     ⚠️ 遵守规范: 摒弃 oklch, 全面使用 HSL 保证全端兼容性
+     ========================================== */
+
+  /* --- 颜色 Colors --- */
+  --color-background: hsl(0, 0%, 100%); /* 极简亮白，#FFFFFF */
+  --color-foreground: hsl(240, 10%, 4%); /* 接近纯黑，用于正文 */
+
+  --color-primary: hsl(210, 100%, 12%); /* 仙本那深海蓝 (Semporna Deep Sea) */
+  --color-primary-foreground: hsl(0, 0%, 100%);
+
+  --color-muted: hsl(210, 20%, 96%); /* 极浅灰/冰川蓝，用于区块或卡片底色 */
+  --color-muted-foreground: hsl(215, 16%, 47%); /* 灰色，用于次要文本 */
+
+  --color-border: hsl(214, 32%, 91%); /* 柔和的边框分隔线 */
+
+  /* --- 字体 Typography --- */
+  /* 通过 CSS 变量对接 Next.js Font 注入 */
+  --font-sans: 'Inter Variable', 'Inter', sans-serif;
+  --font-serif: 'Playfair Display Variable', 'Playfair Display', 'LXGW WenKai SC', serif; /* 双拼：英文高定标题在前，中文霞鹜文楷在后 */
+  --font-text: 'Cormorant Garamond', 'LXGW WenKai SC', serif;
+
+  /* --- v19 品牌颜色 Token (从 Semporna Meili Resort Web_v19 迁移) --- */
+  /* Navy — 仙本那深海蓝 #083D69 */
+  --color-navy: hsl(207, 85%, 22%);
+  --color-navy-light: hsl(207, 85%, 28%);
+  --color-navy-dark: hsl(207, 85%, 16%);
+  /* Cream — 米白色 #FAFAF8 */
+  --color-cream: hsl(60, 11%, 98%);
+  /* Slate */
+  --color-slate-muted: hsl(210, 12%, 48%);
+  --color-slate-soft: hsl(210, 10%, 60%);
+  /* Warm grays */
+  --color-warm-gray: hsl(36, 11%, 89%);
+  --color-warm-light: hsl(40, 14%, 96%);
+  /* Section backgrounds */
+  --color-about-bg: hsl(40, 21%, 96%);   /* #f8f6f1 */
+  --color-villas-bg: hsl(210, 29%, 6%);  /* #0a0f14 */
+
+  /* --- 间距与字号追加 (如需覆盖默认体系) --- */
+  --spacing-container: 2rem; /* 侧边默认安全距离 */
+  --spacing-section: 6rem; /* 垂直区块默认间距 */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    /* 强制使用高级无衬线字体作为全站基底，特定标题再用 serif */
+    font-family: var(--font-sans);
+    /* 优化抗锯齿，增强苹果设备的奢华字重质感 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* 隐藏所有原生的滚动回弹白色背景 (iOS) */
+    overscroll-behavior-y: none;
+  }
+
+  /* 针对 Lenis 平滑滚动的核心托底 */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================
+   v19 滚动触发淡入动效 (reveal / reveal-delay)
+   ========================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: reveal-fallback 0s ease-out 2s forwards;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-fallback {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-4 { transition-delay: 0.6s; }
+
+/* v19 scroll-indicator 动效 */
+@keyframes scroll-line {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  50.1%{ transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.scroll-indicator::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.4);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+/* v19 fade-in 动效 */
+@keyframes fade-in-up {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out both;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* ==========================================
+   全局页面水平内边距（统一管理断点）
+   用法：直接在元素上加 px-page 类名
+   ========================================== */
+@utility px-page {
+  padding-inline: 1.5rem; /* mobile  — 24px  */
+
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem; /* md      — 40px  */
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: 4rem; /* xl      — 64px  */
+  }
+}
+
+/* ==========================================
+   BookingBar 隐藏/显示切换按钮
+   Chevron 通过 ::after 旋转两条边框实现
+   ========================================== */
+.booking-bar-toggle::after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px); /* ∨ 朝下 */
+  transition: transform 0.25s ease;
+}
+
+/* 折叠状态：chevron 朝上 */
+.booking-bar-toggle.collapsed::after {
+  transform: rotate(-135deg) translateY(-2px); /* ∧ 朝上 */
+}

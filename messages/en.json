@@ -1,0 +1,138 @@
+{
+  "LocaleLayout": {
+    "title": "Meili Resort Semporna | MEILI RESORT SEMPORNA",
+    "description": "Your private island paradise."
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for may have been removed, renamed, or is temporarily unavailable.",
+    "returnHome": "Return Home"
+  },
+  "Header": {
+    "allHotels": "All Resorts",
+    "login": "Login",
+    "language": "English",
+    "brand": "Meili Resort",
+    "resort": "Meili Resort Semporna",
+    "nav1": "Overview",
+    "nav2": "Villas & Suites",
+    "nav3": "Activities",
+    "nav4": "Gallery",
+    "nav5": "Location",
+    "nav6": "Contact Us"
+  },
+  "BookingBar": {
+    "dates": "Check-in - Check-out",
+    "checkin": "Check-in",
+    "checkout": "Check-out",
+    "guests": "Guests",
+    "guestPlaceholder": "1 Room - 2 Adults",
+    "rooms": "Rooms",
+    "adults": "Adults",
+    "promo": "Promo",
+    "promoCode": "Promo Code",
+    "submit": "Check Prices",
+    "hide": "Hide",
+    "show": "Book"
+  },
+  "Index": {
+    "title": "Meili Resort Hotel",
+    "subtitle": "SEMPORNA · SABAH · BORNEO",
+    "description": "Find your paradise between azure seas and endless skies",
+    "exploreBtn": "Explore Villas & Suites",
+    "scrollDown": "Scroll down to explore",
+    "heroCards": [
+      "Location",
+      "Villas & Suites",
+      "Gallery"
+    ],
+    "address": "MOTU TEHOTU · BP 547, 98730, SEMPORNA, MALAYSIA",
+    "phone": "+60 12 345 6789"
+  },
+  "HotelIntro": {
+    "sectionLabel": "About Us",
+    "quote": "In waters where time stands still, find a sanctuary that belongs only to you",
+    "headingLine1": "A Noble Realm",
+    "headingLine2": "Upon the Sea",
+    "body1": "Meili Resort is nestled in Semporna, Sabah, Malaysia, adjacent to the world-famous Sipadan Island. Home to one of the richest marine ecosystems on Earth, it is known as a diver's paradise.",
+    "body2": "Our resort blends modern comfort with natural beauty. Every room faces the ocean, letting you wake to gentle waves and fall asleep under a canopy of stars. Whether snorkeling, diving, or enjoying leisurely beach time, we fulfill every vision of a perfect holiday.",
+    "scrollDown": "Scroll down to explore",
+    "highlight1Value": "4°N",
+    "highlight1Label": "4° North · Equatorial Waters",
+    "highlight2Value": "500m",
+    "highlight2Label": "Pristine White Sand",
+    "highlight3Value": "5★",
+    "highlight3Label": "Luxury Experience",
+    "highlight4Value": "30+",
+    "highlight4Label": "World-Class Dive Sites",
+    "cta": "Explore Our Villas"
+  },
+  "Villas": {
+    "title": "Your Private Ocean Retreat",
+    "subtitle": "Villas & Suites",
+    "desc": "Each room is thoughtfully designed, perfectly blending natural beauty with modern comfort. From overwater villas to ocean-view suites, we create unforgettable stays.",
+    "checkRates": "Check Rates",
+    "details": "Details",
+    "viewAll": "View All Rooms",
+    "items": [
+      {
+        "id": "ocean-view",
+        "title": "Ocean View Villa",
+        "desc": "86 m² · Private balcony · Panoramic ocean view — Spacious design with a private balcony facing the endless sea."
+      },
+      {
+        "id": "overwater",
+        "title": "Overwater Bungalow",
+        "desc": "120 m² · Glass floor · Direct ocean access — Suspended above turquoise waters, tropical fish glide beneath your glass floor."
+      },
+      {
+        "id": "premium",
+        "title": "Premium Suite",
+        "desc": "180 m² · Two bedrooms · Private pool · Butler service — A supreme living experience in a secluded ocean retreat."
+      }
+    ]
+  },
+  "Footer": {
+    "contactTitle": "Contact",
+    "address": "Semporna, Sabah 91308, Malaysia",
+    "followUs": "Follow Us",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Subscribe for latest offers and events",
+    "subscribe": "Subscribe",
+    "emailPlaceholder": "Enter your email",
+    "col1": {
+      "heading": "Quick Links",
+      "link1": "Overview",
+      "link2": "Villas & Suites",
+      "link3": "Gallery"
+    },
+    "col2": {
+      "heading": "Activities",
+      "link1": "Diving Adventures",
+      "link2": "Island Hopping",
+      "link3": "Seafood Feast",
+      "link4": "Spa & Wellness"
+    },
+    "col3": {
+      "heading": "Contact",
+      "link1": "reservations@sempornameili.com",
+      "link2": "+60 12 345 6789",
+      "link3": "Live Chat"
+    },
+    "col4": {
+      "heading": "Follow Us",
+      "link1": "Instagram",
+      "link2": "WeChat",
+      "link3": "Xiaohongshu",
+      "link4": "Facebook"
+    },
+    "legalNav": "Legal",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "cookie": "Cookie Policy",
+      "terms": "Terms of Use",
+      "accessibility": "Accessibility"
+    },
+    "copyright": "Meili Resort Semporna. All rights reserved."
+  }
+}

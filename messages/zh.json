@@ -1,0 +1,134 @@
+{
+  "LocaleLayout": {
+    "title": "仙本那美丽度假酒店 | MEILI RESORT SEMPORNA",
+    "description": "全套房私人海岛天堂。"
+  },
+  "NotFound": {
+    "title": "找不到页面",
+    "description": "您查找的页面可能已被移除、重命名或暂时不可用。",
+    "returnHome": "返回首页"
+  },
+  "Header": {
+    "allHotels": "所有度假村",
+    "login": "登入",
+    "language": "简体中文",
+    "brand": "美丽度假村",
+    "resort": "仙本那美丽度假酒店",
+    "nav1": "酒店概述",
+    "nav2": "别墅与套房",
+    "nav3": "活动与探索",
+    "nav4": "图片画廊",
+    "nav5": "位置",
+    "nav6": "联系我们"
+  },
+  "BookingBar": {
+    "dates": "入住 - 退房",
+    "checkin": "入住",
+    "checkout": "退房",
+    "guests": "宾客",
+    "guestPlaceholder": "1 房间 - 2 成人",
+    "rooms": "房间",
+    "adults": "成人",
+    "promo": "促销",
+    "promoCode": "促销代码",
+    "submit": "查看房价",
+    "hide": "隐藏",
+    "show": "预订"
+  },
+  "Index": {
+    "title": "美丽度假酒店",
+    "subtitle": "SEMPORNA · SABAH · BORNEO",
+    "description": "在碧海蓝天间，寻找属于您的宁静天堂",
+    "exploreBtn": "探索别墅与套房",
+    "scrollDown": "向下滚动探索更多",
+    "heroCards": ["位置", "别墅与套房", "图库"],
+    "address": "MOTU TEHOTU · BP 547, 98730, SEMPORNA, MALAYSIA",
+    "phone": "+60 12 345 6789"
+  },
+  "HotelIntro": {
+    "sectionLabel": "关于我们",
+    "quote": "在时间遗忘的海域，寻一处只属于您的秘境",
+    "headingLine1": "海上贵族领域",
+    "headingLine2": "邂逅美丽秘境",
+    "body1": "美丽度假村坐落于马来西亚沙巴州仙本那，毗邻世界著名的西巴丹岛。这里拥有全球最丰富的海洋生态系统之一，被誉为潜水者的天堂。",
+    "body2": "我们的度假村融合了现代舒适与自然之美，每一间客房都面朝大海，让您在碧波荡漾中醒来，在满天繁星下入眠。无论是浮潜、深潜还是悠闲的海滩时光，这里都能满足您对完美假期的所有想象。",
+    "scrollDown": "向下滚动探索更多",
+    "highlight1Value": "4°N",
+    "highlight1Label": "北纬四度 · 赤道海域",
+    "highlight2Value": "500m",
+    "highlight2Label": "纯净白沙滩",
+    "highlight3Value": "5★",
+    "highlight3Label": "奢华度假体验",
+    "highlight4Value": "30+",
+    "highlight4Label": "世界级潜水点",
+    "cta": "探索我们的别墅"
+  },
+  "Villas": {
+    "title": "您的海上私人居所",
+    "subtitle": "别墅与套房",
+    "desc": "每一间客房都经过精心设计，将自然美景与现代舒适完美融合。从水上别墅到海景套房，为您打造难忘的住宿体验。",
+    "checkRates": "查看房价",
+    "details": "了解详情",
+    "viewAll": "查看所有房型",
+    "items": [
+      {
+        "id": "ocean-view",
+        "title": "海景别墅",
+        "desc": "86 m² · 私人阳台 · 全景海景 — 宽敞通透的设计，私属阳台直面无垠大海，尽享日落余晖。"
+      },
+      {
+        "id": "overwater",
+        "title": "水上屋",
+        "desc": "120 m² · 玻璃地板 · 直通大海 — 悬浮于碧蓝海面之上，玻璃地板下热带鱼穿梭如诗。"
+      },
+      {
+        "id": "premium",
+        "title": "豪华套房",
+        "desc": "180 m² · 双卧室 · 私人泳池 · 管家服务 — 顶级起居体验，独占一片静谧的海上领域。"
+      }
+    ]
+  },
+  "Footer": {
+    "contactTitle": "联系方式",
+    "address": "马来西亚沙巴州仙本那 91308",
+    "followUs": "关注我们",
+    "newsletter": "订阅资讯",
+    "newsletterDesc": "订阅获取最新优惠和活动信息",
+    "subscribe": "订阅",
+    "emailPlaceholder": "输入您的邮箱",
+    "col1": {
+      "heading": "快速链接",
+      "link1": "酒店概述",
+      "link2": "别墅与套房",
+      "link3": "图片画廊"
+    },
+    "col2": {
+      "heading": "活动与探索",
+      "link1": "潜水探索",
+      "link2": "跳岛游",
+      "link3": "海鲜盛宴",
+      "link4": "水疗养生"
+    },
+    "col3": {
+      "heading": "联系方式",
+      "link1": "reservations@sempornameili.com",
+      "link2": "+60 12 345 6789",
+      "link3": "在线客服"
+    },
+    "col4": {
+      "heading": "关注我们",
+      "link1": "Instagram",
+      "link2": "WeChat",
+      "link3": "小红书",
+      "link4": "Facebook"
+    },
+    "legalNav": "法律信息",
+    "legal": {
+      "privacy": "隐私政策",
+      "cookie": "Cookie 政策",
+      "terms": "使用条款",
+      "accessibility": "无障碍声明"
+    },
+    "copyright": "仙本那美丽度假酒店 版权所有"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "LocaleLayout": {
+    "title": "Meili Resort Semporna | MEILI RESORT SEMPORNA",
+    "description": "Syurga pulau peribadi anda."
+  },
+  "NotFound": {
+    "title": "Halaman Tidak Dijumpai",
+    "description": "Halaman yang anda cari mungkin telah dialih keluar, dinamakan semula, atau tidak tersedia buat sementara waktu.",
+    "returnHome": "Kembali ke Laman Utama"
+  },
+  "Header": {
+    "allHotels": "Semua Resort",
+    "login": "Log Masuk",
+    "language": "Bahasa Melayu",
+    "brand": "Meili Resort",
+    "resort": "Meili Resort Semporna",
+    "nav1": "Gambaran",
+    "nav2": "Vila & Suite",
+    "nav3": "Aktiviti",
+    "nav4": "Galeri",
+    "nav5": "Lokasi",
+    "nav6": "Hubungi Kami"
+  },
+  "BookingBar": {
+    "dates": "Daftar Masuk - Daftar Keluar",
+    "checkin": "Daftar Masuk",
+    "checkout": "Daftar Keluar",
+    "guests": "Tetamu",
+    "guestPlaceholder": "1 Bilik - 2 Dewasa",
+    "rooms": "Bilik",
+    "adults": "Dewasa",
+    "promo": "Promosi",
+    "promoCode": "Kod Promosi",
+    "submit": "Semak Harga",
+    "hide": "Sembunyi",
+    "show": "Tempah"
+  },
+  "Index": {
+    "title": "Hotel Meili Resort",
+    "subtitle": "SEMPORNA · SABAH · BORNEO",
+    "description": "Cari syurga anda di antara laut biru dan langit tanpa batas",
+    "exploreBtn": "Terokai Vila & Suite",
+    "scrollDown": "Tatal ke bawah untuk meneroka",
+    "heroCards": [
+      "Lokasi",
+      "Vila & Suite",
+      "Galeri"
+    ],
+    "address": "MOTU TEHOTU · BP 547, 98730, SEMPORNA, MALAYSIA",
+    "phone": "+60 12 345 6789"
+  },
+  "HotelIntro": {
+    "sectionLabel": "Tentang Kami",
+    "quote": "Di perairan di mana masa terhenti, cari tempat perlindungan yang hanya milik anda",
+    "headingLine1": "Alam Bangsawan",
+    "headingLine2": "Di Atas Laut",
+    "body1": "Meili Resort terletak di Semporna, Sabah, Malaysia, bersebelahan dengan Pulau Sipadan yang terkenal di dunia. Rumah kepada salah satu ekosistem marin terkaya di Bumi, ia dikenali sebagai syurga penyelam.",
+    "body2": "Resort kami menggabungkan keselesaan moden dengan keindahan alam semula jadi. Setiap bilik menghadap lautan, membolehkan anda bangun dengan ombak lembut dan tidur di bawah bintang-bintang. Sama ada snorkeling, menyelam, atau menikmati masa pantai yang santai, kami memenuhi setiap visi percutian yang sempurna.",
+    "scrollDown": "Tatal ke bawah untuk meneroka",
+    "highlight1Value": "4°N",
+    "highlight1Label": "4° Utara · Perairan Khatulistiwa",
+    "highlight2Value": "500m",
+    "highlight2Label": "Pasir Putih Bersih",
+    "highlight3Value": "5★",
+    "highlight3Label": "Pengalaman Mewah",
+    "highlight4Value": "30+",
+    "highlight4Label": "Tapak Selam Bertaraf Dunia",
+    "cta": "Terokai Vila Kami"
+  },
+  "Villas": {
+    "title": "Kediaman Lautan Peribadi Anda",
+    "subtitle": "Vila & Suite",
+    "desc": "Setiap bilik direka dengan teliti, menggabungkan keindahan alam dengan keselesaan moden. Dari vila atas air hingga suite pemandangan laut, kami mencipta penginapan yang tidak dapat dilupakan.",
+    "checkRates": "Semak Harga",
+    "details": "Butiran",
+    "viewAll": "Lihat Semua Bilik",
+    "items": [
+      {
+        "id": "ocean-view",
+        "title": "Vila Pemandangan Laut",
+        "desc": "86 m² · Balkoni peribadi · Pemandangan laut panoramik — Reka bentuk luas dengan balkoni peribadi menghadap laut."
+      },
+      {
+        "id": "overwater",
+        "title": "Banglo Atas Air",
+        "desc": "120 m² · Lantai kaca · Akses terus ke laut — Terapung di atas air biru, ikan tropika meluncur di bawah lantai kaca anda."
+      },
+      {
+        "id": "premium",
+        "title": "Suite Premium",
+        "desc": "180 m² · Dua bilik tidur · Kolam peribadi · Perkhidmatan butler — Pengalaman hidup terbaik di persekitaran laut yang sunyi."
+      }
+    ]
+  },
+  "Footer": {
+    "contactTitle": "Hubungi",
+    "address": "Semporna, Sabah 91308, Malaysia",
+    "followUs": "Ikuti Kami",
+    "newsletter": "Surat Berita",
+    "newsletterDesc": "Langgan untuk tawaran dan acara terkini",
+    "subscribe": "Langgan",
+    "emailPlaceholder": "Masukkan e-mel anda",
+    "col1": {
+      "heading": "Pautan Pantas",
+      "link1": "Gambaran",
+      "link2": "Vila & Suite",
+      "link3": "Galeri"
+    },
+    "col2": {
+      "heading": "Aktiviti",
+      "link1": "Pengembaraan Menyelam",
+      "link2": "Melompat Pulau",
+      "link3": "Jamuan Makanan Laut",
+      "link4": "Spa & Kesejahteraan"
+    },
+    "col3": {
+      "heading": "Hubungi",
+      "link1": "reservations@sempornameili.com",
+      "link2": "+60 12 345 6789",
+      "link3": "Sembang Langsung"
+    },
+    "col4": {
+      "heading": "Ikuti Kami",
+      "link1": "Instagram",
+      "link2": "WeChat",
+      "link3": "Xiaohongshu",
+      "link4": "Facebook"
+    },
+    "legalNav": "Undang-undang",
+    "legal": {
+      "privacy": "Dasar Privasi",
+      "cookie": "Dasar Cookie",
+      "terms": "Syarat Penggunaan",
+      "accessibility": "Kebolehcapaian"
+    },
+    "copyright": "Meili Resort Semporna. Hak cipta terpelihara."
+  }
+}
