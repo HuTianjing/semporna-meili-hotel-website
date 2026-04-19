@@ -134,5 +134,20 @@
       "accessibility": "Kebolehcapaian"
     },
     "copyright": "Meili Resort Semporna. Hak cipta terpelihara."
+  },
+  "Story": {
+    "title": "KEINDAHAN DIPERSEMBAHKAN OLEH MEILI",
+    "subtitle": "Kisah Nyata, Detik Abadi",
+    "headline": "Kisah Indah Kami",
+    "desc1": "Dalam ekologi Semporna yang tiada tandingannya, kami merangkai budaya, seni bina, dan perkhidmatan menjadi sebuah puisi yang ditulis untuk lautan.",
+    "desc2": "Sertai selaman terumbu karang waktu senja yang dipimpin oleh ahli biologi marin utama kami atau nikmati champagne grand cru di pantai peribadi anda.",
+    "btn": "TEROKAI PERJALANAN KAMI",
+    "posts": [
+      { "tag": "Hidupan Marin", "title": "Berenang Bersama Manta: Pertemuan Sebelum Fajar", "date": "12 Nov 2025" },
+      { "tag": "Kehidupan Pulau", "title": "72 Jam Kehidupan Murni di Suite Air", "date": "28 Okt 2025" },
+      { "tag": "Perjalanan Santai", "title": "Kampung Nelayan Kraf Terakhir Semporna", "date": "5 Okt 2025" },
+      { "tag": "Gastronomi", "title": "Lahir dari Laut: Perjamuan Lewat Malam", "date": "18 Sep 2025" },
+      { "tag": "Pemuliharaan", "title": "Sehari dalam Kehidupan Pemulih Terumbu", "date": "30 Ogos 2025" }
+    ]
   }
 }

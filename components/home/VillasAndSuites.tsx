@@ -70,7 +70,7 @@ export function VillasAndSuites() {
       id="villas"
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ backgroundColor: 'var(--color-villas-bg)' }}
+      style={{ backgroundColor: 'var(--color-navy)' }}
     >
       {/* Section header */}
       <div className="pt-20 sm:pt-28 md:pt-32 pb-10 sm:pb-14">

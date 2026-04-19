@@ -134,5 +134,20 @@
       "accessibility": "Accessibility"
     },
     "copyright": "Meili Resort Semporna. All rights reserved."
+  },
+  "Story": {
+    "title": "BEAUTY PRESENTED BY MEILI",
+    "subtitle": "Real Stories, Timeless Moments",
+    "headline": "Our Beautiful Story",
+    "desc1": "In the unparalleled ecology of Semporna, we weave culture, architecture, and service into a poem written for the ocean.",
+    "desc2": "Join a dusk reef dive led by our lead marine biologist or sip grand cru champagne on your private beach.",
+    "btn": "EXPLORE OUR JOURNEY",
+    "posts": [
+      { "tag": "Marine Life", "title": "Swimming with Mantas: A Pre-Dawn Encounter", "date": "Nov 12, 2025" },
+      { "tag": "Island Living", "title": "72 Hours of Pure Life in the Overwater Suite", "date": "Oct 28, 2025" },
+      { "tag": "Slow Travel", "title": "Semporna's Last Handcraft Fishing Village", "date": "Oct 5, 2025" },
+      { "tag": "Gastronomy", "title": "Born of the Sea: A Late-Night Feast", "date": "Sep 18, 2025" },
+      { "tag": "Conservation", "title": "A Day in the Life of a Reef Restorer", "date": "Aug 30, 2025" }
+    ]
   }
 }

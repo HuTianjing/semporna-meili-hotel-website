@@ -1,6 +1,7 @@
 import { Hero } from '@/components/home/Hero';
 import { HotelIntro } from '@/components/home/HotelIntro';
 import { VillasAndSuites } from '@/components/home/VillasAndSuites';
+import { Storytelling } from '@/components/home/Storytelling';
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
 
       {/* 3. 别墅与套房 */}
       <VillasAndSuites />
+
+      {/* 4. 故事叙述 */}
+      <Storytelling />
     </main>
   );
 }
