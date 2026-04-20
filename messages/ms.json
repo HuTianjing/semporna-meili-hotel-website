@@ -29,6 +29,7 @@
     "guestPlaceholder": "1 Bilik - 2 Dewasa",
     "rooms": "Bilik",
     "adults": "Dewasa",
+    "children": "Kanak-kanak",
     "promo": "Promosi",
     "promoCode": "Kod Promosi",
     "submit": "Semak Harga",
@@ -41,6 +42,7 @@
     "description": "Cari syurga anda di antara laut biru dan langit tanpa batas",
     "exploreBtn": "Terokai Vila & Suite",
     "scrollDown": "Tatal ke bawah untuk meneroka",
+    "scroll": "Tatal",
     "heroCards": [
       "Lokasi",
       "Vila & Suite",

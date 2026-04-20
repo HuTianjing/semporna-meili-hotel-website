@@ -29,6 +29,7 @@
     "guestPlaceholder": "1 Room - 2 Adults",
     "rooms": "Rooms",
     "adults": "Adults",
+    "children": "Children",
     "promo": "Promo",
     "promoCode": "Promo Code",
     "submit": "Check Prices",
@@ -41,6 +42,7 @@
     "description": "Find your paradise between azure seas and endless skies",
     "exploreBtn": "Explore Villas & Suites",
     "scrollDown": "Scroll down to explore",
+    "scroll": "Scroll",
     "heroCards": [
       "Location",
       "Villas & Suites",

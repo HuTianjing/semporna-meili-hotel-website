@@ -42,7 +42,7 @@ export function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative overflow-hidden py-20 md:py-32"
+      className="relative overflow-hidden py-10 md:py-16"
       style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}
     >
       {/* 装饰性背景 */}
@@ -58,10 +58,10 @@ export function Footer() {
             className="flex flex-col max-w-sm"
           >
             <h2 className="font-serif text-3xl md:text-5xl tracking-wide text-white leading-tight mb-2">
-              Semporna
+              MEILI
             </h2>
             <span className="font-sans text-xs uppercase tracking-[0.4em] text-white/50 mb-8 block">
-              Meili Resort
+              RESORT HOTEL
             </span>
             <p className="font-sans text-sm font-light leading-relaxed text-white/70">
               {t('address')}

@@ -27,8 +27,9 @@
     "checkout": "退房",
     "guests": "宾客",
     "guestPlaceholder": "1 房间 - 2 成人",
-    "rooms": "房间",
+    "rooms": "间",
     "adults": "成人",
+    "children": "儿童",
     "promo": "促销",
     "promoCode": "促销代码",
     "submit": "查看房价",
@@ -41,6 +42,7 @@
     "description": "在碧海蓝天间，寻找属于您的宁静天堂",
     "exploreBtn": "探索别墅与套房",
     "scrollDown": "向下滚动探索更多",
+    "scroll": "Scroll",
     "heroCards": ["位置", "别墅与套房", "图库"],
     "address": "MOTU TEHOTU · BP 547, 98730, SEMPORNA, MALAYSIA",
     "phone": "+60 12 345 6789"

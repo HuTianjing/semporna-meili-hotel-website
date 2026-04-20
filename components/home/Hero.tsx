@@ -73,8 +73,8 @@ export function Hero() {
       </div>
 
       {/* Content — left-aligned editorial layout */}
-      <div className="relative z-10 h-full flex flex-col justify-end pb-20 md:pb-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 w-full">
+      <div className="relative z-10 w-full h-full pb-20 md:pb-28">
+        <div className="w-full h-full px-6 md:px-12 lg:px-20 xl:pl-[8vw] xl:pr-6 flex flex-col justify-end items-start">
           {/* Subtitle */}
           <p
             className="font-sans text-xs md:text-sm uppercase tracking-[0.4em] text-white/70 mb-4 animate-fade-in"
@@ -87,7 +87,7 @@ export function Hero() {
           <h1
             className="font-serif font-normal text-white leading-[1.05] max-w-3xl animate-fade-in-up"
             style={{
-              fontSize: 'clamp(2.5rem, 6vw, 5.5rem)',
+              fontSize: 'clamp(1.8rem, 4vw, 4rem)',
               letterSpacing: '0.04em',
               animationDelay: '0.6s',
               animationFillMode: 'both',
@@ -176,15 +176,26 @@ export function Hero() {
 
       {/* Scroll indicator */}
       <div
-        className={`absolute bottom-8 right-8 z-10 flex flex-col items-center gap-3 transition-opacity duration-800 ${
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center transition-opacity duration-800 ${
           hasScrolled ? 'opacity-0' : 'opacity-100'
         }`}
         style={{ transitionDelay: hasScrolled ? '0s' : '3.5s' }}
       >
-        <span className="font-sans text-[0.6rem] uppercase tracking-[0.3em] text-white/50">
-          Scroll
+        <span className="font-sans text-[0.6rem] uppercase tracking-[0.3em] text-white/50 ml-[0.3em] mb-3">
+          {t('scroll')}
         </span>
-        <div className="scroll-indicator" />
+        <div className="h-10 w-[1.5px] bg-white/30 overflow-hidden relative">
+          <motion.div
+            initial={{ y: '-100%' }}
+            animate={{ y: '100%' }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.5,
+              ease: 'linear',
+            }}
+            className="w-full h-full bg-white"
+          />
+        </div>
       </div>
     </motion.section>
   );

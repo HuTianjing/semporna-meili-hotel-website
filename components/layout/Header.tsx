@@ -1,8 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { BookingBar } from '../home/BookingBar';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLenis } from 'lenis/react';
 import { useRouter, usePathname, Link } from '@/i18n/routing';
 import { Globe, ChevronDown, Calendar } from 'lucide-react';
@@ -23,9 +24,17 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(true);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const lastScrollY = useRef(0);
   const langRef = useRef<HTMLDivElement>(null);
+
+  // 延迟 3.5 秒后自动展开预定表单，等首屏动画渲染完成
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsBookingOpen(true);
+    }, 3500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const switchLocale = (next: string) => {
     router.replace(pathname, { locale: next });
@@ -37,7 +46,7 @@ export function Header() {
   // useLenis 替代 window.addEventListener('scroll') — 与 lenis 平滑滚动完全同步
   useLenis(
     ({ scroll }) => {
-      setIsScrolled(scroll > 80);
+      setIsScrolled(scroll > 150);
       lastScrollY.current = scroll;
     },
     [isScrolled],
@@ -52,42 +61,50 @@ export function Header() {
   ] as const;
 
   return (
-    <>
+    <header className="pointer-events-none fixed top-0 right-0 left-0 z-50 flex w-full flex-col">
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-sm py-3 shadow-sm' : 'py-4 md:py-5'
+        className={`pointer-events-auto relative z-50 w-full transition-all duration-700 ${
+          isScrolled
+            ? 'bg-primary py-3 shadow-sm backdrop-blur-sm text-white'
+            : 'from-primary/95 bg-linear-to-b to-transparent py-4 md:py-5'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between">
+        <div className="mx-auto flex max-w-350 items-center justify-between px-6 md:px-12 lg:px-20">
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start">
-            <span
-              className={`font-serif text-lg tracking-[0.05em] leading-none transition-colors duration-700 ${
-                isScrolled ? 'text-[--color-primary]' : 'text-white'
-              }`}
+          <Link
+            href="/"
+            className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-80 md:gap-4"
+          >
+            <Image
+              src={isScrolled ? '/images/logo-full.png' : '/images/logo-full.png'}
+              alt="Logo"
+              width={160}
+              height={160}
+              className="h-auto w-10 object-contain transition-all duration-700 md:w-12"
+            />
+            <div
+              className={`flex flex-col items-start border-l pl-3 transition-colors duration-700 md:pl-4 ${isScrolled ? 'border-[--color-primary]/20' : 'border-white/25'}`}
             >
-              Semporna
-            </span>
-            <span
-              className={`font-sans text-[0.6rem] uppercase tracking-[0.3em] mt-0.5 transition-colors duration-700 ${
-                isScrolled ? 'text-[--color-slate-muted]' : 'text-white/80'
-              }`}
-            >
-              Meili Resort
-            </span>
+              <span
+                className={`font-serif text-base leading-none tracking-[0.05em] transition-colors duration-700 md:text-lg ${isScrolled ? 'text-[--color-primary]' : 'text-white'}`}
+              >
+                MEILI
+              </span>
+              <span
+                className={`mt-0.5 font-sans text-[0.55rem] tracking-[0.3em] uppercase transition-colors duration-700 md:text-[0.6rem] ${isScrolled ? 'text-[--color-slate-muted]' : 'text-white/70'}`}
+              >
+                RESORT HOTEL
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-7 lg:gap-9">
+          <div className="hidden items-center gap-7 md:flex lg:gap-9">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
-                className={`font-sans text-[0.75rem] tracking-[0.15em] transition-colors duration-500 ${
-                  isScrolled
-                    ? 'text-[--color-primary]/80 hover:text-[--color-primary] font-normal'
-                    : 'text-white/90 hover:text-white font-light'
-                }`}
+                className={`font-sans text-[0.75rem] tracking-[0.15em] transition-colors duration-500 ${isScrolled ? 'font-normal text-[--color-primary]/80 hover:text-[--color-primary]' : 'font-light text-white/90 hover:text-white'}`}
               >
                 {t(item.key)}
               </Link>
@@ -96,11 +113,7 @@ export function Header() {
             {/* Booking Toggle */}
             <button
               onClick={() => setIsBookingOpen((v) => !v)}
-              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border transition-all duration-500 ${
-                isScrolled
-                  ? 'border-[--color-primary]/30 text-[--color-primary] hover:bg-[--color-primary] hover:text-white'
-                  : 'border-white/40 text-white/90 hover:bg-white/10 hover:border-white/60'
-              }`}
+              className={`flex items-center gap-1.5 rounded-full border px-4 py-1.5 transition-all duration-500 ${isScrolled ? 'border-[--color-primary]/30 text-[--color-primary] hover:bg-[--color-primary] hover:text-white' : 'border-white/40 text-white/90 hover:border-white/60 hover:bg-white/15'}`}
             >
               <Calendar size={12} />
               <span className="font-sans text-[0.6875rem] tracking-[0.12em]">
@@ -112,25 +125,24 @@ export function Header() {
             <div className="relative" ref={langRef}>
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className={`flex items-center gap-1.5 font-sans text-[0.75rem] tracking-[0.1em] transition-colors duration-500 ${
-                  isScrolled
-                    ? 'text-[--color-primary]/70 hover:text-[--color-primary] font-normal'
-                    : 'text-white/80 hover:text-white font-light'
-                }`}
+                className={`flex items-center gap-1.5 font-sans text-[0.75rem] tracking-[0.1em] transition-colors duration-500 ${isScrolled ? 'font-normal text-[--color-primary]/70 hover:text-[--color-primary]' : 'font-light text-white/80 hover:text-white'}`}
               >
                 <Globe size={14} />
                 <span>{currentLang.label}</span>
-                <ChevronDown size={11} className={`transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  size={11}
+                  className={`transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`}
+                />
               </button>
               {langOpen && (
-                <div className="absolute right-0 top-full mt-2 bg-white rounded-sm shadow-lg overflow-hidden min-w-[140px] border border-[--color-warm-gray]">
+                <div className="absolute top-full right-0 mt-2 min-w-[140px] overflow-hidden rounded-sm border border-[--color-warm-gray] bg-white shadow-lg">
                   {LOCALES.map((loc) => (
                     <button
                       key={loc.code}
                       onClick={() => switchLocale(loc.code)}
-                      className={`block w-full text-left px-4 py-2.5 text-xs tracking-wide font-sans transition-colors ${
+                      className={`block w-full px-4 py-2.5 text-left font-sans text-xs tracking-wide transition-colors ${
                         locale === loc.code
-                          ? 'bg-[--color-cream] text-[--color-primary] font-medium'
+                          ? 'bg-[--color-cream] font-medium text-[--color-primary]'
                           : 'text-[--color-slate-muted] hover:bg-[--color-cream] hover:text-[--color-primary]'
                       }`}
                     >
@@ -143,14 +155,10 @@ export function Header() {
           </div>
 
           {/* Mobile Controls */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={() => setIsBookingOpen((v) => !v)}
-              className={`p-1.5 rounded-full border transition-all duration-500 ${
-                isScrolled
-                  ? 'border-[--color-primary]/30 text-[--color-primary] hover:bg-[--color-primary] hover:text-white'
-                  : 'border-white/40 text-white/90 hover:bg-white/10'
-              }`}
+              className={`rounded-full border p-1.5 transition-all duration-500 ${isScrolled ? 'border-[--color-primary]/30 text-[--color-primary] hover:bg-[--color-primary]/10' : 'border-white/40 text-white/90 hover:bg-white/15'}`}
             >
               <Calendar size={14} />
             </button>
@@ -159,19 +167,19 @@ export function Header() {
             <div className="relative" ref={langRef}>
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className={`transition-colors duration-500 ${isScrolled ? 'text-[--color-primary]' : 'text-white'}`}
+                className={`transition-colors duration-500 ${isScrolled ? 'text-[--color-primary]' : 'text-white/85 hover:text-white'}`}
               >
                 <Globe size={16} />
               </button>
               {langOpen && (
-                <div className="absolute right-0 top-full mt-2 bg-white rounded-sm shadow-lg overflow-hidden min-w-[130px] border border-[--color-warm-gray]">
+                <div className="absolute top-full right-0 mt-2 min-w-[130px] overflow-hidden rounded-sm border border-[--color-warm-gray] bg-white shadow-lg">
                   {LOCALES.map((loc) => (
                     <button
                       key={loc.code}
                       onClick={() => switchLocale(loc.code)}
-                      className={`block w-full text-left px-4 py-2.5 text-xs font-sans ${
+                      className={`block w-full px-4 py-2.5 text-left font-sans text-xs ${
                         locale === loc.code
-                          ? 'bg-[--color-cream] text-[--color-primary] font-medium'
+                          ? 'bg-[--color-cream] font-medium text-[--color-primary]'
                           : 'text-[--color-slate-muted] hover:bg-[--color-cream]'
                       }`}
                     >
@@ -189,19 +197,13 @@ export function Header() {
               aria-label="Toggle menu"
             >
               <span
-                className={`block w-5 h-px transition-all duration-500 ${
-                  isScrolled ? 'bg-[--color-primary]' : 'bg-white'
-                } ${isMenuOpen ? 'rotate-45 translate-y-[3.5px]' : ''}`}
+                className={`block h-px w-5 transition-all duration-500 ${isScrolled ? 'bg-[--color-primary]' : 'bg-white'} ${isMenuOpen ? 'translate-y-[3.5px] rotate-45' : ''}`}
               />
               <span
-                className={`block w-5 h-px transition-all duration-500 ${
-                  isScrolled ? 'bg-[--color-primary]' : 'bg-white'
-                } ${isMenuOpen ? 'opacity-0' : ''}`}
+                className={`block h-px w-5 transition-all duration-500 ${isScrolled ? 'bg-[--color-primary]' : 'bg-white'} ${isMenuOpen ? 'opacity-0' : ''}`}
               />
               <span
-                className={`block w-5 h-px transition-all duration-500 ${
-                  isScrolled ? 'bg-[--color-primary]' : 'bg-white'
-                } ${isMenuOpen ? '-rotate-45 -translate-y-[3.5px]' : ''}`}
+                className={`block h-px w-5 transition-all duration-500 ${isScrolled ? 'bg-[--color-primary]' : 'bg-white'} ${isMenuOpen ? '-translate-y-[3.5px] -rotate-45' : ''}`}
               />
             </button>
           </div>
@@ -209,20 +211,20 @@ export function Header() {
 
         {/* Mobile Full-screen Menu */}
         <div
-          className={`md:hidden fixed inset-0 transition-all duration-700 z-[-1] ${
+          className={`fixed inset-0 z-[-1] transition-all duration-700 md:hidden ${
             isMenuOpen
-              ? 'bg-white pointer-events-auto opacity-100'
+              ? 'pointer-events-auto bg-white opacity-100'
               : 'pointer-events-none opacity-0'
           }`}
           style={{ top: isScrolled ? '60px' : '72px' }}
         >
-          <div className="flex flex-col items-center justify-center h-full gap-8">
+          <div className="flex h-full flex-col items-center justify-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="font-serif text-2xl text-[--color-primary] tracking-[0.1em] hover:text-[--color-primary]/70 transition-colors"
+                className="font-serif text-2xl tracking-[0.1em] text-[--color-primary] transition-colors hover:text-[--color-primary]/70"
               >
                 {t(item.key)}
               </Link>
@@ -231,12 +233,12 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Booking Bar — 紧贴 nav 下方固定 */}
+      {/* Booking Bar — 作为 header 的一部分自然展开 */}
       <BookingBar
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
         isScrolled={isScrolled}
       />
-    </>
+    </header>
   );
 }
