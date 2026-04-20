@@ -14,11 +14,11 @@
     "language": "English",
     "brand": "Meili Resort",
     "resort": "Meili Resort Semporna",
-    "nav1": "Overview",
-    "nav2": "Villas & Suites",
-    "nav3": "Activities",
-    "nav4": "Gallery",
-    "nav5": "Location",
+    "nav1": "Hotel Overview",
+    "nav2": "Enquiry & Booking",
+    "nav3": "Photos & Videos",
+    "nav4": "Location",
+    "nav5": "Special Offers",
     "nav6": "Contact Us"
   },
   "BookingBar": {

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/routing';
 import { useState, useRef, useEffect } from 'react';
@@ -38,7 +37,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
     <>
       {/* Backdrop overlay */}
       <div
-        className={`fixed inset-0 z-[100] bg-black/40 transition-opacity duration-500 lg:hidden ${
+        className={`fixed inset-0 z-100 bg-black/40 transition-opacity duration-500 lg:hidden ${
           isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={onClose}
@@ -46,7 +45,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
 
       {/* Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-[101] flex h-full w-[88vw] max-w-[400px] flex-col bg-white text-black transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${
+        className={`fixed inset-y-0 right-0 z-101 flex h-full w-[88vw] max-w-100 flex-col bg-white text-black transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -102,7 +101,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
 
               {/* Language Dropdown */}
               <div
-                className={`absolute top-full right-0 z-50 mt-3 min-w-[140px] origin-top-right overflow-hidden rounded-sm border border-black/10 bg-white shadow-xl transition-all duration-200 ${
+                className={`absolute top-full right-0 z-50 mt-3 min-w-35 origin-top-right overflow-hidden rounded-sm border border-black/10 bg-white shadow-xl transition-all duration-200 ${
                   langOpen
                     ? 'pointer-events-auto scale-100 opacity-100'
                     : 'pointer-events-none scale-95 opacity-0'
@@ -144,26 +143,6 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
                 </div>
               </div>
             </div>
-
-            <span className="flex cursor-pointer items-center gap-1.5 text-[11px] font-semibold tracking-wider text-black/80 uppercase transition-opacity hover:opacity-70">
-              MYR
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="10"
-                height="10"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="m6 9 6 6 6-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
 
             <button
               onClick={onClose}
@@ -211,33 +190,14 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
 
         {/* Main Content Area: Scrollable */}
         <div className="flex flex-1 flex-col items-start overflow-y-auto bg-white px-6 py-8">
-          {/* Brand / Logo */}
-          <div className="mb-6 shrink-0 cursor-pointer" onClick={onClose}>
-            <Image
-              src="/images/logo-full-color.png"
-              alt="Logo"
-              width={140}
-              height={50}
-              className="h-auto w-[4.5rem] object-contain"
-            />
-          </div>
-          <div className="mb-10 flex w-full flex-col gap-2">
-            <span className="font-serif text-[19px] font-bold tracking-widest text-black italic">
-              {t('brand')}
-            </span>
-            <span className="mt-1 font-serif text-[26px] leading-[1.25] tracking-widest text-black">
-              {t('resort')}
-            </span>
-          </div>
-
           {/* Nav links */}
-          <div className="flex w-full flex-col gap-7 pb-8 text-[13px] font-normal tracking-[0.1em] text-black">
+          <div className="flex w-full flex-col gap-7 pb-8 text-[13px] font-normal tracking-widest text-black">
             <span
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
               {/* Active Triangle Indicator */}
-              <svg className="absolute -left-[25px] h-3.5 w-3" viewBox="0 0 10 14" fill="black">
+              <svg className="absolute -left-6.25 h-3.5 w-3" viewBox="0 0 10 14" fill="black">
                 <path d="M0 0l10 7-10 7z" />
               </svg>
               {t('nav1')}
@@ -274,13 +234,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
             </span>
           </div>
 
-          <div className="mb-8 h-px w-full bg-gray-200" />
 
-          {/* Global actions */}
-          <div className="flex flex-col gap-5 pb-12 text-[12px] font-bold tracking-[0.2em] text-black uppercase">
-            <span className="cursor-pointer hover:opacity-70">GLOBAL HOMEPAGE</span>
-            <span className="cursor-pointer hover:opacity-70">{t('allHotels')}</span>
-          </div>
         </div>
       </div>
     </>
