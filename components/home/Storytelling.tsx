@@ -40,7 +40,7 @@ export function Storytelling() {
   return (
     <section ref={sectionRef} className="relative w-full pb-32 pt-20">
       {/* ── Section header ── */}
-      <div className="mx-auto max-w-[1500px] px-5 pb-10 sm:px-8 sm:pb-14 md:px-12 lg:px-16">
+      <div className="mx-auto max-w-375 px-5 pb-10 sm:px-8 sm:pb-14 md:px-12 lg:px-16">
         {/* Section label */}
         <motion.div
           custom={0}

@@ -8,15 +8,21 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/inter':
+      '@fontsource-variable/cinzel':
         specifier: ^5.2.8
         version: 5.2.8
+      '@fontsource-variable/newsreader':
+        specifier: ^5.2.10
+        version: 5.2.10
       '@fontsource-variable/playfair-display':
         specifier: ^5.2.8
         version: 5.2.8
       '@fontsource/cormorant-garamond':
         specifier: ^5.2.11
         version: 5.2.11
+      '@fontsource/noto-serif-sc':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.72.1(react@19.2.4))
@@ -241,14 +247,20 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@fontsource-variable/inter@5.2.8':
-    resolution: {integrity: sha512-kOfP2D+ykbcX/P3IFnokOhVRNoTozo5/JxhAIVYLpea/UBmCQ/YWPBfWIDuBImXX/15KH+eKh4xpEUyS2sQQGQ==}
+  '@fontsource-variable/cinzel@5.2.8':
+    resolution: {integrity: sha512-62ddfR79tYNWxIZJPlyFGBusbnONbPL6d163mT/jZOGV4vV8so6Z3buRM5epqtiA6qcVVeF8OZijJJGeLABGJg==}
+
+  '@fontsource-variable/newsreader@5.2.10':
+    resolution: {integrity: sha512-MdI2iRwrqWpMOU/2aV2BgfZ4dJNlj/XlYaY8Zb7t87mWqHskYW0XiUANkt1cyOCiEfW2VQ0bQ5vZgGPp6B2B4w==}
 
   '@fontsource-variable/playfair-display@5.2.8':
     resolution: {integrity: sha512-ZzVIXPOrL85yyOvZYoBzUszIJM+xKkHqni4IYn2CVLaGQQdJR8sBeC8yFNgjxSJ7ludTwta8qpULeOFuk5X75A==}
 
   '@fontsource/cormorant-garamond@5.2.11':
     resolution: {integrity: sha512-5JjpN023lhA5soijgVT0BdRGzmlijm402ppjccMd6h+vRE0mX2lJnE+41UPfnlidrkV9/rCo1mf58WZlHnB0CA==}
+
+  '@fontsource/noto-serif-sc@5.2.8':
+    resolution: {integrity: sha512-C7fAr+d1GjOAw1qIbntsnqbA3l5dkdzcmNNgeCXLC8QZ7VNubL7MTrX8UcYKHceX4mI//z8gGtXbOeeQrB6P7g==}
 
   '@formatjs/fast-memoize@3.1.2':
     resolution: {integrity: sha512-vPnriihkfK0lzoQGaXq+qXH23VsYyansRTkTgo2aTG0k1NjLFyZimFVdfj4C9JkSE5dm7CEngcQ5TTc1yAyBfQ==}
@@ -2646,11 +2658,15 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@fontsource-variable/inter@5.2.8': {}
+  '@fontsource-variable/cinzel@5.2.8': {}
+
+  '@fontsource-variable/newsreader@5.2.10': {}
 
   '@fontsource-variable/playfair-display@5.2.8': {}
 
   '@fontsource/cormorant-garamond@5.2.11': {}
+
+  '@fontsource/noto-serif-sc@5.2.8': {}
 
   '@formatjs/fast-memoize@3.1.2': {}
 

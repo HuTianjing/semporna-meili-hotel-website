@@ -1,18 +1,18 @@
+@import 'tailwindcss';
+
 /* ==================
    字体资源加载（全部本地 npm 包，无需 CDN）
    ================== */
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/playfair-display';
-@import '@fontsource/cormorant-garamond/300.css';
-@import '@fontsource/cormorant-garamond/400.css';
-@import '@fontsource/cormorant-garamond/500.css';
-@import '@fontsource/cormorant-garamond/600.css';
-@import '@fontsource/cormorant-garamond/700.css';
-@import 'lxgw-wenkai-webfont/lxgwwenkai-light.css';
-@import 'lxgw-wenkai-webfont/lxgwwenkai-regular.css';
-@import 'lxgw-wenkai-webfont/lxgwwenkai-bold.css';
-
-@import 'tailwindcss';
+/* 英文标题衬线：Cinzel SemiBold（碑铭体，全大写气质） */
+@import '@fontsource-variable/cinzel';
+/* 英文正文衬线 / 大段落：Newsreader（36pt 光学尺寸，优雅排版） */
+@import '@fontsource-variable/newsreader/opsz.css';
+@import '@fontsource-variable/newsreader/opsz-italic.css';
+/* 中文衬线：思源宋体 Noto Serif SC（简中子集，按需按字重加载） */
+@import '@fontsource/noto-serif-sc/chinese-simplified-400.css';
+@import '@fontsource/noto-serif-sc/chinese-simplified-500.css';
+@import '@fontsource/noto-serif-sc/chinese-simplified-600.css';
+@import '@fontsource/noto-serif-sc/chinese-simplified-700.css';
 
 @plugin 'tailwindcss-animate';
 
@@ -26,10 +26,10 @@
   --color-background: hsl(0, 0%, 100%); /* 极简亮白，#FFFFFF */
   --color-foreground: hsl(240, 10%, 4%); /* 接近纯黑，用于正文 */
 
-  --color-primary: #003365; /* 仙本那深海蓝 (Semporna Deep Sea) */
+  --color-primary: #003865; /* 仙本那深海蓝 (Semporna Deep Sea) */
   --color-primary-foreground: hsl(0, 0%, 100%);
-  --color-accent: #0086cd;  /* 仙本那浅海蓝辅助色 */
-  --color-gold: #c2996c;    /* 品牌金色 */
+  --color-accent: #0091da;  /* 仙本那浅海蓝辅助色 */
+  --color-gold: #b18b74;    /* 品牌金色 */
 
 
   --color-muted: hsl(210, 20%, 96%); /* 极浅灰/冰川蓝，用于区块或卡片底色 */
@@ -38,10 +38,16 @@
   --color-border: hsl(214, 32%, 91%); /* 柔和的边框分隔线 */
 
   /* --- 字体 Typography --- */
-  /* 通过 CSS 变量对接 Next.js Font 注入 */
-  --font-sans: 'Inter Variable', 'Inter', sans-serif;
-  --font-serif: 'Playfair Display Variable', 'Playfair Display', 'LXGW WenKai', serif; /* 双拼：英文高定标题在前，中文霞鹜文楷在后 */
-  --font-text: 'Cormorant Garamond', 'LXGW WenKai', serif;
+  /* 角色分工：
+     sans  = Newsreader Variable     — 英文正文段落 / 大号排版引言 (取代过去的无衬线)
+                                       + Noto Serif SC 作为中文 fallback
+     serif = Cinzel Variable         — 英文大标题（h1/h2，全大写碑铭气质）
+                                       + Noto Serif SC 作为中文 fallback
+     text  = Newsreader Variable     — 给部分强声明准备的 alias
+  */
+  --font-sans: 'Newsreader Variable', 'Newsreader', 'Noto Serif SC', '思源宋体', serif;
+  --font-serif: 'Cinzel Variable', 'Cinzel', 'Noto Serif SC', '思源宋体', serif;
+  --font-text: 'Newsreader Variable', 'Newsreader', 'Noto Serif SC', '思源宋体', serif;
 
   /* --- v19 品牌颜色 Token (从 Semporna Meili Resort Web_v19 迁移) --- */
   /* Primary Theme Color — 仙本那深海蓝 #003365 */
@@ -72,13 +78,20 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    /* 强制使用高级无衬线字体作为全站基底，特定标题再用 serif */
+    /* 全站默认正文：Newsreader (opsz 36pt) */
     font-family: var(--font-sans);
+    font-variation-settings: "opsz" 36;
     /* 优化抗锯齿，增强苹果设备的奢华字重质感 */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* 隐藏所有原生的滚动回弹白色背景 (iOS) */
     overscroll-behavior-y: none;
+  }
+
+  /* 使得所有引用 font-serif（大标题）默认成为 SemiBold (600) */
+  h1, h2, h3, h4, h5, h6, .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 600;
   }
 
   /* 针对 Lenis 平滑滚动的核心托底 */

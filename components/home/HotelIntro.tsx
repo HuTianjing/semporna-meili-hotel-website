@@ -107,7 +107,7 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="text-center mb-10 sm:mb-14 md:mb-16"
           >
-            <p className="font-serif italic text-[#1a2a3a]/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="font-text italic text-[#1a2a3a]/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
               &ldquo;{t('quote')}&rdquo;
             </p>
           </motion.div>

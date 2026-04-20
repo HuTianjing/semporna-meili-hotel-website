@@ -69,7 +69,7 @@ export function Hero() {
 
           {/* Main Title */}
           <h1
-            className="font-serif font-normal text-white leading-[1.05] max-w-3xl animate-fade-in-up"
+            className="font-serif text-white leading-[1.05] max-w-3xl animate-fade-in-up"
             style={{
               fontSize: 'clamp(2.5rem, 6vw, 5.5rem)',
               letterSpacing: '0.04em',
