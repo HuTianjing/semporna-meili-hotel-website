@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useLenis } from 'lenis/react';
 import { MapPin, BedDouble, Images, Play, Pause } from 'lucide-react';
 
@@ -18,6 +19,16 @@ export function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   // hasScrolled 通过 useLenis 监听，替代 window.addEventListener('scroll')
   const [hasScrolled, setHasScrolled] = useState(false);
+  // 仅在桌面端 (md+) 执行 Hero 向上收缩效果，对齐 resort-website 的 HeroDesktop 行为
+  const [isMd, setIsMd] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    setIsMd(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMd(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useLenis(({ scroll }) => {
     if (scroll > 20 && !hasScrolled) {
@@ -37,7 +48,12 @@ export function Hero() {
   };
 
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden bg-[--color-primary]">
+    <motion.section
+      initial={{ height: '100vh' }}
+      animate={{ height: isMd ? 'calc(100vh - 80px)' : '100vh' }}
+      transition={{ delay: 3, duration: 1, ease: 'easeInOut' }}
+      className="relative z-20 min-h-[700px] overflow-hidden bg-[--color-primary]"
+    >
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
@@ -170,6 +186,6 @@ export function Hero() {
         </span>
         <div className="scroll-indicator" />
       </div>
-    </section>
+    </motion.section>
   );
 }
