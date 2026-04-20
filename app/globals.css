@@ -1,7 +1,5 @@
 /* ==================
-   字体资源加载
-   - 英文字体: fontsource npm 本地托管，无需访问 Google
-   - 中文字体: 霞鹜文楷 SC 通过 layout.tsx <link> 标签加载，避免 PostCSS @import 顺序限制
+   字体资源加载（全部本地 npm 包，无需 CDN）
    ================== */
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/playfair-display';
@@ -10,6 +8,9 @@
 @import '@fontsource/cormorant-garamond/500.css';
 @import '@fontsource/cormorant-garamond/600.css';
 @import '@fontsource/cormorant-garamond/700.css';
+@import 'lxgw-wenkai-webfont/lxgwwenkai-light.css';
+@import 'lxgw-wenkai-webfont/lxgwwenkai-regular.css';
+@import 'lxgw-wenkai-webfont/lxgwwenkai-bold.css';
 
 @import 'tailwindcss';
 
@@ -39,8 +40,8 @@
   /* --- 字体 Typography --- */
   /* 通过 CSS 变量对接 Next.js Font 注入 */
   --font-sans: 'Inter Variable', 'Inter', sans-serif;
-  --font-serif: 'Playfair Display Variable', 'Playfair Display', 'LXGW WenKai SC', serif; /* 双拼：英文高定标题在前，中文霞鹜文楷在后 */
-  --font-text: 'Cormorant Garamond', 'LXGW WenKai SC', serif;
+  --font-serif: 'Playfair Display Variable', 'Playfair Display', 'LXGW WenKai', serif; /* 双拼：英文高定标题在前，中文霞鹜文楷在后 */
+  --font-text: 'Cormorant Garamond', 'LXGW WenKai', serif;
 
   /* --- v19 品牌颜色 Token (从 Semporna Meili Resort Web_v19 迁移) --- */
   /* Primary Theme Color — 仙本那深海蓝 #003365 */

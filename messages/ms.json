@@ -14,12 +14,12 @@
     "language": "Bahasa Melayu",
     "brand": "Meili Resort",
     "resort": "Meili Resort Semporna",
-    "nav1": "Gambaran Hotel",
-    "nav2": "Pertanyaan & Tempahan",
-    "nav3": "Foto & Video",
+    "nav1": "Gambaran",
+    "nav2": "Tempahan",
+    "nav3": "Galeri",
     "nav4": "Lokasi",
-    "nav5": "Tawaran Istimewa",
-    "nav6": "Hubungi Kami"
+    "nav5": "Tawaran",
+    "nav6": "Hubungi"
   },
   "BookingBar": {
     "dates": "Daftar Masuk - Daftar Keluar",

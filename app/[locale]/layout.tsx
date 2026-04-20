@@ -45,18 +45,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <head>
-        {/* 霞鹜文楷 SC 中文字体 - SIL OFL 免费商用，jsDelivr CDN 按需切片 */}
-        <link
-          rel="preconnect"
-          href="https://cdn.jsdelivr.net"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkaisc.css"
-        />
-      </head>
+      <head />
       {/* 
         将所有 CSS Variable 预注入 html root 身上 
         默认使用白色主题

@@ -208,7 +208,7 @@ export function Header() {
                         className={`block w-full px-4 py-2.5 text-left font-sans text-xs tracking-wide transition-colors ${
                           locale === loc.code
                             ? 'bg-[--color-cream] font-medium text-[--color-primary]'
-                            : 'text-[--color-slate-muted] hover:bg-[--color-cream] hover:text-[--color-primary]'
+                            : 'text-zinc-700 hover:bg-[--color-cream] hover:text-[--color-primary]'
                         }`}
                       >
                         {loc.label}
