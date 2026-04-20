@@ -151,5 +151,24 @@
       { "tag": "Gastronomi", "title": "Lahir dari Laut: Perjamuan Lewat Malam", "date": "18 Sep 2025" },
       { "tag": "Pemuliharaan", "title": "Sehari dalam Kehidupan Pemulih Terumbu", "date": "30 Ogos 2025" }
     ]
+  },
+  "Offers": {
+    "title": "Tawaran Istimewa",
+    "viewOffer": "Lihat Tawaran",
+    "allOffers": "Semua Tawaran",
+    "items": [
+      {
+        "title": "Tempahan Awal",
+        "desc": "Tempah 60 hari lebih awal untuk menikmati diskaun sehingga 20% pada penginapan anda."
+      },
+      {
+        "title": "Kredit Pengalaman Resort",
+        "desc": "Termasuk kredit resort harian $200 untuk santapan bertaraf Michelin dan spa."
+      },
+      {
+        "title": "Bulan Madu Romantik",
+        "desc": "Makan malam champagne di pantai yang disesuaikan dan rawatan aromaterapi untuk pasangan."
+      }
+    ]
   }
 }

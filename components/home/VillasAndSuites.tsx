@@ -52,6 +52,23 @@ export function VillasAndSuites() {
     return () => clearInterval(timer);
   }, [activeIdx, activeImages.length]);
 
+  // 每 6 秒自动循环切换 villa
+  useEffect(() => {
+    if (items.length <= 1) return;
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => {
+        const next = (prev + 1) % items.length;
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setImgIdx(0);
+          setTimeout(() => setIsTransitioning(false), 50);
+        }, 400);
+        return next;
+      });
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [items.length]);
+
   const handleTabSwitch = useCallback(
     (idx: number) => {
       if (idx === activeIdx || isTransitioning) return;
@@ -74,7 +91,7 @@ export function VillasAndSuites() {
     >
       {/* ── Section header ── */}
       <div className="pt-20 sm:pt-28 md:pt-32 pb-10 sm:pb-14">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+        <div className="max-w-300 mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
           {/* Section label */}
           <motion.div
             custom={0}
@@ -114,7 +131,7 @@ export function VillasAndSuites() {
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="text-center max-w-[620px] mx-auto"
+            className="text-center max-w-155 mx-auto"
           >
             <p className="font-sans text-[0.875rem] sm:text-[0.9375rem] leading-[1.85] text-white/50 font-light">
               {t('desc')}
@@ -129,10 +146,10 @@ export function VillasAndSuites() {
         variants={fadeUp}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="relative max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 pb-20 sm:pb-28 md:pb-32"
+        className="relative max-w-300 mx-auto px-5 sm:px-8 md:px-12 lg:px-16 pb-20 sm:pb-28 md:pb-32"
       >
         {/* Main image area */}
-        <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/10] rounded-sm overflow-hidden bg-[#111820]">
+        <div className="relative w-full aspect-16/10 sm:aspect-video md:aspect-21/10 rounded-sm overflow-hidden bg-[#111820]">
           {/* Background images — crossfade */}
           {items.map((villa, vIdx) =>
             (VILLA_IMAGES[villa.id] ?? []).map((src, iIdx) => (
@@ -152,12 +169,12 @@ export function VillasAndSuites() {
           )}
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-r from-black/30 to-transparent pointer-events-none" />
 
           {/* Content overlay — bottom left */}
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12 lg:p-16">
-            <div className="max-w-[560px]">
+            <div className="max-w-140">
               {/* Villa name */}
               <h3
                 className="font-serif text-white leading-tight mb-3"
@@ -214,7 +231,7 @@ export function VillasAndSuites() {
                   key={i}
                   onClick={() => setImgIdx(i)}
                   aria-label={`View image ${i + 1}`}
-                  className="h-[2px] rounded-full transition-all duration-500"
+                  className="h-0.5 rounded-full transition-all duration-500"
                   style={{
                     width: i === imgIdx ? '32px' : '16px',
                     backgroundColor:
@@ -235,11 +252,11 @@ export function VillasAndSuites() {
             <button
               key={villa.id}
               onClick={() => handleTabSwitch(idx)}
-              className="relative flex-1 min-w-[140px] sm:min-w-0 py-5 sm:py-6 px-4 sm:px-6 text-left transition-colors duration-500 group bg-transparent"
+              className="relative flex-1 min-w-35 sm:min-w-0 py-5 sm:py-6 px-4 sm:px-6 text-left transition-colors duration-500 group bg-transparent"
             >
               {/* Active indicator line */}
               <div
-                className="absolute top-[0px] left-0 right-0 h-[2px] transition-all duration-500"
+                className="absolute top-0 left-0 right-0 h-0.5 transition-all duration-500"
                 style={{
                   backgroundColor: idx === activeIdx ? '#c4b99a' : 'transparent',
                 }}

@@ -151,5 +151,24 @@
       { "tag": "Gastronomy", "title": "Born of the Sea: A Late-Night Feast", "date": "Sep 18, 2025" },
       { "tag": "Conservation", "title": "A Day in the Life of a Reef Restorer", "date": "Aug 30, 2025" }
     ]
+  },
+  "Offers": {
+    "title": "Special Offers",
+    "viewOffer": "View Offer",
+    "allOffers": "All Offers",
+    "items": [
+      {
+        "title": "Advance Purchase",
+        "desc": "Book 60 days in advance to enjoy up to a 20% discount on your stay."
+      },
+      {
+        "title": "Resort Credit Experience",
+        "desc": "Includes $200 daily resort credit for Michelin-grade dining and spa."
+      },
+      {
+        "title": "Romantic Honeymoon",
+        "desc": "Custom beach champagne dinner and couples aromatherapy treatments."
+      }
+    ]
   }
 }
