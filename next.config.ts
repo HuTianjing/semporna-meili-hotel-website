@@ -4,8 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 // 将 i18n 注入路由配置核心
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
-const nextConfig: NextConfig = {
-  basePath: '/v2',
+const nextConfig: NextConfig = { 
   output: 'standalone',
   reactStrictMode: true,
   images: {
