@@ -6,7 +6,7 @@ APP_NAME="hcsw-semporna-meili-resort-website"
 REGISTRY="dch.hcsw.work:5000"
 NAMESPACE="semporna-meili-resort"
 IMAGE_NAME="website"
-BRANCH="main"
+BRANCH="master"
 
 # 组合完整镜像路径
 FULL_IMAGE_PATH="${REGISTRY}/${NAMESPACE}/${IMAGE_NAME}"
