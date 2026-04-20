@@ -14,12 +14,12 @@
     "language": "English",
     "brand": "Meili Resort",
     "resort": "Meili Resort Semporna",
-    "nav1": "Hotel Overview",
-    "nav2": "Enquiry & Booking",
-    "nav3": "Photos & Videos",
+    "nav1": "Overview",
+    "nav2": "Booking",
+    "nav3": "Gallery",
     "nav4": "Location",
-    "nav5": "Special Offers",
-    "nav6": "Contact Us"
+    "nav5": "Offers",
+    "nav6": "Contact"
   },
   "BookingBar": {
     "dates": "Check-in - Check-out",

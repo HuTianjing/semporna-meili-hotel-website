@@ -169,17 +169,17 @@ export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarPr
               <button
                 className="font-sans text-[0.7rem] font-semibold tracking-[0.12em] uppercase px-6 py-2.5 rounded-lg transition-all duration-300 whitespace-nowrap"
                 style={{
-                  background: 'black',
+                  background: 'var(--color-primary)',
                   color: 'white',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.25)',
+                  boxShadow: '0 2px 8px rgba(0,51,101,0.3)',
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background = '#222';
-                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.35)';
+                  (e.currentTarget as HTMLButtonElement).style.background = 'var(--color-primary-dark)';
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,51,101,0.45)';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background = 'black';
-                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,0,0,0.25)';
+                  (e.currentTarget as HTMLButtonElement).style.background = 'var(--color-primary)';
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 2px 8px rgba(0,51,101,0.3)';
                 }}
               >
                 {t('submit')}
