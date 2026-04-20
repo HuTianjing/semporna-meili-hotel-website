@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { ChevronDown, Minus, Plus, ArrowRight, X, CalendarDays, Users } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface BookingBarProps {
   isOpen: boolean;
@@ -35,24 +36,31 @@ export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarPr
     `${d.getMonth() + 1}月${d.getDate()}日 周${dayNames[d.getDay()]}`;  
 
   return (
-    <div
-      className={`relative z-40 w-full origin-top pointer-events-auto transition-[grid-template-rows,opacity] duration-[800ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] grid ${
-        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-      }`}
-    >
-      <div className="w-full min-h-0 overflow-visible shrink-0 relative">
+    <AnimatePresence initial={false}>
+      {isOpen && (
+        <motion.div
+          key="booking-bar"
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{
+            height: { type: 'spring', stiffness: 320, damping: 36, mass: 0.8 },
+            opacity: { duration: 0.2, ease: 'easeOut' },
+          }}
+          className="relative z-40 w-full pointer-events-auto overflow-hidden"
+          style={{ willChange: 'height' }}
+        >
       {/* Full-width frosted glass bar */}
       <div
         className="w-full relative"
         style={{
-                background: 'rgba(255,255,255,0.82)',
-          backdropFilter: 'blur(24px) saturate(1.8)',
-          WebkitBackdropFilter: 'blur(24px) saturate(1.8)',
-          boxShadow: '0 4px 30px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.95)',
-          borderBottom: '1px solid rgba(0,0,0,0.07)',
+          background: 'rgba(255,255,255,0.55)',
+          backdropFilter: 'blur(20px) saturate(1.6)',
+          WebkitBackdropFilter: 'blur(20px) saturate(1.6)',
+          boxShadow: '0 4px 30px rgba(0,0,0,0.05)',
         }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-3.5 md:py-4">
+        <div className="max-w-350 mx-auto px-6 md:px-10 lg:px-16 py-3.5 md:py-4">
           <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2.5">
             {/* Check-in */}
             <button className="group flex-1 flex items-center gap-2.5 rounded-lg px-3.5 py-2.5 hover:bg-black/5 transition-all duration-300 cursor-pointer">
@@ -90,8 +98,7 @@ export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarPr
               </div>
             </button>
 
-            {/* Separator */}
-            <div className="hidden md:block w-px h-8 bg-black/10 mx-1 shrink-0" />
+
 
             {/* Guests */}
             <div className="flex-1 relative">
@@ -128,7 +135,7 @@ export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarPr
                   style={{
                     background: 'rgba(255,255,255,0.97)',
                     backdropFilter: 'blur(24px)',
-                    border: '1px solid rgba(0,0,0,0.1)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
                   }}
                   onClick={(e) => e.stopPropagation()}
                 >
@@ -144,7 +151,7 @@ export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarPr
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => item.set(Math.max(item.min, item.value - 1))}
-                          className="w-6 h-6 flex items-center justify-center rounded-full border border-black/15 text-black/40 hover:border-black/30 hover:text-black/70 transition-all"
+                          className="w-6 h-6 flex items-center justify-center rounded-full bg-black/5 text-black/40 hover:bg-black/10 hover:text-black/70 transition-all"
                         >
                           <Minus size={9} />
                         </button>
@@ -153,7 +160,7 @@ export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarPr
                         </span>
                         <button
                           onClick={() => item.set(item.value + 1)}
-                          className="w-6 h-6 flex items-center justify-center rounded-full border border-black/15 text-black/40 hover:border-black/30 hover:text-black/70 transition-all"
+                          className="w-6 h-6 flex items-center justify-center rounded-full bg-black/5 text-black/40 hover:bg-black/10 hover:text-black/70 transition-all"
                         >
                           <Plus size={9} />
                         </button>
@@ -195,7 +202,8 @@ export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarPr
           </div>
         </div>
       </div>
-      </div>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
