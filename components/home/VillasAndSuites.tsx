@@ -70,13 +70,12 @@ export function VillasAndSuites() {
       id="villas"
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ backgroundColor: 'var(--color-navy)' }}
+      style={{ backgroundColor: 'var(--color-primary)' }}
     >
-      {/* Section header */}
+      {/* ── Section header ── */}
       <div className="pt-20 sm:pt-28 md:pt-32 pb-10 sm:pb-14">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
-
-          {/* Label */}
+          {/* Section label */}
           <motion.div
             custom={0}
             variants={fadeUp}
@@ -84,8 +83,10 @@ export function VillasAndSuites() {
             animate={isInView ? 'visible' : 'hidden'}
             className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[#8a7e6b]">02</span>
-            <div className="w-8 sm:w-12 h-px" style={{ backgroundColor: 'rgba(196,185,154,0.4)' }} />
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[#8a7e6b]">
+              02
+            </span>
+            <div className="w-8 sm:w-12 h-px bg-[#c4b99a]/40" />
             <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#8a7e6b]">
               {t('subtitle')}
             </span>
@@ -109,7 +110,7 @@ export function VillasAndSuites() {
 
           {/* Description */}
           <motion.div
-            custom={0.15}
+            custom={0.2}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
@@ -122,18 +123,18 @@ export function VillasAndSuites() {
         </div>
       </div>
 
-      {/* Immersive image showcase */}
+      {/* ── Immersive image showcase ── */}
       <motion.div
-        custom={0.25}
+        custom={0.3}
         variants={fadeUp}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         className="relative max-w-[1200px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 pb-20 sm:pb-28 md:pb-32"
       >
-        {/* Main image */}
+        {/* Main image area */}
         <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/10] rounded-sm overflow-hidden bg-[#111820]">
-          {/* Crossfade images */}
-          {items.map((villa) =>
+          {/* Background images — crossfade */}
+          {items.map((villa, vIdx) =>
             (VILLA_IMAGES[villa.id] ?? []).map((src, iIdx) => (
               <img
                 key={`${villa.id}-${iIdx}`}
@@ -142,21 +143,22 @@ export function VillasAndSuites() {
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{
                   opacity:
-                    villa.id === activeVilla?.id && iIdx === imgIdx && !isTransitioning ? 1 : 0,
+                    vIdx === activeIdx && iIdx === imgIdx && !isTransitioning ? 1 : 0,
                   transition: 'opacity 700ms ease-in-out',
                 }}
-                loading={villa.id === items[0]?.id && iIdx === 0 ? 'eager' : 'lazy'}
+                loading={vIdx === 0 && iIdx === 0 ? 'eager' : 'lazy'}
               />
             )),
           )}
 
-          {/* Gradient overlays */}
+          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
 
           {/* Content overlay — bottom left */}
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12 lg:p-16">
             <div className="max-w-[560px]">
+              {/* Villa name */}
               <h3
                 className="font-serif text-white leading-tight mb-3"
                 style={{
@@ -169,6 +171,7 @@ export function VillasAndSuites() {
                 {activeVilla?.title}
               </h3>
 
+              {/* Detail */}
               <p
                 className="font-sans text-[0.8rem] sm:text-[0.9rem] leading-[1.7] text-white/70 font-light mb-5 sm:mb-6"
                 style={{
@@ -180,54 +183,99 @@ export function VillasAndSuites() {
                 {activeVilla?.desc}
               </p>
 
+              {/* CTA button */}
               <a
                 href={`/rooms/${activeVilla?.id}`}
                 className="group inline-flex items-center gap-3 font-sans text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.2em] text-white/80 hover:text-white"
                 style={{
                   opacity: isTransitioning ? 0 : 1,
                   transform: isTransitioning ? 'translateY(16px)' : 'translateY(0)',
-                  transition: 'opacity 500ms 150ms, transform 500ms 150ms',
+                  transition: 'opacity 500ms 150ms, transform 500ms 150ms, color 300ms',
                 }}
               >
-                {t('details')}
+                <span>{t('details')}</span>
                 <ArrowRight
-                  size={12}
-                  className="transition-transform duration-500 group-hover:translate-x-1"
+                  size={14}
+                  className="group-hover:translate-x-1.5 transition-transform duration-300"
                 />
               </a>
             </div>
-          </div>
 
-          {/* Tab switcher — bottom right */}
-          <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 md:bottom-12 md:right-12 lg:bottom-16 lg:right-16 flex gap-2">
-            {items.map((villa, idx) => (
-              <button
-                key={villa.id}
-                onClick={() => handleTabSwitch(idx)}
-                className="font-sans text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.2em] px-3 py-1.5 rounded-full transition-all duration-300"
-                style={{
-                  background:
-                    idx === activeIdx
-                      ? 'rgba(255,255,255,0.95)'
-                      : 'rgba(255,255,255,0.12)',
-                  color: idx === activeIdx ? '#0a0f14' : 'rgba(255,255,255,0.55)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                }}
-              >
-                {villa.title}
-              </button>
-            ))}
+            {/* Image dots — bottom right */}
+            <div
+              className="absolute bottom-6 sm:bottom-8 md:bottom-12 right-6 sm:right-8 md:right-12 lg:right-16 flex gap-2"
+              style={{
+                opacity: isTransitioning ? 0 : 1,
+                transition: 'opacity 500ms',
+              }}
+            >
+              {activeImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setImgIdx(i)}
+                  aria-label={`View image ${i + 1}`}
+                  className="h-[2px] rounded-full transition-all duration-500"
+                  style={{
+                    width: i === imgIdx ? '32px' : '16px',
+                    backgroundColor:
+                      i === imgIdx ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.3)',
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* View all CTA */}
+        {/* ── Tab navigation ── */}
+        <div
+          className="mt-6 sm:mt-8 flex flex-nowrap overflow-x-auto gap-0 border-t border-white/10"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {items.map((villa, idx) => (
+            <button
+              key={villa.id}
+              onClick={() => handleTabSwitch(idx)}
+              className="relative flex-1 min-w-[140px] sm:min-w-0 py-5 sm:py-6 px-4 sm:px-6 text-left transition-colors duration-500 group bg-transparent"
+            >
+              {/* Active indicator line */}
+              <div
+                className="absolute top-[0px] left-0 right-0 h-[2px] transition-all duration-500"
+                style={{
+                  backgroundColor: idx === activeIdx ? '#c4b99a' : 'transparent',
+                }}
+              />
+
+              {/* Number */}
+              <span
+                className="block font-sans text-[0.6rem] tracking-[0.3em] mb-2 transition-colors duration-400"
+                style={{
+                  color: idx === activeIdx ? '#c4b99a' : 'rgba(255,255,255,0.25)',
+                }}
+              >
+                0{idx + 1}
+              </span>
+
+              {/* Villa name */}
+              <span
+                className="block font-serif text-[0.85rem] sm:text-[0.95rem] transition-colors duration-400"
+                style={{
+                  color: idx === activeIdx ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)',
+                }}
+              >
+                {villa.title}
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* View all rooms link */}
         <div className="mt-10 sm:mt-12 text-center">
           <a
             href="/villas"
-            className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-white/50 hover:text-white border-b border-white/20 hover:border-white/50 pb-1 transition-colors duration-500"
+            className="group inline-flex items-center gap-3 font-sans text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.2em] text-white/40 hover:text-white/80 transition-colors duration-500"
           >
-            {t('viewAll')}
-            <ArrowRight size={12} />
+            <span>{t('viewAll')}</span>
+            <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
           </a>
         </div>
       </motion.div>

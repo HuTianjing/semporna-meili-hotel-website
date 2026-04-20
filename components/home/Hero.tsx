@@ -37,7 +37,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden bg-[--color-navy]">
+    <section className="relative h-screen min-h-[700px] overflow-hidden bg-[--color-primary]">
       {/* Video Background */}
       <div className="absolute inset-0">
         <video
@@ -120,7 +120,7 @@ export function Hero() {
           </div>
 
           {/* Quick nav cards */}
-          <div
+          {/* <div
             className="mt-8 hidden md:flex gap-3 animate-fade-in"
             style={{ animationDelay: '1.5s', animationFillMode: 'both' }}
           >
@@ -141,7 +141,7 @@ export function Hero() {
                 </div>
               );
             })}
-          </div>
+          </div> */}
         </div>
       </div>
 

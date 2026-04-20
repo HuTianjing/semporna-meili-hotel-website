@@ -63,7 +63,7 @@ export function Header() {
           <Link href="/" className="flex flex-col items-start">
             <span
               className={`font-serif text-lg tracking-[0.05em] leading-none transition-colors duration-700 ${
-                isScrolled ? 'text-[--color-navy]' : 'text-white'
+                isScrolled ? 'text-[--color-primary]' : 'text-white'
               }`}
             >
               Semporna
@@ -85,7 +85,7 @@ export function Header() {
                 href={item.href}
                 className={`font-sans text-[0.75rem] tracking-[0.15em] transition-colors duration-500 ${
                   isScrolled
-                    ? 'text-[--color-navy]/80 hover:text-[--color-navy] font-normal'
+                    ? 'text-[--color-primary]/80 hover:text-[--color-primary] font-normal'
                     : 'text-white/90 hover:text-white font-light'
                 }`}
               >
@@ -98,7 +98,7 @@ export function Header() {
               onClick={() => setIsBookingOpen((v) => !v)}
               className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border transition-all duration-500 ${
                 isScrolled
-                  ? 'border-[--color-navy]/30 text-[--color-navy] hover:bg-[--color-navy] hover:text-white'
+                  ? 'border-[--color-primary]/30 text-[--color-primary] hover:bg-[--color-primary] hover:text-white'
                   : 'border-white/40 text-white/90 hover:bg-white/10 hover:border-white/60'
               }`}
             >
@@ -114,7 +114,7 @@ export function Header() {
                 onClick={() => setLangOpen(!langOpen)}
                 className={`flex items-center gap-1.5 font-sans text-[0.75rem] tracking-[0.1em] transition-colors duration-500 ${
                   isScrolled
-                    ? 'text-[--color-navy]/70 hover:text-[--color-navy] font-normal'
+                    ? 'text-[--color-primary]/70 hover:text-[--color-primary] font-normal'
                     : 'text-white/80 hover:text-white font-light'
                 }`}
               >
@@ -130,8 +130,8 @@ export function Header() {
                       onClick={() => switchLocale(loc.code)}
                       className={`block w-full text-left px-4 py-2.5 text-xs tracking-wide font-sans transition-colors ${
                         locale === loc.code
-                          ? 'bg-[--color-cream] text-[--color-navy] font-medium'
-                          : 'text-[--color-slate-muted] hover:bg-[--color-cream] hover:text-[--color-navy]'
+                          ? 'bg-[--color-cream] text-[--color-primary] font-medium'
+                          : 'text-[--color-slate-muted] hover:bg-[--color-cream] hover:text-[--color-primary]'
                       }`}
                     >
                       {loc.full}
@@ -148,7 +148,7 @@ export function Header() {
               onClick={() => setIsBookingOpen((v) => !v)}
               className={`p-1.5 rounded-full border transition-all duration-500 ${
                 isScrolled
-                  ? 'border-[--color-navy]/30 text-[--color-navy] hover:bg-[--color-navy] hover:text-white'
+                  ? 'border-[--color-primary]/30 text-[--color-primary] hover:bg-[--color-primary] hover:text-white'
                   : 'border-white/40 text-white/90 hover:bg-white/10'
               }`}
             >
@@ -159,7 +159,7 @@ export function Header() {
             <div className="relative" ref={langRef}>
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className={`transition-colors duration-500 ${isScrolled ? 'text-[--color-navy]' : 'text-white'}`}
+                className={`transition-colors duration-500 ${isScrolled ? 'text-[--color-primary]' : 'text-white'}`}
               >
                 <Globe size={16} />
               </button>
@@ -171,7 +171,7 @@ export function Header() {
                       onClick={() => switchLocale(loc.code)}
                       className={`block w-full text-left px-4 py-2.5 text-xs font-sans ${
                         locale === loc.code
-                          ? 'bg-[--color-cream] text-[--color-navy] font-medium'
+                          ? 'bg-[--color-cream] text-[--color-primary] font-medium'
                           : 'text-[--color-slate-muted] hover:bg-[--color-cream]'
                       }`}
                     >
@@ -190,17 +190,17 @@ export function Header() {
             >
               <span
                 className={`block w-5 h-px transition-all duration-500 ${
-                  isScrolled ? 'bg-[--color-navy]' : 'bg-white'
+                  isScrolled ? 'bg-[--color-primary]' : 'bg-white'
                 } ${isMenuOpen ? 'rotate-45 translate-y-[3.5px]' : ''}`}
               />
               <span
                 className={`block w-5 h-px transition-all duration-500 ${
-                  isScrolled ? 'bg-[--color-navy]' : 'bg-white'
+                  isScrolled ? 'bg-[--color-primary]' : 'bg-white'
                 } ${isMenuOpen ? 'opacity-0' : ''}`}
               />
               <span
                 className={`block w-5 h-px transition-all duration-500 ${
-                  isScrolled ? 'bg-[--color-navy]' : 'bg-white'
+                  isScrolled ? 'bg-[--color-primary]' : 'bg-white'
                 } ${isMenuOpen ? '-rotate-45 -translate-y-[3.5px]' : ''}`}
               />
             </button>
@@ -222,7 +222,7 @@ export function Header() {
                 key={item.key}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="font-serif text-2xl text-[--color-navy] tracking-[0.1em] hover:text-[--color-navy]/70 transition-colors"
+                className="font-serif text-2xl text-[--color-primary] tracking-[0.1em] hover:text-[--color-primary]/70 transition-colors"
               >
                 {t(item.key)}
               </Link>

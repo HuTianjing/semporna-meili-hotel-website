@@ -25,7 +25,7 @@
   --color-background: hsl(0, 0%, 100%); /* 极简亮白，#FFFFFF */
   --color-foreground: hsl(240, 10%, 4%); /* 接近纯黑，用于正文 */
 
-  --color-primary: hsl(210, 100%, 12%); /* 仙本那深海蓝 (Semporna Deep Sea) */
+  --color-primary: #003865; /* 仙本那深海蓝 (Semporna Deep Sea) */
   --color-primary-foreground: hsl(0, 0%, 100%);
 
   --color-muted: hsl(210, 20%, 96%); /* 极浅灰/冰川蓝，用于区块或卡片底色 */
@@ -40,10 +40,9 @@
   --font-text: 'Cormorant Garamond', 'LXGW WenKai SC', serif;
 
   /* --- v19 品牌颜色 Token (从 Semporna Meili Resort Web_v19 迁移) --- */
-  /* Navy — 仙本那深海蓝 #083D69 */
-  --color-navy: hsl(207, 85%, 22%);
-  --color-navy-light: hsl(207, 85%, 28%);
-  --color-navy-dark: hsl(207, 85%, 16%);
+  /* Primary Theme Color — 仙本那深海蓝 #003865 */
+  --color-primary-light: #004d80;
+  --color-primary-dark: #002340;
   /* Cream — 米白色 #FAFAF8 */
   --color-cream: hsl(60, 11%, 98%);
   /* Slate */

@@ -43,7 +43,7 @@ export function Footer() {
     <footer
       ref={footerRef}
       className="relative overflow-hidden py-20 md:py-32"
-      style={{ backgroundColor: 'var(--color-navy)', color: 'white' }}
+      style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}
     >
       {/* 装饰性背景 */}
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.2)_100%)] pointer-events-none" />
