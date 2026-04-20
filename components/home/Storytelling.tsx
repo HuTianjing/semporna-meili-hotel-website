@@ -1,9 +1,18 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+  }),
+};
 
 const POST_IMAGES = [
   'https://picsum.photos/seed/post-story1/1200/900',
@@ -17,6 +26,7 @@ export function Storytelling() {
   const t = useTranslations('Story');
   const sectionRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -20px 0px', amount: 0.02 });
 
   const { scrollYProgress } = useScroll({
     target: listRef,
@@ -28,15 +38,41 @@ export function Storytelling() {
   const posts = t.raw('posts') as Array<{ tag: string; title: string; date: string }>;
 
   return (
-    <section ref={sectionRef} className="bg-background relative w-full pt-20 pb-32">
-      {/* 标题区 */}
-      <div className="container mx-auto mb-14 flex flex-col items-center px-8 text-center md:mb-20 md:px-16">
-        <p className="text-muted-foreground mb-2 font-sans text-[10px] font-semibold tracking-[0.2em] uppercase md:mb-4 md:text-sm md:tracking-[0.3em]">
-          {t('subtitle')}
-        </p>
-        <h2 className="text-foreground font-serif text-4xl md:text-5xl lg:text-6xl">
-          {t('title')}
-        </h2>
+    <section ref={sectionRef} className="relative w-full pb-32 pt-20">
+      {/* ── Section header ── */}
+      <div className="mx-auto max-w-[1500px] px-5 pb-10 sm:px-8 sm:pb-14 md:px-12 lg:px-16">
+        {/* Section label */}
+        <motion.div
+          custom={0}
+          variants={fadeUp}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          className="mb-6 flex items-center justify-center gap-3 sm:mb-8 sm:gap-4"
+        >
+          <span className="font-sans text-[0.6rem] tracking-[0.35em] text-[#8a7e6b] uppercase">
+            03
+          </span>
+          <div className="h-px w-8 bg-[#c4b99a]/40 sm:w-12" />
+          <span className="font-sans text-[0.6rem] tracking-[0.25em] text-[#8a7e6b] uppercase sm:text-[0.65rem] sm:tracking-[0.3em]">
+            {t('subtitle')}
+          </span>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.div
+          custom={0.1}
+          variants={fadeUp}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          className="mb-10 text-center sm:mb-14 md:mb-20"
+        >
+          <h2
+            className="font-serif leading-[1.15] text-[#1a2a3a]"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
+          >
+            {t('title')}
+          </h2>
+        </motion.div>
       </div>
 
       {/* 博客列表：随滚动从圆角窄盒展开至全宽 */}
