@@ -88,29 +88,16 @@ export function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex shrink-0 items-center gap-4 transition-opacity hover:opacity-80"
+              className="shrink-0 transition-opacity hover:opacity-80"
             >
               <Image
-                src="/images/logo-full.png"
-                alt="Logo"
-                width={160}
-                height={160}
-                className="h-auto w-12 object-contain transition-all duration-700"
+                src="/images/logo-h-new.png"
+                alt="Meili Resort Hotel"
+                width={240}
+                height={81}
+                className="h-14 w-auto object-contain"
+                priority
               />
-              <div
-                className={`flex flex-col items-start border-l pl-4 transition-colors duration-700 ${isScrolled ? 'border-[--color-primary]/20' : 'border-white/25'}`}
-              >
-                <span
-                  className={`font-serif text-2xl leading-none tracking-[0.05em] transition-colors duration-700 ${isScrolled ? 'text-[--color-primary]' : 'text-white'}`}
-                >
-                  MEILI
-                </span>
-                <span
-                  className={`mt-1 font-sans text-[0.7rem] tracking-[0.3em] uppercase transition-colors duration-700 ${isScrolled ? 'text-[--color-slate-muted]' : 'text-white/70'}`}
-                >
-                  RESORT HOTEL
-                </span>
-              </div>
             </Link>
 
             {/* Desktop Nav Links */}
