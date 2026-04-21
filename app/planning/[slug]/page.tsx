@@ -77,7 +77,23 @@ export default async function PlanningDocPage({ params }: Props) {
 
       {/* MDX Content */}
       <article className="bg-white rounded-lg border border-slate-200 px-8 py-10 sm:px-12">
-        <div className="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-h1:border-b-2 prose-h1:border-primary prose-h1:pb-3 prose-a:text-primary prose-table:text-sm prose-th:bg-primary prose-th:text-white prose-th:font-semibold prose-blockquote:border-l-primary prose-blockquote:bg-blue-50 prose-blockquote:not-italic prose-code:bg-slate-100 prose-code:text-slate-800 prose-code:before:content-none prose-code:after:content-none prose-pre:bg-slate-900">
+        <div className="prose prose-slate prose-base max-w-none
+          prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-slate-900
+          prose-h1:text-2xl prose-h1:font-bold prose-h1:pb-3 prose-h1:border-b prose-h1:border-slate-200
+          prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4
+          prose-h3:text-base prose-h3:mt-6
+          prose-p:text-slate-700 prose-p:leading-relaxed
+          prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-slate-900
+          prose-code:text-rose-600 prose-code:bg-rose-50 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+          prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-lg prose-pre:text-sm [&_pre_code]:text-slate-100 [&_pre_code]:bg-transparent [&_pre_code]:p-0
+          prose-blockquote:border-l-4 prose-blockquote:border-blue-400 prose-blockquote:bg-blue-50 prose-blockquote:py-1 prose-blockquote:not-italic prose-blockquote:text-slate-700
+          prose-table:text-sm prose-table:w-full
+          prose-thead:bg-slate-100 prose-th:text-slate-700 prose-th:font-semibold prose-th:py-2 prose-th:px-3
+          prose-td:py-2 prose-td:px-3 prose-td:border prose-td:border-slate-200
+          prose-tr:even:bg-slate-50
+          prose-li:text-slate-700 prose-li:marker:text-slate-400
+          prose-hr:border-slate-200">
           <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
       </article>
