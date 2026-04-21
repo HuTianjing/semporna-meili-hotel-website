@@ -3,6 +3,7 @@
 - AI MUST NOT execute `dev` or `build` scripts (e.g. `pnpm dev`, `npm run build`). These commands must be initiated by the user manually.
 - CSS/Tailwind: 必须遵循 Tailwind CSS v4 规范，使用标准类名 Canonical Classes。例如 `flex-shrink-0` 代替 `shrink-0`，`flex-grow` 代替 `grow`。
 - 文本替换与编码：如果在 Powershell 使用 `Set-Content`、`Replace` 替换 tsx 文件内容，必须注意 UTF-16/GBK 乱码问题，建议直接使用工具进行文件编辑。tsx 中的 HTML entities 必须正确编码。每次完成重构后，通过 `pnpm lint` 或编译来验证是否产生语法错误。
+- **Next.js 16 中间件重命名（框架级变更）：** `middleware.ts` 在 Next.js 16.0.0 中已正式废弃，框架将其重命名为 `proxy.ts`（见官方 changelog：v16.0.0 — "Middleware is deprecated and renamed to Proxy"）。这是框架本身的文件约定变更，与本项目无关。**严禁创建 `middleware.ts`**，否则会被 Next.js 忽略或报警告。本项目中间件逻辑（next-intl i18n routing）位于根目录 `proxy.ts`，所有 `matcher` 修改必须在此文件中进行。若需要让某个路径段（如 `/planning`）跳过 i18n 处理，在 `proxy.ts` 的 `matcher` 正则中排除：`matcher: ['/((?!api|_next|_vercel|planning|.*\\..*).*)']`。
 
 ---
 

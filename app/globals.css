@@ -15,6 +15,7 @@
 @import '@fontsource/noto-serif-sc/chinese-simplified-700.css';
 
 @plugin 'tailwindcss-animate';
+@plugin '@tailwindcss/typography';
 
 @theme {
   /* ==========================================
