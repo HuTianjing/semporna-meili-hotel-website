@@ -43,11 +43,15 @@ export default function LocationChecklist() {
           </div>
 
           <h2
-            className="font-serif text-[--color-section-text] leading-[1.15] mb-6"
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-4"
             style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}
           >
             {t('prepare.title')}
           </h2>
+
+          <p className="font-sans text-[--color-warm-text] text-sm sm:text-base leading-relaxed mb-6">
+            {t('prepare.subtitle')}
+          </p>
 
           <div className="flex justify-center mb-10 sm:mb-12">
             <div className="w-12 sm:w-16 h-px bg-[--color-gold-warm]" />
@@ -83,17 +87,20 @@ export default function LocationChecklist() {
           className="text-center"
         >
           <h2
-            className="font-serif text-[--color-section-text] leading-[1.15] mb-4"
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-3"
             style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)' }}
           >
             {t('cta.title')}
           </h2>
+          <p className="font-text italic text-[--color-section-text]/45 text-sm sm:text-base mb-4">
+            {t('cta.titleEn')}
+          </p>
           <p className="font-sans text-[--color-warm-text] mb-10 max-w-prose mx-auto text-sm sm:text-base leading-relaxed">
             {t('cta.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/60112780399"
+              href="https://wa.me/601127803997"
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center bg-primary text-white px-8 py-3 text-sm tracking-widest uppercase transition-colors duration-300 hover:bg-primary-light min-h-11"

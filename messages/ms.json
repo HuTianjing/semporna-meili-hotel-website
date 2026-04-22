@@ -188,23 +188,28 @@
       "latitude": "4° Latitud Utara",
       "climate": "Suhu Sepanjang Tahun",
       "typhoonFree": "Tahun Bebas Taufan",
-      "sipadanValue": "Bersebelahan Sipadan",
-      "sipadan": "Tapak Menyelam Bertaraf Dunia"
+      "sipadanValue": "< 30 minit",
+      "sipadan": "Bot Laju ke Sipadan"
     },
     "route": {
-      "tag": "LALUAN KETIBAAN",
-      "title": "Pemindahan Inklusif Penuh",
-      "node1Label": "Lapangan Terbang",
-      "node1Sub": "KUL · BKI · TWU",
-      "node2Label": "Lapangan Terbang Tawau",
-      "node2Sub": "Lapangan Terbang Terdekat · TWU",
-      "node3Label": "Jeti Semporna",
-      "node3Sub": "Pelantar Bandar Semporna",
-      "node4Label": "Meili Resort",
-      "node4Sub": "Pulau Peribadi Anda ★",
-      "seg1": "✈ Penerbangan Domestik · ~1.5 jam",
-      "seg2": "🚗 Pemindahan Darat Hotel · ~1 jam",
-      "seg3": "⛵ Bot Laju Peribadi · ~30 minit"
+      "tag": "LALUAN KETIBAAN · PEMINDAHAN PENUH",
+      "title": "Pemindahan Ketibaan Inklusif Penuh",
+      "selfZone": "Diatur oleh anda",
+      "airport": "Mana-mana Lapangan Terbang di Malaysia",
+      "airportHint": "Kami syorkan terbang terus melalui Tawau (TWU)",
+      "divider": "Semua di bawah diatur oleh Meili Resort",
+      "tawauLabel": "Lapangan Terbang Tawau",
+      "tawauSub": "Tawau Airport · TWU",
+      "tawauMode": "Kenderaan Hotel Peribadi",
+      "tawauDuration": "~ 1 jam",
+      "jettyLabel": "Jeti Semporna",
+      "jettySub": "Semporna Jetty",
+      "jettyMode": "Bot Laju Peribadi",
+      "jettyDuration": "~ 30 minit",
+      "resortLabel": "Meili Resort Hotel",
+      "resortSub": "Meili Resort Hotel ★",
+      "included": "Termasuk dalam pakej all-inclusive",
+      "promise": "Dari Lapangan Terbang Tawau, pasukan kami menemani anda di setiap langkah. Di setiap titik pemindahan, seseorang dari pasukan kami akan menunggu."
     },
     "schedule": {
       "tag": "TRANSFER SCHEDULE",
@@ -214,20 +219,22 @@
       "departureTitle": "Arah Berlepas",
       "depResortToJetty": "⛵ Meili Resort → Jeti Semporna",
       "depJettyToTawau": "🚗 Jeti Semporna → Lapangan Terbang Tawau",
-      "noticeTitle": "⚠️ Nota Pemindahan Penting",
-      "notice1": "Jadual di atas hanya terpakai pada hari daftar masuk dan daftar keluar. Sila berikan nama penuh dan nombor penerbangan sekurang-kurangnya 3 hari lebih awal.",
-      "notice2": "Jika penerbangan anda lewat atau terlepas pemindahan yang dijadualkan, sila hubungi kami terlebih dahulu. Pemindahan pada tarikh lain dikenakan bayaran tambahan."
+      "noticeTitle": "Nota Jadual Pemindahan",
+      "notice1": "Jadual di atas terpakai pada hari daftar masuk dan daftar keluar anda",
+      "notice2": "Sila kongsi butiran penerbangan sekurang-kurangnya 3 hari sebelum ketibaan — kami akan ada menunggu",
+      "notice3": "Jika penerbangan anda lewat atau berubah, hubungi kami bila-bila masa — kami akan selaraskan agar anda tidak menunggu di jeti"
     },
     "map": {
       "tag": "EXPLORE THE AREA",
       "caption": "★ Meili Resort · 📍 Jeti Semporna · ✈️ Lapangan Terbang Tawau · 🤿 Pulau Sipadan"
     },
     "prepare": {
-      "tag": "KEPERLUAN PERJALANAN",
-      "title": "Senarai Semak Pra-Ketibaan",
+      "tag": "NOTA BUTLER",
+      "title": "Kami Sudah Fikirkan Segalanya",
+      "subtitle": "Senarai ini dibina daripada pengalaman bertahun-tahun menyambut tetamu seperti anda",
       "items": [
         "Pasport atau dokumen ID",
-        "Pengesahan tempahan (tangkapan skrin atau cetakan)",
+        "Pengesahan tempahan (tangkapan skrin sudah cukup — kami sudah ada rekod anda)",
         "Ubat peribadi",
         "Pakaian renang (beberapa set)",
         "Pelindung matahari (mesra terumbu karang disyorkan)",
@@ -235,13 +242,14 @@
         "Cermin mata hitam dan topi matahari",
         "Peralatan kamera bawah air (pilihan)"
       ],
-      "tip": "Resort menyediakan kemudahan yang lengkap — tidak perlu membawa terlalu banyak barang. Butler peribadi anda boleh membantu mendapatkan apa sahaja yang anda perlukan semasa penginapan."
+      "tip": "Segala-galanya di pulau sudah disediakan untuk anda. Bawa barang ringkas. Butler peribadi anda akan uruskan selebihnya."
     },
     "cta": {
-      "title": "Perlukan Bantuan Merancang Ketibaan Anda?",
-      "desc": "Pasukan kami akan menemani anda dari berlepas hingga daftar masuk. Sila kongsikan butiran penerbangan anda selepas tempahan supaya kami boleh mengatur pemindahan.",
-      "whatsapp": "Berbual di WhatsApp",
-      "email": "E-mel Kami"
+      "title": "Perjalanan Anda Bermula Sebaik Anda Membuat Tempahan",
+      "titleEn": "Your Journey Begins the Moment You Book",
+      "desc": "Setelah tempahan disahkan, hantar butiran penerbangan kepada kami. Pasukan kami akan mengesahkan peraturan pemindahan sebelum anda berlepas — dan menunggu anda di jeti.",
+      "whatsapp": "Hantar Butiran Penerbangan via WhatsApp",
+      "email": "Sahkan Itinerari melalui E-mel"
     },
     "arrival": {
       "sectionTag": "PERJALANAN KETIBAAN",

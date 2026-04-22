@@ -1,7 +1,6 @@
 ﻿import LocationGeo from '@/components/location/LocationGeo';
 import LocationRoute from '@/components/location/LocationRoute';
 import LocationSchedule from '@/components/location/LocationSchedule';
-import LocationMap from '@/components/location/LocationMap';
 import LocationChecklist from '@/components/location/LocationChecklist';
 
 export default function LocationPage() {
@@ -10,7 +9,6 @@ export default function LocationPage() {
       <LocationGeo />
       <LocationRoute />
       <LocationSchedule />
-      <LocationMap />
       <LocationChecklist />
     </main>
   );

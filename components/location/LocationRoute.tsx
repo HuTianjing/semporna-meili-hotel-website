@@ -1,6 +1,6 @@
 'use client';
 
-import { Plane, Car, Ship, Info } from 'lucide-react';
+import { Plane, Car, Ship, MapPin } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
@@ -23,23 +23,9 @@ export default function LocationRoute() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '0px 0px -20px 0px', amount: 0.02 });
 
-  const nodes = [
-    { icon: Plane, label: t('route.node1Label'), sub: t('route.node1Sub'), isDestination: false },
-    { icon: Plane, label: t('route.node2Label'), sub: t('route.node2Sub'), isDestination: false },
-    { icon: Car,   label: t('route.node3Label'), sub: t('route.node3Sub'), isDestination: false },
-    { icon: Ship,  label: t('route.node4Label'), sub: t('route.node4Sub'), isDestination: true  },
-  ];
-
-  const segs = [t('route.seg1'), t('route.seg2'), t('route.seg3')];
-
-  const notes = [
-    { icon: Info, text: t('schedule.notice1') },
-    { icon: Info, text: t('schedule.notice2') },
-  ];
-
   return (
     <section ref={ref} className="py-16 sm:py-24 md:py-36 lg:py-44 px-page bg-[--color-about-bg]">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-2xl mx-auto">
 
         {/* ── Section tag */}
         <motion.div
@@ -68,126 +54,130 @@ export default function LocationRoute() {
         <motion.div
           custom={0.15} variants={fadeUp} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="flex justify-center mb-16 sm:mb-20 md:mb-28"
+          className="flex justify-center mb-12 sm:mb-16"
         >
           <div className="w-12 sm:w-16 h-px bg-[--color-gold-warm]" />
         </motion.div>
 
-        {/* ── Route diagram — Desktop horizontal (md+) */}
+        {/* ── Zone 1: User self-arranged (muted) */}
         <motion.div
           custom={0.2} variants={fadeUp} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="hidden md:flex items-start mb-16 sm:mb-20"
         >
-          {nodes.map(({ icon: Icon, label, sub, isDestination }, idx) => (
-            <div key={label} className="flex items-start flex-1 min-w-0">
-
-              {/* Node */}
-              <div className="flex flex-col items-center gap-3 shrink-0 w-28">
-                <div
-                  className={
-                    isDestination
-                      ? 'w-14 h-14 rounded-full border border-[--color-gold-warm] bg-[--color-gold-warm]/10 flex items-center justify-center text-[--color-gold-warm]'
-                      : 'w-14 h-14 rounded-full border border-[--color-warm-text]/30 flex items-center justify-center text-[--color-warm-text]'
-                  }
-                >
-                  <Icon size={20} strokeWidth={1.2} />
-                </div>
-                <div className="text-center px-1">
-                  <p
-                    className={
-                      isDestination
-                        ? 'font-serif text-[--color-section-text] text-sm leading-snug'
-                        : 'font-sans text-[--color-section-text] text-sm leading-snug'
-                    }
-                  >
-                    {label}
-                  </p>
-                  <p className="font-sans text-[0.55rem] uppercase tracking-[0.2em] text-[--color-warm-text] mt-1">
-                    {sub}
-                  </p>
-                </div>
-              </div>
-
-              {/* Connector (not after last node) */}
-              {idx < nodes.length - 1 && (
-                <div className="flex-1 flex flex-col items-center pt-6 min-w-0 px-1">
-                  <p className="font-sans text-[0.55rem] uppercase tracking-[0.12em] text-[--color-warm-text] mb-3 text-center whitespace-nowrap truncate max-w-full">
-                    {segs[idx]}
-                  </p>
-                  <div className="w-full h-px bg-[--color-gold-warm]/25 relative">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-[6px] border-l-[--color-gold-warm]/40" />
-                  </div>
-                </div>
-              )}
+          <p className="font-sans text-[0.6rem] uppercase tracking-[0.3em] text-[--color-warm-text] mb-4 text-center">
+            {t('route.selfZone')}
+          </p>
+          <div className="border border-[--color-warm-text]/20 p-6 sm:p-8 flex items-center gap-5">
+            <Plane className="text-[--color-warm-text] shrink-0" size={26} strokeWidth={1.2} />
+            <div>
+              <p className="font-serif text-[--color-section-text]" style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}>
+                {t('route.airport')}
+              </p>
+              <p className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[--color-warm-text] mt-1.5">
+                {t('route.airportHint')}
+              </p>
             </div>
-          ))}
+          </div>
         </motion.div>
 
-        {/* ── Route diagram — Mobile vertical timeline */}
+        {/* ── Divider: gold line + centered text */}
         <motion.div
-          custom={0.2} variants={fadeUp} initial="hidden"
+          custom={0.25} variants={fadeUp} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="md:hidden mb-12"
+          className="flex items-center gap-4 my-8 sm:my-10"
         >
-          {nodes.map(({ icon: Icon, label, sub, isDestination }, idx) => (
-            <div key={label} className="flex items-start gap-5">
-
-              {/* Left: circle + vertical connector */}
-              <div className="flex flex-col items-center shrink-0">
-                <div
-                  className={
-                    isDestination
-                      ? 'w-10 h-10 rounded-full border border-[--color-gold-warm] bg-[--color-gold-warm]/10 flex items-center justify-center text-[--color-gold-warm]'
-                      : 'w-10 h-10 rounded-full border border-[--color-warm-text]/30 flex items-center justify-center text-[--color-warm-text]'
-                  }
-                >
-                  <Icon size={16} strokeWidth={1.2} />
-                </div>
-                {idx < nodes.length - 1 && (
-                  <div className="w-px bg-[--color-gold-warm]/25 flex-1 min-h-18" />
-                )}
-              </div>
-
-              {/* Right: label, sub, segment */}
-              <div className="pt-2 pb-1">
-                <p
-                  className={
-                    isDestination
-                      ? 'font-serif text-[--color-section-text] text-sm leading-snug'
-                      : 'font-sans text-[--color-section-text] text-sm leading-snug'
-                  }
-                >
-                  {label}
-                </p>
-                <p className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[--color-warm-text] mt-1">
-                  {sub}
-                </p>
-                {idx < nodes.length - 1 && (
-                  <p className="font-sans text-[0.6rem] uppercase tracking-[0.15em] text-[--color-warm-text] mt-4 mb-2">
-                    {segs[idx]}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
+          <div className="flex-1 h-px bg-[--color-gold-warm]/35" />
+          <p className="font-sans text-[0.6rem] uppercase tracking-[0.18em] text-[--color-gold-warm] text-center whitespace-nowrap px-1">
+            {t('route.divider')}
+          </p>
+          <div className="flex-1 h-px bg-[--color-gold-warm]/35" />
         </motion.div>
 
-        {/* ── Transfer notes */}
+        {/* ── Zone 2: Hotel-managed timeline */}
         <motion.div
           custom={0.3} variants={fadeUp} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="border-t border-[--color-gold-warm]/20 pt-10 sm:pt-12"
         >
-          <ul className="space-y-3">
-            {notes.map(({ icon: Icon, text }, idx) => (
-              <li key={idx} className="flex items-start gap-3 font-sans text-[--color-warm-text] text-sm sm:text-base leading-relaxed">
-                <Icon size={15} strokeWidth={1.5} className="text-[--color-gold-warm] shrink-0 mt-0.5" />
-                <span>{text}</span>
-              </li>
-            ))}
-          </ul>
+          {/* Node 1 — Tawau */}
+          <div className="flex gap-5">
+            <div className="flex flex-col items-center shrink-0">
+              <div className="z-10 w-11 h-11 rounded-full border border-[--color-gold-warm] bg-[--color-about-bg] flex items-center justify-center text-[--color-gold-warm]">
+                <Car size={18} strokeWidth={1.2} />
+              </div>
+              <div className="flex-1 w-px bg-[--color-gold-warm]/30 my-2 min-h-10" />
+            </div>
+            <div className="flex-1 pb-8">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-1">
+                <p className="font-serif text-[--color-section-text]" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
+                  {t('route.tawauLabel')}
+                </p>
+                <p className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[--color-gold-warm] shrink-0">
+                  {t('route.tawauDuration')}
+                </p>
+              </div>
+              <p className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[--color-warm-text]">
+                {t('route.tawauSub')} · {t('route.tawauMode')}
+              </p>
+              <p className="font-sans text-[0.65rem] text-[--color-gold-warm] mt-2.5 flex items-center gap-1.5">
+                <span>✓</span>
+                {t('route.included')}
+              </p>
+            </div>
+          </div>
+
+          {/* Node 2 — Jetty */}
+          <div className="flex gap-5">
+            <div className="flex flex-col items-center shrink-0">
+              <div className="z-10 w-11 h-11 rounded-full border border-[--color-gold-warm] bg-[--color-about-bg] flex items-center justify-center text-[--color-gold-warm]">
+                <Ship size={18} strokeWidth={1.2} />
+              </div>
+              <div className="flex-1 w-px bg-[--color-gold-warm]/30 my-2 min-h-10" />
+            </div>
+            <div className="flex-1 pb-8">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-1">
+                <p className="font-serif text-[--color-section-text]" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}>
+                  {t('route.jettyLabel')}
+                </p>
+                <p className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[--color-gold-warm] shrink-0">
+                  {t('route.jettyDuration')}
+                </p>
+              </div>
+              <p className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[--color-warm-text]">
+                {t('route.jettySub')} · {t('route.jettyMode')}
+              </p>
+              <p className="font-sans text-[0.65rem] text-[--color-gold-warm] mt-2.5 flex items-center gap-1.5">
+                <span>✓</span>
+                {t('route.included')}
+              </p>
+            </div>
+          </div>
+
+          {/* Node 3 — Resort (destination) */}
+          <div className="flex gap-5">
+            <div className="flex flex-col items-center shrink-0">
+              <div className="z-10 w-11 h-11 rounded-full border border-[--color-gold-warm] bg-[--color-gold-warm]/10 flex items-center justify-center text-[--color-gold-warm]">
+                <MapPin size={18} strokeWidth={1.2} />
+              </div>
+            </div>
+            <div className="flex-1 pt-1.5">
+              <p className="font-serif text-[--color-section-text]" style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)' }}>
+                {t('route.resortLabel')}
+              </p>
+              <p className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[--color-warm-text] mt-1">
+                {t('route.resortSub')}
+              </p>
+            </div>
+          </div>
         </motion.div>
+
+        {/* ── Promise quote */}
+        <motion.p
+          custom={0.4} variants={fadeUp} initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="font-text italic text-[--color-section-text]/55 text-sm sm:text-base leading-relaxed text-center mt-12 sm:mt-16 px-4"
+        >
+          &ldquo;{t('route.promise')}&rdquo;
+        </motion.p>
 
       </div>
     </section>

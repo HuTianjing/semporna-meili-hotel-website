@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
-import { AlertTriangle } from 'lucide-react';
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -24,7 +24,7 @@ export default function LocationSchedule() {
   const inView = useInView(ref, { once: true, margin: '0px 0px -20px 0px', amount: 0.02 });
 
   return (
-    <section ref={ref} className="py-16 sm:py-24 md:py-36 lg:py-44 px-page bg-[--color-villas-bg]">
+    <section ref={ref} className="py-16 sm:py-24 md:py-36 lg:py-44 px-page bg-primary">
       <div className="max-w-5xl mx-auto">
 
         {/* ── Section tag */}
@@ -118,16 +118,16 @@ export default function LocationSchedule() {
           </div>
         </motion.div>
 
-        {/* ── Important notices */}
+        {/* ── Schedule notes (active-promise tone) */}
         <motion.div
           custom={0.3} variants={fadeUp} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           className="border-t border-white/10 pt-10 sm:pt-12"
         >
           <ul className="space-y-4">
-            {[t('schedule.notice1'), t('schedule.notice2')].map((notice, idx) => (
-              <li key={idx} className="flex items-start gap-3 font-sans text-white/70 text-sm sm:text-base leading-relaxed">
-                <AlertTriangle size={15} strokeWidth={1.5} className="text-gold shrink-0 mt-0.5" />
+            {[t('schedule.notice1'), t('schedule.notice2'), t('schedule.notice3')].map((notice, idx) => (
+              <li key={idx} className="flex items-start gap-3 font-sans text-white/60 text-sm sm:text-base leading-relaxed">
+                <span className="text-[--color-gold-warm] shrink-0 mt-0.5 text-base leading-none">&middot;</span>
                 <span>{notice}</span>
               </li>
             ))}

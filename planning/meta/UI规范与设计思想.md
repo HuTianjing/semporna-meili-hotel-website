@@ -585,6 +585,18 @@ const isInView = useInView(sectionRef, {
 - Hero 封面：加 `priority` 属性
 - alt 属性：必须有意义，不能为空或 `"image"`
 
+### 7.1 现有素材目录
+
+> 优先使用实景照片。iStock 图片为版权图，仅供参考，**上线前必须替换为自有素材**。
+
+| 路径 | 内容 | 用途建议 |
+|---|---|---|
+| `public/Photos on OTA/Villa Photos/` | 别墅室内外实景图（img3、img6、img9…共9张） | 房型卡片、首页 VillasAndSuites 区块 |
+| `public/Photos on OTA/` | OTA 平台图（含酒店外观、海景、iStock 版权图） | 位置页地理区块、Gallery、Hero 备用 |
+| `public/images/` | 其他静态资源 | 按需 |
+
+> 开发新区块时，先 `list_dir public/Photos on OTA/Villa Photos/` 确认可用实景，选最符合语境的一张，再用 `next/image` 引入。
+
 ---
 
 ## Part 8：多语言 (i18n)

@@ -240,6 +240,30 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
               )}
               {t('nav4')}
             </Link>
+            <Link
+              href="/offers"
+              onClick={onClose}
+              className="relative flex cursor-pointer items-center hover:opacity-70"
+            >
+              {pathname === '/offers' && (
+              <svg className="absolute -left-6.25 h-3.5 w-3" viewBox="0 0 10 14" fill="black">
+                <path d="M0 0l10 7-10 7z" />
+              </svg>
+              )}
+              {t('nav5')}
+            </Link>
+            <Link
+              href="/contact"
+              onClick={onClose}
+              className="relative flex cursor-pointer items-center hover:opacity-70"
+            >
+              {pathname === '/contact' && (
+              <svg className="absolute -left-6.25 h-3.5 w-3" viewBox="0 0 10 14" fill="black">
+                <path d="M0 0l10 7-10 7z" />
+              </svg>
+              )}
+              {t('nav6')}
+            </Link>
           </div>
 
 
