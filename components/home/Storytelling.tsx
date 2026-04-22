@@ -49,11 +49,11 @@ export function Storytelling() {
           animate={isInView ? 'visible' : 'hidden'}
           className="mb-6 flex items-center justify-center gap-3 sm:mb-8 sm:gap-4"
         >
-          <span className="font-sans text-[0.6rem] tracking-[0.35em] text-[#8a7e6b] uppercase">
+          <span className="font-sans text-[0.6rem] tracking-[0.35em] text-[--color-warm-text] uppercase">
             03
           </span>
           <div className="h-px w-8 bg-[#c4b99a]/40 sm:w-12" />
-          <span className="font-sans text-[0.6rem] tracking-[0.25em] text-[#8a7e6b] uppercase sm:text-[0.65rem] sm:tracking-[0.3em]">
+          <span className="font-sans text-[0.6rem] tracking-[0.25em] text-[--color-warm-text] uppercase sm:text-[0.65rem] sm:tracking-[0.3em]">
             {t('subtitle')}
           </span>
         </motion.div>
@@ -67,7 +67,7 @@ export function Storytelling() {
           className="mb-10 text-center sm:mb-14 md:mb-20"
         >
           <h2
-            className="font-serif leading-[1.15] text-[#1a2a3a]"
+            className="font-serif leading-[1.15] text-[--color-section-text]"
             style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             {t('title')}
@@ -89,7 +89,7 @@ export function Storytelling() {
                 className={`group flex cursor-pointer flex-col md:flex-row ${isEven ? '' : 'md:flex-row-reverse'} items-stretch`}
               >
                 {/* 图片 */}
-                <div className="relative h-[60vw] w-full shrink-0 overflow-hidden md:h-[70vh] md:w-[55%]">
+                <div className="relative h-[60vw] w-full flex-shrink-0 overflow-hidden md:h-[70vh] md:w-[55%]">
                   <Image
                     src={POST_IMAGES[i]}
                     alt={post.title}

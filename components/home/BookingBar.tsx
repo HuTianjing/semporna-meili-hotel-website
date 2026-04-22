@@ -11,7 +11,7 @@ interface BookingBarProps {
   isScrolled?: boolean;
 }
 
-export function BookingBar({ isOpen, onClose, isScrolled = false }: BookingBarProps) {
+export function BookingBar({ isOpen, onClose, isScrolled: _isScrolled = false }: BookingBarProps) {
   const t = useTranslations('BookingBar');
 
   const today = new Date();

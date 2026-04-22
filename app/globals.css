@@ -66,6 +66,11 @@
   --color-about-bg: hsl(40, 21%, 96%);   /* #f8f6f1 */
   --color-villas-bg: hsl(210, 29%, 6%);  /* #0a0f14 */
 
+  /* --- 文字语义色 (禁止在 TSX 中使用裸 hex，统一从这里引用) --- */
+  --color-gold-warm:    #c2996c;   /* 章节序号、装饰金线（比 gold 稍亮）*/
+  --color-warm-text:    #8a7e6b;   /* 章节标签、辅助说明文字 */
+  --color-section-text: #1a2a3a;   /* 亮色区块正文（暖深蓝，比 foreground 更暖）*/
+
   /* --- 间距与字号追加 (如需覆盖默认体系) --- */
   --spacing-container: 2rem; /* 侧边默认安全距离 */
   --spacing-section: 6rem; /* 垂直区块默认间距 */

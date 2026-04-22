@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { MapPin, Waves, Star, Compass } from 'lucide-react';
+import Link from 'next/link';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -23,7 +24,9 @@ export function HotelIntro() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isObscured, setIsObscured] = useState(false);
   // 仅在桌面端 (md+) 执行滚动上移效果，对齐 HeroDesktop 行为
-  const [isMd, setIsMd] = useState(false);
+  const [isMd, setIsMd] = useState<boolean>(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(min-width: 768px)').matches : false
+  );
   // useInView 替代 IntersectionObserver + .reveal CSS class
   const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -40px 0px', amount: 0.08 });
 
@@ -32,7 +35,6 @@ export function HotelIntro() {
 
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 768px)');
-    setIsMd(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMd(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
@@ -64,10 +66,9 @@ export function HotelIntro() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.5, duration: 0.8, ease: 'easeOut' }}
-          className="absolute top-0 left-0 z-0 hidden h-20 w-full flex-col items-center justify-center md:flex"
-          style={{ backgroundColor: 'var(--color-about-bg)' }}
+          className="absolute top-0 left-0 z-0 hidden h-20 w-full flex-col items-center justify-center md:flex bg-[--color-about-bg]"
         >
-          <span className="font-sans text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-[#8a7e6b]">
+          <span className="font-sans text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-[--color-warm-text]">
             {t('scrollDown')}
           </span>
         </motion.div>
@@ -77,12 +78,11 @@ export function HotelIntro() {
       <motion.div
         style={{
           y: isMd ? (isObscured ? -80 : contentYOffset) : 0,
-          backgroundColor: 'var(--color-about-bg)',
         }}
-        className="relative z-20 w-full md:mt-20"
+        className="relative z-20 w-full md:mt-20 bg-[--color-about-bg]"
       >
         <div className="py-20 sm:py-28 md:py-36 lg:py-44">
-        <div className="max-w-[1100px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
+        <div className="max-w-275 mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
 
           {/* Section label */}
           <motion.div
@@ -92,9 +92,9 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[#c2996c]">01</span>
-            <div className="w-8 sm:w-12 h-px bg-[#c2996c]" />
-            <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#8a7e6b]">
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[--color-gold-warm]">01</span>
+            <div className="w-8 sm:w-12 h-px bg-[--color-gold-warm]" />
+            <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[--color-warm-text]">
               {t('sectionLabel')}
             </span>
           </motion.div>
@@ -107,7 +107,7 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="text-center mb-10 sm:mb-14 md:mb-16"
           >
-            <p className="font-text italic text-[#1a2a3a]/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="font-text italic text-[--color-section-text]/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
               &ldquo;{t('quote')}&rdquo;
             </p>
           </motion.div>
@@ -120,7 +120,7 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="text-center mb-8 sm:mb-10 md:mb-12"
           >
-            <h2 className="font-serif text-[#1a2a3a] leading-[1.15]">
+            <h2 className="font-serif text-[--color-section-text] leading-[1.15]">
               <span className="block" style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}>
                 {t('headingLine1')}
               </span>
@@ -141,7 +141,7 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="flex justify-center mb-8 sm:mb-10 md:mb-12"
           >
-            <div className="w-12 sm:w-16 h-px bg-[#c2996c]" />
+            <div className="w-12 sm:w-16 h-px bg-[--color-gold-warm]" />
           </motion.div>
 
           {/* Body text */}
@@ -150,7 +150,7 @@ export function HotelIntro() {
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="text-center max-w-[680px] mx-auto space-y-4 sm:space-y-5 mb-12 sm:mb-16 md:mb-20"
+            className="text-center max-w-170 mx-auto space-y-4 sm:space-y-5 mb-12 sm:mb-16 md:mb-20"
           >
             <p className="font-sans text-[0.875rem] sm:text-[0.9375rem] leading-[1.85] sm:leading-[1.95] text-[#5a5347] font-light">
               {t('body1')}
@@ -166,7 +166,7 @@ export function HotelIntro() {
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-[800px] mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-200 mx-auto"
           >
             {highlights.map((h) => (
               <div key={h.label} className="flex flex-col items-center text-center">
@@ -176,10 +176,10 @@ export function HotelIntro() {
                 >
                   <h.icon size={16} style={{ color: '#0086cd' }} strokeWidth={1.5} />
                 </div>
-                <span className="block font-serif text-lg sm:text-xl text-[#1a2a3a] leading-none mb-1">
+                <span className="block font-serif text-lg sm:text-xl text-[--color-section-text] leading-none mb-1">
                   {h.value}
                 </span>
-                <span className="block font-sans text-[0.625rem] sm:text-[0.7rem] text-[#8a7e6b] tracking-wide leading-snug">
+                <span className="block font-sans text-[0.625rem] sm:text-[0.7rem] text-[--color-warm-text] tracking-wide leading-snug">
                   {h.label}
                 </span>
               </div>
@@ -194,13 +194,13 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="mt-12 sm:mt-16 text-center"
           >
-            <a
+            <Link
               href="/villas"
-              className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-[#1a2a3a] border-b border-[#1a2a3a]/30 pb-1 hover:border-[#1a2a3a] transition-colors duration-500"
+              className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-[--color-section-text] border-b border-[--color-section-text]/30 pb-1 hover:border-[--color-section-text] transition-colors duration-500"
             >
               {t('cta')}
               <span className="text-[#0086cd]">→</span>
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const VILLA_IMAGES: Record<string, string[]> = {
   'ocean-view': [
@@ -86,8 +88,7 @@ export function VillasAndSuites() {
     <section
       id="villas"
       ref={sectionRef}
-      className="relative overflow-hidden"
-      style={{ backgroundColor: 'var(--color-primary)' }}
+      className="relative overflow-hidden bg-primary"
     >
       {/* ── Section header ── */}
       <div className="pt-20 sm:pt-28 md:pt-32 pb-10 sm:pb-14">
@@ -100,7 +101,7 @@ export function VillasAndSuites() {
             animate={isInView ? 'visible' : 'hidden'}
             className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[#8a7e6b]">
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[--color-warm-text]">
               02
             </span>
             <div className="w-8 sm:w-12 h-px bg-[#c4b99a]/40" />
@@ -153,17 +154,19 @@ export function VillasAndSuites() {
           {/* Background images — crossfade */}
           {items.map((villa, vIdx) =>
             (VILLA_IMAGES[villa.id] ?? []).map((src, iIdx) => (
-              <img
+              <Image
                 key={`${villa.id}-${iIdx}`}
                 src={src}
                 alt={villa.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1200px) 100vw, 1200px"
                 style={{
                   opacity:
                     vIdx === activeIdx && iIdx === imgIdx && !isTransitioning ? 1 : 0,
                   transition: 'opacity 700ms ease-in-out',
                 }}
-                loading={vIdx === 0 && iIdx === 0 ? 'eager' : 'lazy'}
+                priority={vIdx === 0 && iIdx === 0}
               />
             )),
           )}
@@ -285,16 +288,15 @@ export function VillasAndSuites() {
           ))}
         </div>
 
-        {/* View all rooms link */}
-        <div className="mt-10 sm:mt-12 text-center">
-          <a
-            href="/villas"
-            className="group inline-flex items-center gap-3 font-sans text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.2em] text-white/40 hover:text-white/80 transition-colors duration-500"
-          >
-            <span>{t('viewAll')}</span>
-            <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
-          </a>
-        </div>
+          <div className="mt-10 sm:mt-12 text-center">
+            <Link
+              href="/villas"
+              className="group inline-flex items-center gap-3 font-sans text-[0.7rem] sm:text-[0.75rem] uppercase tracking-[0.2em] text-white/40 hover:text-white/80 transition-colors duration-500"
+            >
+              <span>{t('viewAll')}</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+            </Link>
+          </div>
       </motion.div>
     </section>
   );

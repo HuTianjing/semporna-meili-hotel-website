@@ -17,11 +17,12 @@ export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [hasScrolled, setHasScrolled] = useState(false);
-  const [isMd, setIsMd] = useState(false);
+  const [isMd, setIsMd] = useState<boolean>(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(min-width: 768px)').matches : false
+  );
 
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 768px)');
-    setIsMd(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMd(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
@@ -43,8 +44,6 @@ export function Hero() {
       setIsPlaying(!isPlaying);
     }
   };
-
-  const heroCards = t.raw('heroCards') as string[];
 
   return (
     <>
@@ -176,7 +175,7 @@ export function Hero() {
       {/* ======================= */}
       {/*   Mobile Hero  (<md)    */}
       {/* ======================= */}
-      <section className="flex w-full flex-col overflow-x-hidden bg-white pt-17 sm:pt-20 md:hidden">
+      <section className="flex w-full flex-col overflow-x-hidden bg-background pt-17 sm:pt-20 md:hidden">
         {/* Full-width image with title overlay */}
         <div className="relative h-[50vh] min-h-80 w-full">
           <Image
