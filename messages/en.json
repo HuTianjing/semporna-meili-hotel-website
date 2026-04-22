@@ -170,5 +170,101 @@
         "desc": "Custom beach champagne dinner and couples aromatherapy treatments."
       }
     ]
+  },
+  "Location": {
+    "hero": {
+      "title": "4°N — Your Private Ocean Coordinate",
+      "subtitle": "Semporna, Malaysia · Heart of the Coral Triangle · Adjacent to Sipadan"
+    },
+    "intro": {
+      "tag": "THE LOCATION",
+      "title1": "At the Heart of the Coral Triangle",
+      "title2": "The World's Last Ocean Paradise",
+      "desc1": "Meili Resort sits above the glass-calm waters of Semporna, Malaysia — at 4–5°N, 118–119°E, near the equator. Year-round temperatures of 26–32°C make it an ideal tropical escape.",
+      "desc2": "Semporna is naturally shielded by the Philippines' Mindanao island and Borneo, placing it in the permanent blind spot of typhoon tracks. In over 100 years, no typhoon has ever struck here — earning it the name \"Land Below the Wind.\"",
+      "desc3": "The resort sits adjacent to Sipadan Island, the world's top-rated dive site, where sheer underwater cliffs and spectacular marine life draw divers from across the globe."
+    },
+    "highlights": {
+      "latitude": "4° North Latitude",
+      "climate": "Year-round Temperature",
+      "typhoonFree": "Years Typhoon-Free",
+      "sipadanValue": "Next to Sipadan",
+      "sipadan": "World-Class Dive Site"
+    },
+    "route": {
+      "tag": "ARRIVAL ROUTE",
+      "title": "All-Inclusive Transfers",
+      "node1Label": "Departure Airport",
+      "node1Sub": "KUL · BKI · TWU",
+      "node2Label": "Tawau Airport",
+      "node2Sub": "Nearest Airport · TWU",
+      "node3Label": "Semporna Jetty",
+      "node3Sub": "Semporna Town Pier",
+      "node4Label": "Meili Resort",
+      "node4Sub": "Your Private Island ★",
+      "seg1": "✈ Domestic Flight · ~1.5 hrs",
+      "seg2": "🚗 Hotel Land Transfer · ~1 hr",
+      "seg3": "⛵ Private Speedboat · ~30 min"
+    },
+    "schedule": {
+      "tag": "TRANSFER SCHEDULE",
+      "arrivalTitle": "Arrival Direction",
+      "arrTawauToJetty": "🚗 Tawau Airport → Semporna Jetty",
+      "arrJettyToResort": "⛵ Semporna Jetty → Meili Resort",
+      "departureTitle": "Departure Direction",
+      "depResortToJetty": "⛵ Meili Resort → Semporna Jetty",
+      "depJettyToTawau": "🚗 Semporna Jetty → Tawau Airport",
+      "noticeTitle": "⚠️ Important Transfer Notes",
+      "notice1": "The above schedules apply on check-in and check-out days only. Please provide your full name and flight number at least 3 days in advance.",
+      "notice2": "If your flight is delayed or you miss the scheduled transfer, please contact us in advance to make alternative arrangements. Transfers on other dates will incur additional charges."
+    },
+    "map": {
+      "tag": "EXPLORE THE AREA",
+      "caption": "★ Meili Resort · 📍 Semporna Jetty · ✈️ Tawau Airport · 🤿 Sipadan Island"
+    },
+    "prepare": {
+      "tag": "PACKING ESSENTIALS",
+      "title": "Pre-Arrival Checklist",
+      "items": [
+        "Passport or ID document",
+        "Booking confirmation (screenshot or printout)",
+        "Personal medications",
+        "Swimwear (multiple sets)",
+        "Sunscreen (reef-safe recommended)",
+        "Non-slip shoes (for speedboat deck)",
+        "Sunglasses and sun hat",
+        "Underwater camera equipment (optional)"
+      ],
+      "tip": "The resort provides comprehensive amenities — there's no need to overpack. Your personal butler can help source anything you need during your stay."
+    },
+    "cta": {
+      "title": "Need Help Planning Your Arrival?",
+      "desc": "Our team will accompany you from departure to check-in. Please share your flight details after booking so we can arrange your transfers.",
+      "whatsapp": "Chat on WhatsApp",
+      "email": "Email Us"
+    },
+    "arrival": {
+      "sectionTag": "ARRIVAL JOURNEY",
+      "title": "Every Mile, Curated for You",
+      "subtitle": "From your departure city to Meili Resort — seamless, exclusive transfers await",
+      "stage1Label": "Fly into Tawau",
+      "stage1Body": "Board a domestic flight from Kuala Lumpur, Kota Kinabalu, or other cities. Tawau International Airport is just 1.5 hours away.",
+      "stage1Sub": "Tawau International · TWU",
+      "stage2Label": "Private Land Transfer",
+      "stage2Body": "Your private hotel vehicle awaits at arrivals. Glide through Semporna's waterfront town as the sea air begins to slow time.",
+      "stage2Sub": "~1 hour · Semporna Town",
+      "stage3Label": "Arrival by Sea",
+      "stage3Body": "A private speedboat departs from the jetty. Thirty minutes of open ocean, and your island paradise comes into view.",
+      "stage3Sub": "~30 min · Meili Resort",
+      "scheduleTitle": "TRANSFER SCHEDULE",
+      "arrivalDay": "On Arrival",
+      "departureDay": "On Departure",
+      "scheduleArr1": "Tawau Airport → Semporna Jetty",
+      "scheduleArr2": "Semporna Jetty → Meili Resort",
+      "scheduleDep1": "Meili Resort → Semporna Jetty",
+      "scheduleDep2": "Semporna Jetty → Tawau Airport",
+      "footer": "Your arrival is handled from the moment you land. Share your flight details after booking, and your personal butler will take care of the rest.",
+      "cta": "Contact Us to Arrange Transfers"
+    }
   }
 }

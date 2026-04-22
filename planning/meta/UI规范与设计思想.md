@@ -1,10 +1,88 @@
-# 美丽度假酒店官网 — UI 规范手册 v2
+# 美丽度假酒店官网 — UI 规范与设计思想
 
+> **文档版本**：v3.0 | 更新日期：2026-04-22
 > **唯一真相来源**：`app/globals.css` → `@theme` 块。新模块开发请以此为参考。
+> 品牌背景见 `planning/00-项目背景与叙事策略.md`。
 
 ---
 
-## 三大核心原则
+## Part 0：设计思想
+
+> 技术规范服务于品牌表达。写代码前先读这一节，明白"为什么这样设计"，才能在遇到新情况时做出正确判断。
+
+### 0.1 这个项目在表达三件事
+
+根据品牌物料，整个网站需要在视觉上让访客感受到：
+
+**① 这片海是真实存在的稀缺之地**
+仙本那北纬 4°、珊瑚金三角、诗巴丹旁、百年无台风——这些事实必须在视觉上被感受到，而不只是被读到。UI 的主要任务之一，是用摄影、构图、色彩让这片海"扑面而来"。
+
+**② 这座酒店不是普通度假村**
+吉尼斯纪录、BELIAN 铁木、马来西亚政府海警常驻、100% 太阳能闭环系统——这是一座有真实历史坐标的建筑奇迹。UI 需要传递"认真"和"可靠"的质感，而不是浮夸的促销感。
+
+**③ 来这里是一种人生体验，不只是消费**
+品牌起源于对大海的敬畏，品牌名来自古代旅游女神，精神内核是徐霞客的探索与守护。UI 的语气应当是"召唤"，而不是"推销"。
+
+**④ 酒店的服务，从访客打开网站那一刻就已经开始**
+品牌物料中明确写道：24小时管家服务、全包接送、随时随地在身边。这种"服务先于到达"的精神，必须在 UI 设计中被感受到——信息架构要顺着访客的旅程走，而不是顺着酒店的部门结构走。一个访客打开位置页，他心里的问题是"我怎么到那里"，UI 应当像一位管家一样，把答案一步一步铺在他面前，而不是甩给他一张时刻表。
+
+---
+
+### 0.2 四个视觉支柱
+
+以下三个视觉关键词，应当贯穿所有页面和组件：
+
+#### 支柱一：海洋沉浸感（Ocean Immersion）
+
+大海是最核心的视觉语言。设计原则：
+- 摄影优先——图片永远是主角，UI 是容器
+- 全宽铺满（edge-to-edge），不要用边框或 padding 把大图"框住"
+- 主色 `--color-primary`（深海蓝 `#003865`）和辅色 `--color-accent`（天空蓝 `#0091da`）都来自这片海，保持色彩系统与场景的一致性
+- 深色区块（`--color-villas-bg`）模拟深夜海面，让页面有"入水"的沉浸感
+
+#### 支柱二：木质奢华感（BELIAN Warmth）
+
+BELIAN 铁木是酒店最核心的物质差异，UI 需要把这种质感带入屏幕：
+- `--color-gold`（品牌金 `#b18b74`）和 `--color-gold-warm`（`#c2996c`）直接取自铁木色调
+- 金色只做点睛——章节序号、CTA 底线、装饰金线——不做大面积填充
+- 暖米色区块（`--color-about-bg`）是呼应木质温度的背景色
+- 字体 Cinzel 的碑铭气质，类似铁木雕刻的厚重感
+
+#### 支柱三：克制的笃定感（Quiet Confidence）
+
+这是五星奢华品牌的调性，也是"可靠"的视觉语言：
+- 大留白：留白不是空，是自信
+- 衬线标题 vs 细腻正文：大小对比强烈，不靠装饰堆砌
+- 无多余边框、无卡片阴影、无角标促销贴纸
+- 信任数据（吉尼斯/37%/76%/百年无台风）用克制的排版呈现，不用感叹号
+
+#### 支柱四：服务前置感（Anticipatory Service）
+
+酒店的24小时管家哲学，在 UI 中的体现是：**访客还没有提问，答案已经在那里了。**
+
+设计原则：
+- **信息顺序 = 访客的行动顺序**，而非酒店的功能分类。位置页从"为什么是这里"到"怎么到达"到"到达后是什么感受"，是一条叙事弧线，不是一个信息目录。
+- **功能性内容必须有情感包装**。班次时刻表不只是数字，是"我们在这个时间等你"。行前清单不只是提醒，是"我们已经替你想到了"。
+- **每个功能区块的末尾必须有人工介入出口**。WhatsApp 或 Email CTA 不是备用渠道，是"如果以上还不够，我们在这里"的承诺。
+- **旅程节点用叙事而非列表呈现**。接送、到达、换乘等节点，让访客在看页面时已经在脑中完成了一次抵达体验。
+
+---
+
+### 0.3 禁止的视觉方向
+
+以下风格与本项目品牌定位相悖，出现即为错误：
+
+| 禁止 | 原因 |
+|------|------|
+| 促销感排版（限时！抢购！红色角标） | 破坏信任感，与五星定位不符 |
+| 通用热带度假风（棕榈树图标、霓虹珊瑚色） | 淹没差异化，让酒店看起来跟仙本那任何一家民宿一样 |
+| 企业 SaaS 风（卡片阴影、圆角、蓝色描边） | 割裂奢华感，降低品牌档次 |
+| 极简冷峻风（全白、无色彩、Helvetica） | 缺失木质温度，无法表达 BELIAN 铁木的精神内核 |
+| 大量文字堆砌 | 访客来感受向往，不来读产品手册 |
+
+---
+
+### 0.4 三大开发原则（执行层必读）
 
 > 开发任何新模块前，先确认以下三条是否满足。
 
@@ -12,11 +90,13 @@
 |---|---|
 | **① 主题色优先** | 所有颜色必须通过 CSS 变量或 Tailwind Token 引用，**禁止在 TSX 中出现任何裸 hex/hsl 值** |
 | **② 移动端优先** | 所有布局先写 mobile（375px），再用 `sm:` `md:` `lg:` 扩展，**禁止写死固定宽度** |
-| **③ 奢华酒店美学** | 大留白、大图、衬线标题、克制用色。UI 是视觉情绪的传递，不是功能说明板 |
+| **③ 表达优先于功能** | UI 是情绪传递，不是信息说明板。每个区块先问"这传递了什么感受"，再问"怎么实现" |
 
 ---
 
-## 1. 色彩系统 (Color Tokens)
+## Part 1：色彩系统 (Color Tokens)
+
+> **品牌连接**：本项目色彩系统不是任意选择的。深海蓝（`primary`）取自仙本那深水，天空蓝（`accent`）取自仙本那晴空，品牌金（`gold` / `gold-warm`）取自 BELIAN 铁木的木色。每一个颜色都有来处，使用时应当意识到它在传递什么。
 
 ### 1.1 强制规则：零硬编码
 
@@ -81,7 +161,7 @@ cream（亮白）→ about-bg（暖米）→ villas-bg（深夜蓝）→ cream �
 
 ---
 
-## 2. 响应式规范 (Mobile-First Responsive)
+## Part 2：响应式规范 (Mobile-First Responsive)
 
 ### 2.1 断点系统
 
@@ -171,7 +251,9 @@ className="mb-4 sm:mb-6 md:mb-8 lg:mb-10"
 
 ---
 
-## 3. 字体系统 (Typography)
+## Part 3：字体系统 (Typography)
+
+> **品牌连接**：Cinzel 的碑铭刻字感对应 BELIAN 铁木「百年耐久」的厚重属性；Newsreader 的文学气息对应品牌起源中徐霞客的探索精神。中文 Noto Serif SC 与两者同步，保持衬线的一致性。字体不是装饰，是品牌性格的延伸。
 
 ### 3.1 字体角色分工
 
@@ -205,9 +287,9 @@ className="mb-4 sm:mb-6 md:mb-8 lg:mb-10"
 
 ---
 
-## 4. 奢华酒店视觉语言 (Luxury Aesthetic)
+## Part 4：奢华酒店视觉语言 (Luxury Aesthetic)
 
-> 这是品牌的灵魂，技术实现服务于此。
+> **品牌连接**：五星奢华的视觉语言不是「贵」，而是「笃定」——对自己所拥有的东西有充分自信，不需要用密集信息或促销手段证明。BELIAN 铁木越泡水越硬，不需要外力加固，自身就是最强的保证。设计时应问：**「如果这里什么都不写，大图和留白还能传递向往感吗？」** 能，才是合格的区块。
 
 ### 4.1 大留白 — 视觉呼吸感
 
@@ -280,7 +362,7 @@ className="mb-4 sm:mb-6 md:mb-8 lg:mb-10"
 
 ---
 
-## 5. 动效规范 (Motion)
+## Part 5：动效规范 (Motion)
 
 项目统一使用 **Framer Motion** + **Lenis 平滑滚动**，不混用 CSS animation 与 motion（Hero 除外）。
 
@@ -343,7 +425,7 @@ const isInView = useInView(sectionRef, {
 
 ---
 
-## 6. 组件模式库 (Component Patterns)
+## Part 6：组件模式库 (Component Patterns)
 
 ### 6.1 章节标签
 
@@ -493,7 +575,9 @@ const isInView = useInView(sectionRef, {
 
 ---
 
-## 7. 图片规范
+## Part 7：图片规范
+
+> **品牌连接**：这个酒店的核心卖点之一是「你看到的海是真实存在的」。图片是唯一能传递这种真实感的媒介。永远让图片尽可能大、尽可能清晰、尽可能边缘延伸到屏幕外。
 
 - 始终使用 `<Image />` (next/image)，**禁止 `<img>`**
 - 全宽背景：`fill` + 父容器 `relative overflow-hidden`
@@ -503,7 +587,7 @@ const isInView = useInView(sectionRef, {
 
 ---
 
-## 8. 多语言 (i18n)
+## Part 8：多语言 (i18n)
 
 - 所有展示文字走 `useTranslations('命名空间')`，**禁止硬编码中/英文字符串**
 - 命名空间与组件名对应：`<HotelIntro />` → `useTranslations('HotelIntro')`
@@ -512,7 +596,60 @@ const isInView = useInView(sectionRef, {
 
 ---
 
-## 9. 快速开发 Checklist
+## Part 9：组件架构 (Component Architecture)
+
+> **强制规范**：每个页面的每个独立视觉区块必须拆分为独立组件文件，`page.tsx` 只做组合，不写业务 JSX。
+
+### 目录结构
+
+```
+components/
+  [page]/                      # 页面名小写（location、offers…）
+    [Page]Hero.tsx              # 首屏 Hero 区块（可为 Server Component）
+    [Page]Section1.tsx          # 第一内容区块
+    [Page]Section2.tsx          # 第二内容区块
+    …
+```
+
+### page.tsx — 薄编排器模式
+
+```tsx
+// app/[locale]/location/page.tsx — 仅导入与组合，无业务 JSX
+import LocationHero      from '@/components/location/LocationHero';
+import LocationGeo       from '@/components/location/LocationGeo';
+import LocationArrival   from '@/components/location/LocationArrival';
+import LocationChecklist from '@/components/location/LocationChecklist';
+
+export default function LocationPage() {
+  return (
+    <main className="w-full flex-1">
+      <LocationHero />
+      <LocationGeo />
+      <LocationArrival />
+      <LocationChecklist />
+    </main>
+  );
+}
+```
+
+### 拆分判断标准
+
+| 场景 | 结论 |
+|---|---|
+| 独立的 `<section>` 区块（有自己的背景色） | ✅ 必须单独文件 |
+| 区块内子卡片（≥ 50 行且可复用） | ✅ 建议拆分 |
+| 全局复用 UI 元素（Button、Card） | ✅ 放 `components/ui/` |
+| 仅出现一次的小型辅助结构 | ❌ 内联即可 |
+
+### `'use client'` 最小化原则
+
+- 用了 `useRef` / `useInView` / `useState` / 事件处理 → 该组件加 `'use client'`
+- 仅展示静态内容 → 保持 Server Component，无需 `'use client'`
+- **`page.tsx` 本身不加 `'use client'`**，让子组件各自声明
+
+---
+
+## Part 10：快速开发 Checklist
 
 新建区块时，逐条确认：
 

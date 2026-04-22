@@ -166,5 +166,101 @@
         "desc": "专为爱侣定制的海滩香槟晚宴及双人芳香理疗。"
       }
     ]
+  },
+  "Location": {
+    "hero": {
+      "title": "北纬4°，您的私属海洋坐标",
+      "subtitle": "马来西亚仙本那 · 珊瑚金三角核心 · 诗巴丹旁"
+    },
+    "intro": {
+      "tag": "THE LOCATION · 绝世位置",
+      "title1": "珊瑚金三角的中心",
+      "title2": "At the Heart of the Coral Triangle",
+      "desc1": "美丽度假酒店坐落于马来西亚仙本那的玻璃海之上，北纬4至5°，东经118至119°，赤道附近。全年气温26°至32°，是热带度假的理想温度。",
+      "desc2": "仙本那受菲律宾棉兰老岛与加里曼丹岛双重遮蔽，是台风路径的天然盲区，过去百年从未遭受台风侵袭。「风下之乡」——这片海，是地球上最安全、最宁静的角落之一。",
+      "desc3": "这里与全球公认的顶级潜水圣地——诗巴丹岛（Sipadan）比邻而居，陡峭的海底悬崖与壮观的海洋生物，令无数潜水爱好者毕生向往。"
+    },
+    "highlights": {
+      "latitude": "北纬四度 · 赤道海域",
+      "climate": "全年舒适气温",
+      "typhoonFree": "无台风记录",
+      "sipadanValue": "诗巴丹旁",
+      "sipadan": "世界级潜水圣地旁"
+    },
+    "route": {
+      "tag": "ARRIVAL ROUTE",
+      "title": "全包式抵达接送",
+      "node1Label": "出发机场",
+      "node1Sub": "KUL · BKI · TWU",
+      "node2Label": "塔瓦机场",
+      "node2Sub": "Tawau · TWU",
+      "node3Label": "仙本那码头",
+      "node3Sub": "Semporna Jetty",
+      "node4Label": "美丽度假酒店",
+      "node4Sub": "Meili Resort ★",
+      "seg1": "✈ 国内航班 · 约 1.5 小时",
+      "seg2": "🚗 专属陆路接送 · 约 1 小时",
+      "seg3": "⛵ 专属快艇 · 约 30 分钟"
+    },
+    "schedule": {
+      "tag": "TRANSFER SCHEDULE",
+      "arrivalTitle": "到达方向 Arrival",
+      "arrTawauToJetty": "🚗 塔瓦机场 → 仙本那码头",
+      "arrJettyToResort": "⛵ 仙本那码头 → 美丽度假酒店",
+      "departureTitle": "离开方向 Departure",
+      "depResortToJetty": "⛵ 美丽度假酒店 → 仙本那码头",
+      "depJettyToTawau": "🚗 仙本那码头 → 塔瓦机场",
+      "noticeTitle": "⚠️ 重要注意事项",
+      "notice1": "以上接送班次仅适用于入住及退房当日，需提前至少 3 天提供完整姓名及航班号进行预约。",
+      "notice2": "如航班延误或未能赶上既定班次，请提前联系我们另行协调。其他日期接送另行收费。"
+    },
+    "map": {
+      "tag": "EXPLORE THE AREA",
+      "caption": "★ 美丽度假酒店 · 📍 仙本那码头 · ✈️ 塔瓦机场 · 🤿 诗巴丹岛"
+    },
+    "prepare": {
+      "tag": "PACKING ESSENTIALS",
+      "title": "行前准备清单",
+      "items": [
+        "护照或身份证件",
+        "预订确认函（截图/打印均可）",
+        "个人常用药物",
+        "泳衣（数套）",
+        "防晒霜（建议珊瑚友好型）",
+        "防滑鞋（快艇甲板使用）",
+        "墨镜、遮阳帽",
+        "水下摄影装备（可选）"
+      ],
+      "tip": "温馨提示：岛上提供完善设施，日常用品无需过量携带。专属管家可协助准备任何您临时需要的物品。"
+    },
+    "cta": {
+      "title": "需要协助规划抵达行程？",
+      "desc": "我们的团队将全程陪伴您从出发到入住，请在预订后及时提供航班信息以便安排接送。",
+      "whatsapp": "WhatsApp 联系",
+      "email": "邮件确认行程"
+    },
+    "arrival": {
+      "sectionTag": "ARRIVAL JOURNEY",
+      "title": "专程礼遇，一路从容",
+      "subtitle": "从您出发的城市，到美丽度假酒店——每一段旅程，已为您安排妥当",
+      "stage1Label": "飞抵塔瓦",
+      "stage1Body": "从吉隆坡、亚庇或其他主要城市乘国内航班出发，约 1.5 小时即可抵达塔瓦国际机场。",
+      "stage1Sub": "Tawau International · TWU",
+      "stage2Label": "专属陆路",
+      "stage2Body": "酒店专属座驾于机场恭候。穿越仙本那小镇，领略马来西亚海滨小城的安静与从容。",
+      "stage2Sub": "约 1 小时 · Semporna Town",
+      "stage3Label": "海上礼遇",
+      "stage3Body": "专属快艇从码头缓缓驶出，穿越碧蓝海面。约 30 分钟后，您的私属目的地在海天之间显现。",
+      "stage3Sub": "约 30 分钟 · Meili Resort",
+      "scheduleTitle": "接送班次参考",
+      "arrivalDay": "入住当日",
+      "departureDay": "退房当日",
+      "scheduleArr1": "塔瓦机场 → 仙本那码头",
+      "scheduleArr2": "仙本那码头 → 美丽度假酒店",
+      "scheduleDep1": "美丽度假酒店 → 仙本那码头",
+      "scheduleDep2": "仙本那码头 → 塔瓦机场",
+      "footer": "每一段接送均由我们专属团队安排。完成预订后，请告知您的航班信息，管家将为您提前安排妥当。",
+      "cta": "联系管家安排接送"
+    }
   }
 }

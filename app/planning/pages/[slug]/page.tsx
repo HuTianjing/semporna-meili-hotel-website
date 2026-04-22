@@ -10,31 +10,28 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+const PAGES_DIR = path.join(process.cwd(), 'planning', 'pages');
+
 function getDocContent(slug: string): string | null {
-  const planningDir = path.join(process.cwd(), 'planning');
   const decoded = decodeURIComponent(slug);
-  const candidates = [`${decoded}.mdx`, `${decoded}.md`];
-  for (const filename of candidates) {
-    const filepath = path.join(planningDir, filename);
-    if (fs.existsSync(filepath)) {
-      return fs.readFileSync(filepath, 'utf-8');
-    }
+  for (const ext of ['.mdx', '.md']) {
+    const fp = path.join(PAGES_DIR, decoded + ext);
+    if (fs.existsSync(fp)) return fs.readFileSync(fp, 'utf-8');
   }
   return null;
 }
 
 function getDocTitle(content: string, slug: string): string {
   const match = content.match(/^#\s+(.+)$/m);
-  if (match) return match[1].trim();
-  return slug;
+  return match ? match[1].trim() : slug;
 }
 
 function getAllSlugs(): string[] {
-  const planningDir = path.join(process.cwd(), 'planning');
   return fs
-    .readdirSync(planningDir)
+    .readdirSync(PAGES_DIR)
     .filter((f) => f.endsWith('.mdx') || f.endsWith('.md'))
-    .map((f) => f.replace(/\.mdx?$/, ''));
+    .map((f) => f.replace(/\.mdx?$/, ''))
+    .sort();
 }
 
 export async function generateStaticParams() {
@@ -43,23 +40,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const decodedSlug = decodeURIComponent(slug);
-  const content = getDocContent(decodedSlug);
+  const content = getDocContent(slug);
   if (!content) return { title: 'Not Found' };
   return {
-    title: `${getDocTitle(content, decodedSlug)} — 美丽度假酒店策划`,
+    title: `${getDocTitle(content, decodeURIComponent(slug))} — 页面策划`,
     robots: 'noindex, nofollow',
   };
 }
 
-export default async function PlanningDocPage({ params }: Props) {
+export default async function PageDocPage({ params }: Props) {
   const { slug } = await params;
-  const decodedSlug = decodeURIComponent(slug);
-  const content = getDocContent(decodedSlug);
+  const content = getDocContent(slug);
   if (!content) notFound();
 
+  const decodedSlug = decodeURIComponent(slug);
   const title = getDocTitle(content, decodedSlug);
-  const allSlugs = getAllSlugs().sort();
+  const allSlugs = getAllSlugs();
   const currentIndex = allSlugs.indexOf(decodedSlug);
   const prevSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : null;
   const nextSlug = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null;
@@ -72,12 +68,17 @@ export default async function PlanningDocPage({ params }: Props) {
           ← 策划文档
         </Link>
         <span>/</span>
+        <span className="text-xs bg-sky-100 text-sky-700 font-semibold px-2 py-0.5 rounded">
+          页面策划
+        </span>
+        <span>/</span>
         <span className="text-slate-800 truncate">{title}</span>
       </nav>
 
       {/* MDX Content */}
       <article className="bg-white rounded-lg border border-slate-200 px-8 py-10 sm:px-12">
-        <div className="prose prose-slate prose-base max-w-none
+        <div
+          className="prose prose-slate prose-base max-w-none
           prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-slate-900
           prose-h1:text-2xl prose-h1:font-bold prose-h1:pb-3 prose-h1:border-b prose-h1:border-slate-200
           prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4
@@ -93,7 +94,8 @@ export default async function PlanningDocPage({ params }: Props) {
           prose-td:py-2 prose-td:px-3 prose-td:border prose-td:border-slate-200
           prose-tr:even:bg-slate-50
           prose-li:text-slate-700 prose-li:marker:text-slate-400
-          prose-hr:border-slate-200">
+          prose-hr:border-slate-200"
+        >
           <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
       </article>
@@ -102,7 +104,7 @@ export default async function PlanningDocPage({ params }: Props) {
       <div className="flex justify-between mt-6 gap-4">
         {prevSlug ? (
           <Link
-            href={`/planning/${encodeURIComponent(prevSlug)}`}
+            href={`/planning/pages/${encodeURIComponent(prevSlug)}`}
             className="inline-block px-4 py-2.5 bg-white border border-slate-200 rounded-md text-sm text-primary font-medium no-underline hover:shadow-sm transition-shadow"
           >
             ← {prevSlug}
@@ -112,7 +114,7 @@ export default async function PlanningDocPage({ params }: Props) {
         )}
         {nextSlug ? (
           <Link
-            href={`/planning/${encodeURIComponent(nextSlug)}`}
+            href={`/planning/pages/${encodeURIComponent(nextSlug)}`}
             className="inline-block px-4 py-2.5 bg-primary rounded-md text-sm text-white font-medium no-underline hover:bg-primary-light transition-colors"
           >
             {nextSlug} →

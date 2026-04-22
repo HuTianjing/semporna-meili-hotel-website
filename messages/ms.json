@@ -170,5 +170,101 @@
         "desc": "Makan malam champagne di pantai yang disesuaikan dan rawatan aromaterapi untuk pasangan."
       }
     ]
+  },
+  "Location": {
+    "hero": {
+      "title": "4°U — Koordinat Lautan Peribadi Anda",
+      "subtitle": "Semporna, Malaysia · Jantung Segitiga Terumbu Karang · Bersebelahan Sipadan"
+    },
+    "intro": {
+      "tag": "LOKASI",
+      "title1": "Di Jantung Segitiga Terumbu Karang",
+      "title2": "The World's Last Ocean Paradise",
+      "desc1": "Meili Resort terletak di atas perairan Semporna, Malaysia — pada 4–5°U, 118–119°T, berhampiran khatulistiwa. Suhu sepanjang tahun 26–32°C menjadikannya destinasi tropika yang ideal.",
+      "desc2": "Semporna dilindungi secara semula jadi oleh Pulau Mindanao dan Borneo, menempatkannya di zon buta laluan taufan. Dalam lebih 100 tahun, tiada taufan pernah melanda — menjadikannya \"Tanah di Bawah Angin.\"",
+      "desc3": "Resort ini terletak bersebelahan Pulau Sipadan, tapak menyelam bertaraf dunia, di mana tebing bawah laut yang curam dan hidupan marin yang menakjubkan menarik penyelam dari seluruh dunia."
+    },
+    "highlights": {
+      "latitude": "4° Latitud Utara",
+      "climate": "Suhu Sepanjang Tahun",
+      "typhoonFree": "Tahun Bebas Taufan",
+      "sipadanValue": "Bersebelahan Sipadan",
+      "sipadan": "Tapak Menyelam Bertaraf Dunia"
+    },
+    "route": {
+      "tag": "LALUAN KETIBAAN",
+      "title": "Pemindahan Inklusif Penuh",
+      "node1Label": "Lapangan Terbang",
+      "node1Sub": "KUL · BKI · TWU",
+      "node2Label": "Lapangan Terbang Tawau",
+      "node2Sub": "Lapangan Terbang Terdekat · TWU",
+      "node3Label": "Jeti Semporna",
+      "node3Sub": "Pelantar Bandar Semporna",
+      "node4Label": "Meili Resort",
+      "node4Sub": "Pulau Peribadi Anda ★",
+      "seg1": "✈ Penerbangan Domestik · ~1.5 jam",
+      "seg2": "🚗 Pemindahan Darat Hotel · ~1 jam",
+      "seg3": "⛵ Bot Laju Peribadi · ~30 minit"
+    },
+    "schedule": {
+      "tag": "TRANSFER SCHEDULE",
+      "arrivalTitle": "Arah Ketibaan",
+      "arrTawauToJetty": "🚗 Lapangan Terbang Tawau → Jeti Semporna",
+      "arrJettyToResort": "⛵ Jeti Semporna → Meili Resort",
+      "departureTitle": "Arah Berlepas",
+      "depResortToJetty": "⛵ Meili Resort → Jeti Semporna",
+      "depJettyToTawau": "🚗 Jeti Semporna → Lapangan Terbang Tawau",
+      "noticeTitle": "⚠️ Nota Pemindahan Penting",
+      "notice1": "Jadual di atas hanya terpakai pada hari daftar masuk dan daftar keluar. Sila berikan nama penuh dan nombor penerbangan sekurang-kurangnya 3 hari lebih awal.",
+      "notice2": "Jika penerbangan anda lewat atau terlepas pemindahan yang dijadualkan, sila hubungi kami terlebih dahulu. Pemindahan pada tarikh lain dikenakan bayaran tambahan."
+    },
+    "map": {
+      "tag": "EXPLORE THE AREA",
+      "caption": "★ Meili Resort · 📍 Jeti Semporna · ✈️ Lapangan Terbang Tawau · 🤿 Pulau Sipadan"
+    },
+    "prepare": {
+      "tag": "KEPERLUAN PERJALANAN",
+      "title": "Senarai Semak Pra-Ketibaan",
+      "items": [
+        "Pasport atau dokumen ID",
+        "Pengesahan tempahan (tangkapan skrin atau cetakan)",
+        "Ubat peribadi",
+        "Pakaian renang (beberapa set)",
+        "Pelindung matahari (mesra terumbu karang disyorkan)",
+        "Kasut tidak licin (untuk dek bot laju)",
+        "Cermin mata hitam dan topi matahari",
+        "Peralatan kamera bawah air (pilihan)"
+      ],
+      "tip": "Resort menyediakan kemudahan yang lengkap — tidak perlu membawa terlalu banyak barang. Butler peribadi anda boleh membantu mendapatkan apa sahaja yang anda perlukan semasa penginapan."
+    },
+    "cta": {
+      "title": "Perlukan Bantuan Merancang Ketibaan Anda?",
+      "desc": "Pasukan kami akan menemani anda dari berlepas hingga daftar masuk. Sila kongsikan butiran penerbangan anda selepas tempahan supaya kami boleh mengatur pemindahan.",
+      "whatsapp": "Berbual di WhatsApp",
+      "email": "E-mel Kami"
+    },
+    "arrival": {
+      "sectionTag": "PERJALANAN KETIBAAN",
+      "title": "Setiap Batu Perjalanan, Dikurasi untuk Anda",
+      "subtitle": "Dari bandar berlepas hingga ke Meili Resort — pemindahan eksklusif yang lancar menanti anda",
+      "stage1Label": "Terbang ke Tawau",
+      "stage1Body": "Naiki penerbangan domestik dari Kuala Lumpur, Kota Kinabalu atau bandar lain. Lapangan Terbang Tawau hanya 1.5 jam.",
+      "stage1Sub": "Tawau International · TWU",
+      "stage2Label": "Pemindahan Darat Eksklusif",
+      "stage2Body": "Kenderaan hotel peribadi anda menunggu di ketibaan. Luncur melalui bandar tepi pantai Semporna sambil angin laut mula menenangkan jiwa.",
+      "stage2Sub": "~1 jam · Bandar Semporna",
+      "stage3Label": "Ketibaan Melalui Laut",
+      "stage3Body": "Bot laju peribadi berlepas dari jeti. Tiga puluh minit di lautan terbuka, dan syurga pulau anda muncul di cakrawala.",
+      "stage3Sub": "~30 minit · Meili Resort",
+      "scheduleTitle": "JADUAL PEMINDAHAN",
+      "arrivalDay": "Hari Ketibaan",
+      "departureDay": "Hari Berlepas",
+      "scheduleArr1": "Lapangan Terbang Tawau → Jeti Semporna",
+      "scheduleArr2": "Jeti Semporna → Meili Resort",
+      "scheduleDep1": "Meili Resort → Jeti Semporna",
+      "scheduleDep2": "Jeti Semporna → Lapangan Terbang Tawau",
+      "footer": "Perjalanan ketibaan anda diurus dari saat anda mendarat. Kongsi butiran penerbangan selepas tempahan, dan butler peribadi anda akan menguruskan selebihnya.",
+      "cta": "Hubungi Kami untuk Mengatur Pemindahan"
+    }
   }
 }

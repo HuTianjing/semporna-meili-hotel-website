@@ -14,48 +14,25 @@ function getDocTitle(content: string, filename: string): string {
   return filename.replace(/\.mdx?$/, '');
 }
 
-function getAllDocs(): PlanningDoc[] {
-  const planningDir = path.join(process.cwd(), 'planning');
-  const files = fs
-    .readdirSync(planningDir)
-    .filter(
-      (f) =>
-        (f.endsWith('.mdx') || f.endsWith('.md')) &&
-        !fs.statSync(path.join(planningDir, f)).isDirectory(),
-    );
-  return files.sort().map((filename) => {
-    const content = fs.readFileSync(path.join(planningDir, filename), 'utf-8');
-    const slug = filename.replace(/\.mdx?$/, '');
-    return { slug, title: getDocTitle(content, filename), filename };
-  });
-}
-
-function getSourceMaterialDocs(): PlanningDoc[] {
-  const dir = path.join(process.cwd(), 'planning', 'source-materials');
-  const files = fs
+function readDocs(dir: string): PlanningDoc[] {
+  if (!fs.existsSync(dir)) return [];
+  return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith('.md') || f.endsWith('.mdx'));
-  return files.sort().map((filename) => {
-    const content = fs.readFileSync(path.join(dir, filename), 'utf-8');
-    const slug = filename.replace(/\.mdx?$/, '');
-    return { slug, title: getDocTitle(content, filename), filename };
-  });
+    .filter((f) => (f.endsWith('.mdx') || f.endsWith('.md')) && !fs.statSync(path.join(dir, f)).isDirectory())
+    .sort()
+    .map((filename) => {
+      const content = fs.readFileSync(path.join(dir, filename), 'utf-8');
+      const slug = filename.replace(/\.mdx?$/, '');
+      return { slug, title: getDocTitle(content, filename), filename };
+    });
 }
 
-const borderAccents: Record<string, string> = {
-  '00': '#6366f1',
-  '01': '#0ea5e9',
-  '02': '#f59e0b',
-  '03': '#10b981',
-  '04': '#ec4899',
-  '05': '#8b5cf6',
-  '06': '#f97316',
-  '07': '#64748b',
-};
+const PAGE_COLORS = ['#0ea5e9', '#f59e0b', '#10b981', '#ec4899', '#8b5cf6', '#f97316'];
 
 export default function PlanningIndexPage() {
-  const docs = getAllDocs();
-  const sourceDocs = getSourceMaterialDocs();
+  const metaDocs = readDocs(path.join(process.cwd(), 'planning', 'meta'));
+  const pageDocs = readDocs(path.join(process.cwd(), 'planning', 'pages'));
+  const sourceDocs = readDocs(path.join(process.cwd(), 'planning', 'source-materials'));
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-12">
@@ -72,35 +49,70 @@ export default function PlanningIndexPage() {
         </p>
       </div>
 
-      {/* Doc Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {docs.map((doc) => {
-          const prefix = doc.slug.slice(0, 2);
-          const accent = borderAccents[prefix] ?? '#003865';
-          return (
+      {/* 核心文档 */}
+      <section className="mb-12">
+        <div className="flex items-center gap-3 mb-5">
+          <h2 className="text-lg font-bold text-slate-800">核心文档</h2>
+          <span className="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-0.5 rounded">
+            站点中心思想
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {metaDocs.map((doc) => (
             <Link
               key={doc.slug}
-              href={`/planning/${encodeURIComponent(doc.slug)}`}
-              className="group block bg-white border border-slate-200 rounded-lg p-5 hover:shadow-lg transition-shadow no-underline"
-              style={{ borderTop: `4px solid ${accent}` }}
+              href={`/planning/meta/${encodeURIComponent(doc.slug)}`}
+              className="group block bg-indigo-50 border border-indigo-200 rounded-lg p-5 hover:shadow-lg transition-shadow no-underline"
+              style={{ borderTop: '4px solid #6366f1' }}
             >
-              <div
-                className="text-xs font-bold tracking-widest uppercase mb-2"
-                style={{ color: accent }}
-              >
-                {prefix === '00' ? 'OVERVIEW' : `PAGE ${prefix}`}
+              <div className="text-xs font-bold tracking-widest uppercase mb-2 text-indigo-600">
+                CORE
               </div>
               <div className="text-sm font-semibold text-slate-800 leading-snug">
                 {doc.title}
               </div>
               <div className="mt-3 text-xs text-slate-400 font-mono">{doc.filename}</div>
             </Link>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      </section>
 
-      {/* Source Materials */}
-      <section className="mt-14">
+      {/* 页面策划 */}
+      <section className="mb-12">
+        <div className="flex items-center gap-3 mb-5">
+          <h2 className="text-lg font-bold text-slate-800">页面策划</h2>
+          <span className="text-xs bg-sky-100 text-sky-700 font-semibold px-2 py-0.5 rounded">
+            Page Planning
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {pageDocs.map((doc, index) => {
+            const accent = PAGE_COLORS[index % PAGE_COLORS.length];
+            return (
+              <Link
+                key={doc.slug}
+                href={`/planning/pages/${encodeURIComponent(doc.slug)}`}
+                className="group block bg-white border border-slate-200 rounded-lg p-5 hover:shadow-lg transition-shadow no-underline"
+                style={{ borderTop: `4px solid ${accent}` }}
+              >
+                <div
+                  className="text-xs font-bold tracking-widest uppercase mb-2"
+                  style={{ color: accent }}
+                >
+                  PAGE
+                </div>
+                <div className="text-sm font-semibold text-slate-800 leading-snug">
+                  {doc.title}
+                </div>
+                <div className="mt-3 text-xs text-slate-400 font-mono">{doc.filename}</div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 原始素材 */}
+      <section>
         <div className="flex items-center gap-3 mb-5">
           <h2 className="text-lg font-bold text-slate-800">原始素材</h2>
           <span className="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded">
