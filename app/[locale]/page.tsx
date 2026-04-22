@@ -16,11 +16,10 @@ export default function Home() {
       {/* 3. 别墅与套房 */}
       <VillasAndSuites />
 
-      {/* 4. 优惠精选 — 暂时隐藏
+      {/* 4. 优惠精选 */}
       <SpecialOffers />
-      */}
 
-      {/* 5. 故事叙述 */}
+      {/* 5. 品牌故事引言 */}
       <Storytelling />
     </main>
   );
