@@ -67,8 +67,6 @@ export function Header() {
     { key: 'nav2', href: '/booking' },
     { key: 'nav3', href: '/gallery' },
     { key: 'nav4', href: '/location' },
-    { key: 'nav5', href: '/offers' },
-    { key: 'nav6', href: '/contact' },
   ] as const;
 
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations, useLocale } from 'next-intl';
-import { useRouter, usePathname } from '@/i18n/routing';
+import { useRouter, usePathname, Link } from '@/i18n/routing';
 import { useState, useRef, useEffect } from 'react';
 
 interface MobileNavDrawerProps {
@@ -192,46 +192,54 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
         <div className="flex flex-1 flex-col items-start overflow-y-auto bg-white px-6 py-8">
           {/* Nav links */}
           <div className="flex w-full flex-col gap-7 pb-8 text-[13px] font-normal tracking-widest text-black">
-            <span
+            <Link
+              href="/"
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
-              {/* Active Triangle Indicator */}
+              {pathname === '/' && (
               <svg className="absolute -left-6.25 h-3.5 w-3" viewBox="0 0 10 14" fill="black">
                 <path d="M0 0l10 7-10 7z" />
               </svg>
+              )}
               {t('nav1')}
-            </span>
-            <span
+            </Link>
+            <Link
+              href="/booking"
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
+              {pathname === '/booking' && (
+              <svg className="absolute -left-6.25 h-3.5 w-3" viewBox="0 0 10 14" fill="black">
+                <path d="M0 0l10 7-10 7z" />
+              </svg>
+              )}
               {t('nav2')}
-            </span>
-            <span
+            </Link>
+            <Link
+              href="/gallery"
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
+              {pathname === '/gallery' && (
+              <svg className="absolute -left-6.25 h-3.5 w-3" viewBox="0 0 10 14" fill="black">
+                <path d="M0 0l10 7-10 7z" />
+              </svg>
+              )}
               {t('nav3')}
-            </span>
-            <span
+            </Link>
+            <Link
+              href="/location"
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
+              {pathname === '/location' && (
+              <svg className="absolute -left-6.25 h-3.5 w-3" viewBox="0 0 10 14" fill="black">
+                <path d="M0 0l10 7-10 7z" />
+              </svg>
+              )}
               {t('nav4')}
-            </span>
-            <span
-              onClick={onClose}
-              className="relative flex cursor-pointer items-center hover:opacity-70"
-            >
-              {t('nav5')}
-            </span>
-            <span
-              onClick={onClose}
-              className="relative flex cursor-pointer items-center hover:opacity-70"
-            >
-              {t('nav6')}
-            </span>
+            </Link>
           </div>
 
 

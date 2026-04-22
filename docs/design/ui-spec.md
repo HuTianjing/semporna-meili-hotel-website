@@ -22,7 +22,7 @@
 
 ```tsx
 // ❌ 禁止 — 裸 hex / hsl 出现在任何 TSX 文件中
-<span className="text-[#c2996c]">...</span>
+<span className="text-gold-warm">...</span>
 <div style={{ color: '#8a7e6b' }}>...</div>
 
 // ✅ 正确 — Tailwind Token（已在 @theme 定义）
@@ -105,7 +105,7 @@ cream（亮白）→ about-bg（暖米）→ villas-bg（深夜蓝）→ cream �
 </div>
 
 // ❌ 禁止写死宽度
-<div className="w-[600px]">...</div>
+<div className="w-150">...</div>
 ```
 
 **② 卡片列数**：
@@ -165,7 +165,7 @@ className="mb-4 sm:mb-6 md:mb-8 lg:mb-10"
 移动端所有按钮、链接最小触摸区域 **44×44px**：
 
 ```tsx
-<button className="min-h-[44px] px-6 py-3 ...">
+<button className="min-h-11 px-6 py-3 ...">
 <a className="p-3 inline-flex items-center ...">
 ```
 
@@ -422,7 +422,7 @@ const isInView = useInView(sectionRef, {
 **主 CTA（深海蓝）**：
 
 ```tsx
-<button className="bg-primary text-primary-foreground px-8 py-3 text-sm tracking-widest uppercase transition-colors duration-300 hover:bg-primary-light min-h-[44px]">
+<button className="bg-primary text-primary-foreground px-8 py-3 text-sm tracking-widest uppercase transition-colors duration-300 hover:bg-primary-light min-h-11">
   立即预订
 </button>
 ```
@@ -430,7 +430,7 @@ const isInView = useInView(sectionRef, {
 **金色文字箭头链接（区块 CTA）**：
 
 ```tsx
-<button className="group flex items-center gap-2 text-sm font-semibold tracking-widest text-gold uppercase transition-colors hover:text-white min-h-[44px]">
+<button className="group flex items-center gap-2 text-sm font-semibold tracking-widest text-gold uppercase transition-colors hover:text-white min-h-11">
   查看全部
   <ArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
 </button>
@@ -447,7 +447,7 @@ const isInView = useInView(sectionRef, {
 **Header 预订按钮（描边金色）**：
 
 ```tsx
-<button className="border border-gold px-4 py-2 text-xs tracking-widest text-gold uppercase transition-all hover:bg-gold hover:text-white min-h-[44px]">
+<button className="border border-gold px-4 py-2 text-xs tracking-widest text-gold uppercase transition-all hover:bg-gold hover:text-white min-h-11">
   立即预订
 </button>
 ```

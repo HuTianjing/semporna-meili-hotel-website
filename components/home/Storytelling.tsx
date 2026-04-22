@@ -89,7 +89,7 @@ export function Storytelling() {
                 className={`group flex cursor-pointer flex-col md:flex-row ${isEven ? '' : 'md:flex-row-reverse'} items-stretch`}
               >
                 {/* 图片 */}
-                <div className="relative h-[60vw] w-full flex-shrink-0 overflow-hidden md:h-[70vh] md:w-[55%]">
+                <div className="relative h-[60vw] w-full shrink-0 overflow-hidden md:h-[70vh] md:w-[55%]">
                   <Image
                     src={POST_IMAGES[i]}
                     alt={post.title}
