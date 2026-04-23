@@ -89,13 +89,14 @@ export function VillasAndSuites() {
                   <div 
                     style={{
                       transition: 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
-                      opacity: isActive ? 1 : 0.4,
-                      transform: isActive ? 'scale(1)' : 'scale(0.85)',
-                      boxShadow: isActive ? '0 25px 50px -12px rgb(0 0 0 / 0.25)' : 'none',
-                    }}
-                    className="bg-white flex flex-col h-full mx-auto"
+                      '--card-scale': isActive ? '1' : '0.85',
+                      '--card-opacity': isActive ? '1' : '0.4',
+                    } as React.CSSProperties}
+                    className={`bg-white flex flex-col h-full mx-auto scale-100 opacity-100 shadow-md sm:scale-[var(--card-scale)] sm:opacity-[var(--card-opacity)] ${
+                      isActive ? 'sm:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]' : 'sm:shadow-none'
+                    }`}
                   >
-                    <div className="relative w-full h-[280px] md:h-[340px] shrink-0">
+                    <div className="relative w-full h-[360px] sm:h-[280px] md:h-[340px] shrink-0">
                       <Image
                         src={room.image}
                         alt={room.title}
@@ -111,7 +112,7 @@ export function VillasAndSuites() {
                       </h3>
 
                       <div 
-                        className="flex flex-col items-center justify-center w-full overflow-hidden"
+                        className="hidden sm:flex flex-col items-center justify-center w-full overflow-hidden"
                         style={{
                           transition: 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
                           maxHeight: isActive ? '400px' : '0px',
