@@ -228,6 +228,28 @@ Hero 全宽图 → 文字内容区（cream/about-bg 浅色基底）→ 全宽图
   cream（区块A）→ cream（区块B）— 无内容密度变化、无图片间隔
 ```
 
+#### 非 Hero 内容区块的背景色建议
+
+**除 Hero（首屏）及每页第一个内容区块之外**，后续所有内容区块建议在 `bg-background`（纯白）与 `bg-cream`（奶白）之间轻柔交替，而非引入其他颜色。
+
+> 这种交替几乎察觉不到（色差极小），但足以给视觉系统提示"这是新的内容单元"，同时不会打断页面的整体叙事流。
+
+```
+推荐节奏（内容区块序列示例）：
+  Hero（全宽图/视频）
+  → 第一内容区（bg-cream，页面主基底）
+  → 第二内容区（bg-background 白色，轻微区分）
+  → 全宽图（叙事节点）
+  → 第三内容区（bg-cream）
+  → 深色区块（bg-[--color-villas-bg]，≤ 2次，有充分理由）
+  → 第四内容区（bg-background）
+```
+
+**规则**：
+- `bg-cream` 与 `bg-background` 之间的交替不构成"斑马纹"，允许使用，但同一颜色连续出现 ≥ 3 个区块时，必须通过内容密度变化或全宽图打断
+- 不要为了"显得有设计感"而引入 `about-bg`、`muted` 等其他浅色变体——`cream`↔`white` 的细微交替已经足够
+- `about-bg`（暖米色）仅用于需要特别强调"温度感"的单一区块（如品牌起源、管家服务介绍），不应频繁出现
+
 #### 具体规范
 
 - **深色区块（villas-bg）不得与另一个深色区块相邻**，中间必须有浅色区块或全宽图间隔
@@ -335,9 +357,33 @@ className="py-16 sm:py-20 md:py-28 lg:py-36 xl:py-44"
 // 紧凑区块
 className="py-12 sm:py-16 md:py-20"
 
+// 非对称间距区块（如 Storytelling：顶部标题区 + 底部大型列表）
+// section 顶部留白，底部由内容列表自然撑开
+className="pt-20 pb-32"   // top: 5rem, bottom: 8rem
+
 // 内部段落间距（逐级递增）
 className="mb-4 sm:mb-6 md:mb-8 lg:mb-10"
 ```
+
+> ⚠️ **相邻区块双边 padding 叠加警告**
+>
+> 当两个相邻 `<section>` 各自设置 `pb-*` 和 `pt-*` 时，实际视觉间距 = 上区块 `pb` + 下区块 `pt`，极易产生远超预期的空白（例如 `pb-32 + pt-20` = 208px 纯空白）。
+>
+> **规则**：相邻区块之间只在 **一侧** 保留大 padding，另一侧设为 0 或最小值；或统一使用对称 `py-*`，避免 bottom + top 双侧同时堆叠大值。
+>
+> ```tsx
+> // ❌ 禁止 — 双边叠加，实际间距 = pb-32 + pt-20 = 208px
+> <section className="pb-32">区块 A</section>
+> <section className="pt-20">区块 B</section>
+>
+> // ✅ 正确 — 只在下方区块保留 top padding，上方不设 bottom（或设小值）
+> <section className="pb-0">区块 A</section>
+> <section className="pt-20">区块 B</section>
+>
+> // ✅ 正确 — 使用对称 py，两侧节奏一致
+> <section className="py-20">区块 A</section>
+> <section className="py-20">区块 B</section>
+> ```
 
 ### 2.6 触摸目标尺寸
 
@@ -366,13 +412,25 @@ className="mb-4 sm:mb-6 md:mb-8 lg:mb-10"
 
 ### 3.2 字号层级
 
-| 层级 | 写法 | 场景 |
-|---|---|---|
-| Hero 超大标题 | `clamp(1.8rem, 4vw, 4rem)` | 首屏 h1 |
-| 区块主标题 | `clamp(1.6rem, 4vw, 3rem)` | 各 Section h2 |
-| 卡片标题 | `clamp(1.2rem, 2.5vw, 1.8rem)` | 卡片 h3 |
-| 正文 | `text-sm` / `text-base` | 段落 |
-| 微标签 | `text-[0.6rem]` / `text-[0.65rem]` | 章节序号、ALL CAPS 标签 |
+| 层级 | 写法 | 行高 | 场景 |
+|---|---|---|---|
+| Hero 超大标题 | `clamp(1.8rem, 4vw, 4rem)` | `leading-[1.05]` | 首屏 h1 |
+| 区块主标题 | `clamp(1.6rem, 4vw, 2.8rem)` | `leading-[1.15]` | 各 Section h2（`Storytelling` 等内容区块验证值）|
+| 卡片标题 | `clamp(1.2rem, 2.5vw, 1.8rem)` | `leading-tight` | 卡片 h3 |
+| 正文 | `text-sm` / `text-base` | `leading-relaxed` | 段落 |
+| 微标签 | `text-[0.6rem]` / `text-[0.65rem]` | — | 章节序号、ALL CAPS 标签 |
+
+> **区块主标题完整写法（以 `Storytelling` 为标准参考实现）**：
+> ```tsx
+> <h2
+>   className="font-serif leading-[1.15] text-[--color-section-text]"
+>   style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
+> />
+> ```
+> 标题容器（`motion.div`）下方 margin 须逐断点递增，给下方内容区留出呼吸空间：
+> ```tsx
+> className="mb-10 text-center sm:mb-14 md:mb-20"
+> ```
 
 ### 3.3 字间距与行高
 
