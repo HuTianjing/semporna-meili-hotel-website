@@ -82,7 +82,7 @@ export default function LocationNeedToKnow() {
                 <Check
                   size={16}
                   strokeWidth={2}
-                  className="text-gold-warm flex-shrink-0 mt-0.5"
+                  className="text-gold-warm shrink-0 mt-0.5"
                 />
                 <span className="font-sans text-sm sm:text-base text-[--color-section-text]/75 leading-relaxed tracking-wide">
                   {item}
@@ -147,7 +147,7 @@ export default function LocationNeedToKnow() {
           >
             {/* 将原本占地方的入住/退房时间整合成第一条须知 */}
             <li className="flex items-start gap-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold-warm/60 flex-shrink-0 mt-2" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-warm/60 shrink-0 mt-2" />
               <span className="font-sans text-sm sm:text-base text-[--color-section-text]/75 leading-relaxed tracking-wide">
                 <span className="font-medium text-[--color-section-text]">{t('info.checkinLabel')}：</span>
                 {t('info.checkinValue')} 
@@ -162,7 +162,7 @@ export default function LocationNeedToKnow() {
                 key={item}
                 className="flex items-start gap-4"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-gold-warm/60 flex-shrink-0 mt-2" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-warm/60 shrink-0 mt-2" />
                 <span className="font-sans text-sm sm:text-base text-[--color-section-text]/75 leading-relaxed tracking-wide">
                   {item}
                 </span>

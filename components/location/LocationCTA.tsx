@@ -8,7 +8,10 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
+    },
   },
 };
 
@@ -45,13 +48,13 @@ export default function LocationCTA() {
             href="https://wa.me/601127803997"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto min-h-[50px] px-10 py-3.5 inline-flex items-center justify-center border border-[--color-section-text]/20 text-[--color-section-text]/80 font-sans text-xs tracking-[0.2em] transition-all duration-400 hover:border-[--color-section-text] hover:text-[--color-section-text]"
+            className="w-full sm:w-auto min-h-12.5 px-10 py-3.5 inline-flex items-center justify-center border border-[--color-section-text]/20 text-[--color-section-text]/80 font-sans text-xs tracking-[0.2em] transition-all duration-400 hover:border-[--color-section-text] hover:text-[--color-section-text]"
           >
             {t('cta.whatsapp')}
           </a>
           <a
             href="mailto:amy@meilihotel.com"
-            className="w-full sm:w-auto min-h-[50px] px-10 py-3.5 inline-flex items-center justify-center border border-[--color-section-text]/20 text-[--color-section-text]/80 font-sans text-xs tracking-[0.2em] transition-all duration-400 hover:border-[--color-section-text] hover:text-[--color-section-text]"
+            className="w-full sm:w-auto min-h-12.5 px-10 py-3.5 inline-flex items-center justify-center border border-[--color-section-text]/20 text-[--color-section-text]/80 font-sans text-xs tracking-[0.2em] transition-all duration-400 hover:border-[--color-section-text] hover:text-[--color-section-text]"
           >
             {t('cta.email')}
           </a>

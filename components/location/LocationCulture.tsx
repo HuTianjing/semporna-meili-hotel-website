@@ -35,7 +35,7 @@ export default function LocationCulture() {
       {/* 1-A 地理优势 */}
       <div
         ref={geoRef}
-        className="flex flex-col md:flex-row items-center px-page gap-12 md:gap-0 max-w-screen-xl mx-auto"
+        className="flex flex-col md:flex-row items-center px-page gap-12 md:gap-0 max-w-7xl mx-auto"
       >
         {/* 左图 */}
         <motion.div
@@ -43,7 +43,7 @@ export default function LocationCulture() {
           variants={fadeUp}
           initial="hidden"
           animate={geoInView ? 'visible' : 'hidden'}
-          className="w-full md:w-1/2 relative aspect-[4/3] overflow-hidden flex-shrink-0 rounded-sm"
+          className="w-full md:w-1/2 relative aspect-4/3 overflow-hidden shrink-0 rounded-sm"
         >
           <Image
             src="/Photos on OTA/iStock-831459576.jpg"
@@ -119,7 +119,7 @@ export default function LocationCulture() {
       {/* 1-B 巴瑶族 */}
       <div
         ref={bajauRef}
-        className="flex flex-col md:flex-row-reverse items-center px-page gap-12 md:gap-0 max-w-screen-xl mx-auto"
+        className="flex flex-col md:flex-row-reverse items-center px-page gap-12 md:gap-0 max-w-7xl mx-auto"
       >
         {/* 右图（桌面右，移动上） */}
         <motion.div
@@ -127,7 +127,7 @@ export default function LocationCulture() {
           variants={fadeUp}
           initial="hidden"
           animate={bajauInView ? 'visible' : 'hidden'}
-          className="w-full md:w-1/2 relative aspect-4/3 overflow-hidden flex-shrink-0 rounded-sm"
+          className="w-full md:w-1/2 relative aspect-4/3 overflow-hidden shrink-0 rounded-sm"
         >
           <Image
             src="/Photos on OTA/iStock-171577290.jpg"

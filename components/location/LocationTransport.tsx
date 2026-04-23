@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
 import { Plane, Car, Anchor, MapPin } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -69,8 +68,8 @@ export default function LocationTransport() {
             animate={leftInView ? 'visible' : 'hidden'}
             className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[--color-gold-warm]">03</span>
-            <div className="w-8 sm:w-12 h-px bg-[--color-gold-warm]" />
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-gold-warm">03</span>
+            <div className="w-8 sm:w-12 h-px bg-gold-warm" />
             <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.3em] text-[--color-warm-text]">
               {t('route.tag')}
             </span>
@@ -95,9 +94,6 @@ export default function LocationTransport() {
             animate={leftInView ? 'visible' : 'hidden'}
             className="relative"
           >
-            {/* 竖线 */}
-            <div className="absolute left-[1.375rem] top-0 bottom-0 w-px bg-[--color-gold-warm]/30" aria-hidden="true" />
-
             {/* 自行安排标签 */}
             <div className="flex items-center gap-4 mb-6 ml-12">
               <span className="font-sans text-[0.6rem] uppercase tracking-[0.25em] text-[--color-warm-text] border border-[--color-section-text]/20 px-3 py-1">
@@ -107,8 +103,8 @@ export default function LocationTransport() {
 
             {/* 节点 1：塔瓦机场 */}
             <div className="flex items-start gap-4 mb-8">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full border border-[--color-gold-warm] flex items-center justify-center bg-[--color-about-bg] z-10">
-                <Plane size={16} className="text-[--color-gold-warm]" />
+              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-[--color-about-bg] z-10">
+                <Plane size={16} className="text-gold-warm" />
               </div>
               <div className="pt-2">
                 <p className="font-serif text-[--color-section-text] text-base leading-tight">
@@ -125,17 +121,17 @@ export default function LocationTransport() {
 
             {/* 分割标签：以下由我们安排 */}
             <div className="flex items-center gap-4 mb-8 ml-12">
-              <div className="h-px w-8 bg-[--color-gold-warm]/40" />
-              <span className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-[--color-gold-warm] whitespace-nowrap px-3">
+              <div className="h-px w-8 bg-gold-warm/40" />
+              <span className="font-sans text-[0.6rem] uppercase tracking-[0.2em] text-gold-warm whitespace-nowrap px-3">
                 {t('route.divider')}
               </span>
-              <div className="h-px flex-1 bg-[--color-gold-warm]/40" />
+              <div className="h-px flex-1 bg-gold-warm/40" />
             </div>
 
             {/* 节点 2：专属车辆 */}
             <div className="flex items-start gap-4 mb-2">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full border border-[--color-gold-warm] flex items-center justify-center bg-[--color-about-bg] z-10">
-                <Car size={16} className="text-[--color-gold-warm]" />
+              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-[--color-about-bg] z-10">
+                <Car size={16} className="text-gold-warm" />
               </div>
               <div className="pt-2">
                 <p className="font-serif text-[--color-section-text] text-base leading-tight">
@@ -144,18 +140,16 @@ export default function LocationTransport() {
                 <p className="font-sans text-[--color-warm-text] text-xs mt-1">
                   {t('route.tawauMode')} · {t('route.tawauDuration')}
                 </p>
-                <p className="font-sans text-[--color-gold-warm]/70 text-[0.6rem] mt-1 uppercase tracking-[0.15em]">
+                <p className="font-sans text-gold-warm/70 text-[0.6rem] mt-1 uppercase tracking-[0.15em]">
                   ✓ {t('route.included')}
                 </p>
               </div>
             </div>
 
-            <div className="ml-[1.375rem] w-px h-8 bg-[--color-gold-warm]/20" aria-hidden="true" />
-
             {/* 节点 3：专属快艇 */}
             <div className="flex items-start gap-4 mb-2">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full border border-[--color-gold-warm] flex items-center justify-center bg-[--color-about-bg] z-10">
-                <Anchor size={16} className="text-[--color-gold-warm]" />
+              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-[--color-about-bg] z-10">
+                <Anchor size={16} className="text-gold-warm" />
               </div>
               <div className="pt-2">
                 <p className="font-serif text-[--color-section-text] text-base leading-tight">
@@ -164,18 +158,16 @@ export default function LocationTransport() {
                 <p className="font-sans text-[--color-warm-text] text-xs mt-1">
                   {t('route.jettyMode')} · {t('route.jettyDuration')}
                 </p>
-                <p className="font-sans text-[--color-gold-warm]/70 text-[0.6rem] mt-1 uppercase tracking-[0.15em]">
+                <p className="font-sans text-gold-warm/70 text-[0.6rem] mt-1 uppercase tracking-[0.15em]">
                   ✓ {t('route.included')}
                 </p>
               </div>
             </div>
 
-            <div className="ml-[1.375rem] w-px h-8 bg-[--color-gold-warm]/20" aria-hidden="true" />
-
             {/* 节点 4：美丽度假酒店 */}
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-11 h-11 rounded-full border border-[--color-gold-warm] flex items-center justify-center bg-[--color-gold-warm]/20 z-10">
-                <MapPin size={16} className="text-[--color-gold-warm]" />
+              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-gold-warm/20 z-10">
+                <MapPin size={16} className="text-gold-warm" />
               </div>
               <div className="pt-2">
                 <p className="font-serif text-[--color-section-text] text-base leading-tight">
@@ -212,8 +204,8 @@ export default function LocationTransport() {
             animate={rightInView ? 'visible' : 'hidden'}
             className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[--color-gold-warm]">04</span>
-            <div className="w-8 sm:w-12 h-px bg-[--color-gold-warm]" />
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-gold-warm">04</span>
+            <div className="w-8 sm:w-12 h-px bg-gold-warm" />
             <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.3em] text-[--color-warm-text]">
               {t('schedule.tag')}
             </span>
@@ -241,7 +233,7 @@ export default function LocationTransport() {
             <div className="flex flex-col xl:flex-row gap-12 xl:gap-8">
               {/* 到达方向 */}
               <div className="w-full xl:w-1/2">
-                <p className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-[--color-gold-warm] mb-6">
+                <p className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-gold-warm mb-6">
                   {t('schedule.arrivalTitle')}
                 </p>
                 <table className="w-full border-collapse">
@@ -273,7 +265,7 @@ export default function LocationTransport() {
 
               {/* 离开方向 */}
               <div className="w-full xl:w-1/2">
-                <p className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-[--color-gold-warm] mb-6">
+                <p className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-gold-warm mb-6">
                   {t('schedule.departureTitle')}
                 </p>
                 <table className="w-full border-collapse">
