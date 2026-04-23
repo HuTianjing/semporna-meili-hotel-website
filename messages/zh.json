@@ -168,6 +168,11 @@
     ]
   },
   "Location": {
+    "nav": {
+      "culture": "地方人文",
+      "info": "须知信息",
+      "transport": "交通指引"
+    },
     "hero": {
       "title": "北纬4°，您的私属海洋坐标",
       "subtitle": "马来西亚仙本那 · 珊瑚金三角核心 · 诗巴丹旁"
@@ -186,6 +191,36 @@
       "typhoonFree": "无台风记录",
       "sipadanValue": "< 30 分钟",
       "sipadan": "快艇直达诗巴丹"
+    },
+    "culture": {
+      "bajau": {
+        "tag": "THE BAJAU PEOPLE · 巴瑶族",
+        "title": "世代守护这片海的人",
+        "desc1": "巴瑶族（Bajau），被称为「海上游牧民族」，世代居于仙本那这片海域。他们生于海上，长于海上，以自由潜水为生，与这片珊瑚礁和谐共生已逾千年。",
+        "desc2": "他们是这片海洋最深情的守护者，也是这片大海最动人的名片。在美丽度假酒店，您将有机会聆听这段人与大海的千年故事。"
+      }
+    },
+    "info": {
+      "includedTag": "INCLUDED · 套餐已含",
+      "includedTitle": "全包套餐，已为您备妥",
+      "includedItems": [
+        "每日三餐 + 下午茶（2人）",
+        "塔瓦机场 ⇄ 仙本那码头（专属车辆）",
+        "仙本那码头 ⇄ 酒店（专属快艇）",
+        "礁石区潜水 / 浮潜体验",
+        "无边泳池 · 海上健身房",
+        "24小时专属管家服务"
+      ],
+      "priceValue": "RM 5,800",
+      "priceUnit": "/ 晚，2人含税净价",
+      "policyTag": "BOOKING POLICY · 预订须知",
+      "policyItems": [
+        "不可退款，需全额预付",
+        "有效期：2026年10月起",
+        "套餐不含：水疗 · 酒吧及特别注明项目"
+      ],
+      "checklistTag": "BUTLER'S NOTE · 管家手记",
+      "checklistTitle": "行前准备清单"
     },
     "route": {
       "tag": "ARRIVAL ROUTE · 全程接送",

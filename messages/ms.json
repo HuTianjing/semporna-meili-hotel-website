@@ -172,6 +172,11 @@
     ]
   },
   "Location": {
+    "nav": {
+      "culture": "Budaya Tempatan",
+      "info": "Maklumat Penting",
+      "transport": "Cara Tiba"
+    },
     "hero": {
       "title": "4°U — Koordinat Lautan Peribadi Anda",
       "subtitle": "Semporna, Malaysia · Jantung Segitiga Terumbu Karang · Bersebelahan Sipadan"
@@ -190,6 +195,36 @@
       "typhoonFree": "Tahun Bebas Taufan",
       "sipadanValue": "< 30 minit",
       "sipadan": "Bot Laju ke Sipadan"
+    },
+    "culture": {
+      "bajau": {
+        "tag": "ORANG BAJAU",
+        "title": "Penjaga Laut Selama Berabad-Abad",
+        "desc1": "Orang Bajau, dikenali sebagai \"Nomad Laut\", telah hidup di perairan ini turun-temurun. Dilahirkan dan dibesarkan di atas lautan, mereka menyelam bebas senatural bernafas, hidup harmoni bersama terumbu karang sejak ribuan tahun lalu.",
+        "desc2": "Mereka adalah penjaga paling setia lautan ini — dan kisah paling mengesankan di sini. Di Meili Resort, anda akan berpeluang mendengar kisah abadi antara manusia dan lautan ini."
+      }
+    },
+    "info": {
+      "includedTag": "TERMASUK",
+      "includedTitle": "Pakej All-Inclusive, Sedia untuk Anda",
+      "includedItems": [
+        "Sarapan, makan tengah hari, makan malam + teh petang harian (2 tetamu)",
+        "Lapangan Terbang Tawau ⇄ Jeti Semporna (kenderaan peribadi)",
+        "Jeti Semporna ⇄ Resort (bot laju peribadi)",
+        "Pengalaman snorkeling & menyelam di kawasan terumbu",
+        "Kolam renang infinity · Pusat kecergasan di atas air",
+        "Perkhidmatan butler peribadi 24 jam"
+      ],
+      "priceValue": "RM 5,800",
+      "priceUnit": "/ malam · 2 tetamu · semua inklusif",
+      "policyTag": "POLISI TEMPAHAN",
+      "policyItems": [
+        "Tidak boleh dikembalikan · Pembayaran penuh diperlukan",
+        "Sah dari Oktober 2026",
+        "Tidak termasuk: spa · bar · item yang dinyatakan"
+      ],
+      "checklistTag": "NOTA BUTLER",
+      "checklistTitle": "Senarai Semak Sebelum Berlepas"
     },
     "route": {
       "tag": "LALUAN KETIBAAN · PEMINDAHAN PENUH",

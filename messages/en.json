@@ -172,6 +172,11 @@
     ]
   },
   "Location": {
+    "nav": {
+      "culture": "Local Culture",
+      "info": "Need to Know",
+      "transport": "Getting Here"
+    },
     "hero": {
       "title": "4°N — Your Private Ocean Coordinate",
       "subtitle": "Semporna, Malaysia · Heart of the Coral Triangle · Adjacent to Sipadan"
@@ -190,6 +195,36 @@
       "typhoonFree": "Years Typhoon-Free",
       "sipadanValue": "< 30 min",
       "sipadan": "Speedboat to Sipadan"
+    },
+    "culture": {
+      "bajau": {
+        "tag": "THE BAJAU PEOPLE",
+        "title": "Guardians of the Sea for Centuries",
+        "desc1": "The Bajau, known as the \"Sea Nomads,\" have lived on these waters for generations. Born and raised on the ocean, they free-dive as naturally as they breathe, living in harmony with the coral reef for over a thousand years.",
+        "desc2": "They are the most devoted guardians of this sea — and its most unforgettable story. At Meili Resort, you will have the chance to hear this ancient tale of humanity and the ocean."
+      }
+    },
+    "info": {
+      "includedTag": "INCLUDED",
+      "includedTitle": "All-Inclusive. All Prepared.",
+      "includedItems": [
+        "Daily breakfast, lunch, dinner + afternoon tea (2 guests)",
+        "Tawau Airport ⇄ Semporna Jetty (private vehicle)",
+        "Semporna Jetty ⇄ Resort (private speedboat)",
+        "Reef snorkelling & diving experience",
+        "Infinity pool · Overwater fitness centre",
+        "24-hour personal butler service"
+      ],
+      "priceValue": "RM 5,800",
+      "priceUnit": "/ night · 2 guests · all-inclusive",
+      "policyTag": "BOOKING POLICY",
+      "policyItems": [
+        "Non-refundable · Full prepayment required",
+        "Valid from October 2026",
+        "Excludes: spa · bar · other noted items"
+      ],
+      "checklistTag": "BUTLER'S NOTE",
+      "checklistTitle": "Pre-Departure Checklist"
     },
     "route": {
       "tag": "ARRIVAL ROUTE · FULL TRANSFER",
