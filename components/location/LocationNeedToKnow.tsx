@@ -134,7 +134,7 @@ export default function LocationNeedToKnow() {
             className="font-serif text-[--color-section-text] leading-[1.1] mb-8 sm:mb-10"
             style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
           >
-            {t('info.stayTag').split('·').pop()?.trim() || 'Stay Essentials'}
+            {t('info.stayTitle')}
           </motion.h2>
 
           {/* 须知条款 — 去除割裂的横线，使用与左侧同样的行距与文字质感 */}

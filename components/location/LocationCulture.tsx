@@ -47,7 +47,7 @@ export default function LocationCulture() {
         >
           <Image
             src="/Photos on OTA/iStock-831459576.jpg"
-            alt="仙本那玻璃海 — 美丽度假酒店所在的珊瑚金三角海域"
+            alt={t('info.imageAlt.geo')}
             fill
             className="object-cover"
           />
@@ -131,7 +131,7 @@ export default function LocationCulture() {
         >
           <Image
             src="/Photos on OTA/iStock-171577290.jpg"
-            alt="巴瑶族海上游牧民族 — 世代守护仙本那珊瑚礁"
+            alt={t('info.imageAlt.bajau')}
             fill
             className="object-cover"
           />

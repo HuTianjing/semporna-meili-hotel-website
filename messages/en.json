@@ -245,6 +245,10 @@
       "closingNote": "Everything on the island is prepared for you. Travel light.",
       "stayTag": "STAY ESSENTIALS",
       "stayTitle": "Stay Essentials",
+      "imageAlt": {
+        "geo": "Semporna crystal-clear waters — Coral Triangle sea where Meili Resort is located",
+        "bajau": "Bajau Sea Nomads — generations of guardians of the Semporna coral reef"
+      },
       "checkinLabel": "Check-in",
       "checkinValue": "From 2:00 PM",
       "checkoutLabel": "Check-out",
@@ -280,6 +284,7 @@
     },
     "schedule": {
       "tag": "TRANSFER SCHEDULE",
+      "title": "Private Transfer Schedule",
       "colRoute": "Route",
       "colTime1": "Departure 1",
       "colTime2": "Departure 2",

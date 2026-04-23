@@ -227,7 +227,7 @@ export default function LocationTransport() {
             className="font-serif text-[--color-section-text] leading-[1.1] mb-10 sm:mb-14"
             style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
           >
-            {t('schedule.tag').includes('·') ? t('schedule.tag').split('·').pop()?.trim() : t('schedule.tag')}
+            {t('schedule.title')}
           </motion.h2>
 
           {/* 右侧主时刻表区域 */}

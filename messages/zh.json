@@ -245,6 +245,10 @@
       "closingNote": "岛上一切已为您备妥，轻装出发即可。",
       "stayTag": "STAY ESSENTIALS · 入住须知",
       "stayTitle": "入住须知",
+      "imageAlt": {
+        "geo": "仙本那玻璃海 — 美丽度假酒店所在的珊瑚金三角海域",
+        "bajau": "巴瑶族海上游牧民族 — 世代守护仙本那珊瑚礁"
+      },
       "checkinLabel": "入住时间",
       "checkinValue": "下午 2:00 起",
       "checkoutLabel": "退房时间",
@@ -280,6 +284,7 @@
     },
     "schedule": {
       "tag": "TRANSFER SCHEDULE",
+      "title": "专属接送时刻表",
       "colRoute": "行程",
       "colTime1": "班次一",
       "colTime2": "班次二",

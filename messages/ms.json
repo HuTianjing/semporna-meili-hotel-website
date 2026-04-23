@@ -245,6 +245,10 @@
       "closingNote": "Segala-galanya di pulau sudah disediakan untuk anda. Bawa barang ringkas.",
       "stayTag": "STAY ESSENTIALS",
       "stayTitle": "Keperluan Penginapan",
+      "imageAlt": {
+        "geo": "Perairan jernih Semporna — Kawasan Segitiga Terumbu Karang tempat Meili Resort berada",
+        "bajau": "Nomad Laut Bajau — generasi penjaga terumbu karang Semporna"
+      },
       "checkinLabel": "Daftar Masuk",
       "checkinValue": "Dari 2:00 PTG",
       "checkoutLabel": "Daftar Keluar",
@@ -280,6 +284,7 @@
     },
     "schedule": {
       "tag": "TRANSFER SCHEDULE",
+      "title": "Jadual Pemindahan Eksklusif",
       "colRoute": "Laluan",
       "colTime1": "Masa 1",
       "colTime2": "Masa 2",
