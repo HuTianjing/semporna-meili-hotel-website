@@ -1,180 +1,350 @@
 ﻿# 图片与视频策划 — Photos & Videos Gallery
 
 > 路由：`/gallery`
-> 目标：视觉种草，激发向往，用高质量媒体资产强化"值得这个价格"的心理预期
+> 叙事目的：让访客在看图的过程中，完成一次"想象中的入住"——从落地这片海，到走进别墅，到沉入水下，到仰望星空。
+> 核心原则：图像是唯一主角，UI 是容器。每一张图片都在回答一个问题：**为什么值得来这里？**
 
 ---
 
-## 一、策划逻辑
+## 一、访客旅程与情绪弧线
 
-图库分类不按通用酒店模板（外观/餐饮/设施），而是**围绕核心卖点**重新组织，让每个 Tab 本身就在传递一个差异化价值主张：
+图库不是资料库，是一段叙事。访客打开这个页面时，心里的问题不是"你们有什么图"，而是 **"我去了之后会是什么感受？"**
 
-| Tab | 对应卖点 |
-|-----|---------|
-| 别墅入住 | 圆形别墅、BELIAN木、180°海景、管家服务 |
-| 美食体验 | 米其林、海上咖啡厅、落日酒吧、全包 |
-| 娱乐设施 | 泳池、高尔夫、Spa、六星剧场、儿童乐园 |
-| 海洋探索 | 潜水俱乐部、珊瑚、海狼风暴、海龟、崖壁 |
-| 天光海色 | 玻璃海航拍、360°日出日落、星空 |
-| 建筑传奇 | 吉尼斯规模鸟瞰、BELIAN纹理、别墅群俯视 |
-| 人文风情 | 巴瑶族、仙本那码头、渔船剪影 |
+页面的情绪弧线应当是：
+
+```
+页面入口（落地这片海的第一眼）
+  ↓
+分类浏览（按自己最在意的卖点深入）
+  ↓
+灯箱沉浸（放大一张图，与这片海独处片刻）
+  ↓
+视频（如果有）→ 最强的情绪放大器
+  ↓
+底部出口（从向往转化为行动）
+```
+
+Tab 分类不按通用酒店模板（外观/餐饮/设施），而是**围绕差异化价值主张**重新组织，让每个 Tab 的名字本身就在传递一个理由：
+
+| Tab 标签 | 英文副标题 | 传递的核心理由 |
+|---------|-----------|--------------|
+| 全部 | All | 整体印象 |
+| 别墅与居停 | Villa & Stay | BELIAN铁木、180°海景露台、管家服务 |
+| 一餐一景 | Dining & Views | 米其林、日出咖啡、落日酒吧、全包 |
+| 无尽设施 | Amenities | 无边泳池、高尔夫、Spa、剧场、儿童乐园 |
+| 深入海洋 | Ocean & Diving | 珊瑚金三角、海狼风暴、海龟、崖壁 |
+| 天光与海色 | Sky & Sea | 玻璃海、360°日出日落、银河星空 |
+| 建筑传奇 | Architecture | 吉尼斯规模、BELIAN纹理、别墅群鸟瞰 |
+| 这片海的人 | Culture | 巴瑶族、码头、渔船、人文温度 |
 
 ---
 
 ## 二、页面区块总览
 
-> 图库页不设任何标题条或 Hero。`<GalleryFilter />` 分类 Tab 即为页面入口，图像是唯一主角。
-
-| 序号 | 区块名 | 组件 | 优先级 | 状态 |
-|------|--------|------|--------|------|
-| 1 | 分类筛选 Tab | `<GalleryFilter />` | P0 | 待开发 |
-| 2 | 图片网格 | `<GalleryGrid />` | P0 | 待开发 |
-| 3 | 全屏灯箱 | `<GalleryLightbox />` | P0 | 待开发 |
-| 4 | 底部 CTA | `<GalleryCTA />` | P1 | 待开发 |
-| 5 | 精选视频 | `<GalleryVideo />` | P2 | 暂缓，待视频素材就绪 |
-
----
-
-## 三、底部 CTA 文案
-
-### 底部 CTA
-
-**引导语（中）**：被这片海打动了吗？  
-**引导语（英）**：Ready to Make It Your Reality?
-
-- **主按钮**：立即预订 / Book Now → `/booking`
-- **次级链接**：查看优惠套餐 / See Offers → `/offers`
+| 序号 | 区块名 | 组件 | 优先级 |
+|------|--------|------|--------|
+| Intro | 视觉入口（全宽沉浸图 + 极简文字） | `<GalleryIntro />` | P0 |
+| A | 分类 Tab 筛选栏 | `<GalleryFilter />` | P0 |
+| B | 瀑布流图片网格 | `<GalleryGrid />` | P0 |
+| C | 全屏灯箱 | `<GalleryLightbox />` | P0 |
+| D | 精选视频 | `<GalleryVideo />` | P1（设计含占位态） |
+| E | 底部 CTA | `<GalleryCTA />` | P1 |
 
 ---
 
-## 四、图片清单
+## Intro：视觉入口
 
-### 别墅入住 · Villa & Stay（建议 ≥10张）
+> **不是 Hero，是情绪转场。** 无大标题，无按钮，只有一张震撼的图与三个字。
 
-| 编号 | 拍摄主题 | 复用页面 |
-|------|----------|---------|
-| V-01 | 圆形别墅外观全景（日间） | Gallery + 首页 Villas |
-| V-02 | 圆形别墅外观（黄昏暖光） | Gallery |
-| V-03 | 别墅夜间外观（木质廊灯氛围） | Gallery |
-| V-04 | 180°观海露台（含海景延伸感） | Gallery + 预订页 |
-| V-05 | 卧室内部（BELIAN木纹细节+自然采光） | Gallery + 预订页 |
-| V-06 | 浴室/卫浴区 | Gallery |
-| V-07 | 私人入户步道（木质廊道俯视） | Gallery |
-| V-08 | 别墅群航拍俯视（含水面倒影） | Gallery + 首页 Hero |
-| V-09 | 管家布置场景（鲜花/午茶/铺床） | Gallery |
-| V-10 | 露台私人早餐场景（人物+海景） | Gallery + 预订页 |
+**高度**：`60vh`（移动端），`70vh`（桌面）
 
-### 美食体验 · Dining（建议 ≥7张）
+**图片选择**：优先使用天光海色类——玻璃海全景航拍（N-01）或 360° 日落（N-03）。要求颜色饱和、层次丰富、无明显主体，让画面自己说话。
 
-| 编号 | 拍摄主题 | 复用页面 |
-|------|----------|---------|
-| D-01 | 米其林餐厅环境（俯瞰海面全景） | Gallery |
-| D-02 | 日出咖啡厅（晨光+咖啡+玻璃海） | Gallery + 首页 |
-| D-03 | 落日酒吧（黄昏+调酒+光影） | Gallery + 首页 |
-| D-04 | 全包早餐摆盘（精致呈现） | Gallery |
-| D-05 | 下午茶摆台（点心+茶具） | Gallery |
-| D-06 | 精品海鲜/菜肴特写 | Gallery |
-| D-07 | 户外用餐场景（人物+海景+餐桌） | Gallery |
+**文字叠层**（居中，极简）：
+```
+字 1（font-serif，极大，text-white，低透明度 text-white/80）：
+  一半秘境，一半海洋
+  Part Hidden Sanctuary · Part Endless Ocean
 
-### 娱乐设施 · Amenities（建议 ≥8张）
+字 2（font-sans，text-xs，text-white/40，tracking-[0.4em]，uppercase）：
+  MEILI RESORT HOTEL · SEMPORNA · 4°N
+```
 
-| 编号 | 拍摄主题 | 复用页面 |
-|------|----------|---------|
-| A-01 | 无边泳池（延伸感+海景背景） | Gallery + 首页 |
-| A-02 | 水上 Spa 疗养空间（室内氛围） | Gallery |
-| A-03 | 海上高尔夫练习场（全景+人物） | Gallery |
-| A-04 | 水上儿童乐园（家庭+欢乐氛围） | Gallery |
-| A-05 | 海上健身房（设备+海景窗） | Gallery |
-| A-06 | 六星剧场内部（规模+光效） | Gallery |
-| A-07 | 楼顶观海台（人物剪影+海天一线） | Gallery + 首页 |
-| A-08 | 海上钓台（垂钓+晨光/夕光） | Gallery |
+**渐变遮罩**：`bg-linear-to-b from-black/20 via-transparent to-black/60`（下方过渡到 Tab 栏背景色）
 
-### 海洋探索 · Ocean & Diving（建议 ≥9张）
+**向下箭头**（可选）：底部居中，`ChevronDown`，`text-white/30`，轻微呼吸动画
 
-> 仙本那最强差异化卖点，图片数量和质量需重点保障。
+---
 
-| 编号 | 拍摄主题 | 复用页面 |
-|------|----------|---------|
-| O-01 | 珊瑚礁全景（色彩丰富+鱼群） | Gallery + 首页 |
-| O-02 | 海狼鱼群风暴（Barracuda Tornado，仰拍） | Gallery |
-| O-03 | 海龟近距离特写 | Gallery |
-| O-04 | 海底崖壁（展示深度感+蓝色渐变） | Gallery |
-| O-05 | 潜水员在珊瑚旁（人物比例+色彩对比） | Gallery |
-| O-06 | 浮潜水面视角（上半水下+上半蓝天） | Gallery |
-| O-07 | 软珊瑚/热带鱼近距特写（色彩） | Gallery |
-| O-08 | 五星潜水俱乐部（装备/教练/出发场景） | Gallery + 首页 |
-| O-09 | 夜潜场景（手电+珊瑚+神秘光效） | Gallery |
+## 区块 A：分类 Tab 筛选栏
 
-### 天光海色 · Sky & Sea（建议 ≥7张）
+**背景色**：`bg-[--color-villas-bg]`（深夜蓝，与 Intro 底部渐变无缝衔接）
 
-| 编号 | 拍摄主题 | 复用页面 |
-|------|----------|---------|
-| N-01 | 玻璃海全景航拍（颜色渐变，祖母绿→深蓝） | Gallery + 首页 Hero |
-| N-02 | 360°日出（无遮挡，晨霞+海面） | Gallery + 首页 |
-| N-03 | 360°日落（橙金色调+酒店剪影） | Gallery + 首页 |
-| N-04 | 星空夜景（长曝光，银河倒映水面） | Gallery |
-| N-05 | 岛屿全貌+渐变海色（远景航拍） | Gallery + 首页 Hero |
-| N-06 | 椰林剪影+碧海（黄金时段） | Gallery |
-| N-07 | 雨后彩虹/云海变化（气象奇景） | Gallery（有则补充）|
+**Tab 样式**：
+- 文字：`font-sans text-xs uppercase tracking-[0.25em] text-white/40`
+- 激活态：`text-white border-b border-gold pb-2`（金色底线，不用背景色块）
+- 非激活 hover：`text-white/70`
+
+**移动端**：横向滚动（`overflow-x-auto`，`snap-x snap-mandatory`），隐藏滚动条，最左侧留 `pl-6` 暗示可滑动
+
+**桌面端**：居中展开，Tab 间距 `gap-8 lg:gap-12`
+
+**Tab 顺序**（按情绪递进，而非分类字母序）：
+```
+全部 → 天光与海色 → 别墅与居停 → 深入海洋 → 建筑传奇 → 一餐一景 → 无尽设施 → 这片海的人
+```
+
+> 为什么这个顺序？"天光与海色"是打动人的第一眼（仙本那最直接的视觉冲击），"这片海的人"是情感收尾，两头锚定整个体验弧线。
+
+---
+
+## 区块 B：瀑布流图片网格
+
+**布局**：CSS columns（无额外依赖）
+```
+columns-2 md:columns-3
+gap-1 md:gap-2
+break-inside-avoid（防跨列截断）
+```
+
+**图片比例节奏**（`span` 字段控制）：
+- `normal`：自然比例，图片自适应
+- `tall`：纵版图（`aspect-[3/4]`），适合别墅室内、人物特写
+- `wide`：横版图（`aspect-video`），适合海景全景、建筑鸟瞰
+
+> 建议每 6 张图片中至少包含 1 张 `wide` 或 1 张 `tall`，避免视觉单调。
+
+**图片加载**：`next/image`，`sizes="(max-width:768px) 50vw, 33vw"`，`loading="lazy"`（Intro 图除外，需加 `priority`）
+
+**PC端 Hover**：
+```
+图片区域覆盖半透明遮罩（bg-black/0 → bg-black/50，duration-300）
+底部滑入图片标题（font-sans text-xs text-white tracking-[0.2em]，translateY(100%) → 0）
+```
+
+**移动端**：无 hover，点击直接打开灯箱
+
+**空状态占位**（某分类图片尚未交付时）：
+```
+占位格：bg-[--color-villas-bg]，宽度与正常图片相同
+中央放：锁形图标（text-white/20）+ "即将揭幕 · Coming Soon"（text-white/20 text-xs）
+占位格数量：不少于 3 个，保持网格视觉密度
+```
+
+---
+
+## 区块 C：全屏灯箱
+
+**依赖**：`yet-another-react-lightbox`（轻量，支持手势/键盘）
+
+**灯箱底部信息栏**（背景 `bg-black/80`，高度约 60px）：
+- 左：分类 Badge（`text-[0.6rem] uppercase tracking-[0.25em] text-gold border border-gold/40 px-2 py-1`）
+- 中：图片标题（`font-sans text-sm text-white`）
+- 右：`X / 共 N 张`（`text-white/40 text-xs`）
+
+**导航**：左右箭头 / 键盘方向键 / 触摸滑动 / 按 Esc 关闭
+
+**缩略图条**（可选，桌面端）：灯箱底部展示当前分类缩略图滚动条，点击跳转
+
+---
+
+## 区块 D：精选视频
+
+> **视频素材未到位不等于此区块不存在。** 开发时需完整实现此区块，包含素材就绪前的占位态。
+
+### 占位态（视频素材交付前）
+
+**背景色**：`bg-[--color-about-bg]`（暖米色）
+**区块垂直间距**：`py-16 sm:py-20 md:py-28`
+
+**章节标签**：`05 · OUR STORY IN MOTION`
+
+**主标题**：
+```
+用影像感受
+这片海的呼唤
+A Film for Those Who Feel Called to the Sea
+```
+
+**占位区域**（`aspect-video`，`bg-[--color-villas-bg]`，全宽）：
+- 中央：播放图标（`PlayCircle`，`text-white/20`，`size-16`）
+- 小字：`影像即将呈现 · Film Coming Soon`（`text-white/20 text-xs tracking-[0.3em] uppercase`）
+
+**下方文字**（`font-text italic text-[--color-warm-text]`，居中，`max-w-2xl mx-auto`）：
+> "航拍全景 · 别墅内部 · 玻璃海水下 · 设施体验 · 日落收尾"
+> 当影像就绪，这里将成为整个网站最强的情绪放大器。
+
+---
+
+### 素材就绪后
+
+**主宣传片**：全宽嵌入播放器（`aspect-video`），自动缩略图封面，不自动播放，无广告
+
+**分类短视频**（每段 30~60 秒，横向滑动卡片列表）：
+
+| 编号 | 主题 | 拍摄要点 |
+|------|------|---------|
+| V01 | 别墅全景 | 外部入户 → 180°露台，BELIAN木质感特写 |
+| V02 | 玻璃海与水下 | 水面+水下双视角，珊瑚、鱼群、崖壁 |
+| V03 | 日出与日落 | 360°无遮挡，晨霞金光 + 橙暮收尾 |
+| V04 | 全包美食 | 摆盘特写 + 日出咖啡厅 + 落日酒吧 |
+| V05 | 设施探索 | 无边泳池 + 高尔夫 + Spa + 儿童乐园 |
+
+---
+
+## 区块 E：底部 CTA
+
+**背景**：`bg-primary`（深海蓝）
+
+**章节标签**：`— YOUR STORY BEGINS HERE —`
+
+**主标题**（`font-serif text-white`，`clamp(1.6rem, 4vw, 3rem)`）：
+```
+这片海
+在等待你
+```
+
+**英文引言**（`font-text italic text-white/50`）：
+> The sea has been here for a hundred years, undisturbed. It can wait — but why would you?
+
+**双 CTA**：
+- 主按钮：`开启我的旅程 / Begin My Journey`（深海蓝白字，`border border-white/20`）→ `/booking`
+- 次级链接：`查看套餐详情 / Explore Packages`（金色文字箭头链接）→ `/offers`
+
+---
+
+## 三、图片清单
+
+> 图片清单同时服务于两个目的：①指导摄影团队拍摄；②指导开发者了解哪些图坑需要占位。
+> **素材尚未交付的分类，用占位格按原定数量填满，不折叠、不删减区块。**
+
+### 别墅与居停 · Villa & Stay（建议 ≥10张）
+
+| 编号 | 拍摄主题 | `span` | 复用页面 |
+|------|----------|--------|---------|
+| V-01 | 圆形别墅外观全景（日间） | normal | Gallery + 首页 Villas |
+| V-02 | 圆形别墅外观（黄昏暖光） | wide | Gallery |
+| V-03 | 别墅夜间外观（木质廊灯氛围） | wide | Gallery |
+| V-04 | 180°观海露台（含海景延伸感） | wide | Gallery + 预订页 |
+| V-05 | 卧室内部（BELIAN木纹细节+自然采光） | tall | Gallery + 预订页 |
+| V-06 | 浴室/卫浴区 | tall | Gallery |
+| V-07 | 私人入户步道（木质廊道俯视） | normal | Gallery |
+| V-08 | 别墅群航拍俯视（含水面倒影） | wide | Gallery + 首页 Hero |
+| V-09 | 管家布置场景（鲜花/午茶/铺床） | tall | Gallery |
+| V-10 | 露台私人早餐场景（人物+海景） | wide | Gallery + 预订页 |
+
+### 一餐一景 · Dining & Views（建议 ≥7张）
+
+| 编号 | 拍摄主题 | `span` | 复用页面 |
+|------|----------|--------|---------|
+| D-01 | 米其林餐厅环境（俯瞰海面全景） | wide | Gallery |
+| D-02 | 日出咖啡厅（晨光+咖啡+玻璃海） | wide | Gallery + 首页 |
+| D-03 | 落日酒吧（黄昏+调酒+光影） | wide | Gallery + 首页 |
+| D-04 | 全包早餐摆盘（精致呈现） | tall | Gallery |
+| D-05 | 下午茶摆台（点心+茶具） | tall | Gallery |
+| D-06 | 精品海鲜/菜肴特写 | normal | Gallery |
+| D-07 | 户外用餐场景（人物+海景+餐桌） | wide | Gallery |
+
+### 无尽设施 · Amenities（建议 ≥8张）
+
+| 编号 | 拍摄主题 | `span` | 复用页面 |
+|------|----------|--------|---------|
+| A-01 | 无边泳池（延伸感+海景背景） | wide | Gallery + 首页 |
+| A-02 | 水上 Spa 疗养空间（室内氛围） | tall | Gallery |
+| A-03 | 海上高尔夫练习场（全景+人物） | wide | Gallery |
+| A-04 | 水上儿童乐园（家庭+欢乐氛围） | wide | Gallery |
+| A-05 | 海上健身房（设备+海景窗） | normal | Gallery |
+| A-06 | 六星剧场内部（规模+光效） | wide | Gallery |
+| A-07 | 楼顶观海台（人物剪影+海天一线） | wide | Gallery + 首页 |
+| A-08 | 海上钓台（垂钓+晨光/夕光） | normal | Gallery |
+
+### 深入海洋 · Ocean & Diving（建议 ≥9张）
+
+> 仙本那最强差异化卖点，图片数量和质量需重点保障。缺图时占位格数量不少于9个。
+
+| 编号 | 拍摄主题 | `span` | 复用页面 |
+|------|----------|--------|---------|
+| O-01 | 珊瑚礁全景（色彩丰富+鱼群） | wide | Gallery + 首页 |
+| O-02 | 海狼鱼群风暴（Barracuda Tornado，仰拍） | wide | Gallery |
+| O-03 | 海龟近距离特写 | tall | Gallery |
+| O-04 | 海底崖壁（展示深度感+蓝色渐变） | tall | Gallery |
+| O-05 | 潜水员在珊瑚旁（人物比例+色彩对比） | wide | Gallery |
+| O-06 | 浮潜水面视角（上半水下+上半蓝天） | wide | Gallery |
+| O-07 | 软珊瑚/热带鱼近距特写（色彩） | tall | Gallery |
+| O-08 | 五星潜水俱乐部（装备/教练/出发场景） | wide | Gallery + 首页 |
+| O-09 | 夜潜场景（手电+珊瑚+神秘光效） | normal | Gallery |
+
+### 天光与海色 · Sky & Sea（建议 ≥7张）
+
+| 编号 | 拍摄主题 | `span` | 复用页面 |
+|------|----------|--------|---------|
+| N-01 | 玻璃海全景航拍（颜色渐变，祖母绿→深蓝） | wide | Gallery + 首页 Hero + GalleryIntro |
+| N-02 | 360°日出（无遮挡，晨霞+海面） | wide | Gallery + 首页 |
+| N-03 | 360°日落（橙金色调+酒店剪影） | wide | Gallery + 首页 + GalleryIntro 备选 |
+| N-04 | 星空夜景（长曝光，银河倒映水面） | wide | Gallery |
+| N-05 | 岛屿全貌+渐变海色（远景航拍） | wide | Gallery + 首页 Hero |
+| N-06 | 椰林剪影+碧海（黄金时段） | normal | Gallery |
+| N-07 | 雨后彩虹/云海变化（气象奇景） | wide | Gallery（有则补充）|
 
 ### 建筑传奇 · Architecture（建议 ≥6张）
 
 > 吉尼斯纪录核心视觉证明，强化"世界之最"可信度。
 
-| 编号 | 拍摄主题 | 复用页面 |
-|------|----------|---------|
-| B-01 | 全岛航拍鸟瞰（展示 396,000㎡ 规模） | Gallery + 首页 |
-| B-02 | BELIAN铁木纹理特写（细节+质感） | Gallery + 首页 HotelIntro |
-| B-03 | 木质廊道/连桥（对称构图+光影） | Gallery |
-| B-04 | 圆形别墅群鸟瞰（阵列感+水面） | Gallery |
-| B-05 | 建筑日间全貌（暖白天光） | Gallery |
-| B-06 | 建筑夜间灯光（橙暖灯光+海面倒影） | Gallery |
+| 编号 | 拍摄主题 | `span` | 复用页面 |
+|------|----------|--------|---------|
+| B-01 | 全岛航拍鸟瞰（展示 396,000㎡ 规模） | wide | Gallery + 首页 |
+| B-02 | BELIAN铁木纹理特写（细节+质感） | tall | Gallery + 首页 HotelIntro |
+| B-03 | 木质廊道/连桥（对称构图+光影） | normal | Gallery |
+| B-04 | 圆形别墅群鸟瞰（阵列感+水面） | wide | Gallery |
+| B-05 | 建筑日间全貌（暖白天光） | wide | Gallery |
+| B-06 | 建筑夜间灯光（橙暖灯光+海面倒影） | wide | Gallery |
 
-### 人文风情 · Culture（建议 ≥4张）
+### 这片海的人 · Culture（建议 ≥4张）
 
-> 拍摄前需确认巴瑶族肖像授权。
+> 拍摄前需确认巴瑶族肖像授权。情感收尾分类，放在 Tab 末位。
 
-| 编号 | 拍摄主题 | 复用页面 |
-|------|----------|---------|
-| C-01 | 巴瑶族孩子跃入碧海（动态瞬间） | Gallery |
-| C-02 | 巴瑶族渔船 / 水上屋（晨光） | Gallery |
-| C-03 | 仙本那码头 / 当地市场生活 | Gallery + 位置页 |
-| C-04 | 落日剪影+渔船（情感收尾画面） | Gallery |
+| 编号 | 拍摄主题 | `span` | 复用页面 |
+|------|----------|--------|---------|
+| C-01 | 巴瑶族孩子跃入碧海（动态瞬间） | tall | Gallery |
+| C-02 | 巴瑶族渔船 / 水上屋（晨光） | wide | Gallery |
+| C-03 | 仙本那码头 / 当地市场生活 | wide | Gallery + 位置页 |
+| C-04 | 落日剪影+渔船（情感收尾画面） | wide | Gallery |
 
 ---
 
-## 五、素材优先级
+## 四、素材优先级
 
-| 优先级 | 分类 | 最少数量 | 说明 |
-|--------|------|---------|------|
-| 🔴 必须上线 | 别墅入住 | 6张 | 预订转化最直接依赖 |
-| 🔴 必须上线 | 天光海色 | 4张 | 首页 Hero 及图库封面 |
+| 优先级 | 分类 | 最少实景数量 | 说明 |
+|--------|------|------------|------|
+| 🔴 必须上线 | 天光与海色 | 4张 | GalleryIntro 封面 + 首页 Hero |
+| 🔴 必须上线 | 别墅与居停 | 6张 | 预订转化最直接依赖 |
 | 🔴 必须上线 | 建筑传奇 | 3张 | 吉尼斯卖点视觉证明 |
-| 🟡 强烈建议 | 海洋探索 | 5张 | 仙本那核心差异卖点 |
-| 🟡 强烈建议 | 美食体验 | 4张 | 全包定价支撑 |
-| 🟡 强烈建议 | 娱乐设施 | 4张 | 套餐价值感知 |
-| 🟢 后续补充 | 人文风情 | 2张 | 情感共鸣，非阻塞 |
+| 🟡 强烈建议 | 深入海洋 | 5张 | 仙本那核心差异卖点 |
+| 🟡 强烈建议 | 一餐一景 | 4张 | 全包定价支撑 |
+| 🟡 强烈建议 | 无尽设施 | 4张 | 套餐价值感知 |
+| 🟢 后续补充 | 这片海的人 | 2张 | 情感共鸣，非阻塞 |
 
 ---
 
-## 六、落地方案
+## 五、落地方案
 
 ### 组件结构
 
 ```
 app/[locale]/gallery/
-  page.tsx                    ← Server Component，导出静态图片数据
+  page.tsx                    ← Server Component，静态定义图片数据，传入 GalleryClient
 
 components/gallery/
-  GalleryHero.tsx             ← 纯展示，Server Component
-  GalleryClient.tsx           ← 'use client'，包含 Tab 筛选 + 网格 + 灯箱
-  GalleryFilter.tsx           ← Tab 栏，接收 activeTab / onChange
+  GalleryIntro.tsx            ← 视觉入口，Server Component（静态全宽图 + 极简文字）
+  GalleryClient.tsx           ← 'use client'，Tab 筛选 + 网格 + 灯箱状态管理
+  GalleryFilter.tsx           ← Tab 栏，接收 activeTab / onChange / tabs 配置
   GalleryGrid.tsx             ← CSS columns 瀑布流，接收过滤后图片数组
-  GalleryLightbox.tsx         ← 全屏灯箱，接收 images + currentIndex
+  GalleryLightbox.tsx         ← 全屏灯箱，接收 images + currentIndex + onClose
+  GalleryVideo.tsx            ← 视频区块，Server Component（含占位态）
   GalleryCTA.tsx              ← 底部 CTA，Server Component
 ```
 
-**职责边界**：图片数据静态定义在 `page.tsx`，作为 props 传入 `GalleryClient`；筛选状态、灯箱开关全部收在 `GalleryClient` 内，避免多余的 `useContext`。
+**职责边界**：图片数据静态定义在 `page.tsx`，作为 props 传入 `GalleryClient`；Tab 筛选状态、灯箱开关全部收在 `GalleryClient` 内，不使用 `useContext`。`GalleryIntro`、`GalleryVideo`、`GalleryCTA` 均为 Server Component，无需 `'use client'`。
 
 ---
 
@@ -186,75 +356,62 @@ export type GalleryCategory =
   | 'all' | 'villa' | 'dining' | 'amenities'
   | 'ocean' | 'nature' | 'architecture' | 'culture';
 
+export type GallerySpan = 'tall' | 'wide' | 'normal';
+
 export interface GalleryImage {
-  id: string;          // e.g. "V-01"
-  src: string;         // /images/gallery/v-01.jpg
-  alt: string;         // 无障碍描述
-  title: string;       // 中文说明，灯箱展示用
+  id: string;                 // e.g. "V-01"
+  src: string;                // /images/gallery/v-01.jpg
+  alt: string;                // 无障碍描述（必填，有意义）
+  title: string;              // 中文说明，灯箱展示用
   category: GalleryCategory;
-  span?: 'tall' | 'wide' | 'normal'; // 控制瀑布流视觉节奏（可选）
+  span?: GallerySpan;         // 控制瀑布流视觉节奏
+}
+
+export interface GalleryTab {
+  key: GalleryCategory;
+  label: string;              // 中文标签
+  labelEn: string;            // 英文副标签
 }
 ```
 
 ---
 
-### 关键交互
+### 关键交互细节
 
-**Tab 筛选**
+**Tab 切换动效**
 ```
-activeTab === 'all' → 展示全部
-activeTab === 'ocean' → filter(img => img.category === 'ocean')
-切换 Tab 时：网格淡出 → 重新渲染 → 淡入（Framer Motion AnimatePresence）
-```
-
-**瀑布流网格**
-```
-实现：CSS columns（无需额外依赖）
-  columns-2 md:columns-3（移动2列，桌面3列）
-  break-inside-avoid 防止图片跨列截断
-图片加载：next/image，sizes="(max-width:768px) 50vw, 33vw"
-悬停：覆盖半透明深色遮罩 + 图片标题（PC端）
+切换时：
+  1. 当前网格 opacity: 1 → 0（duration 150ms）
+  2. 重新过滤数组，渲染新网格
+  3. 新网格 opacity: 0 → 1（duration 200ms）
+使用 Framer Motion AnimatePresence + key={activeTab} 实现
 ```
 
-**全屏灯箱**
+**图片懒加载顺序**
 ```
-依赖：yet-another-react-lightbox（轻量，支持手势/键盘）
-触发：点击任意 GalleryGrid 图片
-展示：全屏图片 + 底部标题 + 分类 Badge
-导航：左右箭头 / 键盘方向键 / 触摸滑动
-关闭：右上角 × / 按 Esc
+首屏可见图片（前6张）：loading="eager" priority
+其余图片：loading="lazy"（浏览器原生）
+```
+
+**灯箱键盘无障碍**
+```
+ArrowLeft / ArrowRight → 上/下一张
+Escape → 关闭灯箱
+Tab → 焦点在灯箱内循环（关闭按钮 → 左箭头 → 右箭头）
 ```
 
 ---
 
-### 视频区块（待上线）
-
-> 暂缓开发。视频素材就绪后，在 `GalleryClient` 顶部插入 `<GalleryVideo />` 即可，无需改动其他结构。
-
-**规划内容**
-
-**主宣传片**：全宽嵌入播放器，时长 2~3 分钟  
-**叙事节奏**：航拍全景 → 别墅内部 → 玻璃海+水下 → 设施体验 → 日落收尾
-
-分类短视频（每段 30~60 秒）：
-
-| 编号 | 主题 | 拍摄要点 |
-|------|------|---------|
-| V01 | 别墅全景 | 外部到180°露台，BELIAN木质感 |
-| V02 | 玻璃海 & 潜水 | 水面+水下双视角，珊瑚、鱼群 |
-| V03 | 日出日落 | 360°无遮挡，情侣/家庭剪影 |
-| V04 | 美食体验 | 全包餐食、日出咖啡厅、落日酒吧 |
-| V05 | 设施探索 | 高尔夫、泳池、Spa、儿童乐园 |
-
----
-
-## 七、图片规格要求（摄影团队）
+## 六、图片规格要求（摄影团队）
 
 | 用途 | 格式 | 最小尺寸 | 备注 |
 |------|------|----------|------|
-| Hero / 全屏 | JPG / WebP | 3840×2160 | 横版 |
+| GalleryIntro 封面 | JPG / WebP | 3840×2160 | 横版，4K |
+| 首页 Hero | JPG / WebP | 3840×2160 | 横版，加 `priority` |
 | 移动端 Hero | JPG / WebP | 1080×1920 | 竖版 |
-| 图库普通图 | JPG / WebP | 2400×1600 | 横版为主 |
+| 图库普通图（`normal` / `tall`） | JPG / WebP | 2000×2667 | 竖版为主 |
+| 图库普通图（`wide`） | JPG / WebP | 2400×1600 | 横版为主 |
 | 水下摄影 | JPG | 2000×1500+ | 专业水下设备 |
 | 建筑航拍 | JPG / WebP | 4K+ | 无人机拍摄 |
-| 视频（将来）| MP4 / H.264 | 1920×1080 最低 | 建议4K后期压缩 |
+| 视频主宣传片 | MP4 / H.264 | 1920×1080 最低 | 建议 4K 原始后期压缩 |
+| 分类短视频 | MP4 / H.264 | 1920×1080 | 30~60 秒，无字幕 |
