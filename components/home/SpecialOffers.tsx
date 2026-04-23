@@ -20,10 +20,10 @@ export function SpecialOffers() {
   const items = t.raw('items') as Array<{ title: string; desc: string }>;
 
   return (
-    <section className="w-full bg-villas-bg py-24 text-white">
+    <section className="w-full bg-background py-24">
       <div className="mx-auto mb-12 flex max-w-350 flex-col justify-between gap-6 px-6 md:flex-row md:items-end lg:px-20">
-        <h2 className="font-serif text-4xl text-white md:text-5xl lg:text-6xl">{t('title')}</h2>
-        <button className="group flex items-center gap-2 text-sm font-semibold tracking-widest text-[--color-gold] uppercase transition-colors hover:text-white">
+        <h2 className="font-serif text-4xl text-[--color-section-text] md:text-5xl lg:text-6xl">{t('title')}</h2>
+        <button className="group flex items-center gap-2 text-sm font-semibold tracking-widest text-gold uppercase transition-colors hover:text-[--color-section-text]">
           {t('allOffers')}
           <svg
             xmlns="http://www.w3.org/2000/svg"
