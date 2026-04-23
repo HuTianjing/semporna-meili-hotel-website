@@ -1,6 +1,6 @@
 # 美丽度假酒店官网 — UI 规范与设计思想
 
-> **文档版本**：v3.1 | 更新日期：2026-04-23
+> **文档版本**：v3.2 | 更新日期：2026-04-23
 > **唯一真相来源**：`app/globals.css` → `@theme` 块。新模块开发请以此为参考。
 > 品牌背景见 `planning/00-项目背景与叙事策略.md`。
 
@@ -93,10 +93,48 @@ BELIAN 铁木是酒店最核心的物质差异，UI 需要把这种质感带入�
 | 企业 SaaS 风（卡片阴影、圆角、蓝色描边） | 割裂奢华感，降低品牌档次 |
 | 极简冷峻风（全白、无色彩、Helvetica） | 缺失木质温度，无法表达 BELIAN 铁木的精神内核 |
 | 大量文字堆砌 | 访客来感受向往，不来读产品手册 |
+| **斑马纹区块切分**（亮色→深色→亮色→深色机械交替，每个区块整齐地用不同背景色填满） | 把叙事旅程切成 PowerPoint 幻灯片序列。访客的眼睛跟着色块跳动而非跟着故事前行；每个区块看起来像独立条目，让整个页面失去「一次抵达体验」的连贯性。参见 Part 1.4 的具体替代方案。 |
 
 ---
 
-### 0.4 三大开发原则（执行层必读）
+### 0.4 页面节奏：叙事流，而非幻灯片序列
+
+> 这是对"斑马纹布局"问题的根本解法。
+
+一个典型的斑马纹页面是这样的：第一屏白色，第二屏主题深蓝，第三屏白色，第四屏暖米色……每个区块都像一张边界清晰的幻灯片，用不同背景色宣告"我是一个新的模块"。这种布局不是错的，但它是最普通的、最没有记忆点的方式——任何一个用过网站模板的人都会这样做。
+
+奢华品牌网站的叙事逻辑不同：**页面是一条河，不是一叠砖。**
+
+**① 以摄影切换代替色块切换**
+
+区块之间的视觉分隔首选手段是「全宽大图」，而非背景色翻转。一张占满视口的实景照片，自然划出叙事节点，同时让访客的情绪在视觉刺激中重置，而不是被机械的配色节奏打断。
+
+```
+Hero 全宽图 → 文字内容区（cream/about-bg 浅色基底）→ 全宽图作过渡 → 下一文字内容区 → 深色沉浸区块（稀少使用）→ 全宽图 → ...
+```
+
+**② 浅色基底连续延伸，深色区块稀少且有戏剧性原因**
+
+全页面的主基底是 `cream` 或 `about-bg`（暖白与暖米）。这两者之间的细微差异只产生温柔过渡，不产生视觉震动。访客感受到的是「流动」，不是「切换」。
+
+深色区块（`villas-bg`）是「戏剧性停顿」，一个页面最多出现 **1~2 次**，且必须有充分理由（例如：展示夜间别墅的沉浸感、强调一组高反差数据）。深色区块绝对不与另一个深色区块相邻；它出现时，前后的浅色区块应当给它足够的「呼吸空间」（更大的 padding）以凸显其戏剧性。
+
+**③ 跨区块元素制造视觉连续性**
+
+当相邻区块背景色相近时，通过「跨越边界的元素」暗示连续性：
+- 图片下边缘延伸进入下一区块（负 margin 或 absolute 定位）
+- 标题的装饰金线从上一区块的底部「流入」下一区块的顶部
+- 滚动触发的视差（parallax）让大图在背景中缓缓移动，文字内容在上方独立滚动
+
+**④ 内容密度变化代替颜色变化**
+
+同样的浅色背景下，通过内容密度的节奏感制造视觉分区：
+- 稀疏段落（大留白 + 单列居中文字）→ 密集网格（多列卡片）→ 单张全宽图 → 稀疏段落
+- 访客感受到的是「一次呼吸」，而非「一换背景色"
+
+---
+
+### 0.5 三大开发原则（执行层必读）
 
 > 开发任何新模块前，先确认以下三条是否满足。
 
@@ -163,15 +201,62 @@ BELIAN 铁木是酒店最核心的物质差异，UI 需要把这种质感带入�
 --color-section-text: #1a2a3a;   /* 亮色区块正文（暖深蓝）*/
 ```
 
-### 1.4 区块背景交替规律
+### 1.4 背景色使用策略（告别斑马纹）
+
+> **核心原则**：背景色是叙事工具，不是视觉分隔器。不要用不同颜色告诉访客"这里开始了一个新区块"，要用内容本身的节奏让访客感知叙事的推进。
+
+#### 推荐的分区手段（优先级从高到低）
+
+| 手段 | 说明 |
+|---|---|
+| **① 全宽大图** | 区块之间插入一张占满视口宽度的实景图，无需任何背景色切换，自然划出叙事节点 |
+| **② 内容密度节奏** | 相同背景色下，用留白多寡、列数宽窄、字号大小的变化制造视觉分层 |
+| **③ 细微色调过渡** | `cream` → `about-bg` 是几乎察觉不到的温柔过渡，适合相邻内容区 |
+| **④ 深色区块（稀少）** | `villas-bg` 深夜蓝是戏剧性停顿，一个页面 ≤ 2 次，且必须有内容上的充分理由 |
+
+#### 背景色使用规则
 
 ```
-cream（亮白）→ about-bg（暖米）→ villas-bg（深夜蓝）→ cream …
+✅ 正确的组合（叙事流向）：
+  cream → cream（密度变化）→ 全宽图 → about-bg → 全宽图 → villas-bg → cream
+
+❌ 斑马纹（禁止）：
+  cream → villas-bg → cream → villas-bg → cream → villas-bg
+  cream → about-bg → cream → about-bg → cream → about-bg
+
+❌ 同色块无差异重复（禁止）：
+  cream（区块A）→ cream（区块B）— 无内容密度变化、无图片间隔
 ```
 
-- 禁止连续两个区块使用相同底色
-- 深色区块（villas-bg）内用白色文字：`text-white` / `text-white/70`
-- 亮色区块内用 `text-[--color-section-text]`
+#### 具体规范
+
+- **深色区块（villas-bg）不得与另一个深色区块相邻**，中间必须有浅色区块或全宽图间隔
+- **两个相邻浅色区块允许使用同色背景**，前提是内容密度有显著变化（如从单列大字文章 → 多列卡片网格）
+- **深色区块前后的浅色区块应有更大的垂直 padding**（`py-28`+），给深色区块的出现制造张力
+- 深色区块内用白色文字：`text-white` / `text-white/70`
+- 浅色区块内用 `text-[--color-section-text]`
+
+#### 「全宽图作节奏间隔」的代码模式
+
+```tsx
+{/* 内容区块 A — 浅色 */}
+<section className="bg-cream px-page py-20 md:py-32">...</section>
+
+{/* 全宽图 — 叙事节点，替代色块切换 */}
+<section className="relative w-full h-[50vh] md:h-[65vh] overflow-hidden">
+  <Image src={seaImg} alt="仙本那海景" fill className="object-cover" priority={false} />
+  {/* 可叠加少量文字作过渡引言 */}
+  <div className="absolute inset-0 bg-linear-to-b from-black/10 to-black/50 flex items-end">
+    <p className="font-text italic text-white/80 text-lg md:text-xl px-page pb-12 max-w-2xl"
+       style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}>
+      &ldquo;每一栋别墅，都面对着同一片海。&rdquo;
+    </p>
+  </div>
+</section>
+
+{/* 内容区块 B — 可与 A 同色，内容密度不同 */}
+<section className="bg-cream px-page py-20 md:py-32">...</section>
+```
 
 ---
 
@@ -363,15 +448,32 @@ className="mb-4 sm:mb-6 md:mb-8 lg:mb-10"
   - 替代主色（primary）用于普通按钮
 ```
 
-### 4.5 无粗边框 — 靠留白和背景色分区
+### 4.5 无粗边框、无斑马纹 — 靠内容节奏和图片分区
 
 ```tsx
 // ❌ SaaS 感的硬边框卡片
 <div className="border border-border rounded-lg shadow-md p-6">
 
-// ✅ 靠背景色交替隐式分区
-<section className="bg-[--color-about-bg] py-24">内容</section>
-<section className="bg-cream py-24">内容</section>
+// ❌ 斑马纹（机械交替背景色，无叙事逻辑）
+<section className="bg-cream py-24">区块 A</section>
+<section className="bg-[--color-villas-bg] py-24">区块 B</section>
+<section className="bg-cream py-24">区块 C</section>
+<section className="bg-[--color-villas-bg] py-24">区块 D</section>
+
+// ✅ 靠内容密度变化在同色背景下分层
+<section className="bg-cream py-20 md:py-28">
+  {/* 单列居中文字 — 稀疏 */}
+  <div className="max-w-2xl mx-auto text-center px-page">...</div>
+</section>
+<section className="bg-cream py-16 md:py-20">
+  {/* 多列卡片 — 密集 */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-page">...</div>
+</section>
+
+// ✅ 靠全宽图作叙事节点间隔（详见 Part 1.4）
+<section className="relative h-[55vh] overflow-hidden">
+  <Image src={seaImg} fill className="object-cover" alt="仙本那海景" />
+</section>
 ```
 
 ---
@@ -681,7 +783,8 @@ export default function LocationPage() {
 
 ### 颜色（主题色优先）
 - [ ] 无裸 hex/hsl 字面量？所有颜色通过 CSS 变量或 Tailwind Token？
-- [ ] 区块背景是否按交替规律（cream → about-bg → villas-bg）选取？
+- [ ] 区块背景是否避免了斑马纹？浅色区块可连续，深色（villas-bg）全页 ≤ 2 次？
+- [ ] 相邻区块若背景色相同，内容密度是否有显著变化（或有全宽图间隔）？
 - [ ] `--color-gold-warm` / `--color-warm-text` / `--color-section-text` 是否已添加到 `globals.css @theme`？
 
 ### 响应式（移动端优先）
@@ -693,7 +796,7 @@ export default function LocationPage() {
 
 ### 奢华感
 - [ ] 区块垂直 padding 是否足够大（`py-16` 起步，桌面 `lg:py-36`+）？
-- [ ] 有无多余边框或卡片阴影（应靠背景色交替分区，不靠线条）？
+- [ ] 有无多余边框或卡片阴影（应靠内容密度变化或全宽图分区，不靠线条或频繁切换背景色）？
 - [ ] 金色（`--color-gold`）在当前视口内 ≤ 3 处？
 - [ ] 大图是否 edge-to-edge，无多余 padding 围住图片？
 - [ ] 标题 `font-serif`，正文 `font-sans`，引言 `font-text italic`？
