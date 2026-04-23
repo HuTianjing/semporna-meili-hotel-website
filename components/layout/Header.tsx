@@ -111,10 +111,10 @@ export function Header() {
                     className={`relative pb-1 font-sans text-[0.75rem] tracking-[0.15em] transition-colors duration-500 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:transition-transform after:duration-300 after:content-[''] ${
                       isActive
                         ? isScrolled
-                          ? 'font-normal text-primary after:scale-x-100 after:bg-primary'
+                          ? 'font-normal text-white after:scale-x-100 after:bg-white'
                           : 'font-light text-white after:scale-x-100 after:bg-white'
                         : isScrolled
-                          ? 'font-normal text-primary/80 hover:text-primary after:scale-x-0 after:bg-primary hover:after:scale-x-100'
+                          ? 'font-normal text-white/80 hover:text-white after:scale-x-0 after:bg-white hover:after:scale-x-100'
                           : 'font-light text-white/90 hover:text-white after:scale-x-0 after:bg-white hover:after:scale-x-100'
                     }`}
                   >
@@ -126,7 +126,7 @@ export function Header() {
               {/* Booking Toggle */}
               <button
                 onClick={() => setIsBookingOpen((v) => !v)}
-                className={`flex items-center gap-1.5 rounded-full border px-4 py-1.5 transition-all duration-500 ${isScrolled ? 'border-primary/30 text-primary hover:bg-primary hover:text-white' : 'border-white/40 text-white/90 hover:border-white/60 hover:bg-white/15'}`}
+                className={`flex items-center gap-1.5 rounded-full border px-4 py-1.5 transition-all duration-500 ${isScrolled ? 'border-white/40 text-white/90 hover:border-white/60 hover:bg-white/15' : 'border-white/40 text-white/90 hover:border-white/60 hover:bg-white/15'}`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ export function Header() {
               <div className="relative" ref={langRef}>
                 <button
                   onClick={() => setLangOpen(!langOpen)}
-                  className={`flex items-center gap-1.5 font-sans text-[0.75rem] tracking-widest transition-colors duration-500 ${isScrolled ? 'font-normal text-primary/70 hover:text-primary' : 'font-light text-white/80 hover:text-white'}`}
+                  className={`flex items-center gap-1.5 font-sans text-[0.75rem] tracking-widest transition-colors duration-500 ${isScrolled ? 'font-light text-white/80 hover:text-white' : 'font-light text-white/80 hover:text-white'}`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
