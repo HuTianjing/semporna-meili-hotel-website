@@ -145,11 +145,31 @@
     "desc2": "Join a dusk reef dive led by our lead marine biologist or sip grand cru champagne on your private beach.",
     "btn": "EXPLORE OUR JOURNEY",
     "posts": [
-      { "tag": "Marine Life", "title": "Swimming with Mantas: A Pre-Dawn Encounter", "date": "Nov 12, 2025" },
-      { "tag": "Island Living", "title": "72 Hours of Pure Life in the Overwater Suite", "date": "Oct 28, 2025" },
-      { "tag": "Slow Travel", "title": "Semporna's Last Handcraft Fishing Village", "date": "Oct 5, 2025" },
-      { "tag": "Gastronomy", "title": "Born of the Sea: A Late-Night Feast", "date": "Sep 18, 2025" },
-      { "tag": "Conservation", "title": "A Day in the Life of a Reef Restorer", "date": "Aug 30, 2025" }
+      {
+        "tag": "Marine Life",
+        "title": "Swimming with Mantas: A Pre-Dawn Encounter",
+        "date": "Nov 12, 2025"
+      },
+      {
+        "tag": "Island Living",
+        "title": "72 Hours of Pure Life in the Overwater Suite",
+        "date": "Oct 28, 2025"
+      },
+      {
+        "tag": "Slow Travel",
+        "title": "Semporna's Last Handcraft Fishing Village",
+        "date": "Oct 5, 2025"
+      },
+      {
+        "tag": "Gastronomy",
+        "title": "Born of the Sea: A Late-Night Feast",
+        "date": "Sep 18, 2025"
+      },
+      {
+        "tag": "Conservation",
+        "title": "A Day in the Life of a Reef Restorer",
+        "date": "Aug 30, 2025"
+      }
     ]
   },
   "Offers": {
@@ -173,9 +193,17 @@
   },
   "Location": {
     "nav": {
+      "pageTag": "THE LOCATION",
+      "pageTitle": "Location",
       "culture": "Local Culture",
       "info": "Need to Know",
-      "transport": "Getting Here"
+      "transport": "Getting Here",
+      "address": "Meili Resort Semporna, Sabah, Malaysia",
+      "phone": "+60 12 345 6789",
+      "map": "Resort Map",
+      "description": "Our resort is located above the azure waters of Semporna, Sabah, Malaysia, nestled among pristine coral reefs, easily accessible by car and speedboat from Tawau Airport.",
+      "contactText": "Let us take care of your transportation and itinerary.",
+      "contactBtn": "Contact Us"
     },
     "hero": {
       "title": "4°N — Your Private Ocean Coordinate",

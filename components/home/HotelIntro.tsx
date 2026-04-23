@@ -66,9 +66,9 @@ export function HotelIntro() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.5, duration: 0.8, ease: 'easeOut' }}
-          className="absolute top-0 left-0 z-0 hidden h-20 w-full flex-col items-center justify-center md:flex bg-[--color-about-bg]"
+          className="absolute top-0 left-0 z-0 hidden h-20 w-full flex-col items-center justify-center md:flex bg-about-bg"
         >
-          <span className="font-sans text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-[--color-warm-text]">
+          <span className="font-sans text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-warm-text">
             {t('scrollDown')}
           </span>
         </motion.div>
@@ -79,7 +79,7 @@ export function HotelIntro() {
         style={{
           y: isMd ? (isObscured ? -80 : contentYOffset) : 0,
         }}
-        className="relative z-20 w-full md:mt-20 bg-[--color-about-bg]"
+        className="relative z-20 w-full md:mt-20 bg-about-bg"
       >
         <div className="py-20 sm:py-28 md:py-36 lg:py-44">
         <div className="max-w-275 mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
@@ -92,9 +92,9 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[--color-gold-warm]">01</span>
-            <div className="w-8 sm:w-12 h-px bg-[--color-gold-warm]" />
-            <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[--color-warm-text]">
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-gold-warm">01</span>
+            <div className="w-8 sm:w-12 h-px bg-gold-warm" />
+            <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-warm-text">
               {t('sectionLabel')}
             </span>
           </motion.div>
@@ -107,7 +107,7 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="text-center mb-10 sm:mb-14 md:mb-16"
           >
-            <p className="font-text italic text-[--color-section-text]/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="font-text italic text-section-text/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
               &ldquo;{t('quote')}&rdquo;
             </p>
           </motion.div>
@@ -120,7 +120,7 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="text-center mb-8 sm:mb-10 md:mb-12"
           >
-            <h2 className="font-serif text-[--color-section-text] leading-[1.15]">
+            <h2 className="font-serif text-section-text leading-[1.15]">
               <span className="block" style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}>
                 {t('headingLine1')}
               </span>
@@ -141,7 +141,7 @@ export function HotelIntro() {
             animate={isInView ? 'visible' : 'hidden'}
             className="flex justify-center mb-8 sm:mb-10 md:mb-12"
           >
-            <div className="w-12 sm:w-16 h-px bg-[--color-gold-warm]" />
+            <div className="w-12 sm:w-16 h-px bg-gold-warm" />
           </motion.div>
 
           {/* Body text */}
@@ -176,10 +176,10 @@ export function HotelIntro() {
                 >
                   <h.icon size={16} style={{ color: '#0086cd' }} strokeWidth={1.5} />
                 </div>
-                <span className="block font-serif text-lg sm:text-xl text-[--color-section-text] leading-none mb-1">
+                <span className="block font-serif text-lg sm:text-xl text-section-text leading-none mb-1">
                   {h.value}
                 </span>
-                <span className="block font-sans text-[0.625rem] sm:text-[0.7rem] text-[--color-warm-text] tracking-wide leading-snug">
+                <span className="block font-sans text-[0.625rem] sm:text-[0.7rem] text-warm-text tracking-wide leading-snug">
                   {h.label}
                 </span>
               </div>
@@ -196,7 +196,7 @@ export function HotelIntro() {
           >
             <Link
               href="/villas"
-              className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-[--color-section-text] border-b border-[--color-section-text]/30 pb-1 hover:border-[--color-section-text] transition-colors duration-500"
+              className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-section-text border-b border-section-text/30 pb-1 hover:border-section-text transition-colors duration-500"
             >
               {t('cta')}
               <span className="text-[#0086cd]">→</span>

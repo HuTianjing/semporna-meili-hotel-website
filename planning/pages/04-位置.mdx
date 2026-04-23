@@ -13,7 +13,7 @@
 
 页面分三层叙事，由浅入深：
 1. **为什么是这里** — 地理稀缺性 + 人文温度，建立向往
-2. **我需要知道什么** — 套餐已含、价格透明、行前准备，建立安心
+2. **我需要知道什么** — 行前准备、目的地实用信息，建立安心
 3. **我怎么到达** — 全程接送路线 + 班次时刻，建立信心
 
 ---
@@ -22,27 +22,33 @@
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  主导航 Header（全局 sticky，h-17/sm:h-20）           │
+│  主导航 Header（全局 fixed，h-17/lg:h-20）            │
+│  └── 预订表单 BookingBar（折叠/展开，+~56px）         │
 ├─────────────────────────────────────────────────────┤
-│  副导航 — bg-primary sticky top-17/sm:top-20         │  ← 直接衔接，无独立 Page Header
+│  副导航 — bg-primary sticky top-17/lg:top-20         │  ← 直接衔接，无独立 Page Header
 │  ┌─────────────────────────────────────────────┐   │
 │  │   地方人文   ｜   须知信息   ｜   交通指引      │   │
 │  └─────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────┤
 │  区段一：地方人文  id="location-culture"              │
-│  bg-primary                                         │
+│  bg-[--color-about-bg]  暖米色                       │
 ├─────────────────────────────────────────────────────┤
 │  区段二：须知信息  id="location-info"                 │
-│  bg-[--color-about-bg]                              │
+│  bg-white               纯白                         │
 ├─────────────────────────────────────────────────────┤
 │  区段三：交通指引  id="location-transport"            │
-│  bg-primary                                         │
+│  bg-[--color-about-bg]  暖米色                       │
 └─────────────────────────────────────────────────────┘
 ```
 
 **无独立 Page Header**：副导航直接紧贴主导航底部，不做额外的标题区块。页面大标题融入区段一开篇，让第一屏就进入实质内容。
 
-**颜色逻辑**：副导航 + 区段一（深海蓝）→ 区段二（暖米色，对比节奏）→ 区段三（深海蓝，收尾 + CTA）
+**颜色逻辑**：副导航（深海蓝，唯一深色）→ 区段一（暖米色，明亮入场）→ 区段二（纯白，干净聚焦）→ 区段三（暖米色，温暖收尾 + CTA）
+
+**颜色与文字搭配规则**：
+- 浅色区块（`bg-[--color-about-bg]` / `bg-white`）：标题 `text-[--color-section-text]`，正文 `text-[--color-section-text]/75`，辅助说明 `text-[--color-warm-text]`
+- 副导航深海蓝区块（`bg-primary`，仅副导航）：标题 `text-white`，Tab `text-white/55`，激活 `text-gold-warm`
+- 金色元素（`text-gold-warm`、`bg-gold-warm`）在所有背景下均适用
 
 ---
 
@@ -51,44 +57,46 @@
 **设计意图**：参考奢华酒店的页内索引形式——干净、克制、不抢戏。访客快速定位内容，不需要猜。
 
 **视觉规范**：
-- 背景：`bg-primary`，与 Header 和深色 Section 完全一体，无分割线感
-- 边框：`border-b border-white/10`（极细，仅用于与正文区分）
-- 粘性：`sticky top-17 sm:top-20 z-40`（直接顶到主导航底部，无额外留白）
-- 内边距：`py-3 sm:py-4 px-page`，高度克制，不抢占正文空间
+- 背景：`bg-primary`，与 Header 深色完全融合，形成整体"门廊"感
+- 边框：`border-b border-white/10`（极细，用于与正文区分）
+- 粘性：`sticky top-17 lg:top-20 z-40`（直接顶到主导航底部）
+- 高度：内边距 `py-5 sm:py-6`，比普通导航行略高——视觉上"坐得住"，不会被 Header 的预订表单（BookingBar）展开时遮盖而显得轻浮
+- BookingBar 说明：Header 中的预订表单展开时约增加 56px，会从上方短暂覆盖副导航顶部；这是预期行为，副导航加高后仍有足够视觉锚点
 
 **Tab 布局**：
 
 ```
 [  地方人文  ]  ｜  [  须知信息  ]  ｜  [  交通指引  ]
+       Culture             Need to Know          Getting Here
 ```
 
-- 三个 Tab 居中排列，`flex justify-center items-center gap-6 sm:gap-10`
-- 分隔符 `｜`：`text-white/20`，`mx-1 sm:mx-2`，`select-none`，非按钮
-- **激活态**：`text-[--color-gold-warm]`，无下划线，无背景，无边框——仅靠颜色区分
-- **非激活态**：`text-white/50 hover:text-white/80`
-- Tab 文字：`font-sans text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.25em]`
-- 中英双行可选：主行中文，英文小字在下方（`text-[0.5rem] text-white/30`）
+- 三个 Tab 居中排列
+- 分隔符 `|`：`text-white/15`，两侧 `mx-5 sm:mx-8 lg:mx-12`，非按钮，`select-none`
+- **激活态**：`text-[--color-gold-warm]`，底部金色 `h-px` 细线从 `border-b` 位置穿出
+- **非激活态**：`text-white/55 hover:text-white/85`
+- 中英双行：主行中文 `text-[0.7rem] sm:text-xs tracking-[0.3em]`，副行英文 `text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.2em]`
 
 **交互逻辑**：
-- 点击：平滑滚动至对应 Section，偏移量 = 主导航高度 + 副导航高度（约 108px mobile / 128px desktop）
-- 滚动同步：`IntersectionObserver` 监听三个 section，`rootMargin: '-80px 0px -40% 0px'`，进入视口即切换激活 tab
+- 点击：平滑滚动至对应 Section，偏移量 ≈ 108px（mobile）/ 128px（desktop）
+- 滚动同步：`IntersectionObserver`，`rootMargin: '-80px 0px -40% 0px'`
 
 ---
 
 ## 三大区段内容规范
 
-| id | 副导航标签 | 背景色 | 内容模块 |
-|----|-----------|--------|---------|
-| `location-culture` | 地方人文 | `bg-primary` | 1-A 地理优势 + 1-B 巴瑶族 |
-| `location-info` | 须知信息 | `bg-[--color-about-bg]` | 2-A 套餐已含 + 2-B 预订须知 + 2-C 行前清单 |
-| `location-transport` | 交通指引 | `bg-primary` | 3-A 到达路线图 + 3-B 班次时刻表 + 3-C 底部 CTA |
+| id | 副导航标签 | 背景色 | 文字色 | 内容模块 |
+|----|-----------|--------|--------|---------|
+| `location-culture` | 地方人文 | `bg-[--color-about-bg]` 暖米色 | `text-[--color-section-text]` 深暖蓝 | 1-A 地理优势 + 1-B 巴瑶族 |
+| `location-info` | 须知信息 | `bg-white` 纯白 | `text-[--color-section-text]` 深暖蓝 | 2-A 行前清单（BUTLER'S NOTE） + 2-B 预订须知（价格 + 政策） |
+| `location-transport` | 交通指引 | `bg-[--color-about-bg]` 暖米色 | `text-[--color-section-text]` 深暖蓝 | 3-A 到达路线图 + 3-B 班次时刻表 + 3-C 底部 CTA |
 
 ---
 
 ## 区段一：地方人文（`LocationCulture.tsx`）
 
-**背景色**：`bg-primary` — 深海蓝沉浸式，紧接副导航，形成整体门廊感  
-**顶部内边距**：`pt-16 sm:pt-24 md:pt-36 lg:pt-44`（副导航已占位，正文从此处开始）  
+**背景色**：`bg-[--color-about-bg]` — 暖米色，明亮入场，与 Header 深色形成鲜明对比，给访客空间感  
+**文字色**：标题 `text-[--color-section-text]`，正文 `text-[--color-section-text]/75`，辅助 `text-[--color-warm-text]`  
+**顶部内边距**：`pt-16 sm:pt-24 md:pt-36 lg:pt-44`  
 **底部内边距**：`pb-16 sm:pb-24 md:pb-36 lg:pb-44`
 
 > 区段一是整个页面的第一块内容，副导航之后直接进入。页面坐标标题（北纬 4°）不单独作为 Header 呈现，而是融入 1-A 的章节引言，由正文承载地理定位信息。
@@ -118,7 +126,7 @@
 | `100+ 年` | 无台风记录 | 100+ Years Typhoon-Free |
 | `< 30 分钟` | 快艇直达诗巴丹 | Speedboat to Sipadan |
 
-数字用 `font-serif clamp(2rem, 3vw, 2.8rem) text-white`，说明用 `font-sans text-[0.6rem] text-white/50`。
+数字用 `font-serif clamp(2rem, 3vw, 2.8rem) text-[--color-section-text]`，说明用 `font-sans text-[0.6rem] text-[--color-warm-text]`。
 
 ### 1-B 巴瑶族 — 人文温度
 
@@ -138,35 +146,27 @@
 
 ## 区段二：须知信息（`LocationNeedToKnow.tsx`）
 
-**背景色**：`bg-[--color-about-bg]` — 暖米色，与深海蓝形成节奏对比  
+**背景色**：`bg-white` — 纯白，与暖米色区段形成细腻的明度差，保持浅色基调下的节奏感  
+**文字色**：标题 `text-[--color-section-text]`，正文 `text-[--color-section-text]/75`，辅助说明 `text-[--color-warm-text]`，金色 `text-gold-warm`  
 **竖向间距**：`py-16 sm:py-24 md:py-36 lg:py-44`
+
+> ⚠️ **代码现状（`LocationNeedToKnow.tsx` v当前）**：组件渲染的是**旧版方案**，内容条目及右列价格均为硬编码，尚未完成规划文档中的重构。以下记录的是代码实际渲染内容，非最终期望设计。
 
 ### 布局方案
 
-桌面端双列：
-- **左列**（约 55%）：套餐已含 + 行前准备清单
-- **右列**（约 45%）：预订须知（价格突出 + 政策条款）
+桌面端双列 `flex-col lg:flex-row gap-16 lg:gap-24`，各 `w-full lg:w-1/2`。移动端：左列在上，右列在下。
 
-移动端：左列在上，右列在下。
+---
 
-### 左列：套餐已含 + 行前清单
+### 左列：行前清单（当前代码实现）
 
-**章节标签**：`01 · INCLUDED · 套餐已含`  
-**主标题**：全包套餐，已为您备妥
+**章节标签**：i18n key `Location.info.checklistTag`（`zh`: `BUTLER'S NOTE · 管家手记`）  
+**主标题**：i18n key `Location.info.checklistTitle`（`zh`: `行前准备清单`）
 
-套餐清单（带金色勾选图标，非普通 bullet）：
+标签行结构：`01` 序号（`text-gold-warm text-[0.6rem] tracking-[0.35em]`）+ 金色横线 `w-8 sm:w-12 h-px bg-gold-warm` + 标签文字 `text-[--color-warm-text]`。
 
-- 每日三餐 + 下午茶（2人）
-- 塔瓦机场 ⇄ 仙本那码头（专属车辆）
-- 仙本那码头 ⇄ 酒店（专属快艇）
-- 礁石区潜水 / 浮潜体验
-- 无边泳池 · 海上健身房
-- 24小时专属管家服务
+清单条目：**硬编码**，`<Check>` 图标（`lucide-react`，`size=14`，`text-gold-warm`），`font-sans text-sm text-[--color-section-text]/75`：
 
-**章节标签**：`BUTLER'S NOTE · 管家手记`（与套餐已含同列，下方紧接）  
-**主标题**：行前准备清单
-
-清单（同样带勾选图标）：
 - 护照或身份证件
 - 预订确认函（截图即可，我们已有记录）
 - 个人常用药物
@@ -174,20 +174,20 @@
 - 防滑鞋（快艇甲板）+ 墨镜 · 遮阳帽
 - 水下摄影装备（可选）
 
-收笔（引言斜体）：岛上一切已为您备妥，轻装出发即可。
+收笔（**硬编码**，`font-text italic text-[--color-warm-text] text-sm`）：*岛上一切已为您备妥，轻装出发即可。*
 
-### 右列：预订须知
+---
 
-**章节标签**：`02 · BOOKING POLICY · 预订须知`
+### 右列：预订须知（当前代码实现）
 
-**价格大字**（视觉焦点）：
-```
-RM 5,800
-/ 晚，2人含税净价
-```
-价格用 `font-serif clamp(2.2rem, 4vw, 3.5rem) text-[--color-section-text]`，单位说明用 `text-sm text-[--color-warm-text]`。
+**章节标签**：i18n key `Location.info.policyTag`（`zh`: `BOOKING POLICY · 预订须知`）
 
-政策条款（三行，带分割线）：
+**价格大字**（视觉焦点，Framer Motion fadeUp）：
+- i18n key `Location.info.priceValue`（`zh`: `RM 5,800`），`font-serif clamp(2.2rem, 4vw, 3.5rem) text-[--color-section-text] leading-none`
+- i18n key `Location.info.priceUnit`（`zh`: `/ 晚，2人含税净价`），`font-sans text-sm text-[--color-warm-text]`
+
+政策条款：**硬编码**，`divide-y divide-[--color-section-text]/10`，`font-sans text-sm text-[--color-section-text]/75 py-4`：
+
 - 不可退款，需全额预付
 - 有效期：2026年10月起
 - 套餐不含：水疗 · 酒吧及其他特别注明项目
@@ -196,7 +196,8 @@ RM 5,800
 
 ## 区段三：交通指引（`LocationTransport.tsx`）
 
-**背景色**：`bg-primary` — 深海蓝，与区段一呼应，形成首尾沉浸感  
+**背景色**：`bg-[--color-about-bg]` — 暖米色，与区段二纯白形成细腻对比，温暖收尾  
+**文字色**：标题 `text-[--color-section-text]`，正文 `text-[--color-section-text]/75`，辅助 `text-[--color-warm-text]`  
 **竖向间距**：`py-16 sm:py-24 md:py-36 lg:py-44`
 
 ### 3-A 到达路线图
@@ -249,7 +250,7 @@ RM 5,800
 | 离开 | 美丽度假酒店 → 仙本那码头 | 11:00 | 13:30 |
 | 离开 | 仙本那码头 → 塔瓦机场 | 12:00 | 14:30 |
 
-时刻数字：`font-serif text-white text-lg sm:text-xl`，路线说明：`font-sans text-white/70 text-sm`
+时刻数字：`font-serif text-[--color-section-text] text-lg sm:text-xl`，路线说明：`font-sans text-[--color-warm-text] text-sm`
 
 **时刻表下方三条提示**（以「我们」为主语，承诺语气）：
 1. 我们将在您抵达塔瓦机场后，安排专属司机在出口处等候
@@ -287,10 +288,11 @@ RM 5,800
 | `Location.intro.title1` | 珊瑚金三角的中心 |
 | `Location.culture.bajau.tag` | 02 · THE BAJAU PEOPLE · 巴瑶族 |
 | `Location.culture.bajau.title` | 世代守护这片海的人 |
-| `Location.info.includedTag` | 01 · INCLUDED · 套餐已含 |
-| `Location.info.includedTitle` | 全包套餐，已为您备妥 |
-| `Location.info.policyTag` | 02 · BOOKING POLICY · 预订须知 |
 | `Location.info.checklistTag` | BUTLER'S NOTE · 管家手记 |
+| `Location.info.checklistTitle` | 行前准备清单 |
+| `Location.info.policyTag` | BOOKING POLICY · 预订须知 |
+| `Location.info.priceValue` | RM 5,800 |
+| `Location.info.priceUnit` | / 晚，2人含税净价 |
 | `Location.route.tag` | 04 · GETTING HERE · 交通指引 |
 | `Location.route.title` | 一段有人等候您的旅程 |
 | `Location.schedule.tag` | 05 · TRANSFER SCHEDULE · 班次时刻 |

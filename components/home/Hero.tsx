@@ -54,7 +54,7 @@ export function Hero() {
         initial={{ height: '100vh' }}
         animate={{ height: isMd ? 'calc(100vh - 80px)' : '100vh' }}
         transition={{ delay: 3, duration: 1, ease: 'easeInOut' }}
-        className="relative z-20 hidden min-h-175 overflow-hidden bg-[--color-primary] md:block"
+        className="relative z-20 hidden min-h-175 overflow-hidden bg-primary md:block"
       >
         {/* Video Background */}
         <div className="absolute inset-0">

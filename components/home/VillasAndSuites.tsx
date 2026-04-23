@@ -101,11 +101,11 @@ export function VillasAndSuites() {
             animate={isInView ? 'visible' : 'hidden'}
             className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-[--color-warm-text]">
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-warm-text">
               02
             </span>
             <div className="w-8 sm:w-12 h-px bg-[#c4b99a]/40" />
-            <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[--color-warm-text]">
+            <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-warm-text">
               {t('subtitle')}
             </span>
           </motion.div>

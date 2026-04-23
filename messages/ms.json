@@ -145,11 +145,31 @@
     "desc2": "Sertai selaman terumbu karang waktu senja yang dipimpin oleh ahli biologi marin utama kami atau nikmati champagne grand cru di pantai peribadi anda.",
     "btn": "TEROKAI PERJALANAN KAMI",
     "posts": [
-      { "tag": "Hidupan Marin", "title": "Berenang Bersama Manta: Pertemuan Sebelum Fajar", "date": "12 Nov 2025" },
-      { "tag": "Kehidupan Pulau", "title": "72 Jam Kehidupan Murni di Suite Air", "date": "28 Okt 2025" },
-      { "tag": "Perjalanan Santai", "title": "Kampung Nelayan Kraf Terakhir Semporna", "date": "5 Okt 2025" },
-      { "tag": "Gastronomi", "title": "Lahir dari Laut: Perjamuan Lewat Malam", "date": "18 Sep 2025" },
-      { "tag": "Pemuliharaan", "title": "Sehari dalam Kehidupan Pemulih Terumbu", "date": "30 Ogos 2025" }
+      {
+        "tag": "Hidupan Marin",
+        "title": "Berenang Bersama Manta: Pertemuan Sebelum Fajar",
+        "date": "12 Nov 2025"
+      },
+      {
+        "tag": "Kehidupan Pulau",
+        "title": "72 Jam Kehidupan Murni di Suite Air",
+        "date": "28 Okt 2025"
+      },
+      {
+        "tag": "Perjalanan Santai",
+        "title": "Kampung Nelayan Kraf Terakhir Semporna",
+        "date": "5 Okt 2025"
+      },
+      {
+        "tag": "Gastronomi",
+        "title": "Lahir dari Laut: Perjamuan Lewat Malam",
+        "date": "18 Sep 2025"
+      },
+      {
+        "tag": "Pemuliharaan",
+        "title": "Sehari dalam Kehidupan Pemulih Terumbu",
+        "date": "30 Ogos 2025"
+      }
     ]
   },
   "Offers": {
@@ -173,9 +193,17 @@
   },
   "Location": {
     "nav": {
+      "pageTag": "THE LOCATION",
+      "pageTitle": "Lokasi",
       "culture": "Budaya Tempatan",
       "info": "Maklumat Penting",
-      "transport": "Cara Tiba"
+      "transport": "Cara Tiba",
+      "address": "Meili Resort Semporna, Sabah, Malaysia",
+      "phone": "+60 12 345 6789",
+      "map": "Peta Resort",
+      "description": "Resort kami terletak di atas perairan biru Semporna, Sabah, Malaysia, bersebelahan dengan terumbu karang yang indah, mudah dikunjungi dengan kereta dan bot laju dari Lapangan Terbang Tawau.",
+      "contactText": "Biar kami uruskan pengangkutan dan jadual anda.",
+      "contactBtn": "Hubungi Kami"
     },
     "hero": {
       "title": "4°U — Koordinat Lautan Peribadi Anda",
