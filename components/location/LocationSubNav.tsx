@@ -84,7 +84,7 @@ export default function LocationSubNav() {
         </motion.p>
         <motion.h1
           className="font-serif text-white leading-[1.05]"
-          style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+          style={{ fontSize: 'clamp(1.8rem, 4vw, 4rem)' }}
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}

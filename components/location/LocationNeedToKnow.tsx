@@ -31,7 +31,7 @@ export default function LocationNeedToKnow() {
   return (
     <section
       id="location-info"
-      className="bg-white pt-10 sm:pt-16 md:pt-20 lg:pt-24 pb-8 sm:pb-12 md:pb-16 lg:pb-20"
+      className="bg-white pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-0"
     >
       <div className="px-page max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
 
@@ -63,8 +63,8 @@ export default function LocationNeedToKnow() {
             variants={fadeUp}
             initial="hidden"
             animate={leftInView ? 'visible' : 'hidden'}
-            className="font-serif text-[--color-section-text] leading-[1.1] mb-8 sm:mb-10"
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-8 sm:mb-10"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             {t('info.checklistTitle')}
           </motion.h2>
@@ -131,8 +131,8 @@ export default function LocationNeedToKnow() {
             variants={fadeUp}
             initial="hidden"
             animate={rightInView ? 'visible' : 'hidden'}
-            className="font-serif text-[--color-section-text] leading-[1.1] mb-8 sm:mb-10"
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-8 sm:mb-10"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             {t('info.stayTitle')}
           </motion.h2>

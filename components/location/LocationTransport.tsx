@@ -52,7 +52,7 @@ export default function LocationTransport() {
   return (
     <section
       id="location-transport"
-      className="bg-[--color-about-bg] pt-10 sm:pt-12 md:pt-16 lg:pt-20 pb-10 sm:pb-12 md:pb-16 lg:pb-20"
+      className="bg-cream pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-0"
     >
       <div className="px-page max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
         
@@ -80,8 +80,8 @@ export default function LocationTransport() {
             variants={fadeUp}
             initial="hidden"
             animate={leftInView ? 'visible' : 'hidden'}
-            className="font-serif text-[--color-section-text] leading-[1.1] mb-10 sm:mb-14"
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-10 sm:mb-14"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             {t('route.title')}
           </motion.h2>
@@ -103,7 +103,7 @@ export default function LocationTransport() {
 
             {/* 节点 1：塔瓦机场 */}
             <div className="flex items-start gap-4 mb-8">
-              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-[--color-about-bg] z-10">
+              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-cream z-10">
                 <Plane size={16} className="text-gold-warm" />
               </div>
               <div className="pt-2">
@@ -130,7 +130,7 @@ export default function LocationTransport() {
 
             {/* 节点 2：专属车辆 */}
             <div className="flex items-start gap-4 mb-2">
-              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-[--color-about-bg] z-10">
+              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-cream z-10">
                 <Car size={16} className="text-gold-warm" />
               </div>
               <div className="pt-2">
@@ -148,7 +148,7 @@ export default function LocationTransport() {
 
             {/* 节点 3：专属快艇 */}
             <div className="flex items-start gap-4 mb-2">
-              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-[--color-about-bg] z-10">
+              <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-cream z-10">
                 <Anchor size={16} className="text-gold-warm" />
               </div>
               <div className="pt-2">
@@ -216,8 +216,8 @@ export default function LocationTransport() {
             variants={fadeUp}
             initial="hidden"
             animate={rightInView ? 'visible' : 'hidden'}
-            className="font-serif text-[--color-section-text] leading-[1.1] mb-10 sm:mb-14"
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-10 sm:mb-14"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             {t('schedule.title')}
           </motion.h2>

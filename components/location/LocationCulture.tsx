@@ -30,7 +30,7 @@ export default function LocationCulture() {
   return (
     <section
       id="location-culture"
-      className="bg-[--color-about-bg] pt-16 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-40 pb-10 sm:pb-12 md:pb-16 lg:pb-20"
+      className="bg-[--color-about-bg] pt-16 sm:pt-24 md:pt-28 lg:pt-32 xl:pt-40 pb-0"
     >
       {/* 1-A 地理优势 */}
       <div
@@ -76,8 +76,8 @@ export default function LocationCulture() {
             variants={fadeUp}
             initial="hidden"
             animate={geoInView ? 'visible' : 'hidden'}
-            className="font-serif text-[--color-section-text] leading-[1.1] mb-8 sm:mb-10"
-            style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3rem)' }}
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-8 sm:mb-10"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             {t('intro.title1')}
           </motion.h2>
@@ -159,8 +159,8 @@ export default function LocationCulture() {
             variants={fadeUp}
             initial="hidden"
             animate={bajauInView ? 'visible' : 'hidden'}
-            className="font-serif text-[--color-section-text] leading-[1.1] mb-8 sm:mb-10"
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.6rem)' }}
+            className="font-serif text-[--color-section-text] leading-[1.15] mb-8 sm:mb-10"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             {t('culture.bajau.title')}
           </motion.h2>

@@ -19,7 +19,7 @@ export default function LocationCTA() {
   const t = useTranslations('Location');
 
   return (
-    <div className="px-page max-w-7xl mx-auto pt-8 sm:pt-12 md:pt-16 w-full pb-16 sm:pb-24 lg:pb-32 bg-white">
+    <div className="px-page max-w-7xl mx-auto pt-16 sm:pt-20 w-full pb-16 sm:pb-24 lg:pb-32 bg-white">
       <motion.div
         variants={fadeUp}
         initial="hidden"
@@ -28,7 +28,7 @@ export default function LocationCTA() {
         className="pt-16 sm:pt-20 border-t border-[--color-section-text]/10 flex flex-col items-center text-center w-full"
       >
         <h2 
-          className="font-serif text-[--color-section-text] leading-[1.2] mb-3 font-normal" 
+          className="font-serif text-[--color-section-text] leading-[1.15] mb-3 font-normal" 
           style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.2rem)' }}
         >
           {t('cta.title')}
