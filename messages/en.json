@@ -233,26 +233,30 @@
       }
     },
     "info": {
-      "includedTag": "INCLUDED",
-      "includedTitle": "All-Inclusive. All Prepared.",
-      "includedItems": [
-        "Daily breakfast, lunch, dinner + afternoon tea (2 guests)",
-        "Tawau Airport ⇄ Semporna Jetty (private vehicle)",
-        "Semporna Jetty ⇄ Resort (private speedboat)",
-        "Reef snorkelling & diving experience",
-        "Infinity pool · Overwater fitness centre",
-        "24-hour personal butler service"
-      ],
-      "priceValue": "RM 5,800",
-      "priceUnit": "/ night · 2 guests · all-inclusive",
-      "policyTag": "BOOKING POLICY",
-      "policyItems": [
-        "Non-refundable · Full prepayment required",
-        "Valid from October 2026",
-        "Excludes: spa · bar · other noted items"
-      ],
       "checklistTag": "BUTLER'S NOTE",
-      "checklistTitle": "Pre-Departure Checklist"
+      "checklistTitle": "Pre-Departure Checklist",
+      "checklistItems": [
+        "Passport or identification",
+        "Your booking confirmation",
+        "Personal medications",
+        "Swimwear and sunscreen (reef-safe recommended)",
+        "Comfortable, non-slip shoes (for boat transfers)"
+      ],
+      "closingNote": "Everything on the island is prepared for you. Travel light.",
+      "stayTag": "STAY ESSENTIALS",
+      "stayTitle": "Stay Essentials",
+      "checkinLabel": "Check-in",
+      "checkinValue": "From 2:00 PM",
+      "checkoutLabel": "Check-out",
+      "checkoutValue": "By 12:00 PM",
+      "stayItems": [
+        "Full board: breakfast, lunch, and dinner are included in your package",
+        "Complimentary Wi-Fi throughout villas and public areas",
+        "Children aged 5 and below stay free when sharing existing bedding",
+        "Cancellation policy subject to booking terms; late cancellations will incur a charge",
+        "Date modifications must be requested at least 3 days prior to arrival",
+        "Pets are not permitted; smoking in designated outdoor areas only"
+      ]
     },
     "route": {
       "tag": "ARRIVAL ROUTE · FULL TRANSFER",
@@ -276,6 +280,9 @@
     },
     "schedule": {
       "tag": "TRANSFER SCHEDULE",
+      "colRoute": "Route",
+      "colTime1": "Departure 1",
+      "colTime2": "Departure 2",
       "arrivalTitle": "Arrival Direction",
       "arrTawauToJetty": "🚗 Tawau Airport → Semporna Jetty",
       "arrJettyToResort": "⛵ Semporna Jetty → Meili Resort",

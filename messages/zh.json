@@ -233,26 +233,30 @@
       }
     },
     "info": {
-      "includedTag": "INCLUDED · 套餐已含",
-      "includedTitle": "全包套餐，已为您备妥",
-      "includedItems": [
-        "每日三餐 + 下午茶（2人）",
-        "塔瓦机场 ⇄ 仙本那码头（专属车辆）",
-        "仙本那码头 ⇄ 酒店（专属快艇）",
-        "礁石区潜水 / 浮潜体验",
-        "无边泳池 · 海上健身房",
-        "24小时专属管家服务"
-      ],
-      "priceValue": "RM 5,800",
-      "priceUnit": "/ 晚，2人含税净价",
-      "policyTag": "BOOKING POLICY · 预订须知",
-      "policyItems": [
-        "不可退款，需全额预付",
-        "有效期：2026年10月起",
-        "套餐不含：水疗 · 酒吧及特别注明项目"
-      ],
       "checklistTag": "BUTLER'S NOTE · 管家手记",
-      "checklistTitle": "行前准备清单"
+      "checklistTitle": "行前准备清单",
+      "checklistItems": [
+        "护照或身份证件",
+        "预订确认函",
+        "个人常用药物",
+        "泳衣 + 防晒霜（推荐珊瑚友好型）",
+        "防滑鞋（快艇甲板）"
+      ],
+      "closingNote": "岛上一切已为您备妥，轻装出发即可。",
+      "stayTag": "STAY ESSENTIALS · 入住须知",
+      "stayTitle": "入住须知",
+      "checkinLabel": "入住时间",
+      "checkinValue": "下午 2:00 起",
+      "checkoutLabel": "退房时间",
+      "checkoutValue": "正午 12:00 前",
+      "stayItems": [
+        "餐饮全包：每日三餐（早餐 · 午餐 · 晚餐）均已含于套餐",
+        "全场免费 Wi-Fi（别墅及公共区域）",
+        "5岁及以下儿童，共用现有床铺免费入住",
+        "取消政策视订单条款而定；逾期取消将产生费用",
+        "如需修改预订日期，请提前至少 3 天联系我们",
+        "谢绝携带宠物；吸烟限室外指定区域"
+      ]
     },
     "route": {
       "tag": "ARRIVAL ROUTE · 全程接送",
@@ -276,6 +280,9 @@
     },
     "schedule": {
       "tag": "TRANSFER SCHEDULE",
+      "colRoute": "行程",
+      "colTime1": "班次一",
+      "colTime2": "班次二",
       "arrivalTitle": "到达方向 Arrival",
       "arrTawauToJetty": "🚗 塔瓦机场 → 仙本那码头",
       "arrJettyToResort": "⛵ 仙本那码头 → 美丽度假酒店",

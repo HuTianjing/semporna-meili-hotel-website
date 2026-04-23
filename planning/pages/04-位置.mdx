@@ -150,7 +150,7 @@
 **文字色**：标题 `text-[--color-section-text]`，正文 `text-[--color-section-text]/75`，辅助说明 `text-[--color-warm-text]`，金色 `text-gold-warm`  
 **竖向间距**：`py-16 sm:py-24 md:py-36 lg:py-44`
 
-> ⚠️ **代码现状（`LocationNeedToKnow.tsx` v当前）**：组件渲染的是**旧版方案**，内容条目及右列价格均为硬编码，尚未完成规划文档中的重构。以下记录的是代码实际渲染内容，非最终期望设计。
+> 内容来源：`resort-faq-and-policies.md`（运营部原始物料）。严禁自行新增或幻想任何未经运营方确认的条款、价格及承诺。
 
 ### 布局方案
 
@@ -158,39 +158,51 @@
 
 ---
 
-### 左列：行前清单（当前代码实现）
+### 左列：行前清单（`BUTLER'S NOTE · 管家手记`）
 
 **章节标签**：i18n key `Location.info.checklistTag`（`zh`: `BUTLER'S NOTE · 管家手记`）  
 **主标题**：i18n key `Location.info.checklistTitle`（`zh`: `行前准备清单`）
 
 标签行结构：`01` 序号（`text-gold-warm text-[0.6rem] tracking-[0.35em]`）+ 金色横线 `w-8 sm:w-12 h-px bg-gold-warm` + 标签文字 `text-[--color-warm-text]`。
 
-清单条目：**硬编码**，`<Check>` 图标（`lucide-react`，`size=14`，`text-gold-warm`），`font-sans text-sm text-[--color-section-text]/75`：
+清单条目（来源：FAQ "What should I bring?"）：i18n key `Location.info.checklistItems`，`<Check>` 图标（`lucide-react`，`size=14`，`text-gold-warm`），`font-sans text-sm text-[--color-section-text]/75`：
 
 - 护照或身份证件
-- 预订确认函（截图即可，我们已有记录）
+- 预订确认函
 - 个人常用药物
-- 泳衣（数套）+ 防晒霜（推荐珊瑚友好型）
-- 防滑鞋（快艇甲板）+ 墨镜 · 遮阳帽
-- 水下摄影装备（可选）
+- 泳衣 + 防晒霜（推荐珊瑚友好型）
+- 防滑鞋（快艇甲板）
 
-收笔（**硬编码**，`font-text italic text-[--color-warm-text] text-sm`）：*岛上一切已为您备妥，轻装出发即可。*
+收笔（`font-text italic text-[--color-warm-text] text-sm`）：*岛上一切已为您备妥，轻装出发即可。*
 
 ---
 
-### 右列：预订须知（当前代码实现）
+### 右列：入住须知（`STAY ESSENTIALS · 入住须知`）
 
-**章节标签**：i18n key `Location.info.policyTag`（`zh`: `BOOKING POLICY · 预订须知`）
+**章节标签**：i18n key `Location.info.stayTag`（`zh`: `STAY ESSENTIALS · 入住须知`）
 
-**价格大字**（视觉焦点，Framer Motion fadeUp）：
-- i18n key `Location.info.priceValue`（`zh`: `RM 5,800`），`font-serif clamp(2.2rem, 4vw, 3.5rem) text-[--color-section-text] leading-none`
-- i18n key `Location.info.priceUnit`（`zh`: `/ 晚，2人含税净价`），`font-sans text-sm text-[--color-warm-text]`
+**视觉焦点 — 入住 / 退房时间格**（来源：FAQ "What are your check-in and check-out times?"）：
 
-政策条款：**硬编码**，`divide-y divide-[--color-section-text]/10`，`font-sans text-sm text-[--color-section-text]/75 py-4`：
+```
+┌──────────────────────┬──────────────────────┐
+│   入住时间           │   退房时间            │
+│   下午 2:00 起       │   正午 12:00 前       │
+└──────────────────────┴──────────────────────┘
+```
 
-- 不可退款，需全额预付
-- 有效期：2026年10月起
-- 套餐不含：水疗 · 酒吧及其他特别注明项目
+- 双格 `grid grid-cols-2 gap-px bg-[--color-section-text]/10 border border-[--color-section-text]/10`
+- 标签：`font-sans text-[0.6rem] uppercase tracking-[0.3em] text-[--color-warm-text]`
+- 时间值：`font-serif clamp(1.6rem, 2.5vw, 2.4rem) text-[--color-section-text] leading-none`
+- i18n keys: `Location.info.checkinLabel` / `Location.info.checkinValue` / `Location.info.checkoutLabel` / `Location.info.checkoutValue`
+
+须知条款列表（来源：FAQ），i18n key `Location.info.stayItems`，`divide-y divide-[--color-section-text]/10`，`font-sans text-sm text-[--color-section-text]/75 py-4`：
+
+- 餐饮全包：每日三餐（早餐 · 午餐 · 晚餐）均已含于套餐
+- 全场免费 Wi-Fi（别墅及公共区域）
+- 5岁及以下儿童，共用现有床铺免费入住
+- 取消政策视订单条款而定；不抵者将产生费用
+- 如需修改预订日期，请提前至少 3 天联系我们
+- 谢绝携带宠物；吸烟限室外指定区域
 
 ---
 
@@ -290,9 +302,14 @@
 | `Location.culture.bajau.title` | 世代守护这片海的人 |
 | `Location.info.checklistTag` | BUTLER'S NOTE · 管家手记 |
 | `Location.info.checklistTitle` | 行前准备清单 |
-| `Location.info.policyTag` | BOOKING POLICY · 预订须知 |
-| `Location.info.priceValue` | RM 5,800 |
-| `Location.info.priceUnit` | / 晚，2人含税净价 |
+| `Location.info.checklistItems` | 行前清单条目数组（5项，来源：FAQ） |
+| `Location.info.closingNote` | 岛上一切已为您备妥，轻装出发即可。 |
+| `Location.info.stayTag` | STAY ESSENTIALS · 入住须知 |
+| `Location.info.checkinLabel` | 入住时间 |
+| `Location.info.checkinValue` | 下午 2:00 起 |
+| `Location.info.checkoutLabel` | 退房时间 |
+| `Location.info.checkoutValue` | 正午 12:00 前 |
+| `Location.info.stayItems` | 入住须知条款数组（6项，来源：FAQ） |
 | `Location.route.tag` | 04 · GETTING HERE · 交通指引 |
 | `Location.route.title` | 一段有人等候您的旅程 |
 | `Location.schedule.tag` | 05 · TRANSFER SCHEDULE · 班次时刻 |

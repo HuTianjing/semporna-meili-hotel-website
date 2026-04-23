@@ -57,7 +57,7 @@ export default function LocationSubNav() {
 
       {/* ── 页面标题区 ── */}
       <div className="text-center px-page pt-14 sm:pt-18 md:pt-22 pb-8">
-        <p className="font-sans text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.45em] text- mb-5">
+        <p className="font-sans text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.45em] text-white/50 mb-5">
           {t('pageTag')}
         </p>
         <h1
@@ -76,11 +76,11 @@ export default function LocationSubNav() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-y-3 sm:gap-x-6 font-sans text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] text-white/40">
           <span>{t('address')}</span>
-          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-/50" />
+          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-white/50" />
           <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="hover:text-white transition-colors underline underline-offset-4 decoration-white/20">
             {t('phone')}
           </a>
-          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-/50" />
+          <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-white/50" />
           <a href="#map" className="hover:text-white transition-colors underline underline-offset-4 decoration-white/20">
             {t('map')}
           </a>
@@ -96,10 +96,10 @@ export default function LocationSubNav() {
               {t('contactText')}
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-6">
-              <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="font-sans text-white text-sm uppercase tracking-[0.15em] hover:text- transition-colors whitespace-nowrap">
+              <a href={`tel:${t('phone').replace(/\s/g, '')}`} className="font-sans text-white text-sm uppercase tracking-[0.15em] hover:text-white/80 transition-colors whitespace-nowrap">
                 {t('phone')}
               </a>
-              <button className="bg-white text-primary px-8 py-3.5 font-sans text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] hover:bg- hover:text-white transition-colors w-full sm:w-auto">
+              <button className="bg-white text-primary px-8 py-3.5 font-sans text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] hover:bg-white/90 transition-colors w-full sm:w-auto">
                 {t('contactBtn')}
               </button>
             </div>
@@ -130,37 +130,21 @@ export default function LocationSubNav() {
 
                 <button
                   onClick={() => handleClick(id)}
-                  className="group relative flex flex-col items-center gap-1.5 sm:gap-2 pt-6 pb-5 sm:pt-8 sm:pb-6 cursor-pointer focus-visible:outline-none"
-                  aria-current={isActive ? 'true' : undefined}
+                  className="group relative flex flex-col items-center gap-1.5 sm:gap-2 pt-6 pb-8 sm:pt-8 sm:pb-10 cursor-pointer focus-visible:outline-none"
                 >
                   {/* 中文主标签 */}
                   <span
-                    className={[
-                      'font-sans text-sm sm:text-base tracking-[0.2em] whitespace-nowrap transition-colors duration-300',
-                      isActive ? 'text-white' : 'text-white/50 group-hover:text-white/85',
-                    ].join(' ')}
+                    className="font-sans text-sm sm:text-base tracking-[0.2em] whitespace-nowrap transition-colors duration-300 text-white/60 group-hover:text-white"
                   >
                     {labels[key]}
                   </span>
 
                   {/* 英文副标签 */}
                   <span
-                    className={[
-                      'font-sans text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.25em] whitespace-nowrap transition-colors duration-300',
-                      isActive ? 'text-' : 'text-white/20 group-hover:text-white/40',
-                    ].join(' ')}
+                    className="font-sans text-[0.5rem] sm:text-[0.55rem] uppercase tracking-[0.25em] whitespace-nowrap transition-colors duration-300 text-white/30 group-hover:text-white/60"
                   >
                     {en}
                   </span>
-
-                  {/* 激活态底部指示器 */}
-                  <span
-                    className={[
-                      'absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 transition-all duration-400',
-                      isActive ? 'bg- opacity-100' : 'bg-white opacity-0',
-                    ].join(' ')}
-                    aria-hidden="true"
-                  />
                 </button>
               </span>
             );
