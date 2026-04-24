@@ -44,13 +44,13 @@ export default function OffersMember() {
   });
 
   return (
-    <section id="member" className="bg-background py-20 sm:py-28 md:py-36 px-page overflow-hidden" ref={sectionRef}>
-      <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
+    <section id="member" className="bg-background py-16 sm:py-20 md:py-28 lg:py-36 xl:py-44 px-page overflow-hidden" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
         
         {/* Left: Image Card Side */}
         <motion.div 
           custom={0} variants={fadeScale} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
-          className="w-full lg:w-[45%] relative aspect-[4/5] sm:aspect-[4/5] lg:aspect-[3/4] shrink-0"
+          className="w-full lg:w-[45%] relative aspect-4/5 sm:aspect-4/5 lg:aspect-3/4 shrink-0"
         >
           <Image 
             src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&q=80&w=1200" 
@@ -68,14 +68,15 @@ export default function OffersMember() {
           
           <motion.div 
             custom={0.1} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
-            className="inline-block border border-gold-warm px-4 py-2 text-gold-warm text-xs font-sans tracking-[0.25em] mb-8 w-fit uppercase"
+            className="inline-flex border border-gold-warm px-4 py-2 text-gold-warm text-xs font-sans tracking-[0.25em] mb-8 w-fit uppercase"
           >
             {t('badge')}
           </motion.div>
 
           <motion.p
             custom={0.2} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
-            className="font-text italic text-section-text/90 text-2xl sm:text-3xl md:text-4xl leading-[1.2] mb-12"
+            className="font-text italic text-section-text/90 leading-[1.2] mb-12"
+            style={{ fontSize: 'clamp(1.4rem, 3vw, 2.2rem)' }}
           >
             &ldquo;{t('subtitle')}&rdquo;
           </motion.p>
@@ -92,7 +93,7 @@ export default function OffersMember() {
                   <div className="w-12 h-12 rounded-full border border-gold-warm/30 flex items-center justify-center shrink-0 text-gold-warm transition-colors duration-500 group-hover:border-gold-warm group-hover:text-gold-warm mt-1">
                     <Icon className="w-5 h-5" strokeWidth={1.5} />
                   </div>
-                  <div className="flex-1 flex flex-col justify-center min-h-[48px]">
+                  <div className="flex-1 flex flex-col justify-center min-h-12">
                     <h3 className="font-serif text-section-text text-base leading-snug group-hover:text-gold-warm transition-colors duration-300">
                       {text}
                     </h3>
@@ -113,13 +114,13 @@ export default function OffersMember() {
             <div className="flex flex-wrap gap-x-6 gap-y-4 items-center">
               <Link 
                 href="#contact-form"
-                className="flex items-center justify-center min-w-[160px] min-h-[44px] border border-section-text bg-transparent text-section-text px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
+                className="flex items-center justify-center min-w-40 min-h-11 border border-section-text bg-transparent text-section-text px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
               >
                 {t('ctaMain')}
               </Link>
               <a 
                 href="mailto:amy@meilihotel.com" 
-                className="inline-block border-b border-gold-warm pb-1 font-sans text-sm tracking-widest text-gold-warm uppercase transition-colors hover:border-gold hover:text-gold min-h-[44px] flex items-center"
+                className="inline-flex items-center"
               >
                 {t('ctaSub')}
               </a>

@@ -867,3 +867,7 @@ export default function LocationPage() {
 - [ ] 是否需要 `'use client'`（仅有 state/effect/事件时才加）？
 - [ ] 文字是否全部走 `useTranslations`？
 - [ ] 图片是否 `<Image />` + 有意义 alt？
+
+### 2.7 比例与显示属性 (Aspect Ratio & Display)
+- ❌ 禁止 `aspect-[4/5]` 等任意值，✅ 应当使用 Tailwind 原生比例类名，如 `aspect-4/5`、`aspect-3/4`、`aspect-square`。
+- ❌ 禁止混用 `inline-block` 与 `flex`。如果需要行内且内容使用 Flex 布局，✅ 直接使用 `inline-flex`。

@@ -32,13 +32,13 @@ export default function OffersGroup() {
   const items = Array.from({ length: 6 }).map((_, i) => t(`items.${i}`));
 
   return (
-    <section id="group" className="bg-cream py-16 sm:py-24 md:py-36" ref={sectionRef}>
-      <div className="px-page max-w-[1280px] mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+    <section id="group" className="bg-cream py-16 sm:py-20 md:py-28 lg:py-36 xl:py-44" ref={sectionRef}>
+      <div className="px-page max-w-7xl mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-center">
         
         <div className="w-full md:w-1/2 flex flex-col justify-center">
           <motion.div 
             custom={0} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
-            className="inline-block border border-gold-warm px-4 py-2 text-gold-warm text-xs font-sans tracking-[0.25em] mb-8 w-fit uppercase"
+            className="inline-flex border border-gold-warm px-4 py-2 text-gold-warm text-xs font-sans tracking-[0.25em] mb-8 w-fit uppercase"
           >
             {t('badge')}
           </motion.div>
@@ -46,7 +46,7 @@ export default function OffersGroup() {
           <motion.h2 
             custom={0.1} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
             className="font-serif text-section-text leading-[1.1] mb-4 sm:mb-6"
-            style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}
           >
             <span className="block text-section-text">{t('subtitle')}</span>
           </motion.h2>
@@ -77,7 +77,7 @@ export default function OffersGroup() {
           >
             <Link 
               href="#contact-form"
-              className="flex items-center justify-center min-h-[44px] border border-primary bg-transparent text-primary px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
+              className="flex items-center justify-center min-h-11 border border-primary bg-transparent text-primary px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
             >
               {t('ctaMain')}
             </Link>
@@ -85,7 +85,7 @@ export default function OffersGroup() {
               href="https://wa.me/60112780399" 
               target="_blank" 
               rel="noreferrer"
-              className="group flex items-center min-h-[44px] gap-2 text-sm tracking-widest text-gold-warm uppercase transition-colors hover:text-section-text"
+              className="group flex items-center min-h-11 gap-2 text-sm tracking-widest text-gold-warm uppercase transition-colors hover:text-section-text"
             >
               {t('ctaSub')}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -97,7 +97,7 @@ export default function OffersGroup() {
           custom={0.2} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
           className="w-full md:w-1/2"
         >
-          <div className="aspect-[4/5] sm:aspect-square md:aspect-[4/5] relative overflow-hidden group">
+          <div className="aspect-4/5 sm:aspect-square md:aspect-4/5 relative overflow-hidden group">
             <Image 
               src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=1200"
               alt="Group Dining" 

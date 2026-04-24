@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -65,14 +65,14 @@ export default function OffersContactForm() {
   };
 
   return (
-    <section id="contact-form" className="bg-background text-primary py-20 md:py-32 px-page relative" ref={sectionRef}>
-      <div className="max-w-[1280px] mx-auto relative z-10">
+    <section id="contact-form" className="bg-background text-primary py-16 sm:py-20 md:py-28 lg:py-36 xl:py-44 px-page relative" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto relative z-10">
         
         <motion.div 
           custom={0} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
           className="text-center mb-16"
         >
-          <h2 className="font-serif leading-[1.15] mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+          <h2 className="font-serif leading-[1.15] mb-6" style={{ fontSize: 'clamp(1.8rem, 4vw, 4rem)' }}>
             {t('title')}
           </h2>
           <div className="w-12 h-px bg-gold-warm mx-auto" />
@@ -84,7 +84,7 @@ export default function OffersContactForm() {
             animate={{ opacity: 1, scale: 1 }}
             className="bg-cream border border-gold-warm/20 p-12 text-center"
           >
-            <p className="font-serif text-2xl text-gold-warm mb-6">
+            <p className="font-serif text-gold-warm mb-6" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}>
               {t('successMsg')}
             </p>
             <p className="font-sans text-primary/80 mb-8">
@@ -94,7 +94,7 @@ export default function OffersContactForm() {
               href="https://wa.me/60112780399" 
               target="_blank" 
               rel="noreferrer"
-              className="inline-flex items-center min-h-[44px] border border-primary bg-transparent text-primary px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
+              className="inline-flex items-center min-h-11 border border-primary bg-transparent text-primary px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
             >
               WhatsApp Us
             </a>
@@ -187,7 +187,7 @@ export default function OffersContactForm() {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="inline-flex items-center justify-center min-h-[44px] border border-primary bg-transparent text-primary px-12 py-4 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light disabled:opacity-70"
+                className="inline-flex items-center justify-center min-h-11 border border-primary bg-transparent text-primary px-12 py-4 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light disabled:opacity-70"
               >
                 {isSubmitting ? '...' : t('submitBtn')}
               </button>

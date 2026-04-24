@@ -30,12 +30,12 @@ export default function OffersPromotional() {
   });
 
   return (
-    <section id="offers" className="bg-cream py-16 md:py-28 px-page" ref={sectionRef}>
-      <div className="max-w-[1280px] mx-auto flex flex-col items-center">
+    <section id="offers" className="bg-cream py-16 sm:py-20 md:py-28 lg:py-36 xl:py-44 px-page" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         <motion.div 
           custom={0} variants={fadeUp} initial="hidden" animate={isInView ? 'visible' : 'hidden'}
-          className="inline-block border border-gold-warm px-4 py-2 text-gold-warm text-xs font-sans tracking-[0.25em] mb-12 sm:mb-16 w-fit uppercase"
+          className="inline-flex border border-gold-warm px-4 py-2 text-gold-warm text-xs font-sans tracking-[0.25em] mb-12 sm:mb-16 w-fit uppercase"
         >
           {t('badge')}
         </motion.div>
@@ -45,7 +45,7 @@ export default function OffersPromotional() {
           className="flex flex-col lg:flex-row w-full bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden"
         >
           {/* Left Image */}
-          <div className="w-full lg:w-[40%] relative aspect-[4/3] lg:aspect-auto">
+          <div className="w-full lg:w-[40%] relative aspect-4/3 lg:aspect-auto">
             <Image 
               src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=1200" 
               alt={t('title')} 
@@ -60,13 +60,14 @@ export default function OffersPromotional() {
 
           {/* Right Content */}
           <div className="w-full lg:w-[60%] p-8 sm:p-12 md:p-16 flex flex-col">
-            <h2 className="font-serif text-section-text text-2xl sm:text-3xl md:text-4xl leading-tight mb-4">
+            <h2 className="font-serif text-section-text leading-[1.15] mb-4"
+                style={{ fontSize: 'clamp(1.6rem, 4vw, 2.8rem)' }}>
               {t('title')}
             </h2>
             
             <div className="flex flex-col items-start gap-1 mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="font-serif text-gold-warm text-3xl sm:text-4xl">
+                <span className="font-serif text-gold-warm" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }}>
                   {t('price')}
                 </span>
                 <span className="font-sans text-sm text-warm-text">
@@ -78,7 +79,7 @@ export default function OffersPromotional() {
               </span>
             </div>
 
-            <div className="inline-block border border-border px-4 py-2 text-section-text text-xs tracking-widest uppercase mb-6 w-fit font-bold">
+            <div className="inline-flex border border-border px-4 py-2 text-section-text text-xs tracking-widest uppercase mb-6 w-fit font-bold">
               {t('validity')}
             </div>
 
@@ -133,7 +134,7 @@ export default function OffersPromotional() {
             <div className="flex flex-wrap gap-x-6 gap-y-4 items-center mt-auto">
               <Link 
                 href="#contact-form"
-                className="flex items-center justify-center min-h-[44px] border border-primary bg-transparent text-primary px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
+                className="flex items-center justify-center min-h-11 border border-primary bg-transparent text-primary px-8 py-3 text-sm font-bold tracking-widest uppercase transition-colors hover:border-primary-light hover:text-primary-light"
               >
                 {t('ctaMain')}
               </Link>
@@ -141,7 +142,7 @@ export default function OffersPromotional() {
                 href="https://wa.me/60112780399" 
                 target="_blank" 
                 rel="noreferrer"
-                className="group flex items-center justify-center min-h-[44px] gap-2 text-sm tracking-widest text-gold-warm uppercase transition-colors hover:text-gold"
+                className="group flex items-center justify-center min-h-11 gap-2 text-sm tracking-widest text-gold-warm uppercase transition-colors hover:text-gold"
               >
                 {t('ctaSub')}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

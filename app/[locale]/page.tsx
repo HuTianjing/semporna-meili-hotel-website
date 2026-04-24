@@ -1,7 +1,6 @@
 import { Hero } from '@/components/home/Hero';
 import { HotelIntro } from '@/components/home/HotelIntro';
 import { VillasAndSuites } from '@/components/home/VillasAndSuites';
-import { SpecialOffers } from '@/components/home/SpecialOffers';
 import { Storytelling } from '@/components/home/Storytelling';
 
 export default function Home() {
