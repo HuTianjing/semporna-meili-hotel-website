@@ -1,11 +1,13 @@
 import GalleryPageHeader from '@/components/gallery/GalleryPageHeader';
 import GalleryGSAPShowcase from '@/components/gallery/GalleryGSAPShowcase';
 import GalleryVideo from '@/components/gallery/GalleryVideo';
+import GalleryCTA from '@/components/gallery/GalleryCTA';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 interface GalleryImage {
   src: string;
   title: string;
+  desc?: string;
 }
 
 interface ThemeData {
@@ -44,7 +46,7 @@ export default async function GalleryPage({ params }: Props) {
 
       <GalleryVideo />
 
-      {/* <GalleryCTA /> */}
+      <GalleryCTA />
     </main>
   );
 }

@@ -110,7 +110,7 @@ export function Footer() {
                 {col.links.map((link) => (
                   <li key={link}>
                     <Link
-                      href="#"
+                      href="/"
                       className="group inline-flex items-center font-sans text-sm font-light text-white/80 transition-colors duration-300 hover:text-white"
                     >
                       <span className="relative overflow-hidden">
@@ -145,7 +145,7 @@ export function Footer() {
             ).map((item) => (
               <Link
                 key={item}
-                href="#"
+                href="/"
                 className="font-sans text-[10px] sm:text-xs font-light uppercase tracking-widest text-white/40 transition-colors duration-300 hover:text-white"
               >
                 {item}

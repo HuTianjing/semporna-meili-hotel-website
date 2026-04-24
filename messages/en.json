@@ -363,31 +363,38 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-1145118710.jpg",
-            "title": "Crystal Waters at 4°N"
+            "title": "Crystal Waters at 4°N",
+            "desc": "The crystal clear glass sea reflects the pure sky unique to the equator."
           },
           {
             "src": "/Photos on OTA/iStock-1155584558.jpg",
-            "title": "Every Morning Belongs to You"
+            "title": "Every Morning Belongs to You",
+            "desc": "Gently awakened by the waves, opening the window reveals an endless blue canvas."
           },
           {
             "src": "/Photos on OTA/iStock-1169410279.jpg",
-            "title": "Unrushed Sunsets"
+            "title": "Unrushed Sunsets",
+            "desc": "Rose-colored glowing clouds slowly burn on the sea level, making time stand still."
           },
           {
             "src": "/Photos on OTA/iStock-1196814099.jpg",
-            "title": "A Century Without Typhoons"
+            "title": "A Century Without Typhoons",
+            "desc": "In this sea blessed by gods, the brilliant starry sky quietly accompanies every night."
           },
           {
             "src": "/Photos on OTA/iStock-1255581643.jpg",
-            "title": "Coral Triangle, Semporna"
+            "title": "Coral Triangle, Semporna",
+            "desc": "The world's richest marine habitat, where life blooms brilliantly."
           },
           {
             "src": "/Photos on OTA/iStock-1298865296.jpg",
-            "title": "Land Below the Wind"
+            "title": "Land Below the Wind",
+            "desc": "Warm all year round, sheltered from monsoons, leaving only gentle sea breezes."
           },
           {
             "src": "/Photos on OTA/iStock-1307242973.jpg",
-            "title": "Nature's Unique Miracles"
+            "title": "Nature's Unique Miracles",
+            "desc": "Every day's tide and cloud movement is a unique painting tailored by nature."
           }
         ]
       },
@@ -398,39 +405,48 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-1308636896.jpg",
-            "title": "3,000 Species of Fish"
+            "title": "3,000 Species of Fish",
+            "desc": "Colorful schools of fish dart through, forming a vibrant underwater palace."
           },
           {
             "src": "/Photos on OTA/iStock-1456971881.jpg",
-            "title": "Barracuda Tornado"
+            "title": "Barracuda Tornado",
+            "desc": "Thousands of barracudas spiral and migrate, forming a breathtaking underwater tornado."
           },
           {
             "src": "/Photos on OTA/iStock-1465318132.jpg",
-            "title": "Swim with Sea Turtles"
+            "title": "Swim with Sea Turtles",
+            "desc": "In the gentle ocean currents, roam alongside these ancient wise creatures of the sea."
           },
           {
             "src": "/Photos on OTA/iStock-147057755.jpg",
-            "title": "Sipadan, Top Diving Spot"
+            "title": "Sipadan, Top Diving Spot",
+            "desc": "Cliffs on the edge of the abyss harbor the lifelong yearning of diving enthusiasts."
           },
           {
             "src": "/Photos on OTA/iStock-1484026069.jpg",
-            "title": "Five-Star Diving Club"
+            "title": "Five-Star Diving Club",
+            "desc": "Professional team escorts all the way, making every dive into the deep blue a safe adventure."
           },
           {
             "src": "/Photos on OTA/iStock-155908274.jpg",
-            "title": "Half Ocean, Half Sun"
+            "title": "Half Ocean, Half Sun",
+            "desc": "Sunlight penetrates the surface, refracting layered light and shadows, lighting up every coral."
           },
           {
             "src": "/Photos on OTA/iStock-157507555.jpg",
-            "title": "76% of Global Coral Species"
+            "title": "76% of Global Coral Species",
+            "desc": "Here lies the densest treasure trove of coral species on Earth, bursting with colors."
           },
           {
             "src": "/Photos on OTA/iStock-162235445.jpg",
-            "title": "Professional Guidance"
+            "title": "Professional Guidance",
+            "desc": "From beginners to veteran divers, everyone can find their own deep-sea paradise here."
           },
           {
             "src": "/Photos on OTA/iStock-171148583.jpg",
-            "title": "Vibrant Night Dive"
+            "title": "Vibrant Night Dive",
+            "desc": "Night dives unveil another layer of mystery, with nocturnal creatures bringing stunning contrasts."
           }
         ]
       },
@@ -441,43 +457,53 @@
         "images": [
           {
             "src": "/Photos on OTA/Villa Photos/img3.jpg",
-            "title": "Over 300 Water Villas"
+            "title": "Over 300 Water Villas",
+            "desc": "Private floating homes above coral reefs, each offering an independent expanse of sea and sky."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img6.jpg",
-            "title": "Natural BELIAN Ironwood"
+            "title": "Natural BELIAN Ironwood",
+            "desc": "Ancient timber spanning centuries, bearing the rock-solid promise of enduring architecture."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img9.jpg",
-            "title": "A Quiet Night Stay"
+            "title": "A Quiet Night Stay",
+            "desc": "Warm yellow lights illuminate the sea, ensuring peaceful solitude amidst utter tranquility."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img12.jpg",
-            "title": "Open to the Ocean"
+            "title": "Open to the Ocean",
+            "desc": "No far travel needed; gently open the door to plunge directly into this cool blue embrace."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img13.jpg",
-            "title": "Sacred BELIAN Wood"
+            "title": "Sacred BELIAN Wood",
+            "desc": "The sacred tree of the natives transforms into the solid cornerstone guarding this sea city."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img24.jpg",
-            "title": "Privacy & Comfort"
+            "title": "Privacy & Comfort",
+            "desc": "Open spatial design with high-spec furnishings offers ultimate luxury in a secluded hideaway."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img54.jpg",
-            "title": "Every Step on Water"
+            "title": "Every Step on Water",
+            "desc": "Stretching wooden boardwalks connect the resort, making every stroll feel like walking on waves."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img72.jpg",
-            "title": "Guinness World Record"
+            "title": "Guinness World Record",
+            "desc": "A miracle where human architectural history coexists harmoniously with natural environments."
           },
           {
             "src": "/Photos on OTA/Villa Photos/img77.jpg",
-            "title": "24h Butler Service"
+            "title": "24h Butler Service",
+            "desc": "Attentive private butlers ensure that every one of your needs is properly taken care of."
           },
           {
             "src": "/Photos on OTA/iStock-171575641.jpg",
-            "title": "All-Inclusive Dining"
+            "title": "All-Inclusive Dining",
+            "desc": "Leave worries behind and fully savor every abundant gift prepared for you by the resort."
           }
         ]
       },
@@ -488,27 +514,33 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-171577290.jpg",
-            "title": "396,000 sqm Built on Water"
+            "title": "396,000 sqm Built on Water",
+            "desc": "A massive engineering scale, growing a magnificent sea city on shallow shoals far from land."
           },
           {
             "src": "/Photos on OTA/iStock-1746064602.jpg",
-            "title": "Tons of Immortal Wood"
+            "title": "Tons of Immortal Wood",
+            "desc": "Precious century-old preserved timber builds the massive structure, resilient to crashing waves."
           },
           {
             "src": "/Photos on OTA/iStock-183876244.jpg",
-            "title": "Wooden Bridge Above the Deep"
+            "title": "Wooden Bridge Above the Deep",
+            "desc": "Look down to spy schools of fish darting between the pilings; architecture and ocean coexist."
           },
           {
             "src": "/Photos on OTA/iStock-1900984073.jpg",
-            "title": "A City Upon the Ocean"
+            "title": "A City Upon the Ocean",
+            "desc": "The scattered villa clusters resemble a magnificent pearl necklace draped across the sea surface."
           },
           {
             "src": "/Photos on OTA/iStock-2002975699.jpg",
-            "title": "100% Secure & Guarded"
+            "title": "100% Secure & Guarded",
+            "desc": "Exclusive security forces patrol and station here, ensuring absolute peace of mind for every stay."
           },
           {
             "src": "/Photos on OTA/iStock-2168157707.jpg",
-            "title": "The Birth of a Legend"
+            "title": "The Birth of a Legend",
+            "desc": "Gathering exceptional craftsmanship to stand this awe-inspiring legacy deep in the ocean."
           }
         ]
       },
@@ -519,35 +551,43 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-2173122709.jpg",
-            "title": "Infinity Pool"
+            "title": "Infinity Pool",
+            "desc": "The pool blends seamlessly with the sea, as if you are swimming far across the grand Pacific."
           },
           {
             "src": "/Photos on OTA/iStock-2195210732.jpg",
-            "title": "Ocean View Spa"
+            "title": "Ocean View Spa",
+            "desc": "Accompianied by ocean waves, let body and mind stretch fully under the care of premium oils."
           },
           {
             "src": "/Photos on OTA/iStock-2252689577.jpg",
-            "title": "Ocean View Gym"
+            "title": "Ocean View Gym",
+            "desc": "Sweat before an open ocean view, giving exercise a touch of expansive freedom."
           },
           {
             "src": "/Photos on OTA/iStock-2259118243.jpg",
-            "title": "Yoga Pavilion"
+            "title": "Yoga Pavilion",
+            "desc": "Facing the ocean sunrise, sit on the tranquil wooden deck to find inner balance."
           },
           {
             "src": "/Photos on OTA/iStock-478799127.jpg",
-            "title": "Water Sports Center"
+            "title": "Water Sports Center",
+            "desc": "Paddleboarding, kayaking, island hopping—endless water activities to keep you thrilled."
           },
           {
             "src": "/Photos on OTA/iStock-483185889.jpg",
-            "title": "Boutique Shopping"
+            "title": "Boutique Shopping",
+            "desc": "Stroll through this miniature gallery and choose a souvenir infused with ocean vibes."
           },
           {
             "src": "/Photos on OTA/iStock-502977585.jpg",
-            "title": "Banquet Hall"
+            "title": "Banquet Hall",
+            "desc": "Host meetings or parties between sea and sky, creating lifelong unique memories."
           },
           {
             "src": "/Photos on OTA/iStock-520774207.jpg",
-            "title": "Mini Golf"
+            "title": "Mini Golf",
+            "desc": "A mini putting green amidst sea breezes brings you the relaxed pleasure of a lightweight swing."
           }
         ]
       },
@@ -558,31 +598,38 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-521210928.jpg",
-            "title": "Michelin Quality Dining"
+            "title": "Michelin Quality Dining",
+            "desc": "International chefs select local ingredients to present an artistic feast for the palate."
           },
           {
             "src": "/Photos on OTA/iStock-600700494.jpg",
-            "title": "Sunset Bar"
+            "title": "Sunset Bar",
+            "desc": "Order a custom cocktail and watch the sunset dye the ocean surface an enchanting amber."
           },
           {
             "src": "/Photos on OTA/iStock-653533870.jpg",
-            "title": "All Day Dining"
+            "title": "All Day Dining",
+            "desc": "Gathering abundant flavors from around the world to soothe taste buds anytime after a dive."
           },
           {
             "src": "/Photos on OTA/iStock-674424336.jpg",
-            "title": "Fresh Seafood"
+            "title": "Fresh Seafood",
+            "desc": "Zero distance from deep sea to table; every bite is filled with the ocean's purest sweetness."
           },
           {
             "src": "/Photos on OTA/iStock-831459576.jpg",
-            "title": "Every Meal on Water"
+            "title": "Every Meal on Water",
+            "desc": "Dine to the gentle murmur of ocean waves, with an unobstructed view of sprawling deep blue."
           },
           {
             "src": "/Photos on OTA/iStock-901453894.jpg",
-            "title": "Tipsy Nights"
+            "title": "Tipsy Nights",
+            "desc": "Raise a glass in the quiet sea breeze, enjoying a different romantic touch after nightfall."
           },
           {
             "src": "/Photos on OTA/iStock-995428636.jpg",
-            "title": "Moments For You"
+            "title": "Moments For You",
+            "desc": "Specially customized private tables, dedicated to capturing the most moving stories between you."
           }
         ]
       }

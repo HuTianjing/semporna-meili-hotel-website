@@ -8,11 +8,11 @@ export const routing = defineRouting({
   localePrefix: 'as-needed',
   pathnames: {
     '/': '/',
-    '/gallery': {
-      zh: '/gallery',
-      en: '/gallery',
-      ms: '/gallery',
-    }
+    '/gallery': '/gallery',
+    '/location': '/location',
+    '/offers': '/offers',
+    '/contact': '/contact',
+    '/booking': '/booking'
   }
 });
 

@@ -363,31 +363,38 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-1145118710.jpg",
-            "title": "玻璃海 · 北纬四度的碧蓝"
+            "title": "玻璃海 · 北纬四度的碧蓝",
+            "desc": "清澈见底的玻璃海，倒映着赤道独有的纯净天空。"
           },
           {
             "src": "/Photos on OTA/iStock-1155584558.jpg",
-            "title": "每一个清晨都属于你"
+            "title": "每一个清晨都属于你",
+            "desc": "海浪轻柔唤醒，推开窗的瞬间便是无尽的蔚蓝画卷。"
           },
           {
             "src": "/Photos on OTA/iStock-1169410279.jpg",
-            "title": "落日在这里从不匆忙"
+            "title": "落日在这里从不匆忙",
+            "desc": "玫瑰色的晚霞在海平面缓缓燃烧，时间也为之停驻。"
           },
           {
             "src": "/Photos on OTA/iStock-1196814099.jpg",
-            "title": "百年无台风 · 星河得以安静"
+            "title": "百年无台风 · 星河得以安静",
+            "desc": "在这片被神眷顾的海域，璀璨星空静静陪伴每一个夜晚。"
           },
           {
             "src": "/Photos on OTA/iStock-1255581643.jpg",
-            "title": "珊瑚金三角 · 仙本那"
+            "title": "珊瑚金三角 · 仙本那",
+            "desc": "全球最富饶的海洋生物栖息地，生命在此绚烂绽放。"
           },
           {
             "src": "/Photos on OTA/iStock-1298865296.jpg",
-            "title": "风下之乡 · 全年 26°–32°"
+            "title": "风下之乡 · 全年 26°–32°",
+            "desc": "四季如夏的温暖，避开了季风的狂暴，留下的只有海风拂面。"
           },
           {
             "src": "/Photos on OTA/iStock-1307242973.jpg",
-            "title": "自然的奇迹从不重复"
+            "title": "自然的奇迹从不重复",
+            "desc": "每一天的潮汐与云移，都是大自然为你定制的孤品画作。"
           }
         ]
       },
@@ -398,39 +405,48 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-1308636896.jpg",
-            "title": "3,000 种珊瑚礁鱼类在此栖居"
+            "title": "3,000 种珊瑚礁鱼类在此栖居",
+            "desc": "五彩斑斓的鱼群穿梭其间，构成生机勃勃的海底龙宫。"
           },
           {
             "src": "/Photos on OTA/iStock-1456971881.jpg",
-            "title": "海狼风暴 · 仙本那独有奇观"
+            "title": "海狼风暴 · 仙本那独有奇观",
+            "desc": "千万条梭鱼盘旋洄游，形成极具震撼力的海底风暴。"
           },
           {
             "src": "/Photos on OTA/iStock-1465318132.jpg",
-            "title": "与海龟同游"
+            "title": "与海龟同游",
+            "desc": "在温柔的海流中，与这些古老的海洋智者并肩漫游。"
           },
           {
             "src": "/Photos on OTA/iStock-147057755.jpg",
-            "title": "诗巴丹 · 世界顶级潜水圣地"
+            "title": "诗巴丹 · 世界顶级潜水圣地",
+            "desc": "深渊边缘的峭壁，藏着潜水爱好者终其一生的向往。"
           },
           {
             "src": "/Photos on OTA/iStock-1484026069.jpg",
-            "title": "五星潜水俱乐部伴你入海"
+            "title": "五星潜水俱乐部伴你入海",
+            "desc": "专业团队全程护航，让每一次潜入深蓝都成为安心的探险。"
           },
           {
             "src": "/Photos on OTA/iStock-155908274.jpg",
-            "title": "一半海水 · 一半阳光"
+            "title": "一半海水 · 一半阳光",
+            "desc": "阳光穿透水面，折射出错落的光影，点亮每一株珊瑚。"
           },
           {
             "src": "/Photos on OTA/iStock-157507555.jpg",
-            "title": "76% 的全球珊瑚种类"
+            "title": "76% 的全球珊瑚种类",
+            "desc": "这里是地球上珊瑚物种最密集的宝库，色彩斑斓。"
           },
           {
             "src": "/Photos on OTA/iStock-162235445.jpg",
-            "title": "专业护航 · 从这里启程"
+            "title": "专业护航 · 从这里启程",
+            "desc": "从初学者到资深潜客，皆能在此找到属于自己的深海乐园。"
           },
           {
             "src": "/Photos on OTA/iStock-171148583.jpg",
-            "title": "黑夜里 · 海底依然繁华"
+            "title": "黑夜里 · 海底依然繁华",
+            "desc": "夜潜揭开另一层神秘，夜行生物带来与白昼截然不同的惊艳。"
           }
         ]
       },
@@ -441,43 +457,53 @@
         "images": [
           {
             "src": "/Photos on OTA/Villa Photos/img3.jpg",
-            "title": "300+ 栋独立水上别墅"
+            "title": "300+ 栋独立水上别墅",
+            "desc": "漂浮在珊瑚礁上的私密居所，每一栋都拥有独立的海天视野。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img6.jpg",
-            "title": "天然铁木 · 越泡水越硬"
+            "title": "天然铁木 · 越泡水越硬",
+            "desc": "跨越百年的古老木材，承载着坚如磐石的建筑承诺。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img9.jpg",
-            "title": "夜幕下的安静守候"
+            "title": "夜幕下的安静守候",
+            "desc": "暖黄色的灯光点亮海面，在一片静谧中安享独处时光。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img12.jpg",
-            "title": "推开门 · 是整片海洋"
+            "title": "推开门 · 是整片海洋",
+            "desc": "无需远行，只需轻启房门，即可跃入这片沁凉的蓝色怀抱。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img13.jpg",
-            "title": "BELIAN铁木 · 神圣之木"
+            "title": "BELIAN铁木 · 神圣之木",
+            "desc": "原住民心中的神树，化作守护这座海上城市的坚固基石。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img24.jpg",
-            "title": "私密与舒适并存"
+            "title": "私密与舒适并存",
+            "desc": "开阔的空间设计与高规格软装，在秘境中仍享顶级奢华。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img54.jpg",
-            "title": "每一步都走在海上"
+            "title": "每一步都走在海上",
+            "desc": "绵延的木栈道连接起整个度假村，漫步其间犹如凌波微步。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img72.jpg",
-            "title": "吉尼斯纪录 · 全球最大水上木结构"
+            "title": "吉尼斯纪录 · 全球最大水上木结构",
+            "desc": "人类建筑史与自然环境相依相存的奇迹之作。"
           },
           {
             "src": "/Photos on OTA/Villa Photos/img77.jpg",
-            "title": "24小时管家 · 服务先于抵达"
+            "title": "24小时管家 · 服务先于抵达",
+            "desc": "贴心周到的私人管家，将您的每一个需求都妥帖照料。"
           },
           {
             "src": "/Photos on OTA/iStock-171575641.jpg",
-            "title": "全包 · 每一餐都是礼物"
+            "title": "全包 · 每一餐都是礼物",
+            "desc": "无需挂心琐事，尽情享受度假村为您准备的每一份丰盛恩赐。"
           }
         ]
       },
@@ -488,27 +514,33 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-171577290.jpg",
-            "title": "396,000 平方米 · 全建于海上"
+            "title": "396,000 平方米 · 全建于海上",
+            "desc": "浩大的工程规模，在远离大陆的浅滩上长出一座恢弘海城。"
           },
           {
             "src": "/Photos on OTA/iStock-1746064602.jpg",
-            "title": "数万吨铁木 · 百年不腐"
+            "title": "数万吨铁木 · 百年不腐",
+            "desc": "珍贵的百年防腐木材构筑起庞大结构，任随海浪拍打。"
           },
           {
             "src": "/Photos on OTA/iStock-183876244.jpg",
-            "title": "走在木桥上 · 脚下是深海"
+            "title": "走在木桥上 · 脚下是深海",
+            "desc": "低头便能窥见成群游鱼穿梭于木桩之间，建筑与海洋共生。"
           },
           {
             "src": "/Photos on OTA/iStock-1900984073.jpg",
-            "title": "300+ 栋 · 一座城市在海上"
+            "title": "300+ 栋 · 一座城市在海上",
+            "desc": "星罗棋布的别墅群宛若海面上的珍珠项链，蔚为壮观。"
           },
           {
             "src": "/Photos on OTA/iStock-2002975699.jpg",
-            "title": "政府常驻海警 · 100% 安全"
+            "title": "政府常驻海警 · 100% 安全",
+            "desc": "专属安保力量驻扎巡逻，确保每一次停留都绝对安心。"
           },
           {
             "src": "/Photos on OTA/iStock-2168157707.jpg",
-            "title": "现代传奇的诞生"
+            "title": "现代传奇的诞生",
+            "desc": "汇聚卓越匠心，在海洋深处立起这一座流传后世的惊世之作。"
           }
         ]
       },
@@ -519,35 +551,43 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-2173122709.jpg",
-            "title": "水上无边泳池"
+            "title": "水上无边泳池",
+            "desc": "泳池与大海融为一色，仿佛游移在辽阔的太平洋之上。"
           },
           {
             "src": "/Photos on OTA/iStock-2195210732.jpg",
-            "title": "海平线上的 Spa"
+            "title": "海平线上的 Spa",
+            "desc": "伴着海浪的白噪音，让身心在顶级精油的呵护下彻底舒展。"
           },
           {
             "src": "/Photos on OTA/iStock-2252689577.jpg",
-            "title": "健身中心 · 与海对望"
+            "title": "健身中心 · 与海对望",
+            "desc": "在开阔的海景前挥洒汗水，让运动也沾染几分广阔的自由。"
           },
           {
             "src": "/Photos on OTA/iStock-2259118243.jpg",
-            "title": "瑜伽沙龙"
+            "title": "瑜伽沙龙",
+            "desc": "迎着海上日出，在宁静的木台席地而坐，寻找内心的平衡。"
           },
           {
             "src": "/Photos on OTA/iStock-478799127.jpg",
-            "title": "水上活动中心"
+            "title": "水上活动中心",
+            "desc": "浆板、皮划艇、出海跳岛，丰富的水上时光永不疲倦。"
           },
           {
             "src": "/Photos on OTA/iStock-483185889.jpg",
-            "title": "精品长廊"
+            "title": "精品长廊",
+            "desc": "漫步在这间微型美术馆，挑选一份带着海洋气息的伴手礼。"
           },
           {
             "src": "/Photos on OTA/iStock-502977585.jpg",
-            "title": "多功能宴会室"
+            "title": "多功能宴会室",
+            "desc": "在海天一色之间举办会议或派对，留下终生难忘的独特记忆。"
           },
           {
             "src": "/Photos on OTA/iStock-520774207.jpg",
-            "title": "高尔夫果岭"
+            "title": "高尔夫果岭",
+            "desc": "海风中的微型果岭，为您带来闲适自在的轻量级挥杆乐趣。"
           }
         ]
       },
@@ -558,31 +598,38 @@
         "images": [
           {
             "src": "/Photos on OTA/iStock-521210928.jpg",
-            "title": "米其林规格的主厨餐厅"
+            "title": "米其林规格的主厨餐厅",
+            "desc": "国际主厨精选当地食材，为您献上一场舌尖上的艺术盛宴。"
           },
           {
             "src": "/Photos on OTA/iStock-600700494.jpg",
-            "title": "日落酒吧 · 落日属于你"
+            "title": "日落酒吧 · 落日属于你",
+            "desc": "点一杯特调鸡尾酒，看着夕阳把海面染成迷人的琥珀色。"
           },
           {
             "src": "/Photos on OTA/iStock-653533870.jpg",
-            "title": "全日制餐厅"
+            "title": "全日制餐厅",
+            "desc": "汇聚世界各地的丰盛美味，随时安抚您刚结束潜水的味蕾。"
           },
           {
             "src": "/Photos on OTA/iStock-674424336.jpg",
-            "title": "新鲜空运的海鲜"
+            "title": "新鲜空运的海鲜",
+            "desc": "深海到餐桌的零距离，每一口都满载着大海最纯粹的甘甜。"
           },
           {
             "src": "/Photos on OTA/iStock-831459576.jpg",
-            "title": "每一餐都在海上"
+            "title": "每一餐都在海上",
+            "desc": "伴着海浪的轻轻呢喃声用餐，视野里是无遮挡的辽阔深蓝。"
           },
           {
             "src": "/Photos on OTA/iStock-901453894.jpg",
-            "title": "微醺的迷人时刻"
+            "title": "微醺的迷人时刻",
+            "desc": "在静谧的海风中举杯，享受夜幕降临后的另一番浪漫滋味。"
           },
           {
             "src": "/Photos on OTA/iStock-995428636.jpg",
-            "title": "专属你的时刻"
+            "title": "专属你的时刻",
+            "desc": "精心定制的私密餐桌，只为记录下你们之间最动人的故事。"
           }
         ]
       }

@@ -1,13 +1,21 @@
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function GalleryVideo() {
   const t = useTranslations('Gallery.Video');
 
   return (
-    <section className="relative w-full overflow-hidden bg-black text-white py-16 sm:py-24 md:py-36 lg:py-44">
+    <section className="relative w-full overflow-hidden bg-black text-white py-24 sm:py-36 md:py-48 lg:py-64 min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
       {/* Background layer */}
-      <div className="absolute inset-0 bg-[#0a0a0a]">
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60 z-10" />
+      <div className="absolute inset-0">
+        <Image
+          src="/Photos on OTA/iStock-1456971881.jpg"
+          alt="Video placeholder"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/80 z-10" />
       </div>
 
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto h-full">
