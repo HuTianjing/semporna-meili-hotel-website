@@ -1,7 +1,19 @@
 'use client';
 
-import { ReactLenis } from 'lenis/react';
-import { ReactNode } from 'react';
+import { ReactLenis, useLenis } from 'lenis/react';
+import { usePathname } from 'next/navigation';
+import { ReactNode, useEffect } from 'react';
+
+function ScrollToTop() {
+  const lenis = useLenis();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    lenis?.scrollTo(0, { immediate: true });
+  }, [lenis, pathname]);
+
+  return null;
+}
 
 /**
  * 全局高级顺滑滚动 (Smooth Scrolling)
@@ -17,6 +29,7 @@ export default function SmoothScrolling({ children }: { children: ReactNode }) {
         smoothWheel: true, // 确保鼠标滚轮平滑工作
       }}
     >
+      <ScrollToTop />
       {children}
     </ReactLenis>
   );
