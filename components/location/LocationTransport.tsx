@@ -52,7 +52,7 @@ export default function LocationTransport() {
   return (
     <section
       id="location-transport"
-      className="bg-cream pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-0"
+      className="bg-cream pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-16 sm:pb-20 md:pb-28 lg:pb-36"
     >
       <div className="px-page max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
         
@@ -129,7 +129,7 @@ export default function LocationTransport() {
             </div>
 
             {/* 节点 2：专属车辆 */}
-            <div className="flex items-start gap-4 mb-2">
+            <div className="flex items-start gap-4 mb-6">
               <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-cream z-10">
                 <Car size={16} className="text-gold-warm" />
               </div>
@@ -147,7 +147,7 @@ export default function LocationTransport() {
             </div>
 
             {/* 节点 3：专属快艇 */}
-            <div className="flex items-start gap-4 mb-2">
+            <div className="flex items-start gap-4 mb-6">
               <div className="shrink-0 w-11 h-11 rounded-full border border-gold-warm flex items-center justify-center bg-cream z-10">
                 <Anchor size={16} className="text-gold-warm" />
               </div>
@@ -230,68 +230,55 @@ export default function LocationTransport() {
             animate={rightInView ? 'visible' : 'hidden'}
             className="bg-white p-8 sm:p-10 md:p-12 rounded-sm"
           >
-            <div className="flex flex-col xl:flex-row gap-12 xl:gap-8">
-              {/* 到达方向 */}
-              <div className="w-full xl:w-1/2">
-                <p className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-gold-warm mb-6">
-                  {t('schedule.arrivalTitle')}
-                </p>
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="border-b border-[--color-section-text]/10">
-                      <th className="text-left font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 pr-2 whitespace-nowrap">{t('schedule.colRoute')}</th>
-                      <th className="text-center font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 px-2 whitespace-nowrap">{t('schedule.colTime1')}</th>
-                      <th className="text-center font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 whitespace-nowrap">{t('schedule.colTime2')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {arrivalRows.map((row) => (
-                      <tr key={row.route} className="border-b border-[--color-section-text]/5">
-                        <td className="py-4 pr-2 font-sans text-[--color-section-text]/75 text-sm leading-snug whitespace-nowrap">{row.route}</td>
-                        <td className="py-4 px-2 text-center">
-                          <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time1}</span>
-                        </td>
-                        <td className="py-4 text-center">
-                          <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time2}</span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* 竖向分割线（XL 端） */}
-              <div className="hidden xl:block w-px bg-[--color-section-text]/10 mx-2" aria-hidden="true" />
-
-              {/* 离开方向 */}
-              <div className="w-full xl:w-1/2">
-                <p className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-gold-warm mb-6">
-                  {t('schedule.departureTitle')}
-                </p>
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="border-b border-[--color-section-text]/10">
-                      <th className="text-left font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 pr-2 whitespace-nowrap">{t('schedule.colRoute')}</th>
-                      <th className="text-center font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 px-2 whitespace-nowrap">{t('schedule.colTime1')}</th>
-                      <th className="text-center font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 whitespace-nowrap">{t('schedule.colTime2')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {departureRows.map((row) => (
-                      <tr key={row.route} className="border-b border-[--color-section-text]/5">
-                        <td className="py-4 pr-2 font-sans text-[--color-section-text]/75 text-sm leading-snug whitespace-nowrap">{row.route}</td>
-                        <td className="py-4 px-2 text-center">
-                          <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time1}</span>
-                        </td>
-                        <td className="py-4 text-center">
-                          <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time2}</span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="border-b border-[--color-section-text]/10">
+                  <th className="text-left font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 pr-2 whitespace-nowrap">{t('schedule.colRoute')}</th>
+                  <th className="text-center font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 px-2 whitespace-nowrap">{t('schedule.colTime1')}</th>
+                  <th className="text-center font-sans text-[0.6rem] text-[--color-warm-text] uppercase tracking-[0.2em] pb-3 whitespace-nowrap">{t('schedule.colTime2')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* 到达分组标签 */}
+                <tr>
+                  <td colSpan={3} className="pt-5 pb-2">
+                    <span className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-gold-warm">
+                      {t('schedule.arrivalTitle')}
+                    </span>
+                  </td>
+                </tr>
+                {arrivalRows.map((row) => (
+                  <tr key={row.route} className="border-b border-[--color-section-text]/5">
+                    <td className="py-4 pr-2 font-sans text-[--color-section-text]/75 text-sm leading-snug whitespace-nowrap">{row.route}</td>
+                    <td className="py-4 px-2 text-center">
+                      <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time1}</span>
+                    </td>
+                    <td className="py-4 text-center">
+                      <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time2}</span>
+                    </td>
+                  </tr>
+                ))}
+                {/* 离开分组标签 */}
+                <tr>
+                  <td colSpan={3} className="pt-6 pb-2">
+                    <span className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-gold-warm">
+                      {t('schedule.departureTitle')}
+                    </span>
+                  </td>
+                </tr>
+                {departureRows.map((row) => (
+                  <tr key={row.route} className="border-b border-[--color-section-text]/5">
+                    <td className="py-4 pr-2 font-sans text-[--color-section-text]/75 text-sm leading-snug whitespace-nowrap">{row.route}</td>
+                    <td className="py-4 px-2 text-center">
+                      <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time1}</span>
+                    </td>
+                    <td className="py-4 text-center">
+                      <span className="font-serif text-[--color-section-text] text-[1.1rem] sm:text-lg">{row.time2}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
             {/* 时刻表提示 */}
             <ul className="mt-8 sm:mt-10 space-y-3">
