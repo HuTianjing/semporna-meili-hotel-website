@@ -1,0 +1,159 @@
+'use client';
+
+import { useRef } from 'react';
+import Image from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+interface GalleryImage {
+  src: string;
+  title: string;
+}
+
+interface ThemeData {
+  id: string;
+  title: string;
+  subtitle: string;
+  images: GalleryImage[];
+}
+
+function TomCarderStyleSection({ theme, index }: { theme: ThemeData; index: number }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  let displayImages = theme.images.slice(0, 5);
+  if (theme.id === '01') {
+    displayImages = [
+      {
+        src: '/Photos on OTA/WhatsApp Image 2026-02-11 at 12.08.03 PM (1).jpeg',
+        title: '一半秘境，一半烟火 · 海上火锅晚宴',
+      },
+      ...theme.images.slice(0, 4),
+    ];
+  }
+
+  useGSAP(
+    () => {
+      const container = containerRef.current;
+      const track = trackRef.current;
+      if (!container || !track) return;
+
+      const panels = gsap.utils.toArray('.tc-panel') as HTMLDivElement[];
+      
+      // Calculate how much to slide left
+      const getScrollAmount = () => {
+        let trackWidth = track.scrollWidth;
+        return -(trackWidth - window.innerWidth);
+      };
+
+      const tween = gsap.to(track, {
+        x: getScrollAmount,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: () => `+=${getScrollAmount() * -1.5}`, // Scroll distance dictates pin duration
+          pin: true,
+          scrub: 1, // Smooth modern scrub
+          invalidateOnRefresh: true,
+        },
+      });
+
+      // Internal Image Parallax within the horizontal scroll (Tom Carder signature)
+      panels.forEach((panel) => {
+        const img = panel.querySelector('img');
+        if (img) {
+          gsap.to(img, {
+            xPercent: 15, // image moves slightly slower than track
+            ease: 'none',
+            scrollTrigger: {
+              trigger: panel,
+              containerAnimation: tween, // ties this to the horizontal timeline
+              start: 'left right',
+              end: 'right left',
+              scrub: true,
+            },
+          });
+        }
+        
+        const title = panel.querySelector('.tc-title');
+        if (title) {
+           // Fade in and slide up text when it comes into horizontal view
+           gsap.fromTo(title, 
+             { opacity: 0, y: 30 },
+             { 
+               opacity: 1, y: 0, 
+               ease: 'power2.out',
+               scrollTrigger: {
+                 trigger: panel,
+                 containerAnimation: tween,
+                 start: 'left 80%', 
+                 end: 'left 40%',
+                 scrub: 1,
+               }
+             }
+           );
+        }
+      });
+    },
+    { scope: containerRef }
+  );
+
+  return (
+    <section ref={containerRef} className="relative h-screen w-full bg-[#0a0a0a] overflow-hidden text-[#e2dfd9]">
+      <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none mix-blend-difference">
+        <h2 className="font-serif text-3xl md:text-5xl opacity-80">{theme.title}</h2>
+        <p className="font-sans text-xs tracking-[0.3em] uppercase mt-2 opacity-50">{theme.subtitle}</p>
+      </div>
+
+      <div ref={trackRef} className="flex h-full w-max items-center pl-[5vw] pr-[20vw] py-24">
+        {displayImages.map((img, idx) => {
+          // Create varied heights and vertical alignments to match Tom Carder's editorial look
+          const layoutStyles = [
+             "h-[60vh] w-[80vw] md:w-[60vw] mt-0",
+             "h-[40vh] w-[60vw] md:w-[35vw] mt-[20vh]",
+             "h-[55vh] w-[75vw] md:w-[45vw] mb-[15vh]",
+             "h-[70vh] w-[85vw] md:w-[50vw] mt-0",
+             "h-[45vh] w-[65vw] md:w-[40vw] mb-[25vh]",
+          ][idx % 5];
+
+          return (
+            <div key={idx} className={`tc-panel relative flex-shrink-0 mx-4 md:mx-12 overflow-hidden ${layoutStyles}`}>
+              <div className="relative w-full h-full overflow-hidden bg-[#151515]">
+                <Image
+                  src={img.src}
+                  alt={img.title}
+                  fill
+                  sizes="100vw"
+                  className="object-cover scale-[1.15]" 
+                  priority={index === 0 && idx === 0}
+                />
+                <div className="absolute inset-0 bg-black/10" />
+              </div>
+              <div className="tc-title absolute bottom-[-40px] md:bottom-[-60px] left-0 pointer-events-none">
+                 <p className="font-serif text-xl md:text-3xl tracking-wide text-white drop-shadow-md">
+                   {img.title}
+                 </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+export default function GalleryGSAPShowcase({ themes }: { themes: ThemeData[] }) {
+  return (
+    <div className="w-full bg-[#0a0a0a]">
+      {themes.map((theme, index) => (
+        <TomCarderStyleSection key={theme.id} theme={theme} index={index} />
+      ))}
+    </div>
+  );
+}
