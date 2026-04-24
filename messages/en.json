@@ -78,19 +78,24 @@
     "viewAll": "View All Rooms",
     "items": [
       {
-        "id": "ocean-view",
-        "title": "Ocean View Villa",
-        "desc": "86 m² · Private balcony · Panoramic ocean view — Spacious design with a private balcony facing the endless sea."
+        "title": "1-Bedroom Beach View Overwater Villa Suite",
+        "desc": "A villa suite beside the lagoon, with a spacious furnished terrace overlooking the resort's white sandy beach."
       },
       {
-        "id": "overwater",
-        "title": "Overwater Bungalow",
-        "desc": "120 m² · Glass floor · Direct ocean access — Suspended above turquoise waters, tropical fish glide beneath your glass floor."
+        "title": "2-Bedroom POERAVA Overwater Villa Suite",
+        "desc": "Ultimate luxury across two bedrooms with a private plunge pool opening directly to the crystal-clear Semporna sea."
       },
       {
-        "id": "premium",
-        "title": "Premium Suite",
-        "desc": "180 m² · Two bedrooms · Private pool · Butler service — A supreme living experience in a secluded ocean retreat."
+        "title": "3-Bedroom Premium Beachfront Villa Estate",
+        "desc": "An unparalleled private beachfront estate, ideal for a family retreat, nestled beside pristine white sand and coconut palms."
+      },
+      {
+        "title": "2-Bedroom Premium Beachfront Villa Estate",
+        "desc": "Savour private moments in your exclusive beachfront courtyard, where spacious living spaces blend seamlessly with nature."
+      },
+      {
+        "title": "1-Bedroom Otemanu Plunge Pool Overwater Suite",
+        "desc": "Iconic mountain views, a private plunge pool, and a romantic overwater living experience."
       }
     ]
   },

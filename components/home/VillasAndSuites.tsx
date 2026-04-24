@@ -9,38 +9,29 @@ import useEmblaCarousel from 'embla-carousel-react';
 const ROOMS = [
   {
     id: 'room-1',
-    title: '单卧室海滩景观水上别墅套房',
-    desc: '下榻礁湖边的别墅套房，从配备家居的宽敞平台上可将酒店的白沙滩尽收眼底。',
     image: 'https://mgx-backend-cdn.metadl.com/generate/images/1129659/2026-04-18/m3bkbryaafaa/villa-ocean-view-1.png',
   },
   {
     id: 'room-2',
-    title: '双卧室 POERAVA 水上别墅套房',
-    desc: '享受极致奢华的双卧空间，带有私人冷水池，直通清澈见底的仙本那海洋。',
     image: 'https://mgx-backend-cdn.metadl.com/generate/images/1129659/2026-04-18/m3bkb6qaafba/villa-overwater-1.png',
   },
   {
     id: 'room-3',
-    title: '三卧室尊贵海滨别墅宅邸',
-    desc: '无与伦比的私密滨海庄园，适合家庭至臻度假，紧邻细白沙滩与椰林。',
     image: 'https://mgx-backend-cdn.metadl.com/generate/images/1129659/2026-04-18/m3bkawaaae7q/villa-premium-1.png',
   },
   {
     id: 'room-4',
-    title: '双卧室尊贵海滨别墅宅邸',
-    desc: '在专属的海滨庭院享受私密时光，宽敞的起居空间与自然环境完美融合。',
     image: 'https://mgx-backend-cdn.metadl.com/generate/images/1129659/2026-04-18/m3bkcoyaafaq/villa-ocean-view-2.png',
   },
   {
     id: 'room-5',
-    title: '单卧室奥特曼努冷水池水上别墅套房',
-    desc: '标志性的奥特曼努山景，专属冷水池与浪漫的水上生活空间。',
     image: 'https://mgx-backend-cdn.metadl.com/generate/images/1129659/2026-04-18/m3bkalaaae7a/villa-overwater-2.png',
   },
 ];
 
 export function VillasAndSuites() {
   const t = useTranslations('Villas');
+  const roomItems = t.raw('items') as Array<{ title: string; desc: string }>;
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true, 
     align: 'center',
@@ -78,6 +69,7 @@ export function VillasAndSuites() {
           <div className="flex w-full items-center touch-pan-y">
             {ROOMS.map((room, index) => {
               const isActive = index === selectedIndex;
+              const roomItem = roomItems[index];
               return (
                 <div 
                   key={room.id}
@@ -99,7 +91,7 @@ export function VillasAndSuites() {
                     <div className="relative w-full h-90 sm:h-70 md:h-85 shrink-0">
                       <Image
                         src={room.image}
-                        alt={room.title}
+                        alt={roomItem?.title ?? room.id}
                         fill
                         sizes="(max-width: 768px) 85vw, (max-width: 1200px) 55vw, 35vw"
                         className="object-cover"
@@ -108,7 +100,7 @@ export function VillasAndSuites() {
 
                     <div className="flex flex-col items-center text-center p-6 md:p-8 flex-1">
                       <h3 className="font-serif text-[--color-section-text] text-base md:text-lg font-bold">
-                        {room.title}
+                        {roomItem?.title}
                       </h3>
 
                       <div 
@@ -123,7 +115,7 @@ export function VillasAndSuites() {
                         <div className="w-8 h-px bg-[--color-gold-warm] mb-6" />
                         
                         <p className="font-sans text-sm text-[--color-warm-text] leading-loose mb-8">
-                          {room.desc}
+                          {roomItem?.desc}
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4 w-full mt-auto">

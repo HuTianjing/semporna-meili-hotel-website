@@ -78,19 +78,24 @@
     "viewAll": "Lihat Semua Bilik",
     "items": [
       {
-        "id": "ocean-view",
-        "title": "Vila Pemandangan Laut",
-        "desc": "86 m² · Balkoni peribadi · Pemandangan laut panoramik — Reka bentuk luas dengan balkoni peribadi menghadap laut."
+        "title": "Suite Vila Atas Air Pemandangan Pantai 1 Bilik Tidur",
+        "desc": "Suite vila di tepi lagun, dengan teres luas yang menghadap pantai pasir putih resort."
       },
       {
-        "id": "overwater",
-        "title": "Banglo Atas Air",
-        "desc": "120 m² · Lantai kaca · Akses terus ke laut — Terapung di atas air biru, ikan tropika meluncur di bawah lantai kaca anda."
+        "title": "Suite Vila Atas Air POERAVA 2 Bilik Tidur",
+        "desc": "Kemewahan terkini di dua bilik tidur dengan kolam rendam peribadi yang membuka terus ke laut jernih Semporna."
       },
       {
-        "id": "premium",
-        "title": "Suite Premium",
-        "desc": "180 m² · Dua bilik tidur · Kolam peribadi · Perkhidmatan butler — Pengalaman hidup terbaik di persekitaran laut yang sunyi."
+        "title": "Ladang Vila Tepi Pantai Premium 3 Bilik Tidur",
+        "desc": "Ladang tepi pantai peribadi yang tiada tandingan, sesuai untuk percutian keluarga, berdekatan pasir putih dan pokok kelapa."
+      },
+      {
+        "title": "Ladang Vila Tepi Pantai Premium 2 Bilik Tidur",
+        "desc": "Nikmati masa peribadi di halaman tepi pantai eksklusif anda, di mana ruang tamu luas menyatu dengan alam semula jadi."
+      },
+      {
+        "title": "Suite Atas Air Kolam Rendam Otemanu 1 Bilik Tidur",
+        "desc": "Pemandangan gunung ikonik, kolam rendam peribadi, dan pengalaman hidup atas air yang romantis."
       }
     ]
   },
