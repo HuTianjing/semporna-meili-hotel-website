@@ -10,7 +10,7 @@
  * - 鍙冲伌锛氬湒鐗囧爢鐤婂崁锛屽埄鐢?`clip-path` 瀵︿綔鐢变笅寰€涓婄殑銆屾彮闁嬨€嶅嫊鐣紙Reveal锛?
  */
 
-import { useRef, useReducer } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -61,9 +61,6 @@ interface Props {
 // --------------------------------------------------
 function ChapterSection({ theme, index }: { theme: ThemeData; index: number }) {
   const containerRef = useRef<HTMLElement>(null);
-  // Tracks which image indices have been mounted. Starts with only image 0.
-  const mountedRef = useRef<Set<number>>(new Set([0]));
-  const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
 
   useGSAP(
     () => {
@@ -93,23 +90,6 @@ function ChapterSection({ theme, index }: { theme: ThemeData; index: number }) {
             pin: true,
             scrub: true,
             anticipatePin: 1,
-            onUpdate: (self) => {
-              const currentIdx = Math.min(
-                Math.round(self.progress * (rightPanels.length - 1)),
-                rightPanels.length - 1,
-              );
-              const preloadIdx = Math.min(currentIdx + 1, rightPanels.length - 1);
-              let needsUpdate = false;
-              if (!mountedRef.current.has(currentIdx)) {
-                mountedRef.current.add(currentIdx);
-                needsUpdate = true;
-              }
-              if (!mountedRef.current.has(preloadIdx)) {
-                mountedRef.current.add(preloadIdx);
-                needsUpdate = true;
-              }
-              if (needsUpdate) forceUpdate();
-            },
           },
         });
 
@@ -304,10 +284,10 @@ function ChapterSection({ theme, index }: { theme: ThemeData; index: number }) {
             }
 
             // 右侧图片内部 Parallax (缩放还原)
-            const imgInner = panel.querySelector('.ch-img-inner');
-            if (imgInner) {
+            const img = panel.querySelector('img');
+            if (img) {
               tl.fromTo(
-                imgInner,
+                img,
                 {
                   scale: 1.15,
                   yPercent: -10,
@@ -420,17 +400,15 @@ function ChapterSection({ theme, index }: { theme: ThemeData; index: number }) {
               // z-index 寰€涓婂姞锛岀⒑淇濆緦绾岀殑闈㈢増鑳借搵鍦ㄥ墠涓€鍊嬩笂闈?(寰屾彮闁嬮伄缃?
               style={{ zIndex: 10 + idx }}
             >
-              <div className="ch-img-inner relative h-full w-full">
-                {mountedRef.current.has(idx) && (
-                  <Image
-                    src={img.src}
-                    alt={img.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 55vw"
-                    className="object-cover"
-                    priority={index === 0 && idx === 0}
-                  />
-                )}
+              <div className="relative h-full w-full">
+                <Image
+                  src={img.src}
+                  alt={img.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover"
+                  priority={index === 0 && idx === 0}
+                />
                 {/* Gradient slightly darkening at bottom for better slide counter visible */}
                 <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
 
