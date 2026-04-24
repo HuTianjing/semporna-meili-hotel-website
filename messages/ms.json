@@ -651,5 +651,80 @@
       "button": "Book Your Stay",
       "whatsapp": "WhatsApp"
     }
+  },
+  "OffersHeader": {
+    "title": "Keistimewaan Anda, Perjalanan Anda",
+    "subtitle": "Tawaran Kumpulan · Akses Ahli · Promosi · Dibuka Okt 2026"
+  },
+  "OffersGroup": {
+    "items": [
+      "Harga berkumpulan khusus dari 10 tetamu",
+      "Majlis alu-aluan peribadi & papan tanda tersuai",
+      "Susunan tempat makan fleksibel, tempahan dewan penuh",
+      "Koordinator khusus untuk keseluruhan acara",
+      "Akses ke Grand Theatre & Overwater Chapel",
+      "Kluster vila eksklusif untuk privasi"
+    ],
+    "badge": "TAWARAN KUMPULAN",
+    "subtitle": "Percutian Korporat · Percutian Keluarga · Agensi Pelancongan · Acara",
+    "ctaMain": "Hantar Pertanyaan Kumpulan",
+    "ctaSub": "Terus ke WhatsApp wa.me/60112780399"
+  },
+  "OffersMember": {
+    "items": {
+      "0": "Tempahan keutamaan sebelum dilancarkan",
+      "1": "Kadar diskaun ahli eksklusif",
+      "2": "Keistimewaan hari lahir: naik taraf atau hadiah",
+      "3": "Akses terawal tawaran & acara baharu",
+      "4": "Saluran perkhidmatan ahli khusus",
+      "5": "Pakej eksklusif ahli sahaja"
+    },
+    "badge": "EKSKLUSIF AHLI",
+    "subtitle": "Tiada ambang. Akses keutamaan. Kelebihan tersembunyi — Sertai kami.",
+    "note": "Hantar borang di bawah. Pasukan kami akan sahkan dalam 48 jam. Percuma & tiada yuran.",
+    "ctaMain": "Sertai Sekarang",
+    "ctaSub": "Emel kami di amy@meilihotel.com"
+  },
+  "OffersPromotional": {
+    "includes": [
+      "Penginapan Meili Breeze Villa × 1",
+      "Makanan penuh harian × 2 pax",
+      "Pemindahan darat Lapangan Terbang Tawau ↔ Jeti Semporna",
+      "Pemindahan bot laju Jeti Semporna ↔ Resort",
+      "Snorkeling · Mencerap bintang · Kolam infiniti"
+    ],
+    "badge": "TERHAD AWAL",
+    "tag": "Tawaran Pembukaan Terhad",
+    "title": "Pakej Resort Penuh Eksklusif",
+    "price": "RM 5,800",
+    "priceDesc": " / malam / 2 pax (Bersih)",
+    "taxNote": "Cukai pelancongan RM 10/bilik/malam bg bukan warganegara",
+    "validity": "Sah bermula Okt 2026",
+    "pitch": "Termasuk penuh, dari Lapangan Terbang Tawau ke vila atas air.",
+    "includesTitle": "Pakej Termasuk",
+    "excludesTitle": "Tidak Termasuk",
+    "excludesDesc": "Kos bar · Spa · Pemindahan tambahan · Cukai pelancongan",
+    "termsTitle": "Terma & Syarat",
+    "terms": "Tanpa bayaran balik · Prabayar penuh · Maklumat diperlukan 3 hari awal · Untuk 2 pax",
+    "ctaMain": "Tempah Sekarang",
+    "ctaSub": "WhatsApp wa.me/60112780399"
+  },
+  "OffersContactForm": {
+    "title": "Satu Langkah. Biarkan Kami Uruskan.",
+    "nameLabel": "Nama Anda",
+    "typeLabel": "Jenis Pertanyaan",
+    "types": {
+      "group": "Tawaran Kumpulan",
+      "member": "Permohonan Ahli",
+      "promotional": "Promosi Tempahan"
+    },
+    "paxLabel": "Bil. Tetamu",
+    "dateLabel": "Tarikh Penginapan",
+    "emailLabel": "Emel",
+    "socialLabel": "WeChat / WhatsApp",
+    "noteLabel": "Nota",
+    "submitBtn": "Hantar Pertanyaan",
+    "successMsg": "Terima kasih. Kami akan menghubungi anda dlm 48 jam.",
+    "whatsappAlt": "Atau hubungi kami melalui WhatsApp:"
   }
 }

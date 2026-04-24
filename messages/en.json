@@ -651,5 +651,80 @@
       "button": "Book Your Stay",
       "whatsapp": "WhatsApp"
     }
+  },
+  "OffersHeader": {
+    "title": "Your Privilege, Your Journey",
+    "subtitle": "Group Deals · Member Access · Early Bird · Opening Oct 2026"
+  },
+  "OffersGroup": {
+    "items": [
+      "Custom group pricing from 10 guests",
+      "Private welcome ceremony & custom signage",
+      "Flexible dining arrangements, full-hall buyout available",
+      "Dedicated contact for end-to-end coordination",
+      "Access to Grand Theatre & Overwater Chapel",
+      "Exclusive villa cluster, no shared areas with other guests"
+    ],
+    "badge": "GROUP DEALS",
+    "subtitle": "Corporate Retreats · Family Getaways · Travel Agency Groups · Events",
+    "ctaMain": "Submit Group Inquiry",
+    "ctaSub": "Direct via WhatsApp wa.me/60112780399"
+  },
+  "OffersMember": {
+    "items": {
+      "0": "Priority booking before public release",
+      "1": "Exclusive member discount rate",
+      "2": "Birthday privileges: room upgrade or custom welcome gift",
+      "3": "First access to new offers & events",
+      "4": "Dedicated service channel via WeChat or Email",
+      "5": "Member-only packages, not listed publicly"
+    },
+    "badge": "MEMBER ONLY",
+    "subtitle": "No threshold. Priority access. Hidden perks — Join before the doors open.",
+    "note": "Submit the registration form below. Our team will confirm within 48 hours. No annual fee, zero threshold.",
+    "ctaMain": "Join Now",
+    "ctaSub": "Email us at amy@meilihotel.com"
+  },
+  "OffersPromotional": {
+    "includes": [
+      "Meili Breeze Villa accommodation × 1",
+      "Daily full board meals: Breakfast/Lunch/Dinner/Tea × 2 pax",
+      "Tawau Airport ↔ Semporna Jetty land transfer",
+      "Semporna Jetty ↔ Resort speedboat transfer",
+      "Snorkeling/Diving · Stargazing · Infinity Pool · Overwater Gym"
+    ],
+    "badge": "EARLY BIRD",
+    "tag": "Limited Opening Offer",
+    "title": "Exclusive Full Board Escape",
+    "price": "RM 5,800",
+    "priceDesc": " / night / 2 pax (Nett)",
+    "taxNote": "Tourism tax RM 10/room/night applies for non-Malaysians",
+    "validity": "Valid starting Oct 2026",
+    "pitch": "All-inclusive, from Tawau Airport to your overwater villa, every detail sorted.",
+    "includesTitle": "What's Included",
+    "excludesTitle": "Excludes",
+    "excludesDesc": "Bar consumption · Spa services · Extra transfers · Tourism tax",
+    "termsTitle": "Terms & Conditions",
+    "terms": "Non-refundable · Full prepayment required · Passenger info required 3 days prior · For 2 guests",
+    "ctaMain": "Book Now",
+    "ctaSub": "Direct via WhatsApp wa.me/60112780399"
+  },
+  "OffersContactForm": {
+    "title": "One Step. We'll Take It From Here.",
+    "nameLabel": "Your Name",
+    "typeLabel": "Inquiry Type",
+    "types": {
+      "group": "Group Deals",
+      "member": "Member Application",
+      "promotional": "Promotional Offers"
+    },
+    "paxLabel": "No. of Pax",
+    "dateLabel": "Intended Travel Dates",
+    "emailLabel": "Email Address",
+    "socialLabel": "WeChat / WhatsApp",
+    "noteLabel": "Additional Notes",
+    "submitBtn": "Send Inquiry",
+    "successMsg": "Thank you. We will contact you within 48 hours.",
+    "whatsappAlt": "Or reach us instantly via WhatsApp:"
   }
 }

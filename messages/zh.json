@@ -651,5 +651,80 @@
       "button": "立即预订您的假日",
       "whatsapp": "WhatsApp"
     }
+  },
+  "OffersHeader": {
+    "title": "开启您的专属旅程",
+    "subtitle": "团购 · 会员 · 促销 · 2026年10月正式开放"
+  },
+  "OffersGroup": {
+    "items": [
+      "10人起，享团体定制报价",
+      "专属迎宾仪式 + 定制欢迎牌",
+      "灵活餐位安排，可整厅包场",
+      "专属联络人全程一对一跟进",
+      "可协调六星剧场 / 海上礼堂场地",
+      "多栋别墅整区预留，不与散客交叉"
+    ],
+    "badge": "GROUP DEALS · 团购专属",
+    "subtitle": "企业团建 · 家族出游 · 旅行社包团 · 会议活动",
+    "ctaMain": "提交团队咨询 · Submit Group Inquiry",
+    "ctaSub": "WhatsApp 直达 wa.me/60112780399"
+  },
+  "OffersMember": {
+    "items": {
+      "0": "正式开放前优先锁房权",
+      "1": "会员专属折扣",
+      "2": "生日月专属礼遇：升房 / 定制欢迎礼",
+      "3": "最新优惠与活动优先通知",
+      "4": "专属会员服务频道（微信 / 邮件）",
+      "5": "会员专属套餐（不对外公开）"
+    },
+    "badge": "MEMBER ONLY · 会员专享",
+    "subtitle": "无门槛登记，优先知情，隐藏权益——成为会员，比其他人早一步。",
+    "note": "填写下方登记表并提交，运营团队将在 48小时内 通过邮件或微信确认您的会员资格。无年费，无门槛。",
+    "ctaMain": "立即登记会员 · Join Now",
+    "ctaSub": "发送邮件至 amy@meilihotel.com"
+  },
+  "OffersPromotional": {
+    "includes": [
+      "沐风别墅（Meili Breeze Villa）住宿 × 1栋",
+      "每日全包餐食：早/午/晚餐 + 下午茶 × 2人",
+      "塔瓦机场 ↔ 仙本那码头 陆路接送",
+      "仙本那码头 ↔ 度假酒店 快艇接送",
+      "礁区浮潜/潜水 · 星空观测 · 无边泳池 · 海上健身房"
+    ],
+    "badge": "EARLY BIRD · 首发限时优惠",
+    "tag": "限时首发 · Limited Opening Offer",
+    "title": "豪华全包假期套餐",
+    "price": "RM 5,800",
+    "priceDesc": " / 每晚 / 2人（净价）",
+    "taxNote": "非马来西亚公民另收 RM 10/房/晚",
+    "validity": "2026年10月起",
+    "pitch": "一价全包，从塔瓦机场到私属海上别墅，无需操心任何细节",
+    "includesTitle": "套餐包含",
+    "excludesTitle": "不含",
+    "excludesDesc": "酒吧消费 · Spa · 额外接送 · 旅游税（非马公民）",
+    "termsTitle": "条款与条件",
+    "terms": "不可退款 · 全额预付 · 至少提前3天提供姓名及航班信息 · 仅适用2人",
+    "ctaMain": "提交预订意向 · Book Now",
+    "ctaSub": "WhatsApp 直约 wa.me/60112780399"
+  },
+  "OffersContactForm": {
+    "title": "一步发起，我们来接待",
+    "nameLabel": "您的称呼",
+    "typeLabel": "咨询类型",
+    "types": {
+      "group": "团购优惠",
+      "member": "会员申请",
+      "promotional": "促销预定"
+    },
+    "paxLabel": "计划人数",
+    "dateLabel": "意向入住日期",
+    "emailLabel": "联系邮箱",
+    "socialLabel": "微信号 / WhatsApp",
+    "noteLabel": "备注",
+    "submitBtn": "发送咨询",
+    "successMsg": "感谢您的咨询，我们将在 48 小时内联系您。",
+    "whatsappAlt": "或点击此处通过 WhatsApp 与我们联系："
   }
 }
