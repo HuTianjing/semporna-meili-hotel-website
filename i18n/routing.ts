@@ -6,6 +6,14 @@ export const routing = defineRouting({
   defaultLocale: 'zh',
   // as-needed: 默认语言(zh)无前缀 → /，其余语言带前缀 → /en、/ms
   localePrefix: 'as-needed',
+  pathnames: {
+    '/': '/',
+    '/gallery': {
+      zh: '/gallery',
+      en: '/gallery',
+      ms: '/gallery',
+    }
+  }
 });
 
 export const { Link, redirect, usePathname, useRouter, getPathname } = createNavigation(routing);

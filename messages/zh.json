@@ -349,5 +349,255 @@
       "footer": "每一段接送均由我们专属团队安排。完成预订后，请告知您的航班信息，管家将为您提前安排妥当。",
       "cta": "联系管家安排接送"
     }
+  },
+  "Gallery": {
+    "Hero": {
+      "line1": "一半秘境，一半海洋",
+      "line2": "MEILI RESORT HOTEL · SEMPORNA · 4°N · CORAL TRIANGLE"
+    },
+    "Themes": [
+      {
+        "id": "01",
+        "title": "天光与海色",
+        "subtitle": "SKY & SEA",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-1145118710.jpg",
+            "title": "玻璃海 · 北纬四度的碧蓝"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1155584558.jpg",
+            "title": "每一个清晨都属于你"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1169410279.jpg",
+            "title": "落日在这里从不匆忙"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1196814099.jpg",
+            "title": "百年无台风 · 星河得以安静"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1255581643.jpg",
+            "title": "珊瑚金三角 · 仙本那"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1298865296.jpg",
+            "title": "风下之乡 · 全年 26°–32°"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1307242973.jpg",
+            "title": "自然的奇迹从不重复"
+          }
+        ]
+      },
+      {
+        "id": "02",
+        "title": "深入水下",
+        "subtitle": "OCEAN & DIVING",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-1308636896.jpg",
+            "title": "3,000 种珊瑚礁鱼类在此栖居"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1456971881.jpg",
+            "title": "海狼风暴 · 仙本那独有奇观"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1465318132.jpg",
+            "title": "与海龟同游"
+          },
+          {
+            "src": "/Photos on OTA/iStock-147057755.jpg",
+            "title": "诗巴丹 · 世界顶级潜水圣地"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1484026069.jpg",
+            "title": "五星潜水俱乐部伴你入海"
+          },
+          {
+            "src": "/Photos on OTA/iStock-155908274.jpg",
+            "title": "一半海水 · 一半阳光"
+          },
+          {
+            "src": "/Photos on OTA/iStock-157507555.jpg",
+            "title": "76% 的全球珊瑚种类"
+          },
+          {
+            "src": "/Photos on OTA/iStock-162235445.jpg",
+            "title": "专业护航 · 从这里启程"
+          },
+          {
+            "src": "/Photos on OTA/iStock-171148583.jpg",
+            "title": "黑夜里 · 海底依然繁华"
+          }
+        ]
+      },
+      {
+        "id": "03",
+        "title": "别墅与居停",
+        "subtitle": "VILLA & STAY",
+        "images": [
+          {
+            "src": "/Photos on OTA/Villa Photos/img3.jpg",
+            "title": "300+ 栋独立水上别墅"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img6.jpg",
+            "title": "天然铁木 · 越泡水越硬"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img9.jpg",
+            "title": "夜幕下的安静守候"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img12.jpg",
+            "title": "推开门 · 是整片海洋"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img13.jpg",
+            "title": "BELIAN铁木 · 神圣之木"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img24.jpg",
+            "title": "私密与舒适并存"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img54.jpg",
+            "title": "每一步都走在海上"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img72.jpg",
+            "title": "吉尼斯纪录 · 全球最大水上木结构"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img77.jpg",
+            "title": "24小时管家 · 服务先于抵达"
+          },
+          {
+            "src": "/Photos on OTA/iStock-171575641.jpg",
+            "title": "全包 · 每一餐都是礼物"
+          }
+        ]
+      },
+      {
+        "id": "04",
+        "title": "建筑传奇",
+        "subtitle": "ARCHITECTURE",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-171577290.jpg",
+            "title": "396,000 平方米 · 全建于海上"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1746064602.jpg",
+            "title": "数万吨铁木 · 百年不腐"
+          },
+          {
+            "src": "/Photos on OTA/iStock-183876244.jpg",
+            "title": "走在木桥上 · 脚下是深海"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1900984073.jpg",
+            "title": "300+ 栋 · 一座城市在海上"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2002975699.jpg",
+            "title": "政府常驻海警 · 100% 安全"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2168157707.jpg",
+            "title": "现代传奇的诞生"
+          }
+        ]
+      },
+      {
+        "id": "05",
+        "title": "设施与体验",
+        "subtitle": "AMENITIES",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-2173122709.jpg",
+            "title": "水上无边泳池"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2195210732.jpg",
+            "title": "海平线上的 Spa"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2252689577.jpg",
+            "title": "健身中心 · 与海对望"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2259118243.jpg",
+            "title": "瑜伽沙龙"
+          },
+          {
+            "src": "/Photos on OTA/iStock-478799127.jpg",
+            "title": "水上活动中心"
+          },
+          {
+            "src": "/Photos on OTA/iStock-483185889.jpg",
+            "title": "精品长廊"
+          },
+          {
+            "src": "/Photos on OTA/iStock-502977585.jpg",
+            "title": "多功能宴会室"
+          },
+          {
+            "src": "/Photos on OTA/iStock-520774207.jpg",
+            "title": "高尔夫果岭"
+          }
+        ]
+      },
+      {
+        "id": "06",
+        "title": "一餐一景",
+        "subtitle": "DINING & VIEWS",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-521210928.jpg",
+            "title": "米其林规格的主厨餐厅"
+          },
+          {
+            "src": "/Photos on OTA/iStock-600700494.jpg",
+            "title": "日落酒吧 · 落日属于你"
+          },
+          {
+            "src": "/Photos on OTA/iStock-653533870.jpg",
+            "title": "全日制餐厅"
+          },
+          {
+            "src": "/Photos on OTA/iStock-674424336.jpg",
+            "title": "新鲜空运的海鲜"
+          },
+          {
+            "src": "/Photos on OTA/iStock-831459576.jpg",
+            "title": "每一餐都在海上"
+          },
+          {
+            "src": "/Photos on OTA/iStock-901453894.jpg",
+            "title": "微醺的迷人时刻"
+          },
+          {
+            "src": "/Photos on OTA/iStock-995428636.jpg",
+            "title": "专属你的时刻"
+          }
+        ]
+      }
+    ],
+    "Video": {
+      "tag": "精选视频",
+      "title": "沉浸于此，不虚此行",
+      "desc": "用一段影像，带您提前抵达位于海平线之上的秘境。",
+      "cta": "播放视频"
+    },
+    "CTA": {
+      "title": "心之向往，不如即刻启程",
+      "desc": "您的24小时管家已准备就绪，我们期待在深海之蓝与您相见。",
+      "button": "立即预订您的假日",
+      "whatsapp": "WhatsApp"
+    }
   }
 }

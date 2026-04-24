@@ -349,5 +349,255 @@
       "footer": "Your arrival is handled from the moment you land. Share your flight details after booking, and your personal butler will take care of the rest.",
       "cta": "Contact Us to Arrange Transfers"
     }
+  },
+  "Gallery": {
+    "Hero": {
+      "line1": "Half Sanctuary, Half Ocean",
+      "line2": "MEILI RESORT HOTEL · SEMPORNA · 4°N · CORAL TRIANGLE"
+    },
+    "Themes": [
+      {
+        "id": "01",
+        "title": "Sky & Sea",
+        "subtitle": "SKY & SEA",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-1145118710.jpg",
+            "title": "Crystal Waters at 4°N"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1155584558.jpg",
+            "title": "Every Morning Belongs to You"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1169410279.jpg",
+            "title": "Unrushed Sunsets"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1196814099.jpg",
+            "title": "A Century Without Typhoons"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1255581643.jpg",
+            "title": "Coral Triangle, Semporna"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1298865296.jpg",
+            "title": "Land Below the Wind"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1307242973.jpg",
+            "title": "Nature's Unique Miracles"
+          }
+        ]
+      },
+      {
+        "id": "02",
+        "title": "Ocean & Diving",
+        "subtitle": "OCEAN & DIVING",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-1308636896.jpg",
+            "title": "3,000 Species of Fish"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1456971881.jpg",
+            "title": "Barracuda Tornado"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1465318132.jpg",
+            "title": "Swim with Sea Turtles"
+          },
+          {
+            "src": "/Photos on OTA/iStock-147057755.jpg",
+            "title": "Sipadan, Top Diving Spot"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1484026069.jpg",
+            "title": "Five-Star Diving Club"
+          },
+          {
+            "src": "/Photos on OTA/iStock-155908274.jpg",
+            "title": "Half Ocean, Half Sun"
+          },
+          {
+            "src": "/Photos on OTA/iStock-157507555.jpg",
+            "title": "76% of Global Coral Species"
+          },
+          {
+            "src": "/Photos on OTA/iStock-162235445.jpg",
+            "title": "Professional Guidance"
+          },
+          {
+            "src": "/Photos on OTA/iStock-171148583.jpg",
+            "title": "Vibrant Night Dive"
+          }
+        ]
+      },
+      {
+        "id": "03",
+        "title": "Villa & Stay",
+        "subtitle": "VILLA & STAY",
+        "images": [
+          {
+            "src": "/Photos on OTA/Villa Photos/img3.jpg",
+            "title": "Over 300 Water Villas"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img6.jpg",
+            "title": "Natural BELIAN Ironwood"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img9.jpg",
+            "title": "A Quiet Night Stay"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img12.jpg",
+            "title": "Open to the Ocean"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img13.jpg",
+            "title": "Sacred BELIAN Wood"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img24.jpg",
+            "title": "Privacy & Comfort"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img54.jpg",
+            "title": "Every Step on Water"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img72.jpg",
+            "title": "Guinness World Record"
+          },
+          {
+            "src": "/Photos on OTA/Villa Photos/img77.jpg",
+            "title": "24h Butler Service"
+          },
+          {
+            "src": "/Photos on OTA/iStock-171575641.jpg",
+            "title": "All-Inclusive Dining"
+          }
+        ]
+      },
+      {
+        "id": "04",
+        "title": "Architecture",
+        "subtitle": "ARCHITECTURE",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-171577290.jpg",
+            "title": "396,000 sqm Built on Water"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1746064602.jpg",
+            "title": "Tons of Immortal Wood"
+          },
+          {
+            "src": "/Photos on OTA/iStock-183876244.jpg",
+            "title": "Wooden Bridge Above the Deep"
+          },
+          {
+            "src": "/Photos on OTA/iStock-1900984073.jpg",
+            "title": "A City Upon the Ocean"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2002975699.jpg",
+            "title": "100% Secure & Guarded"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2168157707.jpg",
+            "title": "The Birth of a Legend"
+          }
+        ]
+      },
+      {
+        "id": "05",
+        "title": "Amenities",
+        "subtitle": "AMENITIES",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-2173122709.jpg",
+            "title": "Infinity Pool"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2195210732.jpg",
+            "title": "Ocean View Spa"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2252689577.jpg",
+            "title": "Ocean View Gym"
+          },
+          {
+            "src": "/Photos on OTA/iStock-2259118243.jpg",
+            "title": "Yoga Pavilion"
+          },
+          {
+            "src": "/Photos on OTA/iStock-478799127.jpg",
+            "title": "Water Sports Center"
+          },
+          {
+            "src": "/Photos on OTA/iStock-483185889.jpg",
+            "title": "Boutique Shopping"
+          },
+          {
+            "src": "/Photos on OTA/iStock-502977585.jpg",
+            "title": "Banquet Hall"
+          },
+          {
+            "src": "/Photos on OTA/iStock-520774207.jpg",
+            "title": "Mini Golf"
+          }
+        ]
+      },
+      {
+        "id": "06",
+        "title": "Dining & Views",
+        "subtitle": "DINING & VIEWS",
+        "images": [
+          {
+            "src": "/Photos on OTA/iStock-521210928.jpg",
+            "title": "Michelin Quality Dining"
+          },
+          {
+            "src": "/Photos on OTA/iStock-600700494.jpg",
+            "title": "Sunset Bar"
+          },
+          {
+            "src": "/Photos on OTA/iStock-653533870.jpg",
+            "title": "All Day Dining"
+          },
+          {
+            "src": "/Photos on OTA/iStock-674424336.jpg",
+            "title": "Fresh Seafood"
+          },
+          {
+            "src": "/Photos on OTA/iStock-831459576.jpg",
+            "title": "Every Meal on Water"
+          },
+          {
+            "src": "/Photos on OTA/iStock-901453894.jpg",
+            "title": "Tipsy Nights"
+          },
+          {
+            "src": "/Photos on OTA/iStock-995428636.jpg",
+            "title": "Moments For You"
+          }
+        ]
+      }
+    ],
+    "Video": {
+      "tag": "THE MOVIE",
+      "title": "Immerse in the Journey",
+      "desc": "A visual journey to the sanctuary above the horizon.",
+      "cta": "Watch Video"
+    },
+    "CTA": {
+      "title": "Start Your Journey Now",
+      "desc": "Your 24-hour butler is ready.",
+      "button": "Book Your Stay",
+      "whatsapp": "WhatsApp"
+    }
   }
 }
