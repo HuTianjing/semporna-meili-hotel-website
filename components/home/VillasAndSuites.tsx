@@ -73,7 +73,7 @@ export function VillasAndSuites() {
         </h2>
       </div>
 
-      <div className="w-full relative max-w-[1920px] mx-auto">
+      <div className="w-full relative max-w-480 mx-auto">
         <div className="overflow-visible" ref={emblaRef}>
           <div className="flex w-full items-center touch-pan-y">
             {ROOMS.map((room, index) => {
@@ -92,11 +92,11 @@ export function VillasAndSuites() {
                       '--card-scale': isActive ? '1' : '0.85',
                       '--card-opacity': isActive ? '1' : '0.4',
                     } as React.CSSProperties}
-                    className={`bg-white flex flex-col h-full mx-auto scale-100 opacity-100 shadow-md sm:scale-[var(--card-scale)] sm:opacity-[var(--card-opacity)] ${
+                    className={`bg-white flex flex-col h-full mx-auto scale-100 opacity-100 shadow-md sm:scale-(--card-scale) sm:opacity-(--card-opacity) ${
                       isActive ? 'sm:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]' : 'sm:shadow-none'
                     }`}
                   >
-                    <div className="relative w-full h-[360px] sm:h-[280px] md:h-[340px] shrink-0">
+                    <div className="relative w-full h-90 sm:h-70 md:h-85 shrink-0">
                       <Image
                         src={room.image}
                         alt={room.title}

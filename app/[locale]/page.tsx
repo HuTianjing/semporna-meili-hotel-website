@@ -17,7 +17,7 @@ export default function Home() {
       <VillasAndSuites />
 
       {/* 4. 优惠精选 */}
-      <SpecialOffers />
+      {/* <SpecialOffers /> */}
 
       {/* 5. 品牌故事引言 */}
       <Storytelling />

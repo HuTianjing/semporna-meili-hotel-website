@@ -48,7 +48,7 @@ export function Footer() {
       {/* 装饰性背景 */}
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(0,0,0,0.2)_100%)] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 mx-auto max-w-350 px-6 md:px-12 lg:px-20">
         
         {/* 顶部: Logo & Newsletter */}
         <div className="flex flex-col md:flex-row items-start justify-between gap-16 mb-20 md:mb-28">

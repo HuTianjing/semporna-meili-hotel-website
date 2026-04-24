@@ -27,10 +27,10 @@ export default function GalleryCTA() {
         viewport={{ once: true, margin: '0px 0px -20px 0px', amount: 0.02 }}
         className="pt-16 sm:pt-20 border-t border-black/10 flex flex-col items-center text-center w-full"
       >
-        <h2 className="font-serif text-black leading-[1.15] mb-3 font-normal text-3xl md:text-5xl lg:text-[64px] tracking-tight max-w-[800px] mb-5">
+        <h2 className="font-serif text-black leading-[1.15] mb-3 font-normal text-3xl md:text-5xl lg:text-[64px] tracking-tight max-w-200">
           {t('title')}
         </h2>
-        <p className="font-sans text-black/60 max-w-[500px] text-base sm:text-lg mb-8 sm:mb-12">
+        <p className="font-sans text-black/60 max-w-125 text-base sm:text-lg mb-8 sm:mb-12">
           {t('desc')}
         </p>
 

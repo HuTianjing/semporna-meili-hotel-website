@@ -43,7 +43,7 @@ export default function LocationCulture() {
           variants={fadeUp}
           initial="hidden"
           animate={geoInView ? 'visible' : 'hidden'}
-          className="w-full md:w-1/2 relative aspect-4/3 overflow-hidden flex-shrink-0 rounded-sm"
+          className="w-full md:w-1/2 relative aspect-4/3 overflow-hidden shrink-0 rounded-sm"
         >
           <Image
             src="https://picsum.photos/seed/meili_loc_1/1920/1080"
@@ -127,7 +127,7 @@ export default function LocationCulture() {
           variants={fadeUp}
           initial="hidden"
           animate={bajauInView ? 'visible' : 'hidden'}
-          className="w-full md:w-1/2 relative aspect-4/3 overflow-hidden flex-shrink-0 rounded-sm"
+          className="w-full md:w-1/2 relative aspect-4/3 overflow-hidden shrink-0 rounded-sm"
         >
           <Image
             src="https://picsum.photos/seed/meili_loc_2/1920/1080"

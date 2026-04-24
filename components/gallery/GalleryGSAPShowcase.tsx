@@ -382,7 +382,7 @@ function ChapterSection({ theme, index }: { theme: ThemeData; index: number }) {
                   <SplitChars text={img.title} />
                 </p>
                 {img.desc && (
-                  <p className="panel-desc text-foreground/60 mt-5 max-w-[80vw] font-sans text-sm leading-relaxed lg:max-w-[360px]">
+                  <p className="panel-desc text-foreground/60 mt-5 max-w-[80vw] font-sans text-sm leading-relaxed lg:max-w-90">
                     <SplitChars text={img.desc} />
                   </p>
                 )}
