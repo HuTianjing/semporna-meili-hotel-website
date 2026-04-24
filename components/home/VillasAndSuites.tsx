@@ -46,7 +46,7 @@ export function VillasAndSuites() {
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
-    setSelectedIndex(emblaApi.internalEngine().index.get());
+    setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
   useEffect(() => {
@@ -79,16 +79,18 @@ export function VillasAndSuites() {
                   }}
                 >
                   <div 
+                    onClick={() => !isActive && emblaApi?.scrollTo(index)}
                     style={{
                       transition: 'all 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
                       '--card-scale': isActive ? '1' : '0.85',
                       '--card-opacity': isActive ? '1' : '0.4',
+                      cursor: isActive ? 'default' : 'pointer',
                     } as React.CSSProperties}
                     className={`bg-white flex flex-col h-full mx-auto scale-100 opacity-100 shadow-md sm:scale-(--card-scale) sm:opacity-(--card-opacity) ${
                       isActive ? 'sm:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]' : 'sm:shadow-none'
                     }`}
                   >
-                    <div className="relative w-full h-90 sm:h-70 md:h-85 shrink-0">
+                    <div className="relative w-full h-90 sm:h-70 md:h-96 lg:h-110 shrink-0">
                       <Image
                         src={room.image}
                         alt={roomItem?.title ?? room.id}
