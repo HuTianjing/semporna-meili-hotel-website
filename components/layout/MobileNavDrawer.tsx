@@ -194,6 +194,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
           <div className="flex w-full flex-col gap-7 pb-8 text-[13px] font-normal tracking-widest text-black">
             <Link
               href="/"
+              prefetch={false}
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
@@ -206,6 +207,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
             </Link>
             <Link
               href="/booking"
+              prefetch={false}
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
@@ -218,6 +220,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
             </Link>
             <Link
               href="/gallery"
+              prefetch={false}
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
@@ -230,6 +233,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
             </Link>
             <Link
               href="/location"
+              prefetch={false}
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
@@ -242,6 +246,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
             </Link>
             <Link
               href="/offers"
+              prefetch={false}
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >
@@ -254,6 +259,7 @@ export function MobileNavDrawer({ isOpen, onClose, locales }: MobileNavDrawerPro
             </Link>
             <Link
               href="/contact"
+              prefetch={false}
               onClick={onClose}
               className="relative flex cursor-pointer items-center hover:opacity-70"
             >

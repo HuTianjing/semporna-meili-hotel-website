@@ -176,6 +176,16 @@
   100% { opacity: 1; }
 }
 
+@keyframes loading-sweep {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes loading-spin {
+  to { transform: rotate(360deg); }
+}
+
 .animate-fade-in {
   animation: fade-in 0.8s ease-out both;
 }

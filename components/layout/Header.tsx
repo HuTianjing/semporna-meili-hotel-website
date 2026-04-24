@@ -108,6 +108,7 @@ export function Header() {
                   <Link
                     key={item.key}
                     href={item.href}
+                    prefetch={false}
                     className={`relative pb-1 font-sans text-[0.75rem] tracking-[0.15em] transition-colors duration-500 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full after:origin-left after:transition-transform after:duration-300 after:content-[''] ${
                       isActive
                         ? isScrolled
