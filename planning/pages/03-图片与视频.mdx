@@ -47,100 +47,85 @@ Hero 全宽图（第一眼：这片海）
 
 | 序号 | 区块名 | 组件 | 优先级 |
 |------|--------|------|--------|
-| Hero | 视觉入口（全宽沉浸图 + 极简文字） | `GalleryHero` | P0 |
-| T1 | 主题一：天光与海色 | `GalleryTheme` | P0 |
-| T2 | 主题二：深入水下 | `GalleryTheme` | P0 |
-| T3 | 主题三：别墅与居停 | `GalleryTheme` | P0 |
-| T4 | 主题四：建筑传奇 | `GalleryTheme` | P0 |
-| T5 | 主题五：设施与体验 | `GalleryTheme` | P0 |
-| T6 | 主题六：一餐一景 | `GalleryTheme` | P0 |
-| V | 精选视频 | `GalleryVideo` | P1（含占位态） |
+| Hero | 视觉入口（首屏留白与简约文字） | `GalleryPageHeader` | P0 |
+| T1~6 | 核心画廊：六大主题联动滚动（GSAP Pin & Reveal） | `GalleryGSAPShowcase` | P0（取代传统独立画廊块） |
+| V | 精选视频（全宽视差背板与 CTA） | `GalleryVideo` | P1（含占位态） |
 | CTA | 底部行动出口 | `GalleryCTA` | P1 |
 
-所有六个 `GalleryTheme` 共用同一个组件，通过 props 注入标题、图片列表及背景色配置。
+所有主题数据由 `messages/[locale].json` 的 `Themes` 数组直接传入，通过 `GalleryGSAPShowcase` 内循环生成独立的 `ChapterSection` 滚动锁定容器。
 
 ---
 
-## 四、Hero 视觉入口
+## 四、Hero 视觉入口 (`GalleryPageHeader`)
 
-> **不是普通 Hero，是情绪转场。** 无导航按钮、无描述段落，只有一张震撼全幅图与极简文字。
+> **不再依靠巨幅底图，而是通过极简留白的排版设计给页面奠定呼吸感。**
 
-**高度**：`85vh`（移动端），`90vh`（桌面端）
+**高度**：占满屏幕顶部空间（配合大字体和留白排版）
 
-**图片选取**：优先使用天光海色类——玻璃海全景航拍或 360° 日落。要求颜色饱和、层次丰富、无明显主体前景遮挡，让画面自己说话。
+**排版设计**：
+- 左侧布局或居中排版，基于多语言通过 `next-intl` 获取文案。
+- “一半秘境，一半海洋”(Half Sanctuary, Half Ocean) —— 使用响应式巨型字体。
+- 副标题显示项目坐标与调性：`MEILI RESORT HOTEL · SEMPORNA · 4°N · CORAL TRIANGLE`。
 
-**文字叠层**（居中绝对定位，垂直居中）：
-
-```
-行 1（font-serif，clamp(2rem, 5vw, 4.5rem)，text-white/85，tracking-[0.05em]）：
-  一半秘境，一半海洋
-
-行 2（font-sans，text-xs，text-white/45，tracking-[0.45em]，uppercase，mt-4）：
-  MEILI RESORT HOTEL · SEMPORNA · 4°N · CORAL TRIANGLE
-```
-
-**渐变遮罩**：`bg-gradient-to-b from-black/15 via-transparent to-black/65`
-底部渐变衔接第一个主题区块的背景色（`bg-cream`），无生硬断层。
-
-**向下滚动提示**（底部居中，绝对定位）：向下箭头 icon，`text-white/35`，轻微上下浮动动画。
+**滚动提示**：
+在此区域下方直接衔接画廊的第一篇章。不再需要显式的渐变和按钮，只要一滚动，整屏幕就会滑向 GSAP 控制的动态画廊世界中。
 
 ---
 
-## 五、主题区块规范（六个区块共用）
+## 五、主题区块规范 (`GalleryGSAPShowcase`)
 
-每个主题区块结构完全一致，通过 props 差异化：
+这不仅仅是六个独立的区块，而是同一个交互系统里的六幕剧。
 
-### 5.1 区块结构
+### 5.1 交互与动效结构 (Desktop)
 
-```
+```text
 ┌─────────────────────────────────────────────────────┐
-│  章节序号 + 主题标签（中/英）                          │
-│  ─────── 金色装饰线 ───────                           │
+│  (左侧，宽度占 35%-45%, 粘性锁定 Pin)                  │
 │                                                     │
-│  ┌─────────────────────────────────────────────┐   │
-│  │  横向幻灯片图片区（全宽，aspect-[16/9] 桌面端）  │   │
-│  │  左右箭头  ·  当前 X / 共 N 张               │   │
-│  └─────────────────────────────────────────────┘   │
+│   章节序号 (01/06)   —    主体中英标签                │
+│   -------------------------------------------       │
 │                                                     │
-│  图片标题文字（当前张，居中，极简）                     │
+│   当前图片标题 (SplitChars 逐字出场)                  │
+│   说明副文案 (SplitChars 逐字出场，带透明度)              │
+│                                                     │
+│                                                     │
+│  (右侧，宽度占余下大半区, 图片向上滚动)                  │
+│                                                     │
+│   图片A (index 0) 默认展示                            │
+│   ↓                                                 │
+│   滚动时，图片B (index 1) clip-path: inset(100% 0 0)    │
+│   变为 inset(0 0 0 0)，模拟「向上覆盖揭开」视觉          │
+│   同时，左侧文字淡出，替换为图片B的文案，重新逐字浮现。      │
 └─────────────────────────────────────────────────────┘
 ```
 
-### 5.2 视觉规范
+### 5.2 视觉与技术特征
 
-**区块背景**：交替使用 `bg-cream` 与 `bg-background`（纯白），细微交替感知分区，无斑马纹震动感。
+**双色交替**：
+六大 `ChapterSection` 的背景色（例如 `--about-bg`, `--secondary`, `--background` 等等）应在视觉上形成呼吸感，比如「暖白、深色、暖白、浅灰...」交替。
 
-**章节标签**（每个主题区块顶部，居中对齐）：
-序号（金色微字）+ 竖线分隔 + 主题中文名 + 英文副标签。
+**文字动效（GSAP Stagger）**：
+- 进入区块时：主标题、副标题、分隔线整体入场。
+- 换图时：图片左侧配合的标题、文案，通过 `<SplitChars>` 组件拆分成字母，利用 GSAP stagger 进行阶梯式浮现。
 
-**幻灯片图片区**：
-- 桌面：`aspect-video`（16:9），全宽 `w-full`
-- 移动：`aspect-[4/3]`，全宽
-- `object-fit: cover`，`object-position: center`
-- 图片切换动效：`opacity` 渐变（0→1，200ms），无位移滑动。
+**图片展现形式**：
+- 全宽满屏（覆盖右侧专区）。利用 `object-cover` 和优化的 `<Image>` 并发加载。
+- 不需要额外边框，图片的「边缘」就是揭开效果的锋利切割线。
 
-**左右导航箭头**：
-- 桌面：悬浮于图片两侧边缘，居中垂直对齐。
-- 背景：全黑色带透明度，悬浮时加深。
-
-**图片计数器**（图片区正下方，居中）：
-例如：`01 / 07`
-
-**图片标题文字**（计数器下方，居中，主要情绪锚点）：
-例如：`玻璃海全景 · 北纬四度的碧蓝`
-
-**垂直间距**：`py-16 sm:py-20 md:py-28`，上下对称。
+**移动端适配 (Stacking 降级)**：
+- 对于 `< 1024px` 的屏幕，关闭 ScrollTrigger 锁定机制。
+- 让每张图片和文字退化成为常规的瀑布流卡片堆叠（常规纵向滚动）。利用 `Intersect Observer` 或 ScrollTrigger 基础视差在靠近视口时触发简单的 `fade-up` 即可。
 
 ### 5.3 六个主题配置
 
-| # | 主题名（中） | 主题名（英） | 背景色 | 图片数量 |
-|---|------------|------------|--------|---------|
-| 01 | 天光与海色 | Sky & Sea | `bg-cream` | 7 |
-| 02 | 深入水下 | Ocean & Diving | `bg-background` | 9 |
-| 03 | 别墅与居停 | Villa & Stay | `bg-cream` | 10 |
-| 04 | 建筑传奇 | Architecture | `bg-background` | 6 |
-| 05 | 设施与体验 | Amenities | `bg-cream` | 8 |
-| 06 | 一餐一景 | Dining & Views | `bg-background` | 7 |
+| # | 主题名（中） | 主题名（英） | 图片数量 | 交互机制 |
+|---|------------|------------|---------|--------|
+| 01 | 天光与海色 | Sky & Sea | 7 | GSAP Pin + Scrub |
+| 02 | 深入水下 | Ocean & Diving | 9 | GSAP Pin + Scrub |
+| 03 | 别墅与居停 | Villa & Stay | 10 | GSAP Pin + Scrub |
+| 04 | 建筑传奇 | Architecture | 6 | GSAP Pin + Scrub |
+| 05 | 设施与体验 | Amenities | 8 | GSAP Pin + Scrub |
+| 06 | 一餐一景 | Dining & Views | 7 | GSAP Pin + Scrub |
 
 ---
 
@@ -284,41 +269,76 @@ Hero 全宽图（第一眼：这片海）
 
 ### 10.1 目录结构
 
-```
+```text
 app/[locale]/gallery/
-  page.tsx                 ← Server Component，定义图片数据，渲染所有区块
+  page.tsx                 ← Server Component，获取所有翻译数据并渲染以下区块
 components/gallery/
-  GalleryHero.tsx          ← Server Component，全宽视觉入口
-  GalleryTheme.tsx         ← Client Component，横向幻灯片区块
-  GalleryVideo.tsx         ← Server Component，视频区块（含占位态）
-  GalleryCTA.tsx           ← Server Component，底部行动出口
+  GalleryPageHeader.tsx    ← Server Component，留白式全宽视觉入口
+  GalleryGSAPShowcase.tsx  ← Client Component，核心 GSAP 视差组件，循环渲染所有 Chapter
+  GalleryVideo.tsx         ← Server Component，视频区块（目前处于全幅图像占位态）
+  GalleryCTA.tsx           ← Client Component，带 Framer Motion 动效的底部行动出口
 ```
 
-### 10.2 数据类型与状态管理
+### 10.2 数据来源
 
-所有数据应静态配置，组件负责状态切换与过度动效。
-MDX解析环境需避免直接在文本中使用未包裹代码块的 JSX 组件标签。因此组件统一标记在反引号内，避免 Next.js 构建时报错 `Expected component XXX to be defined`。# 图片与视频策划 — Photos & Videos Gallery
+```json
+// messages/en.json -> "Gallery" 节点示例
+{
+  "Gallery": {
+    "Hero": {
+      "line1": "Half Sanctuary, Half Ocean",
+      "line2": "MEILI RESORT HOTEL · SEMPORNA · 4°N · CORAL TRIANGLE"
+    },
+    "Themes": [
+      {
+        "id": "01",
+        "title": "Sky & Sea",
+        "subtitle": "SKY & SEA",
+        "images": [
+          {
+            "src": "/Photos on OTA/...",
+            "title": "Crystal Waters at 4°N",
+            "desc": "The crystal clear glass sea reflects..."
+          }
+          // ...
+        ]
+      }
+      // ... 02 ~ 06
+    ]
+  }
+}
+```
+
+所有的内容（标题、每张图的 src 与图注）都在各语言的 JSON 文件中集中管理。`page.tsx` 通过 `next-intl/server` 的 `t.raw('Themes')` 将整个数组提取出来，然后以 Props 形式传递给 `GalleryGSAPShowcase` 大组件。
+
+### 10.3 注意事项与构建
+
+- 由于使用了 GSAP `useGSAP` hook 和 `ScrollTrigger`，所以 `GalleryGSAPShowcase.tsx` 必须首行注有 `'use client'` 并在内部执行组件卸载的生命周期管理。
+- 视频区块由于素材原因，先用带层叠（Overlay、Gradient）处理的高清图片占位。
+- CTA 使用 Framer Motion 实现视野交叉（`whileInView`）时由下至上 FadeUp。
+- **任何尾部修复** 需要确保 `pnpm tsc --noEmit` 以及 Linter 对代码和属性无抗议，`globals.css` 中的自定义变量（例如 `--color-gold-warm` 等）严禁自由发挥，统一依照 Tailwind 规则应用。# 图片与视频策划 — Photos & Videos Gallery
 
 > 路由：`/gallery`
-> 参考范本：四季波拉波拉酒店（https://www.fourseasons.com/zh/borabora/photos-and-videos/）
+> 参考范本：signalsfs.com (Cinematic Plunge 视差滚动沉浸式画廊)
 > 叙事目的：让访客随着页面向下滚动，完成一次「想象中的抵达」——从第一眼看见这片海，到走进别墅，到沉入珊瑚世界，到举杯落日。图像主导，文字只做情绪锚点。
-> 核心原则：**线性叙事滚动，而非 Tab 筛选过滤**。页面是一条叙事河流，每个主题区块是旅程中的一个驿站，访客无需操作，只需向下感受。
+> 核心原则：**视差纵向线性滚动，而非 Tab 筛选过滤或横向滑动**。页面是一条叙事河流，每个主题区块是旅程中的一个驿站，访客无需操作，只需向下感受。
 
 ---
 
-## 一、设计理念：参考四季波拉波拉的「主题横向沉浸」模式
+## 一、设计理念：Cinematic Plunge Gallery 视差沉浸联动滚动
 
-四季波拉波拉图片页面之所以简洁大方，在于它遵循了三条铁律：
+为打造最具视觉冲击力的「沉浸感」，摒弃了传统的点击 Tab 和横向 Carousel 幻灯片，而是采用基于 GSAP + ScrollTrigger 的联动视差滚动（Pin & Reveal）：
 
-**① 主题分区，线性滚动，无需筛选操作**
-页面由「酒店概览 → 服务设施 → 别墅套房 → 餐饮美食」四个主题区块自上而下排列。访客无需点击 Tab、筛选分类，只需向下滚动即可依次感受每一个价值维度。每个主题是叙事旅程中的一个停留节点。
+**① 主题分区，强绑定线性阅读，无需筛选操作**
+页面由六个主题自上而下排列。在桌面端向下滚动时，屏幕自动进入「锁定 (Pin)」状态，强制用户沉浸在这个主题的叙事空间中。
 
-**② 每个主题区块 = 一组横向幻灯片（Carousel）**
-每个主题配独立横向图片轮播，每次展示 1 张，左右箭头翻页，图片下方配一句极简标题文字。访客始终感受到「画面扑面而来」，而不是面对密密麻麻的图片墙。
+**② 左侧文案锁定，右侧图像由下而上揭开 (Clip-path Reveal)**
+不再使用横滑。在同一主题内：
+- 屏幕左侧固定显示当前主题名称与单张图片的说明文案（随滚动逐字浮现、淡入淡出更替）。
+- 屏幕右侧为一整面图片堆叠区。随着鼠标滚轮向下，图片像画卷一样从下至上利用 `clip-path: inset(100% 0% 0% 0%)` 被一点点「揭开」，覆盖上一幅画面。
+- 保证访客始终感受到「全新画面如潮水般扑面而来」，每一张大图均满屏呈现。
 
-**③ 文字极度克制，只做情绪锚点**
-每个主题区块只需：一行主题标题（中/英）+ 每张图一句说明文字（不超过10字）。无介绍段落，无参数列表，图像自己说话。
-
-**美丽度假酒店的差异化应用**：四季波拉波拉用4个主题，美丽度假酒店差异化卖点更丰富（珊瑚金三角、BELIAN铁木、吉尼斯纪录、星空、海狼风暴……），因此规划 6 个主题区块。每个区块保持「一组横向幻灯片 + 极简文字」的一致结构，不因主题增多而增加复杂度。
+**③ 移动端优雅降级 (Stack & Scroll)**
+在手机等窄屏设备上取消锁定效果，降级为常规的全屏图片依次堆叠显示，配合文字浮现淡入动效，保证小屏操作顺滑自然。
 
 ---
