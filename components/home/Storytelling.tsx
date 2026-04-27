@@ -75,52 +75,44 @@ export function Storytelling() {
         </motion.div>
       </div>
 
-      {/* 博客列表：固定全宽，去除随滚动宽度变化的动画 */}
+      {/* 博客列表：统一左图右文，60/40 比例（不对半开） */}
       <div className="w-full">
-        {posts.map((post, i) => {
-          const isEven = i % 2 === 0;
-          return (
-            <article
-              key={i}
-              className={`group flex cursor-pointer flex-col md:flex-row ${
-                isEven ? '' : 'md:flex-row-reverse'
-              } items-stretch`}
-            >
-              {/* 图片 */}
-              <div className="relative h-[60vw] w-full shrink-0 overflow-hidden md:h-[70vh] md:w-[55%]">
-                <Image
-                  src={POST_IMAGES[i]}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                  sizes="55vw"
-                />
-              </div>
+        {posts.map((post, i) => (
+          <article
+            key={i}
+            className="group flex cursor-pointer flex-col items-stretch md:flex-row"
+          >
+            {/* 图片：固定左侧，60% 宽 */}
+            <div className="relative h-[62vw] w-full shrink-0 overflow-hidden md:h-[72vh] md:w-[60%]">
+              <Image
+                src={POST_IMAGES[i]}
+                alt={post.title}
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                sizes="(min-width: 768px) 60vw, 100vw"
+              />
+            </div>
 
-              {/* 文字面板 */}
-              <div
-                className={`flex flex-1 items-center bg-cream ${
-                  isEven ? 'justify-start' : 'justify-end'
-                }`}
-              >
-                <div className="max-w-md px-10 py-16 md:px-16 md:py-0">
-                  <p className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.3em] text-warm-text">
-                    {post.tag}&nbsp;&nbsp;&#47;&nbsp;&nbsp;{post.date}
-                  </p>
-                  <h3 className="mb-8 font-serif text-2xl leading-tight text-section-text md:text-3xl">
-                    {post.title}
-                  </h3>
-                  <span className="inline-flex items-center gap-3 border-b border-section-text/30 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-section-text transition-colors duration-500 group-hover:border-section-text">
-                    {t('btn')}
-                    <span className="text-gold-warm transition-transform duration-500 group-hover:translate-x-1">
-                      →
-                    </span>
+            {/* 文字面板：右侧 40%，editorial 内边距 */}
+            <div className="flex flex-1 items-center bg-cream md:w-[40%]">
+              <div className="w-full max-w-lg px-8 py-14 sm:px-10 md:px-14 md:py-0 lg:px-20">
+                <p className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.3em] text-warm-text">
+                  {post.tag}&nbsp;&nbsp;&#47;&nbsp;&nbsp;{post.date}
+                </p>
+                <h3 className="mb-6 font-serif text-2xl leading-[1.25] text-section-text md:text-[1.75rem] lg:text-3xl">
+                  {post.title}
+                </h3>
+                <div className="mb-8 h-px w-10 bg-gold-warm" />
+                <span className="inline-flex items-center gap-3 border-b border-section-text/30 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.3em] text-section-text transition-colors duration-500 group-hover:border-section-text">
+                  {t('btn')}
+                  <span className="text-gold-warm transition-transform duration-500 group-hover:translate-x-1">
+                    →
                   </span>
-                </div>
+                </span>
               </div>
-            </article>
-          );
-        })}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
