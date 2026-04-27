@@ -1,8 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useRef, useState, useEffect } from 'react';
-import { motion, useInView, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { MapPin, Waves, Star, Compass } from 'lucide-react';
 import Link from 'next/link';
 
@@ -22,30 +22,7 @@ const fadeUp = {
 export function HotelIntro() {
   const t = useTranslations('HotelIntro');
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [isObscured, setIsObscured] = useState(false);
-  // 仅在桌面端 (md+) 执行滚动上移效果，对齐 HeroDesktop 行为
-  const [isMd, setIsMd] = useState<boolean>(() =>
-    typeof window !== 'undefined' ? window.matchMedia('(min-width: 768px)').matches : false
-  );
-  // useInView 替代 IntersectionObserver + .reveal CSS class
   const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -40px 0px', amount: 0.08 });
-
-  const { scrollY } = useScroll();
-  const contentYOffset = useTransform(scrollY, [0, 100], [0, -80]);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
-    const handler = (e: MediaQueryListEvent) => setIsMd(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
-
-  // 监听滚动，一旦向下滚动被鳟盖仓就永久隐藏显示器
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (latest > 120 && !isObscured) {
-      setIsObscured(true);
-    }
-  });
 
   const highlights = [
     { icon: MapPin, value: t('highlight1Value'), label: t('highlight1Label') },
@@ -58,90 +35,57 @@ export function HotelIntro() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative z-10 w-full overflow-hidden bg-transparent"
+      className="relative z-10 w-full overflow-hidden bg-about-bg"
     >
-      {/* Scroll Indicator Box — Hero 收缩后露出的顶郥 80px，仅在桌面端显示 */}
-      {!isObscured && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3.5, duration: 0.8, ease: 'easeOut' }}
-          className="absolute top-0 left-0 z-0 hidden h-20 w-full flex-col items-center justify-center md:flex bg-about-bg"
-        >
-          <span className="font-sans text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-warm-text">
-            {t('scrollDown')}
-          </span>
-        </motion.div>
-      )}
-
-      {/* Main Content 区域——桌面端滚动时向上滑动 80px 以鳟盖显示器 */}
-      <motion.div
-        style={{
-          y: isMd ? (isObscured ? -80 : contentYOffset) : 0,
-        }}
-        className="relative z-20 w-full md:mt-20 bg-about-bg"
-      >
-        <div className="py-20 sm:py-28 md:py-36 lg:py-44">
-        <div className="max-w-275 mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
-
-          {/* Section label */}
+      <div className="py-24 md:py-32 lg:py-40">
+        <div className="mx-auto max-w-275 px-5 sm:px-8 md:px-12 lg:px-16">
+          {/* Section header — 统一刊头模板 */}
           <motion.div
             custom={0}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center"
+            className="mb-6 flex items-center justify-center gap-3 sm:mb-8 sm:gap-4"
           >
-            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-gold-warm">01</span>
-            <div className="w-8 sm:w-12 h-px bg-gold-warm" />
-            <span className="font-sans text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-warm-text">
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-gold-warm">
+              01
+            </span>
+            <div className="h-px w-8 bg-gold-warm sm:w-12" />
+            <span className="font-sans text-[0.6rem] uppercase tracking-[0.25em] text-warm-text sm:text-[0.65rem] sm:tracking-[0.3em]">
               {t('sectionLabel')}
             </span>
           </motion.div>
 
-          {/* Quote */}
+          {/* Main heading — 单色 section-text，去除 #0086cd 蓝 */}
           <motion.div
             custom={0.1}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="text-center mb-10 sm:mb-14 md:mb-16"
+            className="mb-8 text-center sm:mb-10"
           >
-            <p className="font-text italic text-section-text/60 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              &ldquo;{t('quote')}&rdquo;
-            </p>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.div
-            custom={0.15}
-            variants={fadeUp}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            className="text-center mb-8 sm:mb-10 md:mb-12"
-          >
-            <h2 className="font-serif text-section-text leading-[1.15]">
+            <h2 className="font-serif leading-[1.15] text-section-text">
               <span className="block" style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}>
                 {t('headingLine1')}
               </span>
               <span
-                className="block mt-1 sm:mt-2"
-                style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)', color: '#0086cd' }}
+                className="mt-1 block sm:mt-2"
+                style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}
               >
                 {t('headingLine2')}
               </span>
             </h2>
           </motion.div>
 
-          {/* Decorative line */}
+          {/* Decorative gold line */}
           <motion.div
             custom={0.2}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="flex justify-center mb-8 sm:mb-10 md:mb-12"
+            className="mb-10 flex justify-center sm:mb-14"
           >
-            <div className="w-12 sm:w-16 h-px bg-gold-warm" />
+            <div className="h-px w-12 bg-gold-warm sm:w-16" />
           </motion.div>
 
           {/* Body text */}
@@ -150,61 +94,62 @@ export function HotelIntro() {
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="text-center max-w-170 mx-auto space-y-4 sm:space-y-5 mb-12 sm:mb-16 md:mb-20"
+            className="mx-auto mb-14 max-w-170 space-y-4 text-center sm:mb-20 sm:space-y-5"
           >
-            <p className="font-sans text-[0.875rem] sm:text-[0.9375rem] leading-[1.85] sm:leading-[1.95] text-[#5a5347] font-light">
+            <p className="font-sans text-[0.875rem] font-light leading-[1.85] text-[#5a5347] sm:text-[0.9375rem] sm:leading-[1.95]">
               {t('body1')}
             </p>
-            <p className="font-sans text-[0.875rem] sm:text-[0.9375rem] leading-[1.85] sm:leading-[1.95] text-[#5a5347] font-light">
+            <p className="font-sans text-[0.875rem] font-light leading-[1.85] text-[#5a5347] sm:text-[0.9375rem] sm:leading-[1.95]">
               {t('body2')}
             </p>
           </motion.div>
 
-          {/* Highlights grid */}
+          {/* Highlights grid — icon 颜色改为 primary，去除蓝色圆底 */}
           <motion.div
             custom={0.35}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-200 mx-auto"
+            className="mx-auto grid max-w-200 grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 md:gap-8"
           >
             {highlights.map((h) => (
               <div key={h.label} className="flex flex-col items-center text-center">
-                <div
-                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center mb-3"
-                  style={{ backgroundColor: 'rgba(0,51,101,0.06)' }}
-                >
-                  <h.icon size={16} style={{ color: '#0086cd' }} strokeWidth={1.5} />
-                </div>
-                <span className="block font-serif text-lg sm:text-xl text-section-text leading-none mb-1">
+                <h.icon
+                  size={20}
+                  className="mb-4 text-primary"
+                  strokeWidth={1.25}
+                  aria-hidden="true"
+                />
+                <span className="mb-1 block font-serif text-lg leading-none text-section-text sm:text-xl">
                   {h.value}
                 </span>
-                <span className="block font-sans text-[0.625rem] sm:text-[0.7rem] text-warm-text tracking-wide leading-snug">
+                <span className="block font-sans text-[0.625rem] leading-snug tracking-wide text-warm-text sm:text-[0.7rem]">
                   {h.label}
                 </span>
               </div>
             ))}
           </motion.div>
 
-          {/* CTA */}
+          {/* CTA — 统一次级 CTA 样式，去除 #0086cd 蓝箭头 */}
           <motion.div
             custom={0.45}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="mt-12 sm:mt-16 text-center"
+            className="mt-16 text-center sm:mt-20"
           >
             <Link
               href="/villas"
-              className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-section-text border-b border-section-text/30 pb-1 hover:border-section-text transition-colors duration-500"
+              className="group inline-flex items-center gap-3 border-b border-section-text/30 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.25em] text-section-text transition-colors duration-500 hover:border-section-text"
             >
               {t('cta')}
-              <span className="text-[#0086cd]">→</span>
+              <span className="text-gold-warm transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
             </Link>
           </motion.div>
         </div>
       </div>
-      </motion.div>
     </section>
   );
 }
