@@ -1,10 +1,12 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const ROOMS = [
   {
@@ -46,25 +48,40 @@ export function VillasAndSuites() {
   const t = useTranslations('Villas');
   const roomItems = t.raw('items') as Array<{ title: string; desc: string }>;
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, {
-    once: true,
-    margin: '0px 0px -40px 0px',
-    amount: 0.05,
+  const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -40px 0px', amount: 0.05 });
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'center',
+    skipSnaps: false,
+    dragFree: false,
   });
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const total = ROOMS.length;
-  const prev = () => setActiveIndex((i) => (i - 1 + total) % total);
-  const next = () => setActiveIndex((i) => (i + 1) % total);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const activeRoom = roomItems[activeIndex];
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
+
+  const activeRoom = roomItems[selectedIndex];
 
   return (
     <section
       ref={sectionRef}
       className="w-full overflow-hidden bg-cream py-24 md:py-32 lg:py-40"
     >
-      {/* Section header — 与 HotelIntro / Storytelling 完全统一 */}
+      {/* Section header — 与 HotelIntro / Storytelling 统一：英文小词 + serif 主标题，无编号、无短线 */}
       <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
         <motion.p
           custom={0}
@@ -92,80 +109,99 @@ export function VillasAndSuites() {
         </motion.div>
       </div>
 
-      {/* Carousel：3 张可见，中间放大、两侧缩小 */}
-      <motion.div
-        custom={0.2}
-        variants={fadeUp}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-        className="relative w-full"
-      >
-        <div className="relative mx-auto flex h-[60vh] max-w-7xl items-center justify-center px-6 sm:h-[68vh] sm:px-10 lg:px-16">
-          {ROOMS.map((room, i) => {
-            const offset = (i - activeIndex + total) % total;
-            const pos = offset > total / 2 ? offset - total : offset;
-            const isCenter = pos === 0;
-            const isVisible = Math.abs(pos) <= 1;
-
-            return (
-              <motion.div
-                key={room.id}
-                onClick={() => setActiveIndex(i)}
-                animate={{
-                  x: `${pos * 60}%`,
-                  scale: isCenter ? 1 : 0.85,
-                  opacity: isVisible ? (isCenter ? 1 : 0.5) : 0,
-                  zIndex: isCenter ? 10 : 1,
-                }}
-                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className={`absolute aspect-[4/5] h-full max-h-full w-[60%] overflow-hidden sm:w-[55%] md:w-[48%] lg:w-[42%] ${
-                  isCenter ? '' : 'cursor-pointer'
-                }`}
-                style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
-              >
-                <Image
-                  src={room.image}
-                  alt={roomItems[i]?.title ?? room.id}
-                  fill
-                  sizes="(max-width: 768px) 60vw, 42vw"
-                  className="object-cover"
-                  priority={i === 0}
-                />
-              </motion.div>
-            );
-          })}
+      {/* Carousel — 去除白底卡片、去除双按钮、卡片采用透明度变化而非缩放抢戏 */}
+      <div className="relative mx-auto w-full max-w-480">
+        <div className="overflow-visible" ref={emblaRef}>
+          <div className="flex w-full touch-pan-y items-stretch">
+            {ROOMS.map((room, index) => {
+              const isActive = index === selectedIndex;
+              const roomItem = roomItems[index];
+              return (
+                <div
+                  key={room.id}
+                  className="relative flex-[0_0_78%] px-2 sm:flex-[0_0_60%] sm:px-4 md:flex-[0_0_55%] lg:flex-[0_0_42%] xl:flex-[0_0_38%]"
+                  style={{ zIndex: isActive ? 10 : 1 }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => !isActive && emblaApi?.scrollTo(index)}
+                    aria-label={roomItem?.title ?? room.id}
+                    style={{
+                      transition: 'opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
+                      cursor: isActive ? 'default' : 'pointer',
+                    }}
+                    className={`flex w-full flex-col text-left ${
+                      isActive ? 'opacity-100' : 'sm:opacity-40'
+                    }`}
+                  >
+                    <div className="relative aspect-[4/5] w-full overflow-hidden">
+                      <Image
+                        src={room.image}
+                        alt={roomItem?.title ?? room.id}
+                        fill
+                        sizes="(max-width: 768px) 80vw, (max-width: 1200px) 55vw, 38vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
-        {/* 圆点 indicator */}
-        <div className="mt-10 flex items-center justify-center gap-3 sm:mt-14">
-          {ROOMS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIndex(i)}
-              aria-label={`第 ${i + 1} 间房型`}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                i === activeIndex ? 'w-8 bg-section-text' : 'w-1.5 bg-section-text/30'
-              }`}
-            />
-          ))}
+        {/* Desktop nav buttons */}
+        <div className="absolute left-4 top-1/2 z-20 hidden -translate-y-1/2 md:flex">
+          <button
+            onClick={scrollPrev}
+            aria-label="Previous"
+            className="rounded-full bg-white/80 p-3 text-section-text shadow-md backdrop-blur-md transition-all hover:bg-white focus:outline-none"
+          >
+            <ChevronLeft className="h-6 w-6" strokeWidth={1.5} />
+          </button>
         </div>
-      </motion.div>
+        <div className="absolute right-4 top-1/2 z-20 hidden -translate-y-1/2 md:flex">
+          <button
+            onClick={scrollNext}
+            aria-label="Next"
+            className="rounded-full bg-white/80 p-3 text-section-text shadow-md backdrop-blur-md transition-all hover:bg-white focus:outline-none"
+          >
+            <ChevronRight className="h-6 w-6" strokeWidth={1.5} />
+          </button>
+        </div>
+      </div>
 
-      {/* 当前房型 editorial 文字（在 carousel 下方，居中、限制宽度） */}
-      <div className="mx-auto mt-14 max-w-2xl px-6 text-center sm:mt-20 sm:px-10">
+      {/* 当前房型信息：标题 + 简介在图片下方编辑式呈现 */}
+      <div className="mx-auto mt-10 w-full max-w-170 px-5 text-center sm:mt-12 sm:px-8">
         <motion.div
-          key={activeIndex}
+          key={selectedIndex}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <h3 className="font-serif text-xl font-light leading-snug text-section-text sm:text-2xl">
+          <h3 className="font-serif text-xl text-section-text sm:text-2xl">
             {activeRoom?.title}
           </h3>
-          <p className="mx-auto mt-6 max-w-xl font-sans text-[0.9375rem] font-light leading-[2] text-[#5a5347]">
+          <p className="mx-auto mt-4 max-w-md font-sans text-[0.875rem] font-light leading-[1.85] text-[#5a5347]">
             {activeRoom?.desc}
           </p>
         </motion.div>
+      </div>
+
+      {/* Dot indicator */}
+      <div className="mt-8 flex items-center justify-center gap-2 sm:mt-10">
+        {ROOMS.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => emblaApi?.scrollTo(index)}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              index === selectedIndex
+                ? 'w-8 bg-section-text'
+                : 'w-2 bg-section-text/20 hover:bg-section-text/40'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* 单一次级 CTA — 纯文字 + 箭头，无下划线 */}
@@ -180,22 +216,6 @@ export function VillasAndSuites() {
           </span>
         </Link>
       </div>
-
-      {/* 左右切换按钮 — 桌面端浮动在两侧 */}
-      <button
-        onClick={prev}
-        aria-label="上一间"
-        className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-section-text/40 transition-colors duration-500 hover:text-section-text lg:block"
-      >
-        <span className="font-sans text-3xl">&#8592;</span>
-      </button>
-      <button
-        onClick={next}
-        aria-label="下一间"
-        className="absolute right-4 top-1/2 hidden -translate-y-1/2 text-section-text/40 transition-colors duration-500 hover:text-section-text lg:block"
-      >
-        <span className="font-sans text-3xl">&#8594;</span>
-      </button>
     </section>
   );
 }

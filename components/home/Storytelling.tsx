@@ -10,39 +10,28 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.8,
-      delay,
-      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-    },
+    transition: { duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
   }),
 };
 
 const POST_IMAGES = [
-  'https://picsum.photos/seed/post-story1/1200/1400',
-  'https://picsum.photos/seed/post-story2/1200/1400',
-  'https://picsum.photos/seed/post-story3/1200/1400',
+  'https://picsum.photos/seed/post-story1/1200/900',
+  'https://picsum.photos/seed/post-story2/1200/900',
+  'https://picsum.photos/seed/post-story3/1200/900',
 ];
 
 export function Storytelling() {
   const t = useTranslations('Story');
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, {
-    once: true,
-    margin: '0px 0px -20px 0px',
-    amount: 0.02,
-  });
+  const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -20px 0px', amount: 0.02 });
 
-  // 首页只展示精选 3 篇
+  // 首页只展示精选 3 篇，其余移交 /journal
   const allPosts = t.raw('posts') as Array<{ tag: string; title: string; date: string }>;
   const posts = allPosts.slice(0, 3);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full bg-cream py-24 md:py-32 lg:py-40"
-    >
-      {/* Section header — 与 HotelIntro / VillasAndSuites 完全统一 */}
+    <section ref={sectionRef} className="relative w-full bg-cream py-24 md:py-32 lg:py-40">
+      {/* ── Section header — 与 HotelIntro / VillasAndSuites 完全统一：英文小词 + serif 主标题 ── */}
       <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
         <motion.p
           custom={0}
@@ -70,7 +59,7 @@ export function Storytelling() {
         </motion.div>
       </div>
 
-      {/* 博客列表：统一左图右文，60/40 比例 */}
+      {/* 博客列表：统一左图右文，60/40 比例（不对半开） */}
       <div className="w-full">
         {posts.map((post, i) => (
           <article
