@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 const ROOMS = [
   {
@@ -52,16 +52,19 @@ export function VillasAndSuites() {
     amount: 0.05,
   });
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const activeRoom = roomItems[selectedIndex];
-  const activeImage = ROOMS[selectedIndex];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const total = ROOMS.length;
+  const prev = () => setActiveIndex((i) => (i - 1 + total) % total);
+  const next = () => setActiveIndex((i) => (i + 1) % total);
+
+  const activeRoom = roomItems[activeIndex];
 
   return (
     <section
       ref={sectionRef}
       className="w-full overflow-hidden bg-cream py-24 md:py-32 lg:py-40"
     >
-      {/* Section header */}
+      {/* Section header — 与 HotelIntro / Storytelling 完全统一 */}
       <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
         <motion.p
           custom={0}
@@ -89,105 +92,110 @@ export function VillasAndSuites() {
         </motion.div>
       </div>
 
-      {/* 主体：左 65% 固定大图 + 右 35% 房型列表 + 简介 + CTA */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-        <motion.div
-          custom={0.2}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="flex flex-col gap-10 lg:flex-row lg:items-stretch lg:gap-16"
-        >
-          {/* 左侧大图：固定，切换房型时图片淡入淡出 */}
-          <div className="relative w-full overflow-hidden lg:w-[65%]">
-            <div className="relative aspect-[4/5] w-full sm:aspect-[5/6] lg:aspect-auto lg:h-[78vh] lg:min-h-[600px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeImage.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.7, ease: 'easeOut' }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={activeImage.image}
-                    alt={activeRoom?.title ?? activeImage.id}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 65vw"
-                    className="object-cover"
-                    priority={selectedIndex === 0}
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
+      {/* Carousel：3 张可见，中间放大、两侧缩小 */}
+      <motion.div
+        custom={0.2}
+        variants={fadeUp}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        className="relative w-full"
+      >
+        <div className="relative mx-auto flex h-[60vh] max-w-7xl items-center justify-center px-6 sm:h-[68vh] sm:px-10 lg:px-16">
+          {ROOMS.map((room, i) => {
+            const offset = (i - activeIndex + total) % total;
+            const pos = offset > total / 2 ? offset - total : offset;
+            const isCenter = pos === 0;
+            const isVisible = Math.abs(pos) <= 1;
 
-          {/* 右侧：房型列表 + 当前简介 + CTA — 完全可见，与图同框 */}
-          <div className="flex w-full flex-col justify-between lg:w-[35%]">
-            {/* 房型索引列表 */}
-            <ul className="flex flex-col">
-              {roomItems.map((item, index) => {
-                const isActive = index === selectedIndex;
-                return (
-                  <li key={index}>
-                    <button
-                      type="button"
-                      onClick={() => setSelectedIndex(index)}
-                      onMouseEnter={() => setSelectedIndex(index)}
-                      className="group flex w-full items-baseline gap-4 py-4 text-left transition-colors duration-500"
-                    >
-                      <span
-                        className={`shrink-0 font-sans text-[0.65rem] uppercase tracking-[0.35em] transition-colors duration-500 ${
-                          isActive ? 'text-gold-warm' : 'text-warm-text/50'
-                        }`}
-                      >
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <span
-                        className={`font-serif text-base leading-snug transition-colors duration-500 sm:text-lg ${
-                          isActive
-                            ? 'text-section-text'
-                            : 'text-section-text/45 group-hover:text-section-text/75'
-                        }`}
-                      >
-                        {item.title}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-
-            {/* 当前房型描述 + CTA */}
-            <div className="mt-10 lg:mt-0">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedIndex}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.45, ease: 'easeOut' }}
-                >
-                  <p className="font-sans text-[0.9375rem] font-light leading-[2] text-[#5a5347]">
-                    {activeRoom?.desc}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-
-              <Link
-                href="/villas"
-                className="group mt-10 inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.35em] text-section-text"
+            return (
+              <motion.div
+                key={room.id}
+                onClick={() => setActiveIndex(i)}
+                animate={{
+                  x: `${pos * 60}%`,
+                  scale: isCenter ? 1 : 0.85,
+                  opacity: isVisible ? (isCenter ? 1 : 0.5) : 0,
+                  zIndex: isCenter ? 10 : 1,
+                }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className={`absolute aspect-[4/5] h-full max-h-full w-[60%] overflow-hidden sm:w-[55%] md:w-[48%] lg:w-[42%] ${
+                  isCenter ? '' : 'cursor-pointer'
+                }`}
+                style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
               >
-                {t('viewAll')}
-                <span className="text-gold-warm transition-transform duration-700 ease-out group-hover:translate-x-2">
-                  &#8594;
-                </span>
-              </Link>
-            </div>
-          </div>
+                <Image
+                  src={room.image}
+                  alt={roomItems[i]?.title ?? room.id}
+                  fill
+                  sizes="(max-width: 768px) 60vw, 42vw"
+                  className="object-cover"
+                  priority={i === 0}
+                />
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* 圆点 indicator */}
+        <div className="mt-10 flex items-center justify-center gap-3 sm:mt-14">
+          {ROOMS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              aria-label={`第 ${i + 1} 间房型`}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                i === activeIndex ? 'w-8 bg-section-text' : 'w-1.5 bg-section-text/30'
+              }`}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      {/* 当前房型 editorial 文字（在 carousel 下方，居中、限制宽度） */}
+      <div className="mx-auto mt-14 max-w-2xl px-6 text-center sm:mt-20 sm:px-10">
+        <motion.div
+          key={activeIndex}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
+          <h3 className="font-serif text-xl font-light leading-snug text-section-text sm:text-2xl">
+            {activeRoom?.title}
+          </h3>
+          <p className="mx-auto mt-6 max-w-xl font-sans text-[0.9375rem] font-light leading-[2] text-[#5a5347]">
+            {activeRoom?.desc}
+          </p>
         </motion.div>
       </div>
+
+      {/* 单一次级 CTA — 纯文字 + 箭头，无下划线 */}
+      <div className="mt-14 flex justify-center sm:mt-20">
+        <Link
+          href="/villas"
+          className="group inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.35em] text-section-text"
+        >
+          {t('viewAll')}
+          <span className="text-gold-warm transition-transform duration-700 ease-out group-hover:translate-x-2">
+            &#8594;
+          </span>
+        </Link>
+      </div>
+
+      {/* 左右切换按钮 — 桌面端浮动在两侧 */}
+      <button
+        onClick={prev}
+        aria-label="上一间"
+        className="absolute left-4 top-1/2 hidden -translate-y-1/2 text-section-text/40 transition-colors duration-500 hover:text-section-text lg:block"
+      >
+        <span className="font-sans text-3xl">&#8592;</span>
+      </button>
+      <button
+        onClick={next}
+        aria-label="下一间"
+        className="absolute right-4 top-1/2 hidden -translate-y-1/2 text-section-text/40 transition-colors duration-500 hover:text-section-text lg:block"
+      >
+        <span className="font-sans text-3xl">&#8594;</span>
+      </button>
     </section>
   );
 }
