@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion, useInView } from 'framer-motion';
@@ -48,7 +47,11 @@ export function VillasAndSuites() {
   const t = useTranslations('Villas');
   const roomItems = t.raw('items') as Array<{ title: string; desc: string }>;
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -40px 0px', amount: 0.05 });
+  const isInView = useInView(sectionRef, {
+    once: true,
+    margin: '0px 0px -40px 0px',
+    amount: 0.05,
+  });
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -74,76 +77,99 @@ export function VillasAndSuites() {
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
 
-  const activeRoom = roomItems[selectedIndex];
-
   return (
     <section
       ref={sectionRef}
-      className="w-full overflow-hidden bg-cream py-24 md:py-32 lg:py-40"
+      className="w-full overflow-hidden bg-cream py-20 md:py-32"
     >
-      {/* Section header — 与 HotelIntro / Storytelling 统一：英文小词 + serif 主标题，无编号、无短线 */}
-      <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+      {/* Section header */}
+      <div className="mx-auto mb-12 max-w-3xl px-5 text-center sm:mb-16 sm:px-8">
         <motion.p
           custom={0}
           variants={fadeUp}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="mb-10 font-sans text-[0.65rem] uppercase tracking-[0.45em] text-warm-text sm:mb-14"
+          className="mb-4 font-sans text-[0.7rem] uppercase tracking-[0.3em] text-warm-text sm:text-xs"
         >
-          Suites
+          {t('subtitle')}
         </motion.p>
 
-        <motion.div
-          custom={0.12}
+        <motion.h2
+          custom={0.1}
           variants={fadeUp}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="mb-16 sm:mb-24"
+          className="mb-6 font-serif text-3xl leading-tight text-section-text sm:text-4xl md:text-5xl"
         >
-          <h2
-            className="font-serif font-light leading-[1.15] tracking-tight text-section-text"
-            style={{ fontSize: 'clamp(1.875rem, 4.5vw, 3.5rem)' }}
-          >
-            {t('title')}
-          </h2>
-        </motion.div>
+          {t('title')}
+        </motion.h2>
+
+        <motion.p
+          custom={0.2}
+          variants={fadeUp}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          className="mx-auto max-w-2xl font-sans text-sm font-light leading-[1.9] text-warm-text sm:text-base"
+        >
+          {t('desc')}
+        </motion.p>
       </div>
 
-      {/* Carousel — 去除白底卡片、去除双按钮、卡片采用透明度变化而非缩放抢戏 */}
-      <div className="relative mx-auto w-full max-w-480">
-        <div className="overflow-visible" ref={emblaRef}>
-          <div className="flex w-full touch-pan-y items-stretch">
+      {/* Carousel */}
+      <div className="relative mx-auto w-full">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex w-full touch-pan-y items-center">
             {ROOMS.map((room, index) => {
               const isActive = index === selectedIndex;
               const roomItem = roomItems[index];
               return (
                 <div
                   key={room.id}
-                  className="relative flex-[0_0_72%] px-2 sm:flex-[0_0_46%] sm:px-3 md:flex-[0_0_32%] md:px-3 lg:flex-[0_0_24%] xl:flex-[0_0_20%]"
-                  style={{ zIndex: isActive ? 10 : 1 }}
+                  className="relative flex-[0_0_85%] px-3 sm:flex-[0_0_60%] md:flex-[0_0_50%] lg:flex-[0_0_42%]"
+                  style={{
+                    transform: isActive ? 'scale(1)' : 'scale(0.88)',
+                    opacity: isActive ? 1 : 0.5,
+                    transition:
+                      'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
+                  }}
                 >
-                  <button
-                    type="button"
-                    onClick={() => !isActive && emblaApi?.scrollTo(index)}
-                    aria-label={roomItem?.title ?? room.id}
-                    style={{
-                      transition: 'opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1)',
-                      cursor: isActive ? 'default' : 'pointer',
-                    }}
-                    className={`flex w-full flex-col text-left ${
-                      isActive ? 'opacity-100' : 'sm:opacity-40'
-                    }`}
-                  >
+                  <div className="bg-white shadow-lg">
                     <div className="relative aspect-[4/5] w-full overflow-hidden">
                       <Image
                         src={room.image}
                         alt={roomItem?.title ?? room.id}
                         fill
-                        sizes="(max-width: 768px) 80vw, (max-width: 1200px) 55vw, 38vw"
+                        sizes="(max-width: 768px) 85vw, (max-width: 1200px) 50vw, 42vw"
                         className="object-cover"
                       />
                     </div>
-                  </button>
+                    <div className="px-6 py-7 sm:px-8 sm:py-9">
+                      <h3 className="mb-3 font-serif text-lg font-bold leading-snug text-section-text sm:text-xl">
+                        {roomItem?.title}
+                      </h3>
+                      <p className="mb-6 font-sans text-sm font-light leading-[1.85] text-warm-text">
+                        {roomItem?.desc}
+                      </p>
+                      <div className="flex flex-wrap items-center gap-4">
+                        <button
+                          type="button"
+                          className="bg-primary px-6 py-2.5 font-sans text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary/90"
+                        >
+                          {t('checkRates')}
+                        </button>
+                        <button
+                          type="button"
+                          className="group inline-flex items-center gap-1 font-sans text-xs uppercase tracking-[0.2em] text-section-text"
+                        >
+                          {t('details')}
+                          <ChevronRight
+                            className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                            strokeWidth={1.75}
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -151,70 +177,39 @@ export function VillasAndSuites() {
         </div>
 
         {/* Desktop nav buttons */}
-        <div className="absolute left-4 top-1/2 z-20 hidden -translate-y-1/2 md:flex">
-          <button
-            onClick={scrollPrev}
-            aria-label="Previous"
-            className="rounded-full bg-white/80 p-3 text-section-text shadow-md backdrop-blur-md transition-all hover:bg-white focus:outline-none"
-          >
-            <ChevronLeft className="h-6 w-6" strokeWidth={1.5} />
-          </button>
-        </div>
-        <div className="absolute right-4 top-1/2 z-20 hidden -translate-y-1/2 md:flex">
-          <button
-            onClick={scrollNext}
-            aria-label="Next"
-            className="rounded-full bg-white/80 p-3 text-section-text shadow-md backdrop-blur-md transition-all hover:bg-white focus:outline-none"
-          >
-            <ChevronRight className="h-6 w-6" strokeWidth={1.5} />
-          </button>
-        </div>
-      </div>
-
-      {/* 当前房型信息：标题 + 简介在图片下方编辑式呈现 */}
-      <div className="mx-auto mt-10 w-full max-w-170 px-5 text-center sm:mt-12 sm:px-8">
-        <motion.div
-          key={selectedIndex}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        <button
+          type="button"
+          onClick={scrollPrev}
+          aria-label="Previous"
+          className="absolute left-4 top-1/2 z-20 hidden -translate-y-1/2 rounded-full bg-white/80 p-3 text-section-text shadow-md backdrop-blur-md transition-all hover:bg-white focus:outline-none md:flex"
         >
-          <h3 className="font-serif text-xl text-section-text sm:text-2xl">
-            {activeRoom?.title}
-          </h3>
-          <p className="mx-auto mt-4 max-w-md font-sans text-[0.875rem] font-light leading-[1.85] text-[#5a5347]">
-            {activeRoom?.desc}
-          </p>
-        </motion.div>
+          <ChevronLeft className="h-6 w-6" strokeWidth={1.5} />
+        </button>
+        <button
+          type="button"
+          onClick={scrollNext}
+          aria-label="Next"
+          className="absolute right-4 top-1/2 z-20 hidden -translate-y-1/2 rounded-full bg-white/80 p-3 text-section-text shadow-md backdrop-blur-md transition-all hover:bg-white focus:outline-none md:flex"
+        >
+          <ChevronRight className="h-6 w-6" strokeWidth={1.5} />
+        </button>
       </div>
 
       {/* Dot indicator */}
-      <div className="mt-8 flex items-center justify-center gap-2 sm:mt-10">
+      <div className="mt-10 flex items-center justify-center gap-2">
         {ROOMS.map((_, index) => (
           <button
             key={index}
+            type="button"
             onClick={() => emblaApi?.scrollTo(index)}
+            aria-label={`Go to slide ${index + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === selectedIndex
-                ? 'w-8 bg-section-text'
+                ? 'w-8 bg-primary'
                 : 'w-2 bg-section-text/20 hover:bg-section-text/40'
             }`}
-            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* 单一次级 CTA — 纯文字 + 箭头，无下划线 */}
-      <div className="mt-14 flex justify-center sm:mt-20">
-        <Link
-          href="/villas"
-          className="group inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.35em] text-section-text"
-        >
-          {t('viewAll')}
-          <span className="text-gold-warm transition-transform duration-700 ease-out group-hover:translate-x-2">
-            &#8594;
-          </span>
-        </Link>
       </div>
     </section>
   );
