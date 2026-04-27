@@ -31,47 +31,31 @@ export function Storytelling() {
 
   return (
     <section ref={sectionRef} className="relative w-full bg-cream py-24 md:py-32 lg:py-40">
-      {/* ── Section header — 与 HotelIntro / VillasAndSuites 完全统一 ── */}
-      <div className="mx-auto max-w-275 px-5 sm:px-8 md:px-12 lg:px-16">
-        <motion.div
+      {/* ── Section header — 与 HotelIntro / VillasAndSuites 完全统一：英文小词 + serif 主标题 ── */}
+      <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+        <motion.p
           custom={0}
           variants={fadeUp}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="mb-6 flex items-center justify-center gap-3 sm:mb-8 sm:gap-4"
+          className="mb-10 font-sans text-[0.65rem] uppercase tracking-[0.45em] text-warm-text sm:mb-14"
         >
-          <span className="font-sans text-[0.6rem] uppercase tracking-[0.35em] text-gold-warm">
-            03
-          </span>
-          <div className="h-px w-8 bg-gold-warm sm:w-12" />
-          <span className="font-sans text-[0.6rem] uppercase tracking-[0.25em] text-warm-text sm:text-[0.65rem] sm:tracking-[0.3em]">
-            {t('subtitle')}
-          </span>
-        </motion.div>
+          Journal
+        </motion.p>
 
         <motion.div
-          custom={0.1}
+          custom={0.12}
           variants={fadeUp}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="mb-8 text-center sm:mb-10"
+          className="mb-16 sm:mb-24"
         >
           <h2
-            className="font-serif leading-[1.15] text-section-text"
-            style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}
+            className="font-serif font-light leading-[1.15] tracking-tight text-section-text"
+            style={{ fontSize: 'clamp(1.875rem, 4.5vw, 3.5rem)' }}
           >
             {t('title')}
           </h2>
-        </motion.div>
-
-        <motion.div
-          custom={0.2}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="mb-14 flex justify-center sm:mb-20"
-        >
-          <div className="h-px w-12 bg-gold-warm sm:w-16" />
         </motion.div>
       </div>
 
@@ -99,14 +83,13 @@ export function Storytelling() {
                 <p className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.3em] text-warm-text">
                   {post.tag}&nbsp;&nbsp;&#47;&nbsp;&nbsp;{post.date}
                 </p>
-                <h3 className="mb-6 font-serif text-2xl leading-[1.25] text-section-text md:text-[1.75rem] lg:text-3xl">
+                <h3 className="mb-10 font-serif text-2xl leading-[1.25] text-section-text md:text-[1.75rem] lg:text-3xl">
                   {post.title}
                 </h3>
-                <div className="mb-8 h-px w-10 bg-gold-warm" />
-                <span className="inline-flex items-center gap-3 border-b border-section-text/30 pb-1 font-sans text-[0.7rem] uppercase tracking-[0.3em] text-section-text transition-colors duration-500 group-hover:border-section-text">
+                <span className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.35em] text-section-text">
                   {t('btn')}
-                  <span className="text-gold-warm transition-transform duration-500 group-hover:translate-x-1">
-                    →
+                  <span className="text-gold-warm transition-transform duration-700 ease-out group-hover:translate-x-2">
+                    &#8594;
                   </span>
                 </span>
               </div>
