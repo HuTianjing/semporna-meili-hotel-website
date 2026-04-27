@@ -34,7 +34,7 @@ export function HotelIntro() {
       className="relative z-10 w-full overflow-hidden bg-about-bg"
     >
       <div className="py-32 md:py-40 lg:py-52">
-        <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
+        <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
           {/* Eyebrow — 仅一个英文小词，无编号、无短线、无装饰 */}
           <motion.p
             custom={0}
@@ -46,21 +46,32 @@ export function HotelIntro() {
             About
           </motion.p>
 
-          {/* Manifesto serif 主标题 — 一句话点题 */}
+          {/* Manifesto serif 主标题 — 双意境合并为单行展示 */}
           <motion.h2
             custom={0.12}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
-            className="font-serif font-light leading-[1.15] tracking-tight text-section-text"
+            className="font-serif font-light leading-[1.15] tracking-tight text-section-text text-balance"
             style={{ fontSize: 'clamp(1.875rem, 4.5vw, 3.5rem)' }}
           >
-            {t('headingLine1')}
+            {t('headingLine1')}，{t('headingLine2')}
           </motion.h2>
 
-          {/* body 段落 — 仅一段，宽度受限制造编辑式阅读节奏 */}
+          {/* 副引言 — 斜体 quote */}
           <motion.p
-            custom={0.24}
+            custom={0.22}
+            variants={fadeUp}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="mx-auto mt-8 max-w-md font-serif text-[1rem] italic leading-[1.8] text-warm-text sm:mt-10 sm:text-[1.0625rem]"
+          >
+            {t('quote')}
+          </motion.p>
+
+          {/* body 段落 1 */}
+          <motion.p
+            custom={0.34}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
@@ -69,9 +80,20 @@ export function HotelIntro() {
             {t('body1')}
           </motion.p>
 
+          {/* body 段落 2 */}
+          <motion.p
+            custom={0.44}
+            variants={fadeUp}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            className="mx-auto mt-6 max-w-xl font-sans text-[0.9375rem] font-light leading-[2] text-[#5a5347]"
+          >
+            {t('body2')}
+          </motion.p>
+
           {/* CTA — 纯文字 + 箭头，无下划线 */}
           <motion.div
-            custom={0.36}
+            custom={0.56}
             variants={fadeUp}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}

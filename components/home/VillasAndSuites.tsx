@@ -119,7 +119,7 @@ export function VillasAndSuites() {
               return (
                 <div
                   key={room.id}
-                  className="relative flex-[0_0_78%] px-2 sm:flex-[0_0_60%] sm:px-4 md:flex-[0_0_55%] lg:flex-[0_0_42%] xl:flex-[0_0_38%]"
+                  className="relative flex-[0_0_72%] px-2 sm:flex-[0_0_46%] sm:px-3 md:flex-[0_0_32%] md:px-3 lg:flex-[0_0_24%] xl:flex-[0_0_20%]"
                   style={{ zIndex: isActive ? 10 : 1 }}
                 >
                   <button

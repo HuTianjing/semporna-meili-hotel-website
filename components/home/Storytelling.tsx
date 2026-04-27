@@ -26,7 +26,12 @@ export function Storytelling() {
   const isInView = useInView(sectionRef, { once: true, margin: '0px 0px -20px 0px', amount: 0.02 });
 
   // 首页只展示精选 3 篇，其余移交 /journal
-  const allPosts = t.raw('posts') as Array<{ tag: string; title: string; date: string }>;
+  const allPosts = t.raw('posts') as Array<{
+    tag: string;
+    title: string;
+    date: string;
+    excerpt?: string;
+  }>;
   const posts = allPosts.slice(0, 3);
 
   return (
@@ -59,15 +64,15 @@ export function Storytelling() {
         </motion.div>
       </div>
 
-      {/* 博客列表：统一左图右文，60/40 比例（不对半开） */}
-      <div className="w-full">
+      {/* 博客列表：统一左图右文，60/40 比例（不对半开），文章之间留出米色呼吸带 */}
+      <div className="flex w-full flex-col gap-16 md:gap-24 lg:gap-32">
         {posts.map((post, i) => (
           <article
             key={i}
             className="group flex cursor-pointer flex-col items-stretch md:flex-row"
           >
             {/* 图片：固定左侧，60% 宽 */}
-            <div className="relative h-[62vw] w-full shrink-0 overflow-hidden md:h-[72vh] md:w-[60%]">
+            <div className="relative h-[62vw] w-full shrink-0 overflow-hidden md:h-[68vh] md:w-[60%]">
               <Image
                 src={POST_IMAGES[i]}
                 alt={post.title}
@@ -83,9 +88,14 @@ export function Storytelling() {
                 <p className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.3em] text-warm-text">
                   {post.tag}&nbsp;&nbsp;&#47;&nbsp;&nbsp;{post.date}
                 </p>
-                <h3 className="mb-10 font-serif text-2xl leading-[1.25] text-section-text md:text-[1.75rem] lg:text-3xl">
+                <h3 className="mb-6 font-serif text-2xl leading-[1.25] text-section-text md:text-[1.75rem] lg:text-3xl">
                   {post.title}
                 </h3>
+                {post.excerpt && (
+                  <p className="mb-10 font-sans text-[0.9375rem] font-light leading-[1.95] text-[#5a5347]">
+                    {post.excerpt}
+                  </p>
+                )}
                 <span className="inline-flex items-center gap-3 font-sans text-[0.7rem] uppercase tracking-[0.35em] text-section-text">
                   {t('btn')}
                   <span className="text-gold-warm transition-transform duration-700 ease-out group-hover:translate-x-2">
